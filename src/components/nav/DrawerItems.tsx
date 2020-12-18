@@ -9,35 +9,27 @@ import MailIcon from '@material-ui/icons/Mail';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    // necessary for content to be below app bar
-    toolbar: theme.mixins.toolbar,
-  }),
+    createStyles({
+        // necessary for content to be below app bar
+        toolbar: theme.mixins.toolbar,
+    }),
 );
 
 export default function DrawerItems() {
-  const classes = useStyles();
+    const classes = useStyles();
 
-  return (
-    <div>
-      <div className={classes.toolbar} />
-      <Divider />
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-    </div>
-  );
+    return (
+        <div>
+            <div className={classes.toolbar} />
+            <Divider />
+            <List>
+                {['About', 'Skills', 'Projects', 'Experience', 'Education', 'Contact', 'Resume'].map((text, index) => (
+                    <ListItem button key={text}>
+                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                        <ListItemText primary={text} />
+                    </ListItem>
+                ))}
+            </List>
+        </div>
+    );
 }
