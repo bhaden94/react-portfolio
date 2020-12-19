@@ -1,45 +1,43 @@
-import InfoIcon from '@material-ui/icons/Info';
-import CheckIcon from '@material-ui/icons/Check';
+import FaceIcon from '@material-ui/icons/Face';
+import BarChartIcon from '@material-ui/icons/BarChart';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import WorkIcon from '@material-ui/icons/Work';
 import SchoolIcon from '@material-ui/icons/School';
 import MailIcon from '@material-ui/icons/Mail';
 import DescriptionIcon from '@material-ui/icons/Description';
 
-interface NavObj {
+export interface NavObj {
     text: string
+    icon: any
 }
 
 export const NavObjects: NavObj[] = [
     {
-        text: 'About'
+        text: 'About',
+        icon: <FaceIcon style={{color: '#f44336'}} />
     },
     {
-        text: 'Skills'
+        text: 'Skills',
+        icon: <BarChartIcon style={{color: '#f44336'}} />
     },
     {
-        text: 'Projects'
+        text: 'Projects',
+        icon: <DashboardIcon style={{color: '#f44336'}}/>
     },
     {
-        text: 'Experience'
+        text: 'Experience',
+        icon: <WorkIcon style={{color: '#f44336'}} />
     },
     {
-        text: 'Education'
+        text: 'Education',
+        icon: <SchoolIcon style={{color: '#f44336'}} />
     },
     {
-        text: 'Contact'
+        text: 'Contact',
+        icon: <MailIcon style={{color: '#f44336'}} />
     },
     {
-        text: 'Resume'
+        text: 'Resume',
+        icon: <DescriptionIcon style={{color: '#f44336'}} />
     },
-]
-
-export const NavIcons = [
-    <InfoIcon />,
-    <CheckIcon />,
-    <DashboardIcon />,
-    <WorkIcon />,
-    <SchoolIcon />,
-    <MailIcon />,
-    <DescriptionIcon />
 ]

@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Navigation from './components/nav/Navigation';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -9,20 +8,15 @@ function App() {
     <div className="App">
       <CssBaseline />
       <Navigation />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="App-header">
+        <div style={{height: '100vh'}}></div>
+        <h1 id="About" style={{height: '500px'}}>About</h1>
+        <h1 id="Skills" style={{height: '500px'}}>Skills</h1>
+        <h1 id="Projects" style={{height: '500px'}}>Projects</h1>
+        <h1 id="Experience" style={{height: '500px'}}>Experience</h1>
+        <h1 id="Education" style={{height: '500px'}}>Education</h1>
+        <h1 id="Contact" style={{height: '500px'}}>Contact</h1>
+      </div>
     </div>
   );
 }

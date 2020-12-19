@@ -5,7 +5,10 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import { NavObjects, NavIcons } from '../../infoObjects/NavObj'
+import { NavObjects, NavObj } from '../../infoObjects/NavObj'
+import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-scroll';
+
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -22,13 +25,27 @@ export default function DrawerItems() {
             <div className={classes.toolbar} />
             <Divider />
             <List>
-                {NavObjects.map((listItem, index) => (
-                    <ListItem button key={listItem.text}>
-                        <ListItemIcon>{NavIcons[index]}</ListItemIcon>
-                        <ListItemText primary={listItem.text} />
-                    </ListItem>
+                {NavObjects.map((listItem: NavObj, index: number) => (
+                    <Link
+                        activeClass="active"
+                        to={listItem.text}
+                        spy={true}
+                        smooth={true}
+                        offset={-70}
+                        duration={500}
+                    >
+                        <ListItem button key={listItem.text} className='nav-item' >
+                            <ListItemIcon>{listItem.icon}</ListItemIcon>
+                            <ListItemText
+                                disableTypography
+                                primary={
+                                    <Typography color='textSecondary'>{listItem.text}</Typography>
+                                }
+                            />
+                        </ListItem>
+                    </Link>
                 ))}
             </List>
-        </div>
+        </div >
     );
 }
