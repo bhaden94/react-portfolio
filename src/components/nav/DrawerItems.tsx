@@ -1,12 +1,11 @@
 import React from 'react';
 import Divider from '@material-ui/core/Divider';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import MailIcon from '@material-ui/icons/Mail';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import { NavObjects, NavIcons } from '../../infoObjects/NavObj'
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -23,10 +22,10 @@ export default function DrawerItems() {
             <div className={classes.toolbar} />
             <Divider />
             <List>
-                {['About', 'Skills', 'Projects', 'Experience', 'Education', 'Contact', 'Resume'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
+                {NavObjects.map((listItem, index) => (
+                    <ListItem button key={listItem.text}>
+                        <ListItemIcon>{NavIcons[index]}</ListItemIcon>
+                        <ListItemText primary={listItem.text} />
                     </ListItem>
                 ))}
             </List>
