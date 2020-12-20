@@ -51,7 +51,7 @@ function DrawerItems({toggleDrawer}: any) {
                         offset={isDesktop ? 0 : -60}
                         duration={500}
                     >
-                        <ListItem button key={listItem.text} className='nav-item' onClick={toggleDrawer} >
+                        <ListItem button key={index} className='nav-item' onClick={toggleDrawer} >
                             <ListItemIcon>{listItem.icon}</ListItemIcon>
                             <ListItemText
                                 disableTypography
