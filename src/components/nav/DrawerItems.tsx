@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme: Theme) =>
                 }
             },
             '& p': {
-                color: 'black'
+                color: theme.palette.text.primary
             }
         },
     }),
