@@ -9,13 +9,13 @@ function App() {
       <CssBaseline />
       <Navigation />
       <div className="App-header">
-        <div style={{height: '100vh'}}></div>
+        <div id='top' style={{height: '100vh'}}></div>
         <h1 id="About" style={{height: '500px'}}>About</h1>
         <h1 id="Skills" style={{height: '500px'}}>Skills</h1>
         <h1 id="Projects" style={{height: '500px'}}>Projects</h1>
         <h1 id="Experience" style={{height: '500px'}}>Experience</h1>
         <h1 id="Education" style={{height: '500px'}}>Education</h1>
-        <h1 id="Contact" style={{height: '500px'}}>Contact</h1>
+        <h1 id="Contact" style={{height: '100vh'}}>Contact</h1>
       </div>
     </div>
   );

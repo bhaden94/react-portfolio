@@ -26,8 +26,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     appBar: {
       [theme.breakpoints.up(drawerBreakpoint)]: {
-        width: `calc(100% - ${drawerWidth}px)`,
-        marginLeft: drawerWidth,
+        display: 'none',
       },
     },
     menuButton: {
@@ -51,6 +50,8 @@ export default function Navigation() {
     setMobileOpen(!mobileOpen);
   };
 
+  console.log(theme.breakpoints.up(drawerBreakpoint))
+
   return (
     <div className={classes.root}>
       <AppBar position="fixed" className={classes.appBar}>
@@ -65,15 +66,15 @@ export default function Navigation() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Responsive drawer
+            Brady Haden
           </Typography>
         </Toolbar>
       </AppBar>
       
-      <nav className={classes.drawer} aria-label="mailbox folders">
+      <nav className={classes.drawer} aria-label="Links to page items">
         <Hidden mdUp implementation="js">
           <SwipeableDrawer
-            anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+            anchor='left'
             open={mobileOpen}
             onClose={handleDrawerToggle}
             onOpen={handleDrawerToggle}
@@ -84,7 +85,7 @@ export default function Navigation() {
               keepMounted: true, // Better open performance on mobile.
             }}
           >
-            <DrawerItems />
+            <DrawerItems toggleDrawer={handleDrawerToggle} />
           </SwipeableDrawer>
         </Hidden>
         <Hidden smDown implementation="js">
@@ -95,7 +96,7 @@ export default function Navigation() {
             variant="permanent"
             open
           >
-            <DrawerItems />
+            <DrawerItems toggleDrawer={handleDrawerToggle} />
           </Drawer>
         </Hidden>
       </nav>
