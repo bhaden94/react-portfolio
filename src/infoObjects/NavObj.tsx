@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export interface NavObj {
+    id: number
     text: string
     icon: any
 }
@@ -27,30 +28,37 @@ export function NavObjects() {
     return (
         [
             {
+                id: 0,
                 text: 'About',
                 icon: <FaceIcon className={classes.icon} />
             },
             {
+                id: 1,
                 text: 'Skills',
                 icon: <BarChartIcon className={classes.icon} />
             },
             {
+                id: 2,
                 text: 'Projects',
                 icon: <DashboardIcon className={classes.icon} />
             },
             {
+                id: 3,
                 text: 'Experience',
                 icon: <WorkIcon className={classes.icon} />
             },
             {
+                id: 4,
                 text: 'Education',
                 icon: <SchoolIcon className={classes.icon} />
             },
             {
+                id: 5,
                 text: 'Contact',
                 icon: <MailIcon className={classes.icon} />
             },
             {
+                id: 6,
                 text: 'Resume',
                 icon: <DescriptionIcon className={classes.icon} />
             },

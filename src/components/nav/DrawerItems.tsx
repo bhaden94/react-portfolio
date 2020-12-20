@@ -18,7 +18,6 @@ interface IDrawerItems {
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        // necessary for content to be below app bar
         navItem: {
             borderBottom: '2px solid transparent !important',
             '&::after': {
@@ -78,8 +77,9 @@ function DrawerItems({ toggleDrawer }: IDrawerItems) {
                         smooth={true}
                         offset={isDesktop ? 0 : -60}
                         duration={300}
+                        key={listItem.id}
                     >
-                        <ListItem button key={listItem.text} className={classes.navItem} onClick={toggleDrawer} >
+                        <ListItem button className={classes.navItem} onClick={toggleDrawer} >
                             <ListItemIcon>{listItem.icon}</ListItemIcon>
                             <ListItemText
                                 disableTypography

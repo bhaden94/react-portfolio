@@ -10,6 +10,7 @@ import { makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/sty
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import DrawerItems from './DrawerItems'
 import NameTitleHeader from './NameTitleHeader';
+import DrawerFooter from './DrawerFooter';
 
 const drawerWidth: number = 240;
 const drawerBreakpoint: any = 'md'
@@ -86,6 +87,7 @@ export default function Navigation() {
             }}
           >
             <DrawerItems toggleDrawer={handleDrawerToggle} />
+            <DrawerFooter />
           </SwipeableDrawer>
         </Hidden>
         <Hidden smDown implementation="js">
@@ -97,6 +99,7 @@ export default function Navigation() {
             open
           >
             <DrawerItems toggleDrawer={handleDrawerToggle} />
+            <DrawerFooter />
           </Drawer>
         </Hidden>
       </nav>
