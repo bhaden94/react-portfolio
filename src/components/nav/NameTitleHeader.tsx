@@ -6,10 +6,9 @@ interface INameTitleHeader {
     isDesktop: boolean
 }
 
-function NameTitleHeader({ isDesktop }: INameTitleHeader) {
+export default function NameTitleHeader({ isDesktop }: INameTitleHeader) {
     const useStyles = makeStyles((theme: Theme) =>
         createStyles({
-            // necessary for content to be below app bar
             container: {
                 padding: isDesktop ? '40px' : '0px',
             },
@@ -28,7 +27,6 @@ function NameTitleHeader({ isDesktop }: INameTitleHeader) {
 
     return (
         <div className={classes.container}>
-
             <Typography
                 className={classes.name}
                 color='primary'
@@ -43,10 +41,6 @@ function NameTitleHeader({ isDesktop }: INameTitleHeader) {
             >
                 Full Stack Software Engineer
             </Typography>
-
-
         </div>
     );
 }
-
-export default NameTitleHeader;
