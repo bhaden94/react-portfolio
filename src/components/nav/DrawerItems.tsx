@@ -11,6 +11,10 @@ import { Link } from 'react-scroll';
 import Hidden from '@material-ui/core/Hidden';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
+interface IDrawerItems {
+    toggleDrawer(): void
+}
+
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         // necessary for content to be below app bar
@@ -18,7 +22,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-function DrawerItems({toggleDrawer}: any) {
+function DrawerItems({ toggleDrawer }: IDrawerItems) {
     const classes = useStyles();
     const theme = useTheme();
     const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
