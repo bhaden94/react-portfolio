@@ -50,8 +50,6 @@ export default function Navigation() {
     setMobileOpen(!mobileOpen);
   };
 
-  console.log(theme.breakpoints.up(drawerBreakpoint))
-
   return (
     <div className={classes.root}>
       <AppBar position="fixed" className={classes.appBar}>
@@ -70,7 +68,7 @@ export default function Navigation() {
           </Typography>
         </Toolbar>
       </AppBar>
-      
+
       <nav className={classes.drawer} aria-label="Links to page items">
         <Hidden mdUp implementation="js">
           <SwipeableDrawer

@@ -12,27 +12,3 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
-.nav-item {
-  border-bottom: 2px solid transparent !important;
-}
-
-.nav-item::after {
-  position: absolute;
-  left: 50%;
-  content: '';
-  height: 3px;
-  background:#f44336;
-  transition: all 0.1s linear;
-  width: 0;
-  bottom: -3px;
-}
-
-.active > .nav-item::after {
-  width: 100%;
-  left: 0px;
-}
-
-.active p {
-  color: black;
-}

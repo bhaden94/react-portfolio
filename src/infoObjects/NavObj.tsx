@@ -5,39 +5,56 @@ import WorkIcon from '@material-ui/icons/Work';
 import SchoolIcon from '@material-ui/icons/School';
 import MailIcon from '@material-ui/icons/Mail';
 import DescriptionIcon from '@material-ui/icons/Description';
+import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        // necessary for content to be below app bar
+        icon: {
+            color: theme.palette.primary.main
+        }
+    }),
+);
 
 export interface NavObj {
     text: string
     icon: any
 }
 
-export const NavObjects: NavObj[] = [
-    {
-        text: 'About',
-        icon: <FaceIcon style={{color: '#f44336'}} />
-    },
-    {
-        text: 'Skills',
-        icon: <BarChartIcon style={{color: '#f44336'}} />
-    },
-    {
-        text: 'Projects',
-        icon: <DashboardIcon style={{color: '#f44336'}}/>
-    },
-    {
-        text: 'Experience',
-        icon: <WorkIcon style={{color: '#f44336'}} />
-    },
-    {
-        text: 'Education',
-        icon: <SchoolIcon style={{color: '#f44336'}} />
-    },
-    {
-        text: 'Contact',
-        icon: <MailIcon style={{color: '#f44336'}} />
-    },
-    {
-        text: 'Resume',
-        icon: <DescriptionIcon style={{color: '#f44336'}} />
-    },
-]
+export function NavObjects() {
+    const classes = useStyles();
+
+    return (
+        [
+            {
+                text: 'About',
+                icon: <FaceIcon className={classes.icon} />
+            },
+            {
+                text: 'Skills',
+                icon: <BarChartIcon className={classes.icon} />
+            },
+            {
+                text: 'Projects',
+                icon: <DashboardIcon className={classes.icon} />
+            },
+            {
+                text: 'Experience',
+                icon: <WorkIcon className={classes.icon} />
+            },
+            {
+                text: 'Education',
+                icon: <SchoolIcon className={classes.icon} />
+            },
+            {
+                text: 'Contact',
+                icon: <MailIcon className={classes.icon} />
+            },
+            {
+                text: 'Resume',
+                icon: <DescriptionIcon className={classes.icon} />
+            },
+        ]
+    )
+    // const NavObjects: NavObj[] = 
+}

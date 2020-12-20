@@ -19,6 +19,33 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         // necessary for content to be below app bar
         toolbar: theme.mixins.toolbar,
+        navItem: {
+            borderBottom: '2px solid transparent !important',
+            '&::after': {
+                position: 'absolute',
+                left: '50%',
+                content: "''",
+                height: '3px',
+                background: theme.palette.primary.main,
+                transition: 'all 0.1s linear',
+                width: 0,
+                bottom: '-3px'
+            },
+            '&:hover p': {
+                color: theme.palette.primary.main
+            }
+        },
+        active: {
+            '& $navItem': {
+                '&::after': {
+                    width: '95%',
+                    left: '2.5%'
+                }
+            },
+            '& p': {
+                color: 'black'
+            }
+        },
     }),
 );
 
@@ -33,7 +60,7 @@ function DrawerItems({ toggleDrawer }: IDrawerItems) {
                 <div className={classes.toolbar} />
                 <div>
                     <Link
-                        activeClass="active"
+                        activeClass={classes.active}
                         to={'top'}
                         spy={true}
                         smooth={true}
@@ -46,16 +73,16 @@ function DrawerItems({ toggleDrawer }: IDrawerItems) {
                 <Divider />
             </Hidden>
             <List disablePadding>
-                {NavObjects.map((listItem: NavObj, index: number) => (
+                {NavObjects().map((listItem: NavObj, index: number) => (
                     <Link
-                        activeClass="active"
+                        activeClass={classes.active}
                         to={listItem.text}
                         spy={true}
                         smooth={true}
                         offset={isDesktop ? 0 : -60}
                         duration={500}
                     >
-                        <ListItem button key={index} className='nav-item' onClick={toggleDrawer} >
+                        <ListItem button key={listItem.text} className={classes.navItem} onClick={toggleDrawer} >
                             <ListItemIcon>{listItem.icon}</ListItemIcon>
                             <ListItemText
                                 disableTypography
