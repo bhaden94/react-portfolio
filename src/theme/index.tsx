@@ -6,7 +6,7 @@ import {
 } from '@material-ui/core/styles';
 
 import { useTheme } from '@material-ui/core/styles';
-import { blueGrey } from '@material-ui/core/colors';
+import { blueGrey, grey, teal, amber } from '@material-ui/core/colors';
 
 interface ThemeProviderProps {
   children: React.ReactNode
@@ -39,7 +39,14 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, theme }) => {
       palette: {
         type: themeOptions.paletteType,
         primary: {
-          main: themeOptions.paletteType === 'light' ? blueGrey[800] : blueGrey[400]
+          main: themeOptions.paletteType === 'light' ? teal[900] : teal[500]
+        },
+        secondary: {
+            main: themeOptions.paletteType === 'light' ? amber[600] : amber[800]
+        },
+        background: {
+            paper: themeOptions.paletteType === 'light' ? grey[50] : blueGrey[900],
+            default: themeOptions.paletteType === 'light' ? grey[200] : blueGrey[800],
         }
       }
     })
