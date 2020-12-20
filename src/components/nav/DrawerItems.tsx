@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-scroll';
 import Hidden from '@material-ui/core/Hidden';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import NameTitleHeader from './NameTitleHeader';
 
 interface IDrawerItems {
     toggleDrawer(): void
@@ -18,7 +19,6 @@ interface IDrawerItems {
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         // necessary for content to be below app bar
-        toolbar: theme.mixins.toolbar,
         navItem: {
             borderBottom: '2px solid transparent !important',
             '&::after': {
@@ -26,13 +26,13 @@ const useStyles = makeStyles((theme: Theme) =>
                 left: '50%',
                 content: "''",
                 height: '3px',
-                background: theme.palette.primary.main,
+                background: theme.palette.secondary.main,
                 transition: 'all 0.1s linear',
                 width: 0,
                 bottom: '-3px'
             },
             '&:hover p': {
-                color: theme.palette.primary.main
+                color: theme.palette.secondary.main
             }
         },
         active: {
@@ -57,19 +57,16 @@ function DrawerItems({ toggleDrawer }: IDrawerItems) {
     return (
         <div>
             <Hidden smDown implementation="js">
-                <div className={classes.toolbar} />
-                <div>
-                    <Link
-                        activeClass={classes.active}
-                        to={'top'}
-                        spy={true}
-                        smooth={true}
-                        offset={0}
-                        duration={300}
-                    >
-                        top
-                    </Link>
-                </div>
+                <Link
+                    activeClass={classes.active}
+                    to={'top'}
+                    spy={true}
+                    smooth={true}
+                    offset={0}
+                    duration={300}
+                >
+                    <NameTitleHeader isDesktop={isDesktop} />
+                </Link>
                 <Divider />
             </Hidden>
             <List disablePadding>
@@ -80,7 +77,7 @@ function DrawerItems({ toggleDrawer }: IDrawerItems) {
                         spy={true}
                         smooth={true}
                         offset={isDesktop ? 0 : -60}
-                        duration={500}
+                        duration={300}
                     >
                         <ListItem button key={listItem.text} className={classes.navItem} onClick={toggleDrawer} >
                             <ListItemIcon>{listItem.icon}</ListItemIcon>

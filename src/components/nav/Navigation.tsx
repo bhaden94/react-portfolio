@@ -6,9 +6,10 @@ import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import DrawerItems from './DrawerItems'
+import NameTitleHeader from './NameTitleHeader';
 
 const drawerWidth: number = 240;
 const drawerBreakpoint: any = 'md'
@@ -25,6 +26,8 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     appBar: {
+      backgroundColor: theme.palette.background.paper,
+      color: theme.palette.primary.main,
       [theme.breakpoints.up(drawerBreakpoint)]: {
         display: 'none',
       },
@@ -45,6 +48,7 @@ export default function Navigation() {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState<boolean>(false);
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -61,11 +65,9 @@ export default function Navigation() {
             onClick={handleDrawerToggle}
             className={classes.menuButton}
           >
-            <MenuIcon />
+            <MenuIcon fontSize='large' />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            Brady Haden
-          </Typography>
+          <NameTitleHeader isDesktop={isDesktop} />
         </Toolbar>
       </AppBar>
 
