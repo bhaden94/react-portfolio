@@ -4,7 +4,7 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import WorkIcon from '@material-ui/icons/Work';
 import SchoolIcon from '@material-ui/icons/School';
 import MailIcon from '@material-ui/icons/Mail';
-import DescriptionIcon from '@material-ui/icons/Description';
+// import DescriptionIcon from '@material-ui/icons/Description';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -57,11 +57,11 @@ export function NavObjects() {
                 text: 'Contact',
                 icon: <MailIcon className={classes.icon} />
             },
-            {
-                id: 6,
-                text: 'Resume',
-                icon: <DescriptionIcon className={classes.icon} />
-            },
+            // {
+            //     id: 6,
+            //     text: 'Resume',
+            //     icon: <DescriptionIcon className={classes.icon} />
+            // },
         ]
     )
     // const NavObjects: NavObj[] = 

@@ -1,5 +1,4 @@
 import React from 'react';
-import Divider from '@material-ui/core/Divider';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -8,9 +7,7 @@ import { makeStyles, Theme, createStyles, useTheme } from '@material-ui/core/sty
 import { NavObjects, NavObj } from '../../infoObjects/NavObj'
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-scroll';
-import Hidden from '@material-ui/core/Hidden';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import NameTitleHeader from './NameTitleHeader';
 
 interface IDrawerItems {
     toggleDrawer(): void
@@ -54,44 +51,29 @@ function DrawerItems({ toggleDrawer }: IDrawerItems) {
     const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
 
     return (
-        <div>
-            <Hidden smDown implementation="js">
+        <List disablePadding>
+            {NavObjects().map((listItem: NavObj, index: number) => (
                 <Link
                     activeClass={classes.active}
-                    to={'top'}
+                    to={listItem.text}
                     spy={true}
                     smooth={true}
-                    offset={0}
+                    offset={isDesktop ? 0 : -60}
                     duration={300}
+                    key={listItem.id}
                 >
-                    <NameTitleHeader isDesktop={isDesktop} />
+                    <ListItem button className={classes.navItem} onClick={toggleDrawer} >
+                        <ListItemIcon>{listItem.icon}</ListItemIcon>
+                        <ListItemText
+                            disableTypography
+                            primary={
+                                <Typography color='textSecondary'>{listItem.text}</Typography>
+                            }
+                        />
+                    </ListItem>
                 </Link>
-                <Divider />
-            </Hidden>
-            <List disablePadding>
-                {NavObjects().map((listItem: NavObj, index: number) => (
-                    <Link
-                        activeClass={classes.active}
-                        to={listItem.text}
-                        spy={true}
-                        smooth={true}
-                        offset={isDesktop ? 0 : -60}
-                        duration={300}
-                        key={listItem.id}
-                    >
-                        <ListItem button className={classes.navItem} onClick={toggleDrawer} >
-                            <ListItemIcon>{listItem.icon}</ListItemIcon>
-                            <ListItemText
-                                disableTypography
-                                primary={
-                                    <Typography color='textSecondary'>{listItem.text}</Typography>
-                                }
-                            />
-                        </ListItem>
-                    </Link>
-                ))}
-            </List>
-        </div >
+            ))}
+        </List>
     );
 }
 

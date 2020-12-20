@@ -11,6 +11,9 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import DrawerItems from './DrawerItems'
 import NameTitleHeader from './NameTitleHeader';
 import DrawerFooter from './DrawerFooter';
+import { Link } from 'react-scroll';
+import Divider from '@material-ui/core/Divider';
+
 
 const drawerWidth: number = 240;
 const drawerBreakpoint: any = 'md'
@@ -41,6 +44,17 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     drawerPaper: {
       width: drawerWidth,
+    },
+    active: {
+      '& .navItem': {
+        '&::after': {
+          width: '95%',
+          left: '2.5%'
+        }
+      },
+      '& p': {
+        color: theme.palette.text.primary
+      }
     },
   }),
 );
@@ -98,6 +112,17 @@ export default function Navigation() {
             variant="permanent"
             open
           >
+            <Link
+              activeClass={classes.active}
+              to={'top'}
+              spy={true}
+              smooth={true}
+              offset={0}
+              duration={300}
+            >
+              <NameTitleHeader isDesktop={isDesktop} />
+            </Link>
+            <Divider />
             <DrawerItems toggleDrawer={handleDrawerToggle} />
             <DrawerFooter />
           </Drawer>
