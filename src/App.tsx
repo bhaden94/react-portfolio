@@ -2,9 +2,14 @@ import React from 'react';
 import './App.css';
 import Navigation from './components/nav/Navigation';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import ThemeProvider from './theme';
+import useTheme from '@material-ui/core/styles/useTheme';
 
 function App() {
+  const theme = useTheme();
+
   return (
+    <ThemeProvider theme={theme}>
     <div className="App">
       <CssBaseline />
       <Navigation />
@@ -18,6 +23,7 @@ function App() {
         <h1 id="Contact" style={{height: '100vh'}}>Contact</h1>
       </div>
     </div>
+    </ThemeProvider>
   );
 }
 

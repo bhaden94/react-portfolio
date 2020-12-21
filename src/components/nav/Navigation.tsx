@@ -14,7 +14,6 @@ import DrawerFooter from './DrawerFooter';
 import { Link } from 'react-scroll';
 import Divider from '@material-ui/core/Divider';
 
-
 const drawerWidth: number = 240;
 const drawerBreakpoint: any = 'md'
 
@@ -44,17 +43,6 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     drawerPaper: {
       width: drawerWidth,
-    },
-    active: {
-      '& .navItem': {
-        '&::after': {
-          width: '95%',
-          left: '2.5%'
-        }
-      },
-      '& p': {
-        color: theme.palette.text.primary
-      }
     },
   }),
 );
@@ -113,7 +101,6 @@ export default function Navigation() {
             open
           >
             <Link
-              activeClass={classes.active}
               to={'top'}
               spy={true}
               smooth={true}
