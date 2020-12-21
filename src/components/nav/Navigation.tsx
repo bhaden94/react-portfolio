@@ -13,8 +13,6 @@ import NameTitleHeader from './NameTitleHeader';
 import DrawerFooter from './DrawerFooter';
 import { Link } from 'react-scroll';
 import Divider from '@material-ui/core/Divider';
-import ThemeSwitcher from '../dark-mode/ThemeSwitcher';
-
 
 const drawerWidth: number = 240;
 const drawerBreakpoint: any = 'md'
