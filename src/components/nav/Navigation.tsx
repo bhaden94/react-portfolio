@@ -91,7 +91,6 @@ export default function Navigation() {
             }}
           >
             <DrawerItems toggleDrawer={handleDrawerToggle} />
-            <ThemeSwitcher />
             <DrawerFooter />
           </SwipeableDrawer>
         </Hidden>
@@ -114,7 +113,6 @@ export default function Navigation() {
             </Link>
             <Divider />
             <DrawerItems toggleDrawer={handleDrawerToggle} />
-            <ThemeSwitcher />
             <DrawerFooter />
           </Drawer>
         </Hidden>
