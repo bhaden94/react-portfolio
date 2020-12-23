@@ -15,6 +15,15 @@ function Skills() {
             <div className='icon-hover'>
                 {skills.react}
             </div>
+            <div className='icon-hover'>
+                {skills.jira}
+            </div>
+            <div className='icon-hover'>
+                {skills.sonarqube}
+            </div>
+            <div className='icon-hover'>
+                {skills.mysql}
+            </div>
         </div>
     );
 }
