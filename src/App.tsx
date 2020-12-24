@@ -6,6 +6,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import ThemeProvider from './theme';
 import useTheme from '@material-ui/core/styles/useTheme';
 import Contact from './components/contact/Contact';
+import Projects from './components/projects/Projects';
 
 function App() {
   const theme = useTheme();
@@ -18,15 +19,22 @@ function App() {
         <div className="App-header">
           <div id='top' style={{ height: '100vh' }}></div>
           <h1 id="About" style={{ height: '500px' }}>About</h1>
-          <div style={{ height: '100vh' }}>
-            <h1 id="Skills">Skills</h1>
+
+          <div id="Skills" style={{ minHeight: '100vh' }}>
+            <h1 style={{ marginTop: 0 }}>Skills</h1>
             <Skills />
           </div>
-          <h1 id="Projects" style={{ height: '500px' }}>Projects</h1>
+
+          <div id="Projects" style={{ minHeight: '100vh' }}>
+            <h1 style={{ marginTop: 0 }}>Projects</h1>
+            <Projects />
+          </div>
+
           <h1 id="Experience" style={{ height: '500px' }}>Experience</h1>
           <h1 id="Education" style={{ height: '500px' }}>Education</h1>
-          <div style={{ height: '100vh' }}>
-            <h1 id="Contact">Contact</h1>
+
+          <div id="Contact" style={{ minHeight: '100vh' }}>
+            <h1 style={{ marginTop: 0 }}>Contact</h1>
             <Contact />
           </div>
 
