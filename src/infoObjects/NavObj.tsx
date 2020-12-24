@@ -21,7 +21,7 @@ export interface NavObj {
     icon: any
 }
 
-export function NavObjects() {
+export function NavObjects(): NavObj[] {
     const classes = useStyles();
 
     return (

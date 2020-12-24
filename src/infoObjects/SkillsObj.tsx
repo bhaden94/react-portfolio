@@ -26,7 +26,7 @@ export interface SkillsObj {
     [key: string]: any;
 }
 
-export function SkillsObject(size?: number, color?: string) {
+export function SkillsObject(size?: number, color?: string): SkillsObj {
     return {
         names: ["Docker", "Spring"],
         docker: <Docker color={color || "#2496ED"} size={size || 50} />,
