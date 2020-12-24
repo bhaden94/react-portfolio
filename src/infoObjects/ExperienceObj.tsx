@@ -1,10 +1,10 @@
 export interface ExperienceObj {
-    startDate: Date
-    endDate: Date | string
-    title: string
-    company: string
-    bullets: string[]
-    media: string
+    startDate: Date;
+    endDate: Date | string;
+    title: string;
+    company: string;
+    bullets: string[];
+    media: string;
 }
 
 export function ExperienceObject(): ExperienceObj[] {

@@ -1,22 +1,24 @@
-import { Icon } from "@icons-pack/react-simple-icons";
 import { SkillsObj, SkillsObject } from "./SkillsObj";
 
 export interface ProjectObj {
-    media: string
-    title: string
-    shortDesc: string
-    longDesc: string
-    liveLink: string
-    codeLink: string
-    techUsed: Icon[]
+    id: number;
+    media: string;
+    title: string;
+    shortDesc: string;
+    longDesc: string;
+    liveLink: string;
+    codeLink: string;
+    techUsed: any[];
 }
 
 export function ProjectObject(): ProjectObj[] {
 
     const skills: SkillsObj = SkillsObject()
 
+    // make sure projects are in the order you want them displayed
     return [
         {
+            id: 0,
             media: 'link to picture to be used for card',
             title: 'title',
             shortDesc: 'short desc',
@@ -26,6 +28,7 @@ export function ProjectObject(): ProjectObj[] {
             techUsed: [skills.docker, skills.spring]
         },
         {
+            id: 1,
             media: 'link to picture to be used for card',
             title: 'title',
             shortDesc: 'short desc',

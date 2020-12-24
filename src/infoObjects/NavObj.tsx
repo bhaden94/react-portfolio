@@ -16,9 +16,9 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export interface NavObj {
-    id: number
-    text: string
-    icon: any
+    id: number;
+    text: string;
+    icon: any;
 }
 
 export function NavObjects(): NavObj[] {
