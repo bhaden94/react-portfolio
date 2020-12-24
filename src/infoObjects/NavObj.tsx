@@ -16,12 +16,12 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export interface NavObj {
-    id: number
-    text: string
-    icon: any
+    id: number;
+    text: string;
+    icon: any;
 }
 
-export function NavObjects() {
+export function NavObjects(): NavObj[] {
     const classes = useStyles();
 
     return (
