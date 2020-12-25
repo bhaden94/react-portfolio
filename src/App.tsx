@@ -12,9 +12,14 @@ import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    top: {
+      height: '100vh',
+    },
     section: {
-      minHeight: '100vh',
       width: '100%'
+    },
+    bottom: {
+      minHeight: '100vh',
     }
   }),
 );
@@ -25,11 +30,11 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className="App">
+      <div>
         <CssBaseline />
         <Navigation />
         <div className="App-header">
-          <div id='top' style={{ height: '100vh' }}></div>
+          <div id='top' className={[classes.top, classes.section].join(' ')}>top</div>
 
           <div id="About" className={classes.section}>
             <Header text='About' />
@@ -53,7 +58,7 @@ function App() {
             <Header text='Education' />
           </div>
 
-          <div id="Contact" className={classes.section}>
+          <div id="Contact" className={[classes.bottom, classes.section].join(' ')}>
             <Header text='Contact' />
             <Contact />
           </div>

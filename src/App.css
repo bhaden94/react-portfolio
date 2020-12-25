@@ -3,7 +3,6 @@ a {
 }
 
 .App-header {
-	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -26,7 +25,7 @@ a {
 }
 
 /* handles desktop persistant sidebar and mobile drawer */
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 959px) {
 	.App-header {
 	  margin-left: 0px;
 	}
