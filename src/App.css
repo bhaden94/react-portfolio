@@ -9,7 +9,7 @@ a {
 	align-items: center;
 	justify-content: center;
 	font-size: calc(10px + 2vmin);
-	color: grey;
+	margin-left: 240px;
 }
 
 .icon-hover > * {
@@ -24,3 +24,10 @@ a {
 	-ms-transform: scale(1.2);
 	transform: scale(1.2);
 }
+
+/* handles desktop persistant sidebar and mobile drawer */
+@media only screen and (max-width: 960px) {
+	.App-header {
+	  margin-left: 0px;
+	}
+  }
