@@ -7,8 +7,20 @@ import ThemeProvider from './theme';
 import useTheme from '@material-ui/core/styles/useTheme';
 import Contact from './components/contact/Contact';
 import Projects from './components/projects/Projects';
+import Header from './components/section-headers/Header';
+import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    section: {
+      minHeight: '100vh',
+      width: '100%'
+    }
+  }),
+);
 
 function App() {
+  const classes = useStyles();
   const theme = useTheme();
 
   return (
@@ -18,23 +30,31 @@ function App() {
         <Navigation />
         <div className="App-header">
           <div id='top' style={{ height: '100vh' }}></div>
-          <h1 id="About" style={{ height: '500px' }}>About</h1>
 
-          <div id="Skills" style={{ minHeight: '100vh' }}>
-            <h1 style={{ marginTop: 0 }}>Skills</h1>
+          <div id="About" className={classes.section}>
+            <Header text='About' />
+          </div>
+
+          <div id="Skills" className={classes.section}>
+            <Header text='Skills' />
             <Skills />
           </div>
 
-          <div id="Projects" style={{ minHeight: '100vh' }}>
-            <h1 style={{ marginTop: 0 }}>Projects</h1>
+          <div id="Projects" className={classes.section}>
+            <Header text='projects' />
             <Projects />
           </div>
 
-          <h1 id="Experience" style={{ height: '500px' }}>Experience</h1>
-          <h1 id="Education" style={{ height: '500px' }}>Education</h1>
+          <div id="Experience" className={classes.section}>
+            <Header text='Experience' />
+          </div>
 
-          <div id="Contact" style={{ minHeight: '100vh' }}>
-            <h1 style={{ marginTop: 0 }}>Contact</h1>
+          <div id="Education" className={classes.section}>
+            <Header text='Education' />
+          </div>
+
+          <div id="Contact" className={classes.section}>
+            <Header text='Contact' />
             <Contact />
           </div>
 
