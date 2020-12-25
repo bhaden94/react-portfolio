@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import AppBar from '@material-ui/core/AppBar';
-import Drawer from '@material-ui/core/Drawer';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import DrawerItems from './DrawerItems'
 import NameTitleHeader from './NameTitleHeader';
-import DrawerFooter from './DrawerFooter';
 import { Link } from 'react-scroll';
 import Divider from '@material-ui/core/Divider';
+
+const Drawer = React.lazy(() => import('@material-ui/core/Drawer'));
+const SwipeableDrawer = React.lazy(() => import('@material-ui/core/SwipeableDrawer'));
+const DrawerItems = React.lazy(() => import('./DrawerItems'));
+const DrawerFooter = React.lazy(() => import('./DrawerFooter'));
 
 const drawerWidth: number = 240;
 const drawerBreakpoint: any = 'md'
@@ -76,43 +77,47 @@ export default function Navigation() {
 
       <nav className={classes.drawer} aria-label="Links to page items">
         <Hidden mdUp implementation="js">
-          <SwipeableDrawer
-            anchor='left'
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            onOpen={handleDrawerToggle}
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-          >
-            <DrawerItems toggleDrawer={handleDrawerToggle} />
-            <DrawerFooter />
-          </SwipeableDrawer>
+          <Suspense fallback={<div>Loading Navbar...</div>}>
+            <SwipeableDrawer
+              anchor='left'
+              open={mobileOpen}
+              onClose={handleDrawerToggle}
+              onOpen={handleDrawerToggle}
+              classes={{
+                paper: classes.drawerPaper,
+              }}
+              ModalProps={{
+                keepMounted: true, // Better open performance on mobile.
+              }}
+            >
+              <DrawerItems toggleDrawer={handleDrawerToggle} />
+              <DrawerFooter />
+            </SwipeableDrawer>
+          </Suspense>
         </Hidden>
         <Hidden smDown implementation="js">
-          <Drawer
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            variant="permanent"
-            open
-          >
-            <Link
-              to={'top'}
-              spy={true}
-              smooth={true}
-              offset={0}
-              duration={300}
+          <Suspense fallback={<div>Loading Navbar...</div>}>
+            <Drawer
+              classes={{
+                paper: classes.drawerPaper,
+              }}
+              variant="permanent"
+              open
             >
-              <NameTitleHeader isDesktop={isDesktop} />
-            </Link>
-            <Divider />
-            <DrawerItems toggleDrawer={handleDrawerToggle} />
-            <DrawerFooter />
-          </Drawer>
+              <Link
+                to={'top'}
+                spy={true}
+                smooth={true}
+                offset={0}
+                duration={300}
+              >
+                <NameTitleHeader isDesktop={isDesktop} />
+              </Link>
+              <Divider />
+              <DrawerItems toggleDrawer={handleDrawerToggle} />
+              <DrawerFooter />
+            </Drawer>
+          </Suspense>
         </Hidden>
       </nav>
     </div>
