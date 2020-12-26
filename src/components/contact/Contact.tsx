@@ -72,7 +72,14 @@ function Contact() {
                 >
                     <GitHubIcon fontSize='large' className={classes.icon} />
                 </Button>
-                <Link href={contact.github} className={classes.text}>See me on GitHub</Link>
+                <Link
+                    className={classes.text}
+                    href={contact.github}
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    See me on GitHub
+                </Link>
             </Grid>
             <Grid item className={classes.item}>
                 <Button
@@ -86,7 +93,14 @@ function Contact() {
                 >
                     <LinkedInIcon fontSize='large' className={classes.icon} />
                 </Button>
-                <Link href={contact.github} className={classes.text}>Connect on LinkedIn</Link>
+                <Link
+                    className={classes.text}
+                    href={contact.github}
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    Connect on LinkedIn
+                </Link>
             </Grid>
             <Grid item className={classes.item}>
                 <Button
@@ -100,7 +114,14 @@ function Contact() {
                 >
                     <AlternateEmailIcon fontSize='large' className={classes.icon} />
                 </Button>
-                <Link href={contact.github} className={classes.text}>Send me an email</Link>
+                <Link
+                    className={classes.text}
+                    href={contact.email}
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    Send me an email
+                </Link>
             </Grid>
         </Grid>
     );
