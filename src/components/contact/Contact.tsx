@@ -5,7 +5,6 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { ContactObj, ContactObject } from '../../infoObjects/ContactObj'
 
@@ -25,6 +24,28 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         container: {
             padding: '2% 5%'
+        },
+        text: {
+            position: 'relative',
+            '&:hover': {
+                textDecoration: 'none'
+            },
+            '&::before': {
+                content: "''",
+                position: 'absolute',
+                width: '100%',
+                height: '3px',
+                bottom: 0,
+                left: 0,
+                backgroundColor: theme.palette.secondary.main,
+                visibility: 'hidden',
+                transform: 'scaleX(0)',
+                transition: 'all 0.1s linear',
+            },
+            '&:hover::before': {
+                visibility: 'visible',
+                transform: 'scaleX(1)'
+            }
         }
     }),
 );
@@ -50,9 +71,8 @@ function Contact() {
                     color="primary"
                 >
                     <GitHubIcon fontSize='large' className={classes.icon} />
-
                 </Button>
-                <Link href={contact.github}>See me on GitHub</Link>
+                <Link href={contact.github} className={classes.text}>See me on GitHub</Link>
             </Grid>
             <Grid item className={classes.item}>
                 <Button
@@ -66,7 +86,7 @@ function Contact() {
                 >
                     <LinkedInIcon fontSize='large' className={classes.icon} />
                 </Button>
-                <Link href={contact.github}>Connect with me on LinkedIn</Link>
+                <Link href={contact.github} className={classes.text}>Connect on LinkedIn</Link>
             </Grid>
             <Grid item className={classes.item}>
                 <Button
@@ -80,7 +100,7 @@ function Contact() {
                 >
                     <AlternateEmailIcon fontSize='large' className={classes.icon} />
                 </Button>
-                <Link href={contact.github}>Send me an email</Link>
+                <Link href={contact.github} className={classes.text}>Send me an email</Link>
             </Grid>
         </Grid>
     );

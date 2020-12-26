@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         icon: {
             color: theme.palette.secondary.main,
+            transition: 'color 250ms',
             '&:hover': {
                 color: theme.palette.primary.main,
                 cursor: 'pointer'
