@@ -3,6 +3,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 // import TwitterIcon from '@material-ui/icons/Twitter';
+// import FacebookIcon from '@material-ui/icons/Facebook';
 
 export interface ContactObj {
     link: string;
@@ -39,6 +40,11 @@ export function ContactObject(iconClass: any): ContactObj[] {
         //     link: 'https://www.twitter.com',
         //     text: 'Follow me on Twitter',
         //     icon: <TwitterIcon fontSize='large' className={iconClass} />
+        // },
+        // {
+        //     link: 'https://www.facebook.com',
+        //     text: 'Friend me on Facebook',
+        //     icon: <FacebookIcon fontSize='large' className={iconClass} />
         // },
     ];
 }
