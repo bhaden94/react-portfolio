@@ -1,12 +1,10 @@
 import React from 'react';
 import { makeStyles, Theme, createStyles, useTheme } from '@material-ui/core/styles';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
-import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 import ThemeSwitcher from '../dark-mode/ThemeSwitcher';
 import Typography from '@material-ui/core/Typography';
+import { ContactObj, ContactObject } from '../../infoObjects/ContactObj'
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -21,6 +19,8 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         icon: {
             color: theme.palette.primary.main,
+            transition: 'color 250ms',
+            width: '100%',
             '&:hover': {
                 color: theme.palette.secondary.main,
                 cursor: 'pointer'
@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
 function DrawerFooter() {
     const classes = useStyles();
     const theme = useTheme();
+    const contact: ContactObj[] = ContactObject(classes.icon);
 
     return (
         <div className={classes.footer}>
@@ -52,15 +53,15 @@ function DrawerFooter() {
                 justify="space-around"
                 alignItems="flex-start"
             >
-                <Link href='https://github.com/bhaden94' target="_blank" rel="noreferrer">
-                    <GitHubIcon fontSize='large' className={classes.icon} />
-                </Link>
-                <Link href='https://www.linkedin.com/in/brady-haden/' target="_blank" rel="noreferrer">
-                    <LinkedInIcon fontSize='large' className={classes.icon} />
-                </Link>
-                <Link href='mailto:brady.s.haden@gmail.com?subject=Greetings From Portfolio'>
-                    <AlternateEmailIcon fontSize='large' className={classes.icon} />
-                </Link>
+                {contact.map((contactItem: ContactObj) => {
+                    return (
+                        <Grid item xs={3} justify="center">
+                            <Link href={contactItem.link} target="_blank" rel="noreferrer">
+                                {contactItem.icon}
+                            </Link>
+                        </Grid>
+                    )
+                })}
             </Grid>
         </div >
     );

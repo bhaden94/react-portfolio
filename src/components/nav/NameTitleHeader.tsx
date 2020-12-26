@@ -14,6 +14,7 @@ export default function NameTitleHeader({ isDesktop }: INameTitleHeader) {
             },
             name: {
                 fontSize: isDesktop ? '2rem' : '1.5rem',
+                transition: 'color 250ms',
                 '&:hover': {
                     color: theme.palette.secondary.main
                 }
