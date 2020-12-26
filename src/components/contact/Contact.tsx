@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
         text: {
             position: 'relative',
             '&:hover': {
-                textDecoration: 'none'
+                textDecoration: 'none',
             },
             '&::before': {
                 content: "''",
@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 function Contact() {
     const classes = useStyles();
-    const contact: ContactObj = ContactObject()
+    const contact: ContactObj[] = ContactObject(classes.icon);
 
     return (
         <Grid
@@ -60,69 +60,31 @@ function Contact() {
             direction="column"
             className={classes.container}
         >
-            <Grid item className={classes.item}>
-                <Button
-                    href={contact.github}
-                    className={classes.button}
-                    target="_blank"
-                    rel="noreferrer"
-                    variant="contained"
-                    size="large"
-                    color="primary"
-                >
-                    <GitHubIcon fontSize='large' className={classes.icon} />
-                </Button>
-                <Link
-                    className={classes.text}
-                    href={contact.github}
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    See me on GitHub
-                </Link>
-            </Grid>
-            <Grid item className={classes.item}>
-                <Button
-                    href={contact.linkedin}
-                    className={classes.button}
-                    target="_blank"
-                    rel="noreferrer"
-                    variant="contained"
-                    size="large"
-                    color="primary"
-                >
-                    <LinkedInIcon fontSize='large' className={classes.icon} />
-                </Button>
-                <Link
-                    className={classes.text}
-                    href={contact.github}
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    Connect on LinkedIn
-                </Link>
-            </Grid>
-            <Grid item className={classes.item}>
-                <Button
-                    href={contact.email}
-                    className={classes.button}
-                    target="_blank"
-                    rel="noreferrer"
-                    variant="contained"
-                    size="large"
-                    color="primary"
-                >
-                    <AlternateEmailIcon fontSize='large' className={classes.icon} />
-                </Button>
-                <Link
-                    className={classes.text}
-                    href={contact.email}
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    Send me an email
-                </Link>
-            </Grid>
+            {contact.map((contactInfo: ContactObj) => {
+                return (
+                    <Grid item className={classes.item}>
+                        <Button
+                            href={contactInfo.link}
+                            className={classes.button}
+                            target="_blank"
+                            rel="noreferrer"
+                            variant="contained"
+                            size="large"
+                            color="primary"
+                        >
+                            {contactInfo.icon}
+                        </Button>
+                        <Link
+                            className={classes.text}
+                            href={contactInfo.link}
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            {contactInfo.text}
+                        </Link>
+                    </Grid>
+                )
+            })}
         </Grid>
     );
 }
