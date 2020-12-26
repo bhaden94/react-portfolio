@@ -7,6 +7,7 @@ import Link from '@material-ui/core/Link';
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 import ThemeSwitcher from '../dark-mode/ThemeSwitcher';
 import Typography from '@material-ui/core/Typography';
+import { ContactObj, ContactObject } from '../../infoObjects/ContactObj'
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -32,6 +33,7 @@ const useStyles = makeStyles((theme: Theme) =>
 function DrawerFooter() {
     const classes = useStyles();
     const theme = useTheme();
+    const contact: ContactObj = ContactObject()
 
     return (
         <div className={classes.footer}>
@@ -52,13 +54,13 @@ function DrawerFooter() {
                 justify="space-around"
                 alignItems="flex-start"
             >
-                <Link href='https://github.com/bhaden94' target="_blank" rel="noreferrer">
+                <Link href={contact.github} target="_blank" rel="noreferrer">
                     <GitHubIcon fontSize='large' className={classes.icon} />
                 </Link>
-                <Link href='https://www.linkedin.com/in/brady-haden/' target="_blank" rel="noreferrer">
+                <Link href={contact.linkedin} target="_blank" rel="noreferrer">
                     <LinkedInIcon fontSize='large' className={classes.icon} />
                 </Link>
-                <Link href='mailto:brady.s.haden@gmail.com?subject=Greetings From Portfolio'>
+                <Link href={contact.email}>
                     <AlternateEmailIcon fontSize='large' className={classes.icon} />
                 </Link>
             </Grid>
