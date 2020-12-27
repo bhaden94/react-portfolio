@@ -20,8 +20,8 @@ export function ExperienceObject(): ExperienceObj[] {
             media: 'picture link to use as dot on inside of timeline'
         },
         {
-            startDate: new Date(2021, 0, 4),
-            endDate: new Date(2020, 2, 5),
+            startDate: new Date(2020, 0, 4),
+            endDate: new Date(2021, 2, 5),
             title: 'job title',
             company: 'company',
             bullets: ['bullet1', 'bullet2'],
