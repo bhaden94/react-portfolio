@@ -20,8 +20,8 @@ const useStyles = makeStyles((theme) => ({
 		},
 	},
 	title: {
+		fontSize: "1.75rem !important",
 		margin: "0px !important",
-		fontSize: "2rem !important",
 	},
 	company: {
 		fontSize: "1.2rem !important",
