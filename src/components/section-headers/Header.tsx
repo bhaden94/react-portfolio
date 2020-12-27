@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         text: {
             color: '#fff',
-            marginTop: 0,
+            margin: 0,
             padding: '10px 25px',
             textTransform: 'uppercase',
             fontWeight: 'lighter'

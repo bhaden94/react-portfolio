@@ -15,6 +15,11 @@ import {
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
+	customTimeline: {
+		"&::before": {
+			background: theme.palette.primary.main,
+		},
+	},
 	title: {
 		margin: "0px !important",
 		fontSize: "2rem !important",
@@ -28,8 +33,8 @@ const useStyles = makeStyles((theme) => ({
 		padding: 0,
 		fontSize: "1rem",
 		"& li": {
-            marginTop: "15px",
-            color: theme.palette.text.secondary
+			marginTop: "15px",
+			color: theme.palette.text.secondary,
 		},
 	},
 }));
@@ -59,24 +64,37 @@ function Experience() {
 		return `${startDate} - ${endDate}`;
 	};
 
+	const content = {
+		background: theme.palette.background.paper,
+        color: theme.palette.primary.main,
+		borderTop: `3px solid ${theme.palette.secondary.main}`,
+		boxShadow:
+			`0 8px 6px -6px rgba(0, 0, 0, 0.4)`,
+    };
+    
+    const arrowStyle = {
+        borderRight: `7px solid ${theme.palette.background.paper}`,
+    }
+
+	const iconStyle = {
+        background: theme.palette.background.default,
+        boxShadow: `0 0 0 3px ${theme.palette.secondary.main}`,
+		color: "#000",
+	};
+
 	return (
-		<VerticalTimeline animate={isDesktop ? true : false}>
+		<VerticalTimeline
+			className={classes.customTimeline}
+			animate={isDesktop ? true : false}
+		>
 			{experience.map((job: ExperienceObj) => {
 				return (
 					<VerticalTimelineElement
 						className="vertical-timeline-element--work"
-						contentStyle={{
-                            background: theme.palette.background.paper,
-							color: theme.palette.primary.main,
-						}}
-						contentArrowStyle={{
-							borderRight: `7px solid ${theme.palette.background.paper}`,
-						}}
+						contentStyle={content}
+						contentArrowStyle={arrowStyle}
 						date={formatDate(job.startDate, job.endDate)}
-						iconStyle={{
-							background: theme.palette.secondary.main,
-							color: "#000",
-						}}
+						iconStyle={iconStyle}
 						icon={<AcUnitIcon />}
 					>
 						<Typography
