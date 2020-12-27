@@ -16,8 +16,13 @@ const imageStyle = {
 	borderRadius: "50%",
 };
 
+/*
+    This is where you will put in your past experience
+    Follow the examples given and put your own past jobs in
+
+    note: put the experience objects in the order they should appear on the page
+*/
 export function ExperienceObject(): ExperienceObj[] {
-	// put experience objects in the order that they should display on the page
 	return [
 		{
 			startDate: new Date(2020, 8, 0),
