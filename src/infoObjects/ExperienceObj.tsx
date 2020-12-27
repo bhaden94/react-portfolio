@@ -32,13 +32,7 @@ export function ExperienceObject(): ExperienceObj[] {
 				"Built and modified Nginx configuration script for application to increase security by blocking XSS/SSH attacks and limiting allowable domains",
 				"Modified Docker configuration to use Department of Defense hardened images for application frontend and backend to increase security",
 			],
-			media: (
-				<img
-					src={Logo2}
-					style={imageStyle}
-					alt="company logo"
-				/>
-			),
+			media: <img src={Logo2} style={imageStyle} alt="company logo" />,
 		},
 		{
 			startDate: new Date(2018, 8, 0),
@@ -50,13 +44,7 @@ export function ExperienceObject(): ExperienceObj[] {
 				"Responsible for quality control on 1000+ reports per year, obtaining 99% accuracy rate each period, well above standard",
 				"Conducted bi-annual job performance, goal setting, and career growth counseling for 3 team members",
 			],
-			media: (
-				<img
-					src={Logo1}
-					style={imageStyle}
-					alt="company logo"
-				/>
-			),
+			media: <img src={Logo1} style={imageStyle} alt="company logo" />,
 		},
 		{
 			startDate: new Date(2014, 7, 0),
@@ -68,13 +56,7 @@ export function ExperienceObject(): ExperienceObj[] {
 				"Worked with a 10-person team to recover collapsed private plane; cleared international airport runway in less than 1 hour",
 				"Responded to last minute pre-flight problem for critical Secretary of Defense mission; troubleshot and repaired C-17 cargo ramp that ensured on time take-off",
 			],
-			media: (
-				<img
-					src={Logo1}
-					style={imageStyle}
-					alt="company logo"
-				/>
-			),
+			media: <img src={Logo1} style={imageStyle} alt="company logo" />,
 		},
 	];
 }

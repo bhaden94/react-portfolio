@@ -77,8 +77,7 @@ function Experience() {
 
 	const iconStyle = {
         background: '#fff',
-        boxShadow: `0 0 0 3px ${theme.palette.secondary.main}`,
-		color: "#000",
+        boxShadow: `none`,
 	};
 
 	return (
