@@ -1,10 +1,13 @@
+import Logo1 from "../images/af-logo.png";
+import Logo2 from "../images/levelup-logo.png";
+
 export interface ExperienceObj {
 	startDate: Date;
 	endDate: Date | string;
 	title: string;
 	company: string;
 	bullets: string[];
-	media: string;
+	media: any;
 }
 
 export function ExperienceObject(): ExperienceObj[] {
@@ -23,7 +26,17 @@ export function ExperienceObject(): ExperienceObj[] {
 				"Built and modified Nginx configuration script for application to increase security by blocking XSS/SSH attacks and limiting allowable domains",
 				"Modified Docker configuration to use Department of Defense hardened images for application frontend and backend to increase security",
 			],
-			media: "picture link to use as dot on inside of timeline",
+			media: (
+				<img
+					src={Logo2}
+					style={{
+						width: "100%",
+						height: "100%",
+						borderRadius: "50%",
+					}}
+					alt="company logo"
+				/>
+			),
 		},
 		{
 			startDate: new Date(2018, 8, 0),
@@ -31,23 +44,42 @@ export function ExperienceObject(): ExperienceObj[] {
 			title: "Intelligence Analyst (Fusion Analyst)",
 			company: "United States Air Force",
 			bullets: [
-                "Communicated valuable threat warning reports that were further briefed to the National Security Council and POTUS",
-                "Responsible for quality control on 1000+ reports per year, obtaining 99% accuracy rate each period, well above standard",
-                "Conducted bi-annual job performance, goal setting, and career growth counseling for 3 team members"
-            ],
-			media: "picture link to use as dot on inside of timeline",
-        },
-        {
+				"Communicated valuable threat warning reports that were further briefed to the National Security Council and POTUS",
+				"Responsible for quality control on 1000+ reports per year, obtaining 99% accuracy rate each period, well above standard",
+				"Conducted bi-annual job performance, goal setting, and career growth counseling for 3 team members",
+			],
+			media: (
+				<img
+					src={Logo1}
+					style={{
+						width: "100%",
+						height: "100%",
+						borderRadius: "50%",
+					}}
+					alt="company logo"
+				/>
+			),
+		},
+		{
 			startDate: new Date(2014, 7, 0),
 			endDate: new Date(2018, 8, 0),
 			title: "Aerospace Maintenance Technician",
 			company: "United States Air Force",
 			bullets: [
-                "Led team of 4 technicians to recover F-18 on runway; restored international airport to active status 75% faster than average recovery times",
-                "Worked with a 10-person team to recover collapsed private plane; cleared international airport runway in less than 1 hour",
-                "Responded to last minute pre-flight problem for critical Secretary of Defense mission; troubleshot and repaired C-17 cargo ramp that ensured on time take-off"
-            ],
-			media: "picture link to use as dot on inside of timeline",
+				"Led team of 4 technicians to recover F-18 on runway; restored international airport to active status 75% faster than average recovery times",
+				"Worked with a 10-person team to recover collapsed private plane; cleared international airport runway in less than 1 hour",
+				"Responded to last minute pre-flight problem for critical Secretary of Defense mission; troubleshot and repaired C-17 cargo ramp that ensured on time take-off",
+			],
+			media: (
+				<img
+					src={Logo1}
+					style={{
+						width: "100%",
+						height: "100%",
+					}}
+					alt="company logo"
+				/>
+			),
 		},
 	];
 }

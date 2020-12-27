@@ -95,7 +95,7 @@ function Experience() {
 						contentArrowStyle={arrowStyle}
 						date={formatDate(job.startDate, job.endDate)}
 						iconStyle={iconStyle}
-						icon={<AcUnitIcon />}
+						icon={job.media}
 					>
 						<Typography
 							color="textPrimary"
