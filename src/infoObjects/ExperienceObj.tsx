@@ -1,4 +1,4 @@
-import Logo1 from "../images/af-logo.png";
+import Logo1 from "../images/af-logo.jpg";
 import Logo2 from "../images/levelup-logo.png";
 
 export interface ExperienceObj {
@@ -9,6 +9,12 @@ export interface ExperienceObj {
 	bullets: string[];
 	media: any;
 }
+
+const imageStyle = {
+	width: "100%",
+	height: "100%",
+	borderRadius: "50%",
+};
 
 export function ExperienceObject(): ExperienceObj[] {
 	// put experience objects in the order that they should display on the page
@@ -29,11 +35,7 @@ export function ExperienceObject(): ExperienceObj[] {
 			media: (
 				<img
 					src={Logo2}
-					style={{
-						width: "100%",
-						height: "100%",
-						borderRadius: "50%",
-					}}
+					style={imageStyle}
 					alt="company logo"
 				/>
 			),
@@ -51,11 +53,7 @@ export function ExperienceObject(): ExperienceObj[] {
 			media: (
 				<img
 					src={Logo1}
-					style={{
-						width: "100%",
-						height: "100%",
-						borderRadius: "50%",
-					}}
+					style={imageStyle}
 					alt="company logo"
 				/>
 			),
@@ -73,10 +71,7 @@ export function ExperienceObject(): ExperienceObj[] {
 			media: (
 				<img
 					src={Logo1}
-					style={{
-						width: "100%",
-						height: "100%",
-					}}
+					style={imageStyle}
 					alt="company logo"
 				/>
 			),

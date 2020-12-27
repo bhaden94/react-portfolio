@@ -7,7 +7,6 @@ import {
 	VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import AcUnitIcon from "@material-ui/icons/AcUnit";
 import {
 	ExperienceObject,
 	ExperienceObj,
@@ -77,7 +76,7 @@ function Experience() {
     }
 
 	const iconStyle = {
-        background: theme.palette.background.default,
+        background: '#fff',
         boxShadow: `0 0 0 3px ${theme.palette.secondary.main}`,
 		color: "#000",
 	};
