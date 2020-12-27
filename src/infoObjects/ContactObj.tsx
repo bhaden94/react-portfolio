@@ -13,11 +13,12 @@ export interface ContactObj {
 
 /*
     Add more social and ways to contact here
-    Import the relevant icon from Material-UI above
-    Then, add a new object below with link, text, and icon properties
-    Make sure the icon property uses the correct import and it has the className of iconClass
+    Import the relevant icon from Material-UI above -> https://material-ui.com/components/material-icons/
 
-    Put the links in the order your want them to show up in the navbar and the contact section
+    Then, add a new object below with link, text, and icon properties
+        An example for Twitter & Facebook are there already
+
+    Put the jobjects in the order your want them to show up in the navbar and the contact section
 */
 export function ContactObject(iconClass: any): ContactObj[] {
     return [
