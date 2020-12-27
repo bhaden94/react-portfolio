@@ -3,80 +3,106 @@ import { makeStyles } from "@material-ui/core/styles";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {
-    VerticalTimeline,
-    VerticalTimelineElement,
+	VerticalTimeline,
+	VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import AcUnitIcon from "@material-ui/icons/AcUnit";
 import {
-    ExperienceObject,
-    ExperienceObj,
+	ExperienceObject,
+	ExperienceObj,
 } from "../../infoObjects/ExperienceObj";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
-    paper: {
-        padding: "6px 16px",
-    },
-    secondaryTail: {
-        backgroundColor: theme.palette.secondary.main,
-    },
+	title: {
+		margin: "0px !important",
+		fontSize: "2rem !important",
+	},
+	company: {
+		fontSize: "1.2rem !important",
+		margin: "0px !important",
+	},
+	bullets: {
+		listStyle: "circle inside none",
+		padding: 0,
+		fontSize: "1rem",
+		"& li": {
+            marginTop: "15px",
+            color: theme.palette.text.secondary
+		},
+	},
 }));
 
 function Experience() {
-    const classes = useStyles();
-    const theme = useTheme();
-    const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
-    const experience: ExperienceObj[] = ExperienceObject();
+	const classes = useStyles();
+	const theme = useTheme();
+	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+	const experience: ExperienceObj[] = ExperienceObject();
 
-    // format the start and end dates of projects
-    // also checks if the end date is a string, like 'present' and uses that if it is
-    const formatDate = (start: Date, end: Date | string): string => {
-        const startDate: string = start.toLocaleDateString('default', { month: 'short', year: 'numeric' })
-        let endDate: string
-        if(end instanceof Date) {
-            endDate = end.toLocaleDateString('default', { month: 'short', year: 'numeric' })
-        } else {
-            endDate = end
-        }
-        return (
-            `${startDate} - ${endDate}`
-        )
-    }
+	// format the start and end dates of projects
+	// also checks if the end date is a string, like 'present' and uses that if it is
+	const formatDate = (start: Date, end: Date | string): string => {
+		const startDate: string = start.toLocaleDateString("default", {
+			month: "short",
+			year: "numeric",
+		});
+		let endDate: string;
+		if (end instanceof Date) {
+			endDate = end.toLocaleDateString("default", {
+				month: "short",
+				year: "numeric",
+			});
+		} else {
+			endDate = end;
+		}
+		return `${startDate} - ${endDate}`;
+	};
 
-    return (
-        <VerticalTimeline animate={isDesktop ? true : false}>
-            {experience.map((job: ExperienceObj) => {
-                return (
-                    <VerticalTimelineElement
-                        className="vertical-timeline-element--work"
-                        contentStyle={{
+	return (
+		<VerticalTimeline animate={isDesktop ? true : false}>
+			{experience.map((job: ExperienceObj) => {
+				return (
+					<VerticalTimelineElement
+						className="vertical-timeline-element--work"
+						contentStyle={{
                             background: theme.palette.background.paper,
-                            color: theme.palette.text.secondary,
-                        }}
-                        contentArrowStyle={{
-                            borderRight: `7px solid ${theme.palette.background.paper}`,
-                        }}
-                        date={formatDate(job.startDate, job.endDate)}
-                        iconStyle={{
-                            background: "rgb(33, 150, 243)",
-                            color: "#fff",
-                        }}
-                        icon={<AcUnitIcon />}
-                    >
-                        <h3 className="vertical-timeline-element-title">
-                            {job.title}
-                        </h3>
-                        <h4 className="vertical-timeline-element-subtitle">
-                            {job.company}
-                        </h4>
-                        {job.bullets.map((bullet: string) => {
-                            return <p>{bullet}</p>
-                        })}
-                    </VerticalTimelineElement>
-                )
-            })}
-        </VerticalTimeline>
-    );
+							color: theme.palette.primary.main,
+						}}
+						contentArrowStyle={{
+							borderRight: `7px solid ${theme.palette.background.paper}`,
+						}}
+						date={formatDate(job.startDate, job.endDate)}
+						iconStyle={{
+							background: theme.palette.secondary.main,
+							color: "#000",
+						}}
+						icon={<AcUnitIcon />}
+					>
+						<Typography
+							color="textPrimary"
+							variant="h3"
+							className={classes.title}
+						>
+							{job.title}
+						</Typography>
+						<Typography
+							color="textPrimary"
+							variant="h4"
+							className={classes.company}
+						>
+							{job.company}
+						</Typography>
+						<ul className={classes.bullets}>
+							{job.bullets.map((bullet: string) => {
+								return <li>{bullet}</li>;
+							})}
+						</ul>
+					</VerticalTimelineElement>
+				);
+			})}
+		</VerticalTimeline>
+	);
 }
 
 export default Experience;
