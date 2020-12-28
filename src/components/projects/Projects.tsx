@@ -12,7 +12,7 @@ function Projects() {
 				container
 				direction="row"
 				justify="center"
-				alignItems="stretch"
+				alignItems="center"
 				spacing={6}
 			>
 				{projects.map((project: ProjectObj, index: number) => {
