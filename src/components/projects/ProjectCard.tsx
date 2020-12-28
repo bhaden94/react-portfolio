@@ -11,8 +11,9 @@ import ReactCardFlip from "react-card-flip";
 import { Icon } from "@icons-pack/react-simple-icons";
 import LinkIcon from "@material-ui/icons/Link";
 import GitHubIcon from "@material-ui/icons/GitHub";
-import FlipToFrontIcon from '@material-ui/icons/FlipToFront';
-import FlipToBackIcon from '@material-ui/icons/FlipToBack';
+import FlipToFrontIcon from "@material-ui/icons/FlipToFront";
+import FlipToBackIcon from "@material-ui/icons/FlipToBack";
+import Tooltip from "@material-ui/core/Tooltip";
 
 const useStyles = makeStyles({
 	root: {
@@ -40,12 +41,26 @@ function Actions({ flipCard, flipBtn }: any) {
 		<CardActions className={classes.actions}>
 			<Grid container justify="space-between">
 				<Grid item>
-					<Button size="small" color="primary">
-						<GitHubIcon />
-					</Button>
-					<Button size="small" color="primary">
-						<LinkIcon />
-					</Button>
+					<Tooltip
+						title="Code"
+						placement="bottom"
+						enterDelay={250}
+						arrow
+					>
+						<Button size="small" color="primary">
+							<GitHubIcon />
+						</Button>
+					</Tooltip>
+					<Tooltip
+						title="Live Application"
+						placement="bottom"
+						enterDelay={250}
+						arrow
+					>
+						<Button size="small" color="primary">
+							<LinkIcon />
+						</Button>
+					</Tooltip>
 				</Grid>
 				<Grid item>
 					<Button onClick={flipCard} size="small" color="secondary">
