@@ -1,19 +1,14 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import ReactCardFlip from "react-card-flip";
 import { Icon } from "@icons-pack/react-simple-icons";
-import LinkIcon from "@material-ui/icons/Link";
-import GitHubIcon from "@material-ui/icons/GitHub";
 import FlipToFrontIcon from "@material-ui/icons/FlipToFront";
 import FlipToBackIcon from "@material-ui/icons/FlipToBack";
-import Tooltip from "@material-ui/core/Tooltip";
+import Actions from "./Actions";
 
 const useStyles = makeStyles({
 	root: {
@@ -33,44 +28,6 @@ const useStyles = makeStyles({
 		width: "100%",
 	},
 });
-
-function Actions({ flipCard, flipBtn }: any) {
-	const classes = useStyles();
-
-	return (
-		<CardActions className={classes.actions}>
-			<Grid container justify="space-between">
-				<Grid item>
-					<Tooltip
-						title="Code"
-						placement="bottom"
-						enterDelay={250}
-						arrow
-					>
-						<Button size="small" color="primary">
-							<GitHubIcon />
-						</Button>
-					</Tooltip>
-					<Tooltip
-						title="Live Application"
-						placement="bottom"
-						enterDelay={250}
-						arrow
-					>
-						<Button size="small" color="primary">
-							<LinkIcon />
-						</Button>
-					</Tooltip>
-				</Grid>
-				<Grid item>
-					<Button onClick={flipCard} size="small" color="secondary">
-						{flipBtn}
-					</Button>
-				</Grid>
-			</Grid>
-		</CardActions>
-	);
-}
 
 function ProjectCard({ project }: any) {
 	const [isFlipped, setIsFlipped] = useState<boolean>(false);

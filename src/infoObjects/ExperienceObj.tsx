@@ -1,5 +1,5 @@
-import Logo1 from "../images/af-logo.jpg";
-import Logo2 from "../images/levelup-logo.png";
+import Logo1 from "../images/experience/af-logo.jpg";
+import Logo2 from "../images/experience/levelup-logo.png";
 
 export interface ExperienceObj {
 	startDate: Date;
