@@ -10,7 +10,7 @@ export interface ProjectObj {
 	longDesc: string;
 	liveLink: string;
 	codeLink: string;
-	techUsed: any[];
+	techUsed: any[];  // max 9 techologies here for proper display on card
 }
 
 export function ProjectObject(): ProjectObj[] {
@@ -26,7 +26,15 @@ export function ProjectObject(): ProjectObj[] {
 			longDesc: "long desc",
 			liveLink: "https://covid-19-tracker-v2-fe.vercel.app/",
 			codeLink: "https://github.com/bhaden94/Covid-19-Tracker-V2",
-			techUsed: [skills.docker, skills.spring],
+			techUsed: [
+				skills.spring,
+				skills.java,
+				skills.react,
+				skills.typescript,
+				skills.materialui,
+				skills.mongodb,
+				skills.heroku,
+			],
 		},
 		{
 			id: 1,
@@ -38,9 +46,9 @@ export function ProjectObject(): ProjectObj[] {
 			codeLink: "https://github.com/bhaden94/spacex-app",
 			techUsed: [
 				skills.react,
+				skills.javascript,
+				skills.bootstrap,
 				skills.github,
-				skills.docker,
-				skills.spring,
 			],
 		},
 	];

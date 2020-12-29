@@ -14,7 +14,7 @@ import Link from "@material-ui/core/Link";
 const useStyles = makeStyles({
 	root: {
 		width: "100%",
-		height: "440px",
+		height: "450px",
 	},
 	media: {
 		height: 220,
@@ -29,6 +29,9 @@ const useStyles = makeStyles({
 		display: "inline",
 		padding: "10px",
 	},
+	longDesc: {
+		height: '200px'
+	}
 });
 
 function ProjectCard({ project }: any) {
@@ -41,6 +44,7 @@ function ProjectCard({ project }: any) {
 
 	return (
 		<ReactCardFlip isFlipped={isFlipped}>
+			{/* FRONT of card */}
 			<Card className={classes.root} elevation={3}>
 				<Link href={project.liveLink} target="_blank" rel="noreferrer">
 					<CardMedia
@@ -69,20 +73,28 @@ function ProjectCard({ project }: any) {
 					live={project.liveLink}
 				/>
 			</Card>
+			{/* FRONT of card */}
 
+			{/* BACK of card */}
 			<Card className={classes.root}>
 				<CardContent>
-					<Typography gutterBottom variant="h5" component="h2">
-						{project.title}
+					<div className={classes.longDesc}>
+						<Typography gutterBottom variant="h5" component="h3">
+							{project.title}
+						</Typography>
+						<Typography
+							variant="body2"
+							color="textSecondary"
+							component="p"
+						>
+							{project.longDesc}
+						</Typography>
+					</div>
+					<Typography gutterBottom variant="h6" component="h4">
+						Technology Used
 					</Typography>
-					<Typography
-						variant="body2"
-						color="textSecondary"
-						component="p"
-					>
-						{project.longDesc}
-					</Typography>
-					{project.techUsed.map((tech: Icon) => {
+					{/* only allow first 9 technologies here so we dont overflow the card */}
+					{project.techUsed.slice(0, 9).map((tech: Icon) => {
 						return (
 							<div
 								className={["icon-hover", classes.icon].join(
@@ -96,6 +108,7 @@ function ProjectCard({ project }: any) {
 				</CardContent>
 				<Actions flipCard={flipCard} flipBtn={<FlipToFrontIcon />} />
 			</Card>
+			{/* BACK of card */}
 		</ReactCardFlip>
 	);
 }

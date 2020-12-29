@@ -18,6 +18,7 @@ import {
     Grafana,
     Heroku,
     Bootstrap,
+    MaterialUi,
     Nginx
 } from "@icons-pack/react-simple-icons";
 
@@ -48,7 +49,8 @@ export function SkillsObject(size?: number, color?: string): SkillsObj {
         grafana: <Grafana color={color || "#F46800"} size={size || 50} />,
         heroku: <Heroku color={color || "#430098"} size={size || 50} />,
         bootstrap: <Bootstrap color={color || "#7952B3"} size={size || 50} />,
-        nginx: <Nginx color={color || "#269539"} size={size || 50} />
+        nginx: <Nginx color={color || "#269539"} size={size || 50} />,
+        materialui: <MaterialUi color={color || "#0081CB"} size={size || 50} />,
         // get icons from here: https://simpleicons.org/
     };
 }
