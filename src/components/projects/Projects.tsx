@@ -1,35 +1,59 @@
-import { Icon } from "@icons-pack/react-simple-icons";
-import { ProjectObject, ProjectObj } from '../../infoObjects/ProjectsObj'
+import React from "react";
+import { ProjectObject, ProjectObj } from "../../infoObjects/ProjectsObj";
+import Grid from "@material-ui/core/Grid";
+import ProjectCard from "./ProjectCard";
+import { Theme, makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme: Theme) => ({
+	container: {
+		[theme.breakpoints.down("xl")]: {
+			padding: "50px 15%",
+		},
+		[theme.breakpoints.down("lg")]: {
+			padding: "50px 8%",
+		},
+		[theme.breakpoints.down("md")]: {
+			padding: "50px 5%",
+		},
+		[theme.breakpoints.down("sm")]: {
+			padding: "50px 24px",
+		},
+		[theme.breakpoints.down("xs")]: {
+			padding: "50px 24px",
+		},
+	},
+}));
 
 function Projects() {
+	const classes = useStyles();
+	const projects: ProjectObj[] = ProjectObject();
 
-    const projects: ProjectObj[] = ProjectObject()
-
-    return (
-        <div>
-            {
-                projects.map((project: ProjectObj, index: number) => {
-                    return (
-                        <div>
-                            <p>{project.media}</p>
-                            <p>{project.title}</p>
-                            <p>{project.shortDesc}</p>
-                            <p>{project.longDesc}</p>
-                            <p>{project.liveLink}</p>
-                            <p>{project.codeLink}</p>
-                            {project.techUsed.map((tech: Icon) => {
-                                return (
-                                    <div className='icon-hover'>
-                                        {tech}
-                                    </div>
-                                )
-                            })}
-                        </div>
-                    )
-                })
-            }
-        </div>
-    );
+	return (
+		<div className={classes.container}>
+			<Grid
+				container
+				direction="row"
+				justify="center"
+				alignItems="center"
+				spacing={6}
+			>
+				{projects.map((project: ProjectObj, index: number) => {
+					return (
+						<Grid
+							key={project.id}
+							item
+							xs={12}
+							sm={6}
+							lg={4}
+							justify="center"
+						>
+							<ProjectCard project={project} key={project.id} />
+						</Grid>
+					);
+				})}
+			</Grid>
+		</div>
+	);
 }
 
 export default Projects;
