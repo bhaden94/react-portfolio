@@ -37,8 +37,8 @@ const useStyles = makeStyles((theme: Theme) => ({
 		padding: 0,
 		margin: 0,
 		fontSize: "1rem",
-		maxHeight: '180px',
-    	overflowY: 'auto',
+		maxHeight: "180px",
+		overflowY: "auto",
 		"& li": {
 			marginBottom: "8px",
 			color: theme.palette.text.secondary,

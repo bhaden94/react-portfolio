@@ -13,6 +13,21 @@ export interface ProjectObj {
 	techUsed: any[]; // max 9 techologies here for proper display on card
 }
 
+/*
+	Put your projects in here to be displayed in a grid on the page
+
+	The id field should be unique
+
+	the media field needs to be imported at the top first and then use that as the media object
+		note: the pictures should be stored in src/images/projects
+	
+	The accomplishments field can be as many bullets as you want, but there will be a scroll
+	bar if needed. 
+
+	The techUsed field will be limited to the first 9 technologies.
+	This is so we don't overflow the card on some screen sizes
+		note: go to SkilsObj.tsx to modify the list of technologies that are available for use
+*/
 export function ProjectObject(): ProjectObj[] {
 	const skills: SkillsObj = SkillsObject(35);
 
@@ -59,5 +74,24 @@ export function ProjectObject(): ProjectObj[] {
 				skills.github,
 			],
 		},
+		// {
+		// 	id: 2,
+		// 	media: spacex,
+		// 	title: "title",
+		// 	shortDesc:
+		// 		"short desc",
+		// 	accomplishments: [
+		// 		"acc 1",
+		// 		"acc 2",
+		// 	],
+		// 	liveLink: "link to live app",
+		// 	codeLink: "link to code",
+		// 	techUsed: [
+		// 		skills.react,
+		// 		skills.javascript,
+		// 		skills.bootstrap,
+		// 		skills.github,
+		// 	],
+		// },
 	];
 }
