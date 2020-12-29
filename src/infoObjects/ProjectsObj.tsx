@@ -10,7 +10,7 @@ export interface ProjectObj {
 	accomplishments: string[]; // This can be as many bullets as you want, but will show a scroll bar if necesary
 	liveLink: string;
 	codeLink: string;
-	techUsed: any[]; // max 9 techologies here for proper display on card
+	techUsed: SkillsObj[]; // max 9 techologies here for proper display on card
 }
 
 /*
