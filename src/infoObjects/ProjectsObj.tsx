@@ -1,4 +1,6 @@
 import { SkillsObj, SkillsObject } from "./SkillsObj";
+import spacex from "../images/projects/spacex-app.png";
+import covid from "../images/projects/covid-app.png";
 
 export interface ProjectObj {
 	id: number;
@@ -18,69 +20,28 @@ export function ProjectObject(): ProjectObj[] {
 	return [
 		{
 			id: 0,
-			media: "link to picture to be used for card",
-			title: "title",
-			shortDesc:
-				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et doloreaaaing elit, sed do eiusmod tempor incididunt ut labore et doloreaaa",
+			media: covid,
+			title: "Covid-19 Tracker V2",
+			shortDesc: "Visualize global key data related to Covid-19 virus.",
 			longDesc: "long desc",
-			liveLink: "link to live app",
-			codeLink: "link to github",
+			liveLink: "https://covid-19-tracker-v2-fe.vercel.app/",
+			codeLink: "https://github.com/bhaden94/Covid-19-Tracker-V2",
 			techUsed: [skills.docker, skills.spring],
 		},
 		{
 			id: 1,
-			media: "link to picture to be used for card",
-			title: "title",
+			media: spacex,
+			title: "SpaceX Timeline",
 			shortDesc: "short desc",
 			longDesc: "long desc",
-			liveLink: "link to live app",
-			codeLink: "link to github",
+			liveLink: "https://bhaden94.github.io/spacex-app/",
+			codeLink: "https://github.com/bhaden94/spacex-app",
 			techUsed: [
 				skills.react,
 				skills.github,
 				skills.docker,
 				skills.spring,
 			],
-		},
-		{
-			id: 2,
-			media: "link to picture to be used for card",
-			title: "title",
-			shortDesc: "short desc",
-			longDesc: "long desc",
-			liveLink: "link to live app",
-			codeLink: "link to github",
-			techUsed: [skills.react, skills.github],
-		},
-		{
-			id: 3,
-			media: "link to picture to be used for card",
-			title: "title",
-			shortDesc: "short desc",
-			longDesc: "long desc",
-			liveLink: "link to live app",
-			codeLink: "link to github",
-			techUsed: [skills.react, skills.github],
-		},
-		{
-			id: 4,
-			media: "link to picture to be used for card",
-			title: "title",
-			shortDesc: "short desc",
-			longDesc: "long desc",
-			liveLink: "link to live app",
-			codeLink: "link to github",
-			techUsed: [skills.react, skills.github],
-		},
-		{
-			id: 5,
-			media: "link to picture to be used for card",
-			title: "title",
-			shortDesc: "short desc",
-			longDesc: "long desc",
-			liveLink: "link to live app",
-			codeLink: "link to github",
-			techUsed: [skills.react, skills.github],
 		},
 	];
 }

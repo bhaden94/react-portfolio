@@ -9,23 +9,25 @@ import { Icon } from "@icons-pack/react-simple-icons";
 import FlipToFrontIcon from "@material-ui/icons/FlipToFront";
 import FlipToBackIcon from "@material-ui/icons/FlipToBack";
 import Actions from "./Actions";
+import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles({
 	root: {
 		width: "100%",
-		height: "325px",
+		height: "440px",
 	},
 	media: {
-		height: 140,
+		height: 220,
+		width: "100%",
+		filter: "brightness(100%)",
+		transition: "filter .2s ease-in-out",
+		"&:hover": {
+			filter: "brightness(60%)",
+		},
 	},
 	icon: {
 		display: "inline",
 		padding: "10px",
-	},
-	actions: {
-		position: "absolute",
-		bottom: 0,
-		width: "100%",
 	},
 });
 
@@ -40,11 +42,14 @@ function ProjectCard({ project }: any) {
 	return (
 		<ReactCardFlip isFlipped={isFlipped}>
 			<Card className={classes.root} elevation={3}>
-				<CardMedia
-					className={classes.media}
-					image={project.media}
-					title="Project Image"
-				/>
+				<Link href={project.liveLink} target="_blank" rel="noreferrer">
+					<CardMedia
+						className={classes.media}
+						src={project.media}
+						component="img"
+						title="Project Image"
+					/>
+				</Link>
 				<CardContent>
 					<Typography gutterBottom variant="h5" component="h2">
 						{project.title}
@@ -57,7 +62,12 @@ function ProjectCard({ project }: any) {
 						{project.shortDesc.substring(0, 125)}
 					</Typography>
 				</CardContent>
-				<Actions flipCard={flipCard} flipBtn={<FlipToBackIcon />} />
+				<Actions
+					flipCard={flipCard}
+					flipBtn={<FlipToBackIcon />}
+					code={project.codeLink}
+					live={project.liveLink}
+				/>
 			</Card>
 
 			<Card className={classes.root}>

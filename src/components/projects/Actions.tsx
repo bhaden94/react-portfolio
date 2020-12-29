@@ -15,7 +15,7 @@ const useStyles = makeStyles({
 	},
 });
 
-function Actions({ flipCard, flipBtn }: any) {
+function Actions({ flipCard, flipBtn, code, live }: any) {
 	const classes = useStyles();
 
 	return (
@@ -28,7 +28,13 @@ function Actions({ flipCard, flipBtn }: any) {
 						enterDelay={250}
 						arrow
 					>
-						<Button size="small" color="primary">
+						<Button
+							href={code}
+							size="small"
+							color="primary"
+							target="_blank"
+							rel="noreferrer"
+						>
 							<GitHubIcon />
 						</Button>
 					</Tooltip>
@@ -38,7 +44,13 @@ function Actions({ flipCard, flipBtn }: any) {
 						enterDelay={250}
 						arrow
 					>
-						<Button size="small" color="primary">
+						<Button
+							href={live}
+							size="small"
+							color="primary"
+							target="_blank"
+							rel="noreferrer"
+						>
 							<LinkIcon />
 						</Button>
 					</Tooltip>
