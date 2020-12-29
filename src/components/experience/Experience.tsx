@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 		margin: "0px !important",
 	},
 	bullets: {
-		listStyle: "circle inside none",
+		listStyle: "inside",
 		padding: 0,
 		fontSize: "1rem",
 		"& li": {

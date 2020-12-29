@@ -7,10 +7,10 @@ export interface ProjectObj {
 	media: string;
 	title: string;
 	shortDesc: string; // max 125 characters long, everything else will be cutoff in card
-	longDesc: string;
+	accomplishments: string[]; // This can be as many bullets as you want, but will show a scroll bar if necesary
 	liveLink: string;
 	codeLink: string;
-	techUsed: any[];  // max 9 techologies here for proper display on card
+	techUsed: any[]; // max 9 techologies here for proper display on card
 }
 
 export function ProjectObject(): ProjectObj[] {
@@ -23,7 +23,11 @@ export function ProjectObject(): ProjectObj[] {
 			media: covid,
 			title: "Covid-19 Tracker V2",
 			shortDesc: "Visualize global key data related to Covid-19 virus.",
-			longDesc: "long desc",
+			accomplishments: [
+				"Java Multi-threaded services for DB population & updating",
+				"CI/CD pipeline with GitHub Actions for static code analysis",
+				"Algorithms to shape data on FE and BE",
+			],
 			liveLink: "https://covid-19-tracker-v2-fe.vercel.app/",
 			codeLink: "https://github.com/bhaden94/Covid-19-Tracker-V2",
 			techUsed: [
@@ -40,8 +44,12 @@ export function ProjectObject(): ProjectObj[] {
 			id: 1,
 			media: spacex,
 			title: "SpaceX Timeline",
-			shortDesc: "short desc",
-			longDesc: "long desc",
+			shortDesc:
+				"See milestones, past launches, and the next launch for SpaceX.",
+			accomplishments: [
+				"React & Bootstrap to visualize data about SpaceX launches",
+				"Custom responsive sidebar component",
+			],
 			liveLink: "https://bhaden94.github.io/spacex-app/",
 			codeLink: "https://github.com/bhaden94/spacex-app",
 			techUsed: [

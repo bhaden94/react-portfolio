@@ -7,10 +7,10 @@ import { Theme, makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme: Theme) => ({
 	container: {
 		[theme.breakpoints.down("xl")]: {
-			padding: "50px 18%",
+			padding: "50px 15%",
 		},
 		[theme.breakpoints.down("lg")]: {
-			padding: "50px 10%",
+			padding: "50px 8%",
 		},
 		[theme.breakpoints.down("md")]: {
 			padding: "50px 5%",

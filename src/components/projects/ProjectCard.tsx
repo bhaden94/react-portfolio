@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { Theme, makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -11,7 +11,7 @@ import FlipToBackIcon from "@material-ui/icons/FlipToBack";
 import Actions from "./Actions";
 import Link from "@material-ui/core/Link";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme: Theme) => ({
 	root: {
 		width: "100%",
 		height: "450px",
@@ -30,9 +30,21 @@ const useStyles = makeStyles({
 		padding: "10px",
 	},
 	longDesc: {
-		height: '200px'
-	}
-});
+		height: "220px",
+	},
+	bullets: {
+		listStyle: "inside",
+		padding: 0,
+		margin: 0,
+		fontSize: "1rem",
+		maxHeight: '180px',
+    	overflowY: 'auto',
+		"& li": {
+			marginBottom: "8px",
+			color: theme.palette.text.secondary,
+		},
+	},
+}));
 
 function ProjectCard({ project }: any) {
 	const [isFlipped, setIsFlipped] = useState<boolean>(false);
@@ -80,18 +92,16 @@ function ProjectCard({ project }: any) {
 				<CardContent>
 					<div className={classes.longDesc}>
 						<Typography gutterBottom variant="h5" component="h3">
-							{project.title}
+							Accomplishments
 						</Typography>
-						<Typography
-							variant="body2"
-							color="textSecondary"
-							component="p"
-						>
-							{project.longDesc}
-						</Typography>
+						<ul className={classes.bullets}>
+							{project.accomplishments.map((acc: string) => (
+								<li>{acc}</li>
+							))}
+						</ul>
 					</div>
 					<Typography gutterBottom variant="h6" component="h4">
-						Technology Used
+						Technologies Used
 					</Typography>
 					{/* only allow first 9 technologies here so we dont overflow the card */}
 					{project.techUsed.slice(0, 9).map((tech: Icon) => {
