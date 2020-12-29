@@ -2,12 +2,34 @@ import React from "react";
 import { ProjectObject, ProjectObj } from "../../infoObjects/ProjectsObj";
 import Grid from "@material-ui/core/Grid";
 import ProjectCard from "./ProjectCard";
+import { Theme, makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme: Theme) => ({
+	container: {
+		[theme.breakpoints.down("xl")]: {
+			padding: "50px 18%",
+		},
+		[theme.breakpoints.down("lg")]: {
+			padding: "50px 10%",
+		},
+		[theme.breakpoints.down("md")]: {
+			padding: "50px 5%",
+		},
+		[theme.breakpoints.down("sm")]: {
+			padding: "50px 24px",
+		},
+		[theme.breakpoints.down("xs")]: {
+			padding: "50px 24px",
+		},
+	},
+}));
 
 function Projects() {
+	const classes = useStyles();
 	const projects: ProjectObj[] = ProjectObject();
 
 	return (
-		<div style={{ padding: 30 }}>
+		<div className={classes.container}>
 			<Grid
 				container
 				direction="row"
@@ -23,17 +45,9 @@ function Projects() {
 							xs={12}
 							sm={6}
 							lg={4}
-							xl={3}
 							justify="center"
 						>
 							<ProjectCard project={project} key={project.id} />
-
-							{/* <p>{project.media}</p>
-							<p>{project.title}</p>
-							<p>{project.shortDesc}</p>
-							<p>{project.longDesc}</p>
-							<p>{project.liveLink}</p>
-							<p>{project.codeLink}</p> */}
 						</Grid>
 					);
 				})}

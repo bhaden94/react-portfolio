@@ -4,7 +4,7 @@ export interface ProjectObj {
 	id: number;
 	media: string;
 	title: string;
-	shortDesc: string; // max 112 characters long
+	shortDesc: string; // max 125 characters long, everything else will be cutoff in card
 	longDesc: string;
 	liveLink: string;
 	codeLink: string;
@@ -21,7 +21,7 @@ export function ProjectObject(): ProjectObj[] {
 			media: "link to picture to be used for card",
 			title: "title",
 			shortDesc:
-				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et doloreaaa",
+				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et doloreaaaing elit, sed do eiusmod tempor incididunt ut labore et doloreaaa",
 			longDesc: "long desc",
 			liveLink: "link to live app",
 			codeLink: "link to github",

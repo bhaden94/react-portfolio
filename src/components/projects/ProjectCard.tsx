@@ -97,7 +97,7 @@ function ProjectCard({ project }: any) {
 						color="textSecondary"
 						component="p"
 					>
-						{project.shortDesc}
+						{project.shortDesc.substring(0, 125)}
 					</Typography>
 				</CardContent>
 				<Actions flipCard={flipCard} flipBtn={<FlipToBackIcon />} />
