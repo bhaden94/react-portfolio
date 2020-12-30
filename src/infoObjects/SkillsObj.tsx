@@ -46,7 +46,7 @@ export function SkillsObject(): SkillsObj[] {
 					icon: tech.spring,
 				},
 				{
-					name: "Node",
+					name: "NodeJS",
 					icon: tech.node,
 				},
 				{
@@ -60,6 +60,48 @@ export function SkillsObject(): SkillsObj[] {
 				{
 					name: "MySQL",
 					icon: tech.mysql,
+				},
+			],
+		},
+		{
+			title: "Workflow",
+			tech: [
+				{
+					name: "GitLab",
+					icon: tech.gitlab,
+				},
+				{
+					name: "GitHub",
+					icon: tech.github,
+				},
+				{
+					name: "Git",
+					icon: tech.git,
+				},
+				{
+					name: "Jira",
+					icon: tech.jira,
+				},
+			],
+		},
+		{
+			title: "Other",
+			tech: [
+				{
+					name: "Docker",
+					icon: tech.docker,
+				},
+				{
+					name: "SonarQube",
+					icon: tech.sonarqube,
+				},
+				{
+					name: "Grafana",
+					icon: tech.grafana,
+				},
+				{
+					name: "Heroku",
+					icon: tech.heroku,
 				},
 			],
 		},

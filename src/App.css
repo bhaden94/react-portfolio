@@ -12,8 +12,8 @@ a {
 }
 
 .icon-hover > * {
-	transition: transform 0.5s ease, filter 0.25s linear;
-	-webkit-transition: transform 0.5s ease, filter 0.25s linear;
+	transition: transform 0.3s ease, filter 0.25s linear;
+	-webkit-transition: transform 0.3s ease, filter 0.25s linear;
 }
 
 .icon-hover:hover > * {

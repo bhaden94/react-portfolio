@@ -35,7 +35,7 @@ export function TechnologiesObject(size?: number, color?: string): TechnologiesO
 		react: <ReactJs color={color || "#61DBFB"} size={size || 50} />,
 		angular: <Angular color={color || "#DD0031"} size={size || 50} />,
 		node: <NodeDotJs color={color || "#339933"} size={size || 50} />,
-		Git: <Git color={color || "#F05032"} size={size || 50} />,
+		git: <Git color={color || "#F05032"} size={size || 50} />,
 		github: <Github color={color || "#181717"} size={size || 50} />,
 		gitlab: <Gitlab color={color || "#FCA121"} size={size || 50} />,
 		mysql: <Mysql color={color || "#4479A1"} size={size || 50} />,
