@@ -1,4 +1,7 @@
-import { SkillsObj, SkillsObject } from "./SkillsObj";
+import {
+	TechnologiesObject,
+	TechnologiesObj,
+} from "../infoObjects/TechnologiesObj";
 import spacex from "../images/projects/spacex-app.png";
 import covid from "../images/projects/covid-app.png";
 
@@ -10,7 +13,7 @@ export interface ProjectObj {
 	accomplishments: string[]; // This can be as many bullets as you want, but will show a scroll bar if necesary
 	liveLink: string;
 	codeLink: string;
-	techUsed: SkillsObj[]; // max 9 techologies here for proper display on card
+	techUsed: TechnologiesObj[]; // max 9 techologies here for proper display on card
 }
 
 /*
@@ -26,10 +29,10 @@ export interface ProjectObj {
 
 	The techUsed field will be limited to the first 9 technologies.
 	This is so we don't overflow the card on some screen sizes
-		note: go to SkilsObj.tsx to modify the list of technologies that are available for use
+		note: go to TechnologiesObj.tsx to modify the list of technologies that are available for use
 */
 export function ProjectObject(): ProjectObj[] {
-	const skills: SkillsObj = SkillsObject(35);
+	const tech: TechnologiesObj = TechnologiesObject(35);
 
 	// make sure projects are in the order you want them displayed
 	return [
@@ -46,13 +49,13 @@ export function ProjectObject(): ProjectObj[] {
 			liveLink: "https://covid-19-tracker-v2-fe.vercel.app/",
 			codeLink: "https://github.com/bhaden94/Covid-19-Tracker-V2",
 			techUsed: [
-				skills.spring,
-				skills.java,
-				skills.react,
-				skills.typescript,
-				skills.materialui,
-				skills.mongodb,
-				skills.heroku,
+				tech.spring,
+				tech.java,
+				tech.react,
+				tech.typescript,
+				tech.materialui,
+				tech.mongodb,
+				tech.heroku,
 			],
 		},
 		{
@@ -68,10 +71,10 @@ export function ProjectObject(): ProjectObj[] {
 			liveLink: "https://bhaden94.github.io/spacex-app/",
 			codeLink: "https://github.com/bhaden94/spacex-app",
 			techUsed: [
-				skills.react,
-				skills.javascript,
-				skills.bootstrap,
-				skills.github,
+				tech.react,
+				tech.javascript,
+				tech.bootstrap,
+				tech.github,
 			],
 		},
 		// {
@@ -87,10 +90,10 @@ export function ProjectObject(): ProjectObj[] {
 		// 	liveLink: "link to live app",
 		// 	codeLink: "link to code",
 		// 	techUsed: [
-		// 		skills.react,
-		// 		skills.javascript,
-		// 		skills.bootstrap,
-		// 		skills.github,
+		// 		tech.react,
+		// 		tech.javascript,
+		// 		tech.bootstrap,
+		// 		tech.github,
 		// 	],
 		// },
 	];
