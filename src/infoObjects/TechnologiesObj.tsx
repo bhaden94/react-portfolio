@@ -28,6 +28,16 @@ export interface TechnologiesObj {
 	[key: string]: any;
 }
 
+/*
+	Update with any other technologies you want to add
+	Find more icons here: https://simpleicons.org/
+	Import them and utilize the component like all the others below
+
+	Parameters include size and color that will override what is already here
+	
+	This allows for you to make all icons the same color throughout your portfolio
+	if that is what you would like to do.
+*/
 export function TechnologiesObject(size?: number, color?: string): TechnologiesObj {
 	return {
 		docker: <Docker color={color || "#2496ED"} size={size || 50} />,
@@ -53,6 +63,6 @@ export function TechnologiesObject(size?: number, color?: string): TechnologiesO
 		materialui: <MaterialUi color={color || "#0081CB"} size={size || 50} />,
 		html: <Html5 color={color || "#E34F26"} size={size || 50} />,
 		css: <Css3 color={color || "#1572B6"} size={size || 50} />,
-		// get icons from here: https://simpleicons.org/
+		// get icons from https://simpleicons.org/
 	};
 }

@@ -5,6 +5,18 @@ export interface SkillsObj {
 	tech: { name: string; icon: TechnologiesObj }[];
 }
 
+/*
+	This is where you put the skills that will be showcased in the Skills section
+
+	Each object in the array will create a new Skills entry and must have a
+	title for the header of that entry
+
+	The tech array will need an object for each technology you add.
+	The name is what will appear below the icon and the icon comes from the
+	TechologiesObj.tsx file. 
+	If there is an icon that is not there go to https://simpleicons.org/
+	to find more and import them in TechologiesObj.tsx
+*/
 export function SkillsObject(): SkillsObj[] {
 	const tech: TechnologiesObj = TechnologiesObject(75);
 
