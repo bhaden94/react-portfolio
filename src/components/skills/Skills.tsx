@@ -28,7 +28,8 @@ const useStyles = makeStyles((theme: Theme) => ({
 		textAlign: "center",
 	},
 	title: {
-		padding: "1.2rem",
+		padding: "1.2rem 1.2rem 0",
+		fontWeight: 300,
 	},
 	skillContainer: {
 		overflowX: "auto",
@@ -52,7 +53,9 @@ function Skills() {
 						color="textSecondary"
 					>
 						{skill.title}
+						<hr />
 					</Typography>
+
 					<div className={classes.skillContainer}>
 						{skill.tech.map((tech: any) => (
 							<div className={classes.tech}>
