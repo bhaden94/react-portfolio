@@ -1,54 +1,121 @@
-import {
-	Docker,
-	Spring,
-	ReactJs,
-	Angular,
-	NodeDotJs,
-	Git,
-	Github,
-	Gitlab,
-	Mysql,
-	Postgresql,
-	Mongodb,
-	Java,
-	Javascript,
-	Typescript,
-	Sonarqube,
-	Jira,
-	Grafana,
-	Heroku,
-	Bootstrap,
-	MaterialUi,
-	Nginx,
-} from "@icons-pack/react-simple-icons";
+import { TechnologiesObj, TechnologiesObject } from "./TechnologiesObj";
 
 export interface SkillsObj {
-	[key: string]: any;
+	title: string;
+	tech: { name: string; icon: TechnologiesObj }[];
 }
 
-export function SkillsObject(size?: number, color?: string): SkillsObj {
-	return {
-		docker: <Docker color={color || "#2496ED"} size={size || 50} />,
-		spring: <Spring color={color || "#6DB33F"} size={size || 50} />,
-		react: <ReactJs color={color || "#61DBFB"} size={size || 50} />,
-		angular: <Angular color={color || "#DD0031"} size={size || 50} />,
-		node: <NodeDotJs color={color || "#339933"} size={size || 50} />,
-		Git: <Git color={color || "#F05032"} size={size || 50} />,
-		github: <Github color={color || "#181717"} size={size || 50} />,
-		gitlab: <Gitlab color={color || "#FCA121"} size={size || 50} />,
-		mysql: <Mysql color={color || "#4479A1"} size={size || 50} />,
-		postgresql: <Postgresql color={color || "#336791"} size={size || 50} />,
-		mongodb: <Mongodb color={color || "#47A248"} size={size || 50} />,
-		java: <Java color={color || "#007396"} size={size || 50} />,
-		javascript: <Javascript color={color || "#F7DF1E"} size={size || 50} />,
-		typescript: <Typescript color={color || "#3178C6"} size={size || 50} />,
-		sonarqube: <Sonarqube color={color || "#4E9BCD"} size={size || 50} />,
-		jira: <Jira color={color || "#0052CC"} size={size || 50} />,
-		grafana: <Grafana color={color || "#F46800"} size={size || 50} />,
-		heroku: <Heroku color={color || "#430098"} size={size || 50} />,
-		bootstrap: <Bootstrap color={color || "#7952B3"} size={size || 50} />,
-		nginx: <Nginx color={color || "#269539"} size={size || 50} />,
-		materialui: <MaterialUi color={color || "#0081CB"} size={size || 50} />,
-		// get icons from here: https://simpleicons.org/
-	};
+/*
+	This is where you put the skills that will be showcased in the Skills section
+
+	Each object in the array will create a new Skills entry and must have a
+	title for the header of that entry
+
+	The tech array will need an object for each technology you add.
+	The name is what will appear below the icon and the icon comes from the
+	TechologiesObj.tsx file. 
+	If there is an icon that is not there go to https://simpleicons.org/
+	to find more and import them in TechologiesObj.tsx
+*/
+export function SkillsObject(): SkillsObj[] {
+	const tech: TechnologiesObj = TechnologiesObject(75);
+
+	return [
+		{
+			title: "Frontend",
+			tech: [
+				{
+					name: "React",
+					icon: tech.react,
+				},
+				{
+					name: "JavaScript",
+					icon: tech.javascript,
+				},
+				{
+					name: "TypeScript",
+					icon: tech.typescript,
+				},
+				{
+					name: "HTML5",
+					icon: tech.html,
+				},
+				{
+					name: "CSS3",
+					icon: tech.css,
+				},
+			],
+		},
+		{
+			title: "Backend",
+			tech: [
+				{
+					name: "Java",
+					icon: tech.java,
+				},
+				{
+					name: "Spring",
+					icon: tech.spring,
+				},
+				{
+					name: "NodeJS",
+					icon: tech.node,
+				},
+				{
+					name: "MongoDB",
+					icon: tech.mongodb,
+				},
+				{
+					name: "PostgreSQL",
+					icon: tech.postgresql,
+				},
+				{
+					name: "MySQL",
+					icon: tech.mysql,
+				},
+			],
+		},
+		{
+			title: "Workflow",
+			tech: [
+				{
+					name: "GitLab",
+					icon: tech.gitlab,
+				},
+				{
+					name: "GitHub",
+					icon: tech.github,
+				},
+				{
+					name: "Git",
+					icon: tech.git,
+				},
+				{
+					name: "Jira",
+					icon: tech.jira,
+				},
+			],
+		},
+		{
+			title: "Other",
+			tech: [
+				{
+					name: "Docker",
+					icon: tech.docker,
+				},
+				{
+					name: "SonarQube",
+					icon: tech.sonarqube,
+				},
+				{
+					name: "Grafana",
+					icon: tech.grafana,
+				},
+				{
+					name: "Heroku",
+					icon: tech.heroku,
+				},
+			],
+		},
+	];
 }
