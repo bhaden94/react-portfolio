@@ -22,9 +22,10 @@ const useStyles = makeStyles((theme: Theme) => ({
 			margin: "50px 24px",
 		},
 	},
-	icon: {
-		display: "inline",
+	tech: {
+		display: "inline-block",
 		padding: "0 10px",
+		textAlign: "center",
 	},
 	title: {
 		padding: "1.2rem",
@@ -33,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 		overflowX: "auto",
 		overflowY: "hidden",
 		whiteSpace: "nowrap",
-        padding: "10px 0",
+		padding: "10px 0",
 	},
 }));
 
@@ -54,12 +55,11 @@ function Skills() {
 					</Typography>
 					<div className={classes.skillContainer}>
 						{skill.tech.map((tech: any) => (
-							<div
-								className={["icon-hover", classes.icon].join(
-									" "
-								)}
-							>
-								{tech}
+							<div className={classes.tech}>
+								<div className="icon-hover">{tech.icon}</div>
+								<Typography color="textSecondary">
+									{tech.name}
+								</Typography>
 							</div>
 						))}
 					</div>

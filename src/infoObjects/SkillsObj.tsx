@@ -2,7 +2,7 @@ import { TechnologiesObj, TechnologiesObject } from "./TechnologiesObj";
 
 export interface SkillsObj {
 	title: string;
-	tech: TechnologiesObj[];
+	tech: { name: string; icon: TechnologiesObj }[];
 }
 
 export function SkillsObject(): SkillsObj[] {
@@ -12,21 +12,55 @@ export function SkillsObject(): SkillsObj[] {
 		{
 			title: "Frontend",
 			tech: [
-				tech.react,
-				tech.javascript,
-				tech.typescript,
-				tech.html,
-				tech.css,
+				{
+					name: "React",
+					icon: tech.react,
+				},
+				{
+					name: "JavaScript",
+					icon: tech.javascript,
+				},
+				{
+					name: "TypeScript",
+					icon: tech.typescript,
+				},
+				{
+					name: "HTML5",
+					icon: tech.html,
+				},
+				{
+					name: "CSS3",
+					icon: tech.css,
+				},
 			],
 		},
 		{
 			title: "Backend",
 			tech: [
-				tech.java,
-				tech.spring,
-				tech.node,
-				tech.postgresql,
-				tech.mongodb,
+				{
+					name: "Java",
+					icon: tech.java,
+				},
+				{
+					name: "Spring",
+					icon: tech.spring,
+				},
+				{
+					name: "Node",
+					icon: tech.node,
+				},
+				{
+					name: "MongoDB",
+					icon: tech.mongodb,
+				},
+				{
+					name: "PostgreSQL",
+					icon: tech.postgresql,
+				},
+				{
+					name: "MySQL",
+					icon: tech.mysql,
+				},
 			],
 		},
 	];
