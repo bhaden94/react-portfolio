@@ -9,6 +9,8 @@ export interface EducationObj {
 /*
     This is where your edication will go. 
     Put anything here, even free courses you have taken if you want!
+    
+    Put in order you want to appear on screen
 
     The link to school, date finished, and bullets are all optional here.
     You can also put in a future date for dateFinished and it will display as an 'Expected' date
