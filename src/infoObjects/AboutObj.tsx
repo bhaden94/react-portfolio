@@ -1,9 +1,9 @@
 export interface AboutObj {
-    about: string;
+	about: string;
 }
 
 export function AboutObject(): AboutObj {
-    return {
-        about: 'about section'
-    };
+	return {
+		about: "about section",
+	};
 }
