@@ -1,9 +1,11 @@
 export interface AboutObj {
-	about: string;
+	headline: string;
 }
 
 export function AboutObject(): AboutObj {
 	return {
-		about: "about section",
+		headline:
+			" Hi I am Brady, a Full Stack Software Engineer and United States Air Force veteran " +
+			"passionate about making a differece through code!",
 	};
 }
