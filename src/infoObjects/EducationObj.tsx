@@ -1,11 +1,18 @@
 export interface EducationObj {
 	degree: string;
 	school: string;
-	schoolLink?: string;
-	dateFinished?: Date;
-	bullets?: string[];
+	schoolLink?: string; // optional
+	dateFinished?: Date; // optional
+	bullets?: string[]; // optional
 }
 
+/*
+    This is where your edication will go. 
+    Put anything here, even free courses you have taken if you want!
+
+    The link to school, date finished, and bullets are all optional here.
+    You can also put in a future date for dateFinished and it will display as an 'Expected' date
+*/
 export function EducationObject(): EducationObj[] {
 	return [
 		{
