@@ -10,6 +10,7 @@ import Projects from './components/projects/Projects';
 import Header from './components/section-headers/Header';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Experience from './components/experience/Experience';
+import Education from './components/education/Education';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -58,6 +59,7 @@ function App() {
 
           <div id="Education" className={classes.section}>
             <Header text='Education' />
+            <Education />
           </div>
 
           <div id="Contact" className={[classes.bottom, classes.section].join(' ')}>
