@@ -24,6 +24,16 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		headline: {
 			fontSize: "2rem",
+			[theme.breakpoints.down("sm")]: {
+				fontSize: "1.5rem",
+			},
+		},
+		headContainer: {
+			paddingLeft: "2rem",
+			[theme.breakpoints.down("sm")]: {
+				paddingLeft: "1.5rem",
+			},
+			borderLeft: `5px solid ${theme.palette.secondary.main}`,
 		},
 	})
 );
@@ -34,7 +44,11 @@ function About() {
 
 	return (
 		<div className={classes.container}>
-			<Typography className={classes.headline}>{about.headline}</Typography>
+			<div className={classes.headContainer}>
+				<Typography className={classes.headline}>
+					{about.headline}
+				</Typography>
+			</div>
 		</div>
 	);
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useTheme } from "@material-ui/core/styles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {
 	VerticalTimeline,
 	VerticalTimelineElement,
@@ -41,7 +40,6 @@ const useStyles = makeStyles((theme) => ({
 function Experience() {
 	const classes = useStyles();
 	const theme = useTheme();
-	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 	const experience: ExperienceObj[] = ExperienceObject();
 
 	// format the start and end dates of projects
@@ -65,26 +63,22 @@ function Experience() {
 
 	const content = {
 		background: theme.palette.background.paper,
-        color: theme.palette.primary.main,
+		color: theme.palette.primary.main,
 		borderTop: `3px solid ${theme.palette.secondary.main}`,
-		boxShadow:
-			`0 8px 6px -6px rgba(0, 0, 0, 0.4)`,
-    };
-    
-    const arrowStyle = {
-        borderRight: `7px solid ${theme.palette.background.paper}`,
-    }
+		boxShadow: `0 8px 6px -6px rgba(0, 0, 0, 0.4)`,
+	};
+
+	const arrowStyle = {
+		borderRight: `7px solid ${theme.palette.background.paper}`,
+	};
 
 	const iconStyle = {
-        background: '#fff',
-        boxShadow: `none`,
+		background: "#fff",
+		boxShadow: `none`,
 	};
 
 	return (
-		<VerticalTimeline
-			className={classes.customTimeline}
-			animate={isDesktop ? true : false}
-		>
+		<VerticalTimeline className={classes.customTimeline} animate={false}>
 			{experience.map((job: ExperienceObj) => {
 				return (
 					<VerticalTimelineElement
