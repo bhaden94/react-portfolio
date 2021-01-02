@@ -1,8 +1,10 @@
 import React from "react";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
-import { AboutObj, AboutObject } from "../../infoObjects/AboutObj";
+import { AboutObj, AboutObject, Strength } from "../../infoObjects/AboutObj";
 import Typography from "@material-ui/core/Typography";
 import ScrollAnimation from "react-animate-on-scroll";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -36,6 +38,26 @@ const useStyles = makeStyles((theme: Theme) =>
 			},
 			borderLeft: `5px solid ${theme.palette.secondary.main}`,
 		},
+		strengthHead: {
+			margin: "60px 0 0",
+			fontSize: "2rem",
+		},
+		fadeIn: {
+			margin: "60px 0",
+		},
+		strength: {
+			fontSize: "1.8rem",
+			[theme.breakpoints.down("sm")]: {
+				fontSize: "1.35rem",
+			},
+			textAlign: "center",
+			padding: "1.2rem 0",
+		},
+		image: {
+			padding: "1.5rem",
+			width: "100%",
+			display: "block",
+		},
 	})
 );
 
@@ -45,29 +67,69 @@ function About() {
 
 	return (
 		<div className={classes.container}>
-			<ScrollAnimation
-				duration={0.5}
-				animateIn="fadeInUp"
-				// initiallyVisible={true}
-				animateOnce={true}
-			>
-				<div className={classes.headContainer}>
-					<Typography className={classes.headline}>
-						{about.headline}
-					</Typography>
-				</div>
-			</ScrollAnimation>
+			<div className={classes.headContainer}>
+				<Typography className={classes.headline}>
+					{about.headline}
+				</Typography>
+			</div>
 
-			{about.strengths.map((strength: string) => (
+			<Typography className={classes.strengthHead} color="textSecondary">
+				Strengths & Focus Areas
+			</Typography>
+			{about.strengths.map((strength: Strength, i: number) => (
 				<ScrollAnimation
+					key={i}
 					duration={0.5}
 					animateIn="fadeInUp"
-					// initiallyVisible={true}
 					animateOnce={true}
 				>
-					<div style={{ height: "200px" }}>
-						<Typography>{strength}</Typography>
-					</div>
+					<Paper className={classes.fadeIn} elevation={3}>
+						{i % 2 === 0 ? (
+							<Grid
+								container
+								justify="space-between"
+								alignItems="center"
+							>
+								<Grid item xs={12} md={8}>
+									<Typography
+										className={classes.strength}
+										color="textSecondary"
+									>
+										{strength.short}
+									</Typography>
+								</Grid>
+								<Grid item xs={12} md={4}>
+									<img
+										src={strength.image}
+										className={classes.image}
+										alt={strength.short}
+									/>
+								</Grid>
+							</Grid>
+						) : (
+							<Grid
+								container
+								justify="space-between"
+								alignItems="center"
+							>
+								<Grid item xs={12} md={4}>
+									<img
+										src={strength.image}
+										className={classes.image}
+										alt={strength.short}
+									/>
+								</Grid>
+								<Grid item xs={12} md={8}>
+									<Typography
+										className={classes.strength}
+										color="textSecondary"
+									>
+										{strength.short}
+									</Typography>
+								</Grid>
+							</Grid>
+						)}
+					</Paper>
 				</ScrollAnimation>
 			))}
 		</div>
