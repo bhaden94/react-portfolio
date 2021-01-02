@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import { AboutObj, AboutObject } from "../../infoObjects/AboutObj";
 import Typography from "@material-ui/core/Typography";
+import ScrollAnimation from "react-animate-on-scroll";
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -44,11 +45,31 @@ function About() {
 
 	return (
 		<div className={classes.container}>
-			<div className={classes.headContainer}>
-				<Typography className={classes.headline}>
-					{about.headline}
-				</Typography>
-			</div>
+			<ScrollAnimation
+				duration={0.5}
+				animateIn="fadeInUp"
+				// initiallyVisible={true}
+				animateOnce={true}
+			>
+				<div className={classes.headContainer}>
+					<Typography className={classes.headline}>
+						{about.headline}
+					</Typography>
+				</div>
+			</ScrollAnimation>
+
+			{about.strengths.map((strength: string) => (
+				<ScrollAnimation
+					duration={0.5}
+					animateIn="fadeInUp"
+					// initiallyVisible={true}
+					animateOnce={true}
+				>
+					<div style={{ height: "200px" }}>
+						<Typography>{strength}</Typography>
+					</div>
+				</ScrollAnimation>
+			))}
 		</div>
 	);
 }
