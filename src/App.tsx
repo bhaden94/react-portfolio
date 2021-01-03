@@ -13,6 +13,7 @@ import Experience from "./components/experience/Experience";
 import Education from "./components/education/Education";
 import About from "./components/about/About";
 import ReturnToTop from "./components/contact/ReturnToTop";
+import LandingPage from "./components/landing/LandingPage";
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -43,7 +44,7 @@ function App() {
 						id="top"
 						className={[classes.top, classes.section].join(" ")}
 					>
-						top
+						<LandingPage />
 					</div>
 
 					<div id="About" className={classes.section}>

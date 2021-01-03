@@ -30,8 +30,12 @@ function Skills() {
 
 	return (
 		<div>
-			{skills.map((skill: SkillsObj) => (
-				<Paper className={globalClasses.container} elevation={3}>
+			{skills.map((skill: SkillsObj, i: number) => (
+				<Paper
+					key={i}
+					className={globalClasses.container}
+					elevation={3}
+				>
 					<Typography
 						className={classes.title}
 						variant="h4"
@@ -42,8 +46,8 @@ function Skills() {
 					</Typography>
 
 					<div className={classes.skillContainer}>
-						{skill.tech.map((tech: any) => (
-							<div className={classes.tech}>
+						{skill.tech.map((tech: any, i: number) => (
+							<div key={i} className={classes.tech}>
 								<div className="icon-hover">{tech.icon}</div>
 								<Typography color="textSecondary">
 									{tech.name}

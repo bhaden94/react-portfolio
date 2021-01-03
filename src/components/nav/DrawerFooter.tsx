@@ -60,19 +60,17 @@ function DrawerFooter() {
 				justify="space-around"
 				alignItems="flex-start"
 			>
-				{contact.map((contactItem: ContactObj) => {
-					return (
-						<Grid item xs={3} justify="center">
-							<Link
-								href={contactItem.link}
-								target="_blank"
-								rel="noreferrer"
-							>
-								{contactItem.icon}
-							</Link>
-						</Grid>
-					);
-				})}
+				{contact.map((contactItem: ContactObj, i: number) => (
+					<Grid key={i} item xs={3}>
+						<Link
+							href={contactItem.link}
+							target="_blank"
+							rel="noreferrer"
+						>
+							{contactItem.icon}
+						</Link>
+					</Grid>
+				))}
 			</Grid>
 		</div>
 	);
