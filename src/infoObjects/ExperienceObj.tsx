@@ -25,8 +25,8 @@ const imageStyle = {
 export function ExperienceObject(): ExperienceObj[] {
 	return [
 		{
-			startDate: new Date(2020, 8, 0),
-			endDate: new Date(2020, 11, 0),
+			startDate: new Date(2020, 9, 0),
+			endDate: new Date(2020, 12, 0),
 			title: "Full Stack Software Engineer",
 			company: "LevelUP Code Works Software Factory",
 			bullets: [
@@ -40,7 +40,7 @@ export function ExperienceObject(): ExperienceObj[] {
 			media: <img src={Logo2} style={imageStyle} alt="company logo" />,
 		},
 		{
-			startDate: new Date(2018, 8, 0),
+			startDate: new Date(2018, 9, 0),
 			endDate: new Date(2021, 2, 5),
 			title: "Intelligence Analyst (Fusion Analyst)",
 			company: "United States Air Force",
@@ -52,8 +52,8 @@ export function ExperienceObject(): ExperienceObj[] {
 			media: <img src={Logo1} style={imageStyle} alt="company logo" />,
 		},
 		{
-			startDate: new Date(2014, 7, 0),
-			endDate: new Date(2018, 8, 0),
+			startDate: new Date(2014, 8, 0),
+			endDate: new Date(2018, 9, 0),
 			title: "Aerospace Maintenance Technician",
 			company: "United States Air Force",
 			bullets: [
