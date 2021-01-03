@@ -1,6 +1,6 @@
 import ui from "../images/about/browser.svg";
 import perf from "../images/about/performance.svg";
-import conv from "../images/about/conversation.svg";
+import resp from "../images/about/responsive-design.svg";
 
 export interface Strength {
 	short: string;
@@ -33,7 +33,7 @@ export function AboutObject(): AboutObj {
 				short: "Responsive Web Design",
 				long:
 					"Mobile phones and tablets are resposible for over half of internet usage. I take pride in making sites for all devices.",
-				image: conv,
+				image: resp,
 			},
 		],
 	};

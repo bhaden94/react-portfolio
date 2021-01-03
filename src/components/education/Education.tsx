@@ -4,25 +4,11 @@ import { Theme, makeStyles } from "@material-ui/core/styles";
 import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
 import { Typography } from "@material-ui/core";
+import { useGlobalStyles } from "../../theme/globalStyle";
 
 const useStyles = makeStyles((theme: Theme) => ({
 	container: {
 		padding: "1.2rem 1.2rem 0",
-		[theme.breakpoints.down("xl")]: {
-			margin: "50px 15%",
-		},
-		[theme.breakpoints.down("lg")]: {
-			margin: "50px 8%",
-		},
-		[theme.breakpoints.down("md")]: {
-			margin: "50px 5%",
-		},
-		[theme.breakpoints.down("sm")]: {
-			margin: "50px 24px",
-		},
-		[theme.breakpoints.down("xs")]: {
-			margin: "50px 24px",
-		},
 	},
 	title: {
 		fontSize: "1.5rem",
@@ -75,6 +61,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 function Education() {
 	const education: EducationObj[] = EducationObject();
 	const classes = useStyles();
+	const globalClasses = useGlobalStyles();
 
 	// if the dateCompleted is in the future then we add the word 'Expected' to the beginning
 	const formatDate = (date: Date): string => {
@@ -89,7 +76,13 @@ function Education() {
 	return (
 		<div>
 			{education.map((ed: EducationObj) => (
-				<Paper className={classes.container} elevation={3}>
+				<Paper
+					className={[
+						globalClasses.container,
+						classes.container,
+					].join(" ")}
+					elevation={3}
+				>
 					<Typography component="h4">
 						<Link
 							className={

@@ -5,26 +5,10 @@ import Typography from "@material-ui/core/Typography";
 import ScrollAnimation from "react-animate-on-scroll";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
+import { useGlobalStyles } from "../../theme/globalStyle";
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
-		container: {
-			[theme.breakpoints.down("xl")]: {
-				margin: "50px 15%",
-			},
-			[theme.breakpoints.down("lg")]: {
-				margin: "50px 8%",
-			},
-			[theme.breakpoints.down("md")]: {
-				margin: "50px 5%",
-			},
-			[theme.breakpoints.down("sm")]: {
-				margin: "50px 24px",
-			},
-			[theme.breakpoints.down("xs")]: {
-				margin: "50px 24px",
-			},
-		},
 		headline: {
 			fontSize: "2rem",
 			[theme.breakpoints.down("sm")]: {
@@ -90,10 +74,11 @@ const useStyles = makeStyles((theme: Theme) =>
 
 function About() {
 	const classes = useStyles();
+	const globalClasses = useGlobalStyles();
 	const about: AboutObj = AboutObject();
 
 	return (
-		<div className={classes.container}>
+		<div className={globalClasses.container}>
 			<div className={classes.headContainer}>
 				<Typography className={classes.headline}>
 					{about.headline}
