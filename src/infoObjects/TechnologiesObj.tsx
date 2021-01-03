@@ -21,7 +21,7 @@ import {
 	MaterialUi,
 	Nginx,
 	Html5,
-	Css3
+	Css3,
 } from "@icons-pack/react-simple-icons";
 
 export interface TechnologiesObj {
@@ -38,7 +38,10 @@ export interface TechnologiesObj {
 	This allows for you to make all icons the same color throughout your portfolio
 	if that is what you would like to do.
 */
-export function TechnologiesObject(size?: number, color?: string): TechnologiesObj {
+export function TechnologiesObject(
+	size?: number,
+	color?: string
+): TechnologiesObj {
 	return {
 		docker: <Docker color={color || "#2496ED"} size={size || 50} />,
 		spring: <Spring color={color || "#6DB33F"} size={size || 50} />,

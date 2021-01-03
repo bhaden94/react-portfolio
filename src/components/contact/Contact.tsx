@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		container: {
 			padding: "2% 5%",
+			position: "relative",
 		},
 		text: {
 			position: "relative",
