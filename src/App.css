@@ -27,6 +27,6 @@ a {
 /* handles desktop persistant sidebar and mobile drawer */
 @media only screen and (max-width: 959px) {
 	.App-header {
-	  margin-left: 0px;
+		margin-left: 0px;
 	}
-  }
+}

@@ -4,7 +4,6 @@ import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
 import Button from "@material-ui/core/Button";
 import { ContactObj, ContactObject } from "../../infoObjects/ContactObj";
-import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
