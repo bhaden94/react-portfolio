@@ -52,7 +52,7 @@ function DrawerItems({ toggleDrawer }: IDrawerItems) {
 
     return (
         <List disablePadding>
-            {NavObjects().map((listItem: NavObj, index: number) => (
+            {NavObjects().map((listItem: NavObj, i: number) => (
                 <Link
                     activeClass={classes.active}
                     to={listItem.text}
@@ -60,7 +60,7 @@ function DrawerItems({ toggleDrawer }: IDrawerItems) {
                     smooth={true}
                     offset={isDesktop ? 0 : -60}
                     duration={300}
-                    key={listItem.id}
+                    key={i}
                 >
                     <ListItem button className={classes.navItem} onClick={toggleDrawer} >
                         <ListItemIcon>{listItem.icon}</ListItemIcon>

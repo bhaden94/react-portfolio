@@ -12,6 +12,7 @@ import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import Experience from "./components/experience/Experience";
 import Education from "./components/education/Education";
 import About from "./components/about/About";
+import ReturnToTop from "./components/contact/ReturnToTop";
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -23,6 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		bottom: {
 			minHeight: "100vh",
+			position: "relative",
 		},
 	})
 );
@@ -75,6 +77,7 @@ function App() {
 					>
 						<Header text="Contact" />
 						<Contact />
+						<ReturnToTop />
 					</div>
 				</div>
 			</div>
