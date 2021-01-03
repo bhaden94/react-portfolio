@@ -44,11 +44,16 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		fadeIn: {
 			margin: "60px 0",
+			position: "relative",
+			"&:hover $overlay": {
+				bottom: 0,
+				height: "100%",
+			},
 		},
 		strength: {
-			fontSize: "1.8rem",
+			fontSize: "2rem",
 			[theme.breakpoints.down("sm")]: {
-				fontSize: "1.35rem",
+				fontSize: "1.5rem",
 			},
 			textAlign: "center",
 			padding: "1.2rem 0",
@@ -57,6 +62,24 @@ const useStyles = makeStyles((theme: Theme) =>
 			padding: "1.5rem",
 			width: "100%",
 			display: "block",
+		},
+		overlay: {
+			position: "absolute",
+			bottom: "100%",
+			left: 0,
+			right: 0,
+			backgroundColor: theme.palette.background.default,
+			overflow: "hidden",
+			width: "100%",
+			height: 0,
+			transition: ".5s ease",
+		},
+		overlayText: {
+			position: "absolute",
+			top: "50%",
+			left: "50%",
+			transform: "translate(-50%, -50%)",
+			textAlign: "center",
 		},
 	})
 );
@@ -73,7 +96,7 @@ function About() {
 				</Typography>
 			</div>
 
-			<Typography className={classes.strengthHead} color="textSecondary">
+			<Typography className={classes.strengthHead}>
 				Strengths & Focus Areas
 			</Typography>
 			{about.strengths.map((strength: Strength, i: number) => (
@@ -129,6 +152,14 @@ function About() {
 								</Grid>
 							</Grid>
 						)}
+						<Paper className={classes.overlay}>
+							<Typography
+								className={classes.overlayText}
+								color="textSecondary"
+							>
+								{strength.long}
+							</Typography>
+						</Paper>
 					</Paper>
 				</ScrollAnimation>
 			))}
