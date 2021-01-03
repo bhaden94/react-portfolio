@@ -72,7 +72,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			overflow: "hidden",
 			width: "100%",
 			height: 0,
-			transition: ".5s ease",
+			transition: ".4s ease",
 		},
 		overlayText: {
 			position: "absolute",
@@ -80,6 +80,10 @@ const useStyles = makeStyles((theme: Theme) =>
 			left: "50%",
 			transform: "translate(-50%, -50%)",
 			textAlign: "center",
+			fontSize: "2rem",
+			[theme.breakpoints.down("sm")]: {
+				fontSize: "1.5rem",
+			},
 		},
 	})
 );
@@ -152,6 +156,8 @@ function About() {
 								</Grid>
 							</Grid>
 						)}
+
+						{/* What is overlayed on hover */}
 						<Paper className={classes.overlay}>
 							<Typography
 								className={classes.overlayText}

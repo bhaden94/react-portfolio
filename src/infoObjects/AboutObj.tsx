@@ -21,17 +21,18 @@ export function AboutObject(): AboutObj {
 		strengths: [
 			{
 				short: "Beautifully Simplistic UI",
-				long: "Beautifully Simplistic UI",
+				long: "Less is more.",
 				image: ui,
 			},
 			{
 				short: "Performance Optimized Code",
-				long: "Performance Optimized Code",
+				long: "My code is efficient, fast, and organized.",
 				image: perf,
 			},
 			{
-				short: "Reliable & Continuous Communication",
-				long: "Reliable & Continuous Communication",
+				short: "Responsive Web Design",
+				long:
+					"Mobile phones and tablets are resposible for over half of internet usage. I take pride in making sites for all devices.",
 				image: conv,
 			},
 		],
