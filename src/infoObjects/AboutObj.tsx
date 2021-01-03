@@ -16,7 +16,7 @@ export interface AboutObj {
 export function AboutObject(): AboutObj {
 	return {
 		headline:
-			"I am Brady, a Full Stack Software Engineer and United States Air Force veteran " +
+			"Hello, I am a Full Stack Software Engineer and United States Air Force veteran " +
 			"passionate about making a difference through code!",
 		strengths: [
 			{
@@ -32,7 +32,7 @@ export function AboutObject(): AboutObj {
 			{
 				short: "Responsive Web Design",
 				long:
-					"Mobile phones and tablets are resposible for over half of internet usage. I take pride in making sites for all devices.",
+					"Over half of internet usage is from phones or tablets. I take pride in making sites for all devices.",
 				image: resp,
 			},
 		],
