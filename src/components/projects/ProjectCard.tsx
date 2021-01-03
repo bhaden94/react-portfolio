@@ -95,26 +95,29 @@ function ProjectCard({ project }: any) {
 							Accomplishments
 						</Typography>
 						<ul className={classes.bullets}>
-							{project.accomplishments.map((acc: string) => (
-								<li>{acc}</li>
-							))}
+							{project.accomplishments.map(
+								(acc: string, i: number) => (
+									<li key={i}>{acc}</li>
+								)
+							)}
 						</ul>
 					</div>
 					<Typography gutterBottom variant="h6" component="h4">
 						Technologies Used
 					</Typography>
 					{/* only allow first 9 technologies here so we dont overflow the card */}
-					{project.techUsed.slice(0, 9).map((tech: Icon) => {
-						return (
+					{project.techUsed
+						.slice(0, 9)
+						.map((tech: Icon, i: number) => (
 							<div
+								key={i}
 								className={["icon-hover", classes.icon].join(
 									" "
 								)}
 							>
 								{tech}
 							</div>
-						);
-					})}
+						))}
 				</CardContent>
 				<Actions flipCard={flipCard} flipBtn={<FlipToFrontIcon />} />
 			</Card>

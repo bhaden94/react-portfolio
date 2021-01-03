@@ -79,38 +79,37 @@ function Experience() {
 
 	return (
 		<VerticalTimeline className={classes.customTimeline} animate={false}>
-			{experience.map((job: ExperienceObj) => {
-				return (
-					<VerticalTimelineElement
-						className="vertical-timeline-element--work"
-						contentStyle={content}
-						contentArrowStyle={arrowStyle}
-						date={formatDate(job.startDate, job.endDate)}
-						iconStyle={iconStyle}
-						icon={job.media}
+			{experience.map((job: ExperienceObj, i: number) => (
+				<VerticalTimelineElement
+					key={i}
+					className="vertical-timeline-element--work"
+					contentStyle={content}
+					contentArrowStyle={arrowStyle}
+					date={formatDate(job.startDate, job.endDate)}
+					iconStyle={iconStyle}
+					icon={job.media}
+				>
+					<Typography
+						color="textPrimary"
+						variant="h3"
+						className={classes.title}
 					>
-						<Typography
-							color="textPrimary"
-							variant="h3"
-							className={classes.title}
-						>
-							{job.title}
-						</Typography>
-						<Typography
-							color="textPrimary"
-							variant="h4"
-							className={classes.company}
-						>
-							{job.company}
-						</Typography>
-						<ul className={classes.bullets}>
-							{job.bullets.map((bullet: string) => {
-								return <li>{bullet}</li>;
-							})}
-						</ul>
-					</VerticalTimelineElement>
-				);
-			})}
+						{job.title}
+					</Typography>
+					<Typography
+						color="textPrimary"
+						variant="h4"
+						className={classes.company}
+					>
+						{job.company}
+					</Typography>
+					<ul className={classes.bullets}>
+						{job.bullets.map((bullet: string, i: number) => (
+							<li key={i}>{bullet}</li>
+						))}
+					</ul>
+				</VerticalTimelineElement>
+			))}
 		</VerticalTimeline>
 	);
 }

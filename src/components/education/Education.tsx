@@ -75,8 +75,9 @@ function Education() {
 
 	return (
 		<div>
-			{education.map((ed: EducationObj) => (
+			{education.map((ed: EducationObj, i: number) => (
 				<Paper
+					key={i}
 					className={[
 						globalClasses.container,
 						classes.container,
@@ -105,8 +106,8 @@ function Education() {
 						{ed.degree}
 					</Typography>
 					<ul className={classes.bullets}>
-						{ed.bullets?.map((bullet: string) => (
-							<li>
+						{ed.bullets?.map((bullet: string, i: number) => (
+							<li key={i}>
 								<Typography color="textSecondary">
 									{bullet}
 								</Typography>

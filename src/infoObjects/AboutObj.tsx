@@ -9,14 +9,21 @@ export interface Strength {
 }
 
 export interface AboutObj {
+	name: string;
+	landingOpener: string[];
 	headline: string;
 	strengths: Strength[];
 }
 
 export function AboutObject(): AboutObj {
 	return {
+		name: "Brady Haden",
+		landingOpener: [
+			'"There\'s a way to do it better. Find it."',
+			"- Tomas A. Edison",
+		],
 		headline:
-			"Hello, I am a Full Stack Software Engineer and United States Air Force veteran " +
+			"Hi I am Brady, a Full Stack Software Engineer and United States Air Force veteran " +
 			"passionate about making a difference through code!",
 		strengths: [
 			{

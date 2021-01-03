@@ -18,7 +18,7 @@ function Projects() {
 				spacing={6}
 			>
 				{projects.map((project: ProjectObj, i: number) => (
-					<Grid key={i} item xs={12} sm={6} lg={4} justify="center">
+					<Grid key={i} item xs={12} sm={6} lg={4}>
 						<ProjectCard project={project} />
 					</Grid>
 				))}

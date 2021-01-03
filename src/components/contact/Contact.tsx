@@ -54,31 +54,29 @@ function Contact() {
 
 	return (
 		<Grid container direction="column" className={classes.container}>
-			{contact.map((contactInfo: ContactObj) => {
-				return (
-					<Grid item className={classes.item}>
-						<Button
-							href={contactInfo.link}
-							className={classes.button}
-							target="_blank"
-							rel="noreferrer"
-							variant="contained"
-							size="large"
-							color="primary"
-						>
-							{contactInfo.icon}
-						</Button>
-						<Link
-							className={classes.text}
-							href={contactInfo.link}
-							target="_blank"
-							rel="noreferrer"
-						>
-							{contactInfo.text}
-						</Link>
-					</Grid>
-				);
-			})}
+			{contact.map((contactInfo: ContactObj, i: number) => (
+				<Grid key={i} item className={classes.item}>
+					<Button
+						href={contactInfo.link}
+						className={classes.button}
+						target="_blank"
+						rel="noreferrer"
+						variant="contained"
+						size="large"
+						color="primary"
+					>
+						{contactInfo.icon}
+					</Button>
+					<Link
+						className={classes.text}
+						href={contactInfo.link}
+						target="_blank"
+						rel="noreferrer"
+					>
+						{contactInfo.text}
+					</Link>
+				</Grid>
+			))}
 		</Grid>
 	);
 }
