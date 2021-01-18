@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
+import { AboutObj, AboutObject } from "../../infoObjects/AboutObj";
 
 interface INameTitleHeader {
 	isDesktop: boolean;
@@ -25,18 +26,19 @@ export default function NameTitleHeader({ isDesktop }: INameTitleHeader) {
 		})
 	);
 	const classes = useStyles();
+	const about: AboutObj = AboutObject();
 
 	return (
 		<div className={classes.container}>
 			<Typography className={classes.name} color="primary" variant="h1">
-				Brady Haden
+				{about.name}
 			</Typography>
 			<Typography
 				className={classes.title}
 				color="textSecondary"
 				variant="h2"
 			>
-				Full Stack Software Engineer
+				{about.title}
 			</Typography>
 		</div>
 	);
