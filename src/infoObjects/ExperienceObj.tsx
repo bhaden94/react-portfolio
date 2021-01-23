@@ -1,3 +1,7 @@
+import {
+	TechnologiesObject,
+	TechnologiesObj,
+} from "../infoObjects/TechnologiesObj";
 import Logo1 from "../images/experience/af-logo.jpg";
 import Logo2 from "../images/experience/levelup-logo.png";
 
@@ -8,6 +12,8 @@ export interface ExperienceObj {
 	company: string;
 	bullets: string[];
 	media: any;
+	description?: string;
+	techUsed?: TechnologiesObj[];
 }
 
 const imageStyle = {
@@ -23,11 +29,13 @@ const imageStyle = {
     note: put the experience objects in the order they should appear on the page
 */
 export function ExperienceObject(): ExperienceObj[] {
+	const tech: TechnologiesObj = TechnologiesObject(35);
+
 	return [
 		{
 			startDate: new Date(2020, 9, 0),
 			endDate: new Date(2020, 12, 0),
-			title: "Full Stack Software Engineer",
+			title: "Full Stack Software Engineer Intern",
 			company: "LevelUP Code Works Software Factory",
 			bullets: [
 				"Wrote Java/Spring tests for application backend which increased code coverage by 65% and met agile milestone 1 week ahead of time",
@@ -38,6 +46,22 @@ export function ExperienceObject(): ExperienceObj[] {
 				"Modified Docker configuration to use Department of Defense hardened images for application frontend and backend to increase security",
 			],
 			media: <img src={Logo2} style={imageStyle} alt="company logo" />,
+			techUsed: [
+				tech.java,
+				tech.typescript,
+				tech.python,
+				tech.node,
+				tech.angular,
+				tech.spring,
+				tech.docker,
+				tech.gitlab,
+				tech.bootstrap,
+				tech.nginx,
+				tech.grafana,
+				tech.sonarqube,
+				tech.rancher,
+				tech.mattermost,
+			],
 		},
 		{
 			startDate: new Date(2018, 9, 0),
@@ -50,6 +74,7 @@ export function ExperienceObject(): ExperienceObj[] {
 				"Conducted bi-annual job performance, goal setting, and career growth counseling for 3 team members",
 			],
 			media: <img src={Logo1} style={imageStyle} alt="company logo" />,
+			description: "Produced/presented topical high-interest technical & operational intelligence briefings to leadership.",
 		},
 		{
 			startDate: new Date(2014, 8, 0),
@@ -62,6 +87,7 @@ export function ExperienceObject(): ExperienceObj[] {
 				"Responded to last minute pre-flight problem for critical Secretary of Defense mission; troubleshot and repaired C-17 cargo ramp that ensured on time take-off",
 			],
 			media: <img src={Logo1} style={imageStyle} alt="company logo" />,
+			description: "Specialized in troubleshooting, rigging, and repair of C-17 aircraft flight controls, landing gear, ramp & door. Crash recovery personnel.",
 		},
 	];
 }

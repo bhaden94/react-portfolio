@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { useTheme } from "@material-ui/core/styles";
+import { useTheme, Theme } from "@material-ui/core/styles";
 import {
 	VerticalTimeline,
 	VerticalTimelineElement,
@@ -11,8 +11,9 @@ import {
 	ExperienceObj,
 } from "../../infoObjects/ExperienceObj";
 import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
 	customTimeline: {
 		"&::before": {
 			background: theme.palette.primary.main,
@@ -24,7 +25,8 @@ const useStyles = makeStyles((theme) => ({
 	},
 	company: {
 		fontSize: "1.2rem !important",
-		margin: "0px !important",
+		margin: "0px 0px 10px !important",
+		padding: "10px 0",
 	},
 	bullets: {
 		listStyle: "inside",
@@ -33,6 +35,15 @@ const useStyles = makeStyles((theme) => ({
 		"& li": {
 			marginTop: "15px",
 			color: theme.palette.text.secondary,
+		},
+	},
+	desc: {
+		margin: "0px 0px 20px !important",
+	},
+	btn: {
+		display: "inline-block",
+		[theme.breakpoints.down(1170)]: {
+			float: "right",
 		},
 	},
 }));
@@ -103,11 +114,26 @@ function Experience() {
 					>
 						{job.company}
 					</Typography>
-					<ul className={classes.bullets}>
+					{job.description && (
+						<Typography
+							color="textSecondary"
+							className={classes.desc}
+						>
+							{job.description}
+						</Typography>
+					)}
+					<Button
+						variant="contained"
+						color="primary"
+						className={classes.btn}
+					>
+						Details
+					</Button>
+					{/* <ul className={classes.bullets}>
 						{job.bullets.map((bullet: string, i: number) => (
 							<li key={i}>{bullet}</li>
 						))}
-					</ul>
+					</ul> */}
 				</VerticalTimelineElement>
 			))}
 		</VerticalTimeline>

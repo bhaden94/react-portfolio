@@ -22,6 +22,8 @@ import {
 	Nginx,
 	Html5,
 	Css3,
+	Rancher,
+	Mattermost,
 } from "@icons-pack/react-simple-icons";
 
 export interface TechnologiesObj {
@@ -66,6 +68,8 @@ export function TechnologiesObject(
 		materialui: <MaterialUi color={color || "#0081CB"} size={size || 50} />,
 		html: <Html5 color={color || "#E34F26"} size={size || 50} />,
 		css: <Css3 color={color || "#1572B6"} size={size || 50} />,
+		rancher: <Rancher color={color || "#0075A8"} size={size || 50} />,
+		mattermost: <Mattermost color={color || "#0072C6"} size={size || 50} />
 		// get icons from https://simpleicons.org/
 	};
 }
