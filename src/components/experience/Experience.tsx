@@ -45,9 +45,12 @@ function Experience() {
 	const classes = useStyles();
 	const theme = useTheme();
 	const experience: ExperienceObj[] = ExperienceObject();
+	// open nd close state for experience details view
 	const [open, setOpen] = React.useState<boolean>(false);
+	// state to keep track of when job we are seeing more details for
 	const [currJob, setCurrJob] = React.useState<ExperienceObj>(experience[0]);
 
+	/* open and close dialog to see more for experience */
 	const handleDialogOpen = (i: number) => {
 		setCurrJob(experience[i]);
 		setOpen(true);
@@ -56,9 +59,12 @@ function Experience() {
 	const handleDialogClose = () => {
 		setOpen(false);
 	};
+	/* end open and close dialog functions */
 
-	// format the start and end dates of projects
-	// also checks if the end date is a string, like 'present' and uses that if it is
+	/* 
+		format the start and end dates of projects
+		also checks if the end date is a string, like 'present' and uses that if it is
+	*/
 	const formatDate = (start: Date, end: Date | string): string => {
 		const startDate: string = start.toLocaleDateString("default", {
 			month: "short",
@@ -76,6 +82,7 @@ function Experience() {
 		return `${startDate} - ${endDate}`;
 	};
 
+	/* Vertical timeline specific styles */
 	const content = {
 		background: theme.palette.background.paper,
 		color: theme.palette.primary.main,
@@ -91,6 +98,7 @@ function Experience() {
 		background: "#fff",
 		boxShadow: `none`,
 	};
+	/* end specific styles */
 
 	return (
 		<VerticalTimeline className={classes.customTimeline} animate={false}>
@@ -139,7 +147,6 @@ function Experience() {
 						open={open}
 						handleClose={handleDialogClose}
 					/>
-					
 				</VerticalTimelineElement>
 			))}
 		</VerticalTimeline>

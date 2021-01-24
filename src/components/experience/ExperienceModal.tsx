@@ -1,21 +1,15 @@
 import React from "react";
-import {
-	createStyles,
-	makeStyles,
-	Theme,
-	withStyles,
-	WithStyles,
-} from "@material-ui/core/styles";
+import { makeStyles, Theme } from "@material-ui/core/styles";
 import Dialog from "@material-ui/core/Dialog";
-import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
+import Collapse from "@material-ui/core/Collapse";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Slide from "@material-ui/core/Slide";
 import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import CloseIcon from "@material-ui/icons/Close";
 import { TransitionProps } from "@material-ui/core/transitions";
 import { ExperienceObj } from "../../infoObjects/ExperienceObj";
+import DialogTitle from "./DialogTitle";
 
 const Transition = React.forwardRef(function Transition(
 	props: TransitionProps & { children?: React.ReactElement<any, any> },
@@ -38,45 +32,26 @@ const useStyles = makeStyles((theme: Theme) => ({
 		display: "inline",
 		padding: "10px",
 	},
+	techHeader: {
+		paddingBottom: 5,
+		marginBottom: 15,
+		borderBottom: `solid ${theme.palette.text.secondary} 2px`,
+		transition: "all 250ms",
+		"&:hover": {
+			cursor: "pointer",
+		},
+	},
+	expandClose: {
+		float: "right",
+		transform: "rotate(0deg)",
+		transition: "all 250ms",
+	},
+	expandOpen: {
+		float: "right",
+		transform: "rotate(180deg)",
+		transition: "all 250ms",
+	},
 }));
-
-const styles = (theme: Theme) =>
-	createStyles({
-		root: {
-			margin: "0px 25px 0px 0px",
-			padding: theme.spacing(2),
-		},
-		closeButton: {
-			position: "absolute",
-			right: theme.spacing(1),
-			top: theme.spacing(1),
-			color: theme.palette.grey[500],
-		},
-	});
-
-interface DialogTitleProps extends WithStyles<typeof styles> {
-	id: string;
-	children: React.ReactNode;
-	onClose: () => void;
-}
-
-const DialogTitle = withStyles(styles)((props: DialogTitleProps) => {
-	const { children, classes, onClose, ...other } = props;
-	return (
-		<MuiDialogTitle disableTypography className={classes.root} {...other}>
-			<Typography variant="h6">{children}</Typography>
-			{onClose ? (
-				<IconButton
-					aria-label="close"
-					className={classes.closeButton}
-					onClick={onClose}
-				>
-					<CloseIcon />
-				</IconButton>
-			) : null}
-		</MuiDialogTitle>
-	);
-});
 
 interface IExperienceModal {
 	job: ExperienceObj;
@@ -86,6 +61,11 @@ interface IExperienceModal {
 
 function ExperienceModal({ job, open, handleClose }: IExperienceModal) {
 	const classes = useStyles();
+	const [expanded, setExpanded] = React.useState<boolean>(false);
+
+	const handleExpandClick = () => {
+		setExpanded(!expanded);
+	};
 
 	return (
 		<Dialog
@@ -96,13 +76,17 @@ function ExperienceModal({ job, open, handleClose }: IExperienceModal) {
 			aria-labelledby="alert-dialog-slide-title"
 			aria-describedby="alert-dialog-slide-description"
 		>
-			<DialogTitle id="customized-dialog-title" onClose={handleClose}>
+			<DialogTitle id="customized-dialog-title" handleClose={handleClose}>
 				{job.title}
 			</DialogTitle>
 			<DialogContent>
-				<div>
-					{job.techUsed &&
-						job.techUsed.map((tech: any, i: number) => (
+				{job.techUsed && (
+					<div>
+						<Typography variant="h6" className={classes.techHeader}>
+							Technology Used
+						</Typography>
+
+						{job.techUsed.map((tech: any, i: number) => (
 							<div
 								key={i}
 								className={["icon-hover", classes.icon].join(
@@ -112,13 +96,32 @@ function ExperienceModal({ job, open, handleClose }: IExperienceModal) {
 								{tech}
 							</div>
 						))}
-				</div>
+					</div>
+				)}
 				<DialogContentText id="alert-dialog-slide-description">
-					<ul className={classes.bullets}>
-						{job.bullets.map((bullet: string, i: number) => (
-							<li key={i}>{bullet}</li>
-						))}
-					</ul>
+					<Typography
+						variant="h6"
+						color="textPrimary"
+						className={classes.techHeader}
+						onClick={handleExpandClick}
+					>
+						Accomplishments
+						<ExpandMoreIcon
+							className={
+								expanded
+									? classes.expandOpen
+									: classes.expandClose
+							}
+							fontSize="large"
+						/>
+					</Typography>
+					<Collapse in={expanded} timeout="auto" unmountOnExit>
+						<ul className={classes.bullets}>
+							{job.bullets.map((bullet: string, i: number) => (
+								<li key={i}>{bullet}</li>
+							))}
+						</ul>
+					</Collapse>
 				</DialogContentText>
 			</DialogContent>
 		</Dialog>
