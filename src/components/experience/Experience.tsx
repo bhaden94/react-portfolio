@@ -12,6 +12,7 @@ import {
 } from "../../infoObjects/ExperienceObj";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
+import ExperienceModal from "./ExperienceModal";
 
 const useStyles = makeStyles((theme: Theme) => ({
 	customTimeline: {
@@ -28,15 +29,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 		margin: "0px 0px 10px !important",
 		padding: "10px 0",
 	},
-	bullets: {
-		listStyle: "inside",
-		padding: 0,
-		fontSize: "1rem",
-		"& li": {
-			marginTop: "15px",
-			color: theme.palette.text.secondary,
-		},
-	},
+
 	desc: {
 		margin: "0px 0px 20px !important",
 	},
@@ -52,6 +45,17 @@ function Experience() {
 	const classes = useStyles();
 	const theme = useTheme();
 	const experience: ExperienceObj[] = ExperienceObject();
+	const [open, setOpen] = React.useState<boolean>(false);
+	const [currJob, setCurrJob] = React.useState<ExperienceObj>(experience[0]);
+
+	const handleDialogOpen = (i: number) => {
+		setCurrJob(experience[i]);
+		setOpen(true);
+	};
+
+	const handleDialogClose = () => {
+		setOpen(false);
+	};
 
 	// format the start and end dates of projects
 	// also checks if the end date is a string, like 'present' and uses that if it is
@@ -126,14 +130,16 @@ function Experience() {
 						variant="contained"
 						color="primary"
 						className={classes.btn}
+						onClick={() => handleDialogOpen(i)}
 					>
 						Details
 					</Button>
-					{/* <ul className={classes.bullets}>
-						{job.bullets.map((bullet: string, i: number) => (
-							<li key={i}>{bullet}</li>
-						))}
-					</ul> */}
+					<ExperienceModal
+						job={currJob}
+						open={open}
+						handleClose={handleDialogClose}
+					/>
+					
 				</VerticalTimelineElement>
 			))}
 		</VerticalTimeline>
