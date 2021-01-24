@@ -63,6 +63,12 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, theme }) => {
 							? grey[200]
 							: blueGrey[800],
 				},
+				text: {
+					secondary:
+						themeOptions.paletteType === "light"
+							? "rgba(0, 0, 0, 0.75)"
+							: "rgba(255, 255, 255, 0.75)",
+				},
 			},
 		});
 	}, [theme, themeOptions.paletteType]);
