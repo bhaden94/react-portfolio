@@ -2,7 +2,6 @@ import React from "react";
 import { makeStyles, Theme } from "@material-ui/core/styles";
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
 import Collapse from "@material-ui/core/Collapse";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Slide from "@material-ui/core/Slide";
@@ -51,6 +50,9 @@ const useStyles = makeStyles((theme: Theme) => ({
 		transform: "rotate(180deg)",
 		transition: "all 250ms",
 	},
+	spaceBot: {
+		marginBottom: 20,
+	},
 }));
 
 interface IExperienceModal {
@@ -81,11 +83,10 @@ function ExperienceModal({ job, open, handleClose }: IExperienceModal) {
 			</DialogTitle>
 			<DialogContent>
 				{job.techUsed && (
-					<div>
+					<div className={classes.spaceBot}>
 						<Typography variant="h6" className={classes.techHeader}>
 							Technology Used
 						</Typography>
-
 						{job.techUsed.map((tech: any, i: number) => (
 							<div
 								key={i}
@@ -98,31 +99,27 @@ function ExperienceModal({ job, open, handleClose }: IExperienceModal) {
 						))}
 					</div>
 				)}
-				<DialogContentText id="alert-dialog-slide-description">
-					<Typography
-						variant="h6"
-						color="textPrimary"
-						className={classes.techHeader}
-						onClick={handleExpandClick}
-					>
-						Accomplishments
-						<ExpandMoreIcon
-							className={
-								expanded
-									? classes.expandOpen
-									: classes.expandClose
-							}
-							fontSize="large"
-						/>
-					</Typography>
-					<Collapse in={expanded} timeout="auto" unmountOnExit>
-						<ul className={classes.bullets}>
-							{job.bullets.map((bullet: string, i: number) => (
-								<li key={i}>{bullet}</li>
-							))}
-						</ul>
-					</Collapse>
-				</DialogContentText>
+				<Typography
+					variant="h6"
+					color="textPrimary"
+					className={classes.techHeader}
+					onClick={handleExpandClick}
+				>
+					Accomplishments
+					<ExpandMoreIcon
+						className={
+							expanded ? classes.expandOpen : classes.expandClose
+						}
+						fontSize="large"
+					/>
+				</Typography>
+				<Collapse in={expanded} timeout="auto" unmountOnExit>
+					<ul className={classes.bullets}>
+						{job.bullets.map((bullet: string, i: number) => (
+							<li key={i}>{bullet}</li>
+						))}
+					</ul>
+				</Collapse>
 			</DialogContent>
 		</Dialog>
 	);
