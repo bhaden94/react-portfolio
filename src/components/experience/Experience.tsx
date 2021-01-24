@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { useTheme } from "@material-ui/core/styles";
+import { useTheme, Theme } from "@material-ui/core/styles";
 import {
 	VerticalTimeline,
 	VerticalTimelineElement,
@@ -11,8 +11,10 @@ import {
 	ExperienceObj,
 } from "../../infoObjects/ExperienceObj";
 import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import ExperienceModal from "./ExperienceModal";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
 	customTimeline: {
 		"&::before": {
 			background: theme.palette.primary.main,
@@ -24,15 +26,17 @@ const useStyles = makeStyles((theme) => ({
 	},
 	company: {
 		fontSize: "1.2rem !important",
-		margin: "0px !important",
+		margin: "0px 0px 10px !important",
+		padding: "10px 0",
 	},
-	bullets: {
-		listStyle: "inside",
-		padding: 0,
-		fontSize: "1rem",
-		"& li": {
-			marginTop: "15px",
-			color: theme.palette.text.secondary,
+
+	desc: {
+		margin: "0px 0px 20px !important",
+	},
+	btn: {
+		display: "inline-block",
+		[theme.breakpoints.down(1170)]: {
+			float: "right",
 		},
 	},
 }));
@@ -41,9 +45,26 @@ function Experience() {
 	const classes = useStyles();
 	const theme = useTheme();
 	const experience: ExperienceObj[] = ExperienceObject();
+	// open nd close state for experience details view
+	const [open, setOpen] = React.useState<boolean>(false);
+	// state to keep track of when job we are seeing more details for
+	const [currJob, setCurrJob] = React.useState<ExperienceObj>(experience[0]);
 
-	// format the start and end dates of projects
-	// also checks if the end date is a string, like 'present' and uses that if it is
+	/* open and close dialog to see more for experience */
+	const handleDialogOpen = (i: number) => {
+		setCurrJob(experience[i]);
+		setOpen(true);
+	};
+
+	const handleDialogClose = () => {
+		setOpen(false);
+	};
+	/* end open and close dialog functions */
+
+	/* 
+		format the start and end dates of projects
+		also checks if the end date is a string, like 'present' and uses that if it is
+	*/
 	const formatDate = (start: Date, end: Date | string): string => {
 		const startDate: string = start.toLocaleDateString("default", {
 			month: "short",
@@ -61,6 +82,7 @@ function Experience() {
 		return `${startDate} - ${endDate}`;
 	};
 
+	/* Vertical timeline specific styles */
 	const content = {
 		background: theme.palette.background.paper,
 		color: theme.palette.primary.main,
@@ -76,6 +98,7 @@ function Experience() {
 		background: "#fff",
 		boxShadow: `none`,
 	};
+	/* end specific styles */
 
 	return (
 		<VerticalTimeline className={classes.customTimeline} animate={false}>
@@ -103,11 +126,27 @@ function Experience() {
 					>
 						{job.company}
 					</Typography>
-					<ul className={classes.bullets}>
-						{job.bullets.map((bullet: string, i: number) => (
-							<li key={i}>{bullet}</li>
-						))}
-					</ul>
+					{job.description && (
+						<Typography
+							color="textSecondary"
+							className={classes.desc}
+						>
+							{job.description}
+						</Typography>
+					)}
+					<Button
+						variant="contained"
+						color="primary"
+						className={classes.btn}
+						onClick={() => handleDialogOpen(i)}
+					>
+						Details
+					</Button>
+					<ExperienceModal
+						job={currJob}
+						open={open}
+						handleClose={handleDialogClose}
+					/>
 				</VerticalTimelineElement>
 			))}
 		</VerticalTimeline>
