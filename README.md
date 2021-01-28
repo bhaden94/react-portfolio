@@ -29,18 +29,6 @@
   </p>
 </p>
 
-<!-- TABLE OF CONTENTS -->
-
-## Table of Contents
-
--   [Built With](#built-with)
--   [Getting Started](#getting-started)
--   [Roadmap](#roadmap)
--   [Contributing](#contributing)
--   [License](#license)
--   [Contact](#contact)
--   [Acknowledgements](#acknowledgements)
-
 ## Built With
 
 -   [Create React App](https://create-react-app.dev/)
