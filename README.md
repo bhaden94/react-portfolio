@@ -73,7 +73,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Brady Haden - [LinkedIn](https://www.linkedin.com/in/brady-s-haden/)
+Brady Haden - [LinkedIn](https://www.linkedin.com/in/brady-haden/)
 
 <!-- ACKNOWLEDGEMENTS -->
 
