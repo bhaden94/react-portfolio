@@ -4,6 +4,8 @@ import {
 } from "../infoObjects/TechnologiesObj";
 import Logo1 from "../images/experience/af-logo.jpg";
 import Logo2 from "../images/experience/levelup-logo.png";
+import Logo3 from "../images/experience/JD-logo.png";
+import Logo4 from "../images/experience/microsoft-logo.jpg";
 
 export interface ExperienceObj {
 	startDate: Date;
@@ -32,6 +34,33 @@ export function ExperienceObject(): ExperienceObj[] {
 	const tech: TechnologiesObj = TechnologiesObject(35);
 
 	return [
+		{
+			startDate: new Date(2021, 3, 0),
+			endDate: "Present",
+			title: "Software Engineer",
+			company: "Microsoft",
+			bullets: ["To be determined..."],
+			media: <img src={Logo4} style={imageStyle} alt="company logo" />,
+			techUsed: [tech.azure, tech.postgresql, tech.mysql],
+		},
+		{
+			startDate: new Date(2021, 1, 0),
+			endDate: new Date(2021, 3, 0),
+			title: "Cloud Software Engineer Intern",
+			company: "John Deere",
+			bullets: [
+				"Designed and deployed automated aggregation for AWS indexes that summarized timeframes of data",
+				"Created documentation on how teams could utilize machine learning algorithms to alert when anomalous data is found in real time",
+			],
+			media: <img src={Logo3} style={imageStyle} alt="company logo" />,
+			techUsed: [
+				tech.aws,
+				tech.python,
+				tech.kibana,
+				tech.elasticsearch,
+				tech.github,
+			],
+		},
 		{
 			startDate: new Date(2020, 9, 0),
 			endDate: new Date(2020, 12, 0),
@@ -74,7 +103,8 @@ export function ExperienceObject(): ExperienceObj[] {
 				"Conducted bi-annual job performance, goal setting, and career growth counseling for 3 team members",
 			],
 			media: <img src={Logo1} style={imageStyle} alt="company logo" />,
-			description: "Produced/presented topical high-interest technical & operational intelligence briefings to leadership.",
+			description:
+				"Produced/presented topical high-interest technical & operational intelligence briefings to leadership.",
 		},
 		{
 			startDate: new Date(2014, 8, 0),
@@ -87,7 +117,8 @@ export function ExperienceObject(): ExperienceObj[] {
 				"Responded to last minute pre-flight problem for critical Secretary of Defense mission; troubleshot and repaired C-17 cargo ramp that ensured on time take-off",
 			],
 			media: <img src={Logo1} style={imageStyle} alt="company logo" />,
-			description: "Specialized in troubleshooting, rigging, and repair of C-17 aircraft flight controls, landing gear, ramp & door. Crash recovery personnel.",
+			description:
+				"Specialized in troubleshooting, rigging, and repair of C-17 aircraft flight controls, landing gear, ramp & door. Crash recovery personnel.",
 		},
 	];
 }
