@@ -29,6 +29,7 @@ import {
 	Kibana,
 	Elasticsearch,
 	Microsoftazure,
+	Csharp,
 } from "@icons-pack/react-simple-icons";
 
 export interface TechnologiesObj {
@@ -80,6 +81,7 @@ export function TechnologiesObject(
 		kibana: <Kibana color={color || "#005571"} size={size || 50} />,
 		elasticsearch: <Elasticsearch color={color || "#005571"} size={size || 50} />,
 		azure: <Microsoftazure color={color || "#0089D6"} size={size || 50} />,
+		csharp: <Csharp color={color || "#239120"} size={size || 50} />,
 		// get icons from https://simpleicons.org/
 	};
 }

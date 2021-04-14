@@ -41,7 +41,7 @@ export function ExperienceObject(): ExperienceObj[] {
 			company: "Microsoft",
 			bullets: ["To be determined..."],
 			media: <img src={Logo4} style={imageStyle} alt="company logo" />,
-			techUsed: [tech.azure, tech.postgresql, tech.mysql],
+			techUsed: [tech.azure, tech.postgresql, tech.mysql, tech.csharp],
 		},
 		{
 			startDate: new Date(2021, 1, 0),
