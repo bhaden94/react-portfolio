@@ -1,7 +1,6 @@
 import { PropTypes } from "@material-ui/core";
 import { blueGrey, grey, teal, amber } from "@material-ui/core/colors";
 
-
 interface ThemeObj2 {
 	primary: string | PropTypes.Color;
 	secondary: string | PropTypes.Color;
@@ -17,6 +16,15 @@ export interface ThemeObj {
 	dark: ThemeObj2;
 }
 
+/*
+	This is used to set custom colors for your portfolios 
+	light/dark mode.
+
+	Any valid CSS value will work here
+		Ex: "#9c27b0", "purple", "rgb(156,39,176, 1)"
+	Or you may import and use Materil-UI colors as in the example
+		https://material-ui.com/customization/color/
+*/
 export function ThemeObjects(): ThemeObj {
 	return {
 		light: {

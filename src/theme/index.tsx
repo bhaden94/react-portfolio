@@ -6,7 +6,7 @@ import {
 } from "@material-ui/core/styles";
 
 import { useTheme } from "@material-ui/core/styles";
-import { blueGrey, grey, teal, amber } from "@material-ui/core/colors";
+import { ThemeObj, ThemeObjects } from "../infoObjects/ThemeObj";
 
 interface ThemeProviderProps {
 	children: React.ReactNode;
@@ -37,6 +37,8 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, theme }) => {
 	);
 
 	const memoizedTheme = React.useMemo(() => {
+		const colors: ThemeObj = ThemeObjects();
+
 		return createMuiTheme({
 			...theme,
 			palette: {
@@ -44,30 +46,30 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, theme }) => {
 				primary: {
 					main:
 						themeOptions.paletteType === "light"
-							? teal[900]
-							: teal[500],
+							? colors.light.primary
+							: colors.dark.primary,
 				},
 				secondary: {
 					main:
 						themeOptions.paletteType === "light"
-							? amber[600]
-							: amber[800],
+							? colors.light.secondary
+							: colors.dark.secondary,
 				},
 				background: {
 					paper:
 						themeOptions.paletteType === "light"
-							? grey[50]
-							: blueGrey[900],
+							? colors.light.background.paper
+							: colors.dark.background.paper,
 					default:
 						themeOptions.paletteType === "light"
-							? grey[200]
-							: blueGrey[800],
+							? colors.light.background.default
+							: colors.dark.background.default,
 				},
 				text: {
 					secondary:
 						themeOptions.paletteType === "light"
-							? "rgba(0, 0, 0, 0.75)"
-							: "rgba(255, 255, 255, 0.75)",
+							? colors.light.text
+							: colors.dark.text,
 				},
 			},
 		});
