@@ -8,7 +8,10 @@ interface ThemeObj2 {
 		paper: string | PropTypes.Color;
 		default: string | PropTypes.Color;
 	};
-	text: string | PropTypes.Color;
+	text: {
+		primary: string | PropTypes.Color;
+		secondary: string | PropTypes.Color;
+	};
 }
 
 export interface ThemeObj {
@@ -34,7 +37,10 @@ export function ThemeObjects(): ThemeObj {
 				paper: grey[50],
 				default: grey[200],
 			},
-			text: "rgba(0, 0, 0, 0.75)",
+			text: {
+				primary: "rgba(0, 0, 0, 0.87);",
+				secondary: "rgba(0, 0, 0, 0.75)",
+			},
 		},
 		dark: {
 			primary: teal[500],
@@ -43,7 +49,10 @@ export function ThemeObjects(): ThemeObj {
 				paper: blueGrey[900],
 				default: blueGrey[800],
 			},
-			text: "rgba(255, 255, 255, 0.75)",
+			text: {
+				primary: "#fff",
+				secondary: "rgba(255, 255, 255, 0.75)",
+			},
 		},
 	};
 }

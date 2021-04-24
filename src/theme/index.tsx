@@ -66,10 +66,14 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, theme }) => {
 							: colors.dark.background.default,
 				},
 				text: {
+					primary:
+						themeOptions.paletteType === "light"
+							? colors.light.text.primary
+							: colors.dark.text.primary,
 					secondary:
 						themeOptions.paletteType === "light"
-							? colors.light.text
-							: colors.dark.text,
+							? colors.light.text.secondary
+							: colors.dark.text.secondary,
 				},
 			},
 		});
