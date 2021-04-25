@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { EducationObject, EducationObj } from "../../infoObjects/EducationObj";
 import Education from "./Education";
+import { formatDate } from "./formatDate";
 
 beforeEach(() => {
 	render(<Education />);
@@ -20,4 +21,28 @@ it("renders Education component with degree names", () => {
 	);
 });
 
-// add tests for if bullets, school link, and date finished are there
+it("formatDate shows expected string for future date", () => {
+	const futureDate: Date = new Date();
+	futureDate.setDate(futureDate.getDate() + 1);
+	const formatted: string = formatDate(futureDate);
+	const shouldEqual: string =
+		"Expected " +
+		futureDate.toLocaleDateString("default", {
+			month: "long",
+			year: "numeric",
+		});
+
+	expect(formatted).toEqual(shouldEqual);
+});
+
+it("formatDate shows expected string for past date", () => {
+	const futureDate: Date = new Date();
+	futureDate.setDate(futureDate.getDate() - 1);
+	const formatted: string = formatDate(futureDate);
+	const shouldEqual: string = futureDate.toLocaleDateString("default", {
+		month: "long",
+		year: "numeric",
+	});
+
+	expect(formatted).toEqual(shouldEqual);
+});
