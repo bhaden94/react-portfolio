@@ -44,7 +44,7 @@ function App() {
 					</div>
 
 					{NavObjects().map((listItem: NavObj, i: number) => (
-						<div id={listItem.text} className={classes.section}>
+						<div id={listItem.text} key={i} className={classes.section}>
 							<Header text={listItem.text} />
 							{listItem.section}
 						</div>
