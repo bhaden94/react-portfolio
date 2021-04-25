@@ -11,6 +11,7 @@ import {
 } from "@material-ui/core/styles";
 import { NavObjects, NavObj } from "../../infoObjects/NavObj";
 import Typography from "@material-ui/core/Typography";
+import MailIcon from "@material-ui/icons/Mail";
 import { Link } from "react-scroll";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
@@ -46,6 +47,9 @@ const useStyles = makeStyles((theme: Theme) =>
 			"& p": {
 				color: theme.palette.text.primary,
 			},
+		},
+		icon: {
+			color: theme.palette.primary.main,
 		},
 	})
 );
@@ -84,6 +88,32 @@ function DrawerItems({ toggleDrawer }: IDrawerItems) {
 					</ListItem>
 				</Link>
 			))}
+			<Link
+				activeClass={classes.active}
+				to={"Contact"}
+				spy={true}
+				smooth={true}
+				offset={isDesktop ? 0 : -60}
+				duration={300}
+			>
+				<ListItem
+					button
+					className={classes.navItem}
+					onClick={toggleDrawer}
+				>
+					<ListItemIcon>
+						<MailIcon className={classes.icon} />
+					</ListItemIcon>
+					<ListItemText
+						disableTypography
+						primary={
+							<Typography color="textSecondary">
+								Contact
+							</Typography>
+						}
+					/>
+				</ListItem>
+			</Link>
 		</List>
 	);
 }
