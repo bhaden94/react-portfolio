@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		image: {
 			padding: "1.5rem",
+			maxHeight: "400px",
 			width: "100%",
 			display: "block",
 		},
