@@ -19,3 +19,5 @@ it("renders Education component with degree names", () => {
 		expect(screen.getByText(ed.degree)).toBeInTheDocument()
 	);
 });
+
+// add tests for if bullets, school link, and date finished are there
