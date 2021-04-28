@@ -1,17 +1,28 @@
-import { render, within } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import ThemeSwitcher from "./ThemeSwitcher";
+import { createMount } from "@material-ui/core/test-utils";
+import { MockLightTheme, MockDarkTheme } from "../../testingUtils/MockTheme";
 
-it.only("renders ThemeSwitcher component with light theme", () => {
-	const {debug} = render(<ThemeSwitcher />);
-
-	debug()
-    const { getByTestId } = render(<ThemeSwitcher />);
-   expect(getByTestId).toBe(3);
+beforeAll(() => {
+	createMount();
 });
 
-// it("renders ThemeSwitcher component with dark theme", () => {
-// 	themeMode = "dark";
-// 	const wrapper = render(<ThemeSwitcher />);
+it("renders ThemeSwitcher with light theme", () => {
+	render(
+		<MockLightTheme>
+			<ThemeSwitcher />
+		</MockLightTheme>
+	);
 
-// 	expect(wrapper.find("Brightness4Icon")).toBeTruthy();
-// });
+	expect(screen.getByTestId("light")).toBeInTheDocument();
+});
+
+it("renders ThemeSwitcher with dark theme", () => {
+	render(
+		<MockDarkTheme>
+			<ThemeSwitcher />
+		</MockDarkTheme>
+	);
+
+	expect(screen.getByTestId("dark")).toBeInTheDocument();
+});
