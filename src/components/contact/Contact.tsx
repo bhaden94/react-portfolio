@@ -64,6 +64,7 @@ function Contact() {
 						variant="contained"
 						size="large"
 						color="primary"
+						data-testid={`icon-btn${i}`}
 					>
 						{contactInfo.icon}
 					</Button>
