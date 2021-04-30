@@ -36,7 +36,10 @@ function ReturnToTop() {
 
 	return (
 		<Link to={"top"} smooth={true} duration={500}>
-			<div className={classes.returnTopContainer}>
+			<div
+				className={classes.returnTopContainer}
+				data-testid="scroll-to-top"
+			>
 				<ArrowUpwardIcon
 					className={classes.returnTop}
 					fontSize="large"
