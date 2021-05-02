@@ -1,0 +1,8 @@
+<svg>
+    <circle cy="70" r="50" fill="#9e9e9e" />
+    <circle cx="-15" cy="50" r="10" fill="#cacaca" />
+    <circle cx="25" cy="60" r="10" fill="#cacaca"
+        stroke="#000"
+        stroke-width="10"
+        stroke-opacity="50%" />
+</svg>
