@@ -43,6 +43,7 @@ const useStyles = makeStyles((theme: Theme) =>
 		"@keyframes up": {
 			"0%": {
 				transform: "translateY(75vh)",
+				opacity: "0",
 			},
 			"100%": {
 				transform: "translateY(0)",
@@ -54,7 +55,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			},
 			"100%": {
 				transform: "translateY(75vh)",
-				opacity: "0"
+				opacity: "0",
 			},
 		},
 		celestial: {
