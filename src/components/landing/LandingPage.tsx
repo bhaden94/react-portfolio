@@ -1,14 +1,7 @@
-import { useEffect, useState } from "react";
-import {
-	makeStyles,
-	Theme,
-	createStyles,
-	useTheme,
-} from "@material-ui/core/styles";
+import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import { AboutObj, AboutObject } from "../../infoObjects/AboutObj";
 import Typography from "@material-ui/core/Typography";
-import { ReactComponent as Moon } from "../../images/landing/moon.svg";
-import { ReactComponent as Sun } from "../../images/landing/sun.svg";
+import SvgBackground from "./SvgBackground";
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -29,7 +22,9 @@ const useStyles = makeStyles((theme: Theme) =>
 			},
 		},
 		text: {
+			position: "relative",
 			fontSize: "4rem",
+			zIndex: 2,
 			[theme.breakpoints.down("md")]: {
 				fontSize: "3rem",
 			},
@@ -40,88 +35,18 @@ const useStyles = makeStyles((theme: Theme) =>
 				fontSize: "2rem",
 			},
 		},
-		"@keyframes up": {
-			"0%": {
-				transform: "translateY(75vh)",
-				opacity: "0",
-			},
-			"100%": {
-				transform: "translateY(0)",
-			},
-		},
-		"@keyframes down": {
-			"0%": {
-				transform: "translateY(0)",
-			},
-			"100%": {
-				transform: "translateY(75vh)",
-				opacity: "0",
-			},
-		},
-		celestial: {
-			[theme.breakpoints.down("xs")]: {
-				top: "150px",
-				right: 0,
-			},
-			top: "170px",
-			right: "15%",
-			position: "absolute",
-			overflow: "visible",
-			width: "80px",
-			zIndex: -50,
-		},
-		up: {
-			animation: "$up 2s ease-in-out both",
-		},
-		down: {
-			animation: "$down 1s ease-in-out both",
-		},
 	})
 );
-
-// keeps track of render count so we can not animate the sun/mmon on first render
-// but animate them on all other renders
-let renderCount: number = 0;
 
 function LandingPage() {
 	const classes = useStyles();
 	const about: AboutObj = AboutObject();
-	const theme: Theme = useTheme();
-	const [sunUp, setSunUp] = useState<boolean>(theme.palette.type === "light");
-
-	useEffect(() => {
-		setSunUp(theme.palette.type === "light");
-	}, [theme.palette.type]);
 
 	return (
 		<div className={classes.container}>
-			<div>
-				{renderCount++ === 1 ? (
-					theme.palette.type === "light" ? (
-						<Sun className={classes.celestial} />
-					) : (
-						<Moon className={classes.celestial} />
-					)
-				) : (
-					<>
-						<Sun
-							className={[
-								classes.celestial,
-								sunUp ? classes.up : classes.down,
-							].join(" ")}
-						/>
-
-						<Moon
-							className={[
-								classes.celestial,
-								sunUp ? classes.down : classes.up,
-							].join(" ")}
-						/>
-					</>
-				)}
-			</div>
+			<SvgBackground />
 			<div className={classes.textContainer}>
-				{about.landingOpener.map((str: string, i: number) => (
+				{about.landingOpener?.map((str: string, i: number) => (
 					<Typography key={i} variant="h2" className={classes.text}>
 						{str}
 					</Typography>
