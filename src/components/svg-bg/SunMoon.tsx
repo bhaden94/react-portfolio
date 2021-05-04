@@ -7,7 +7,6 @@ import {
 } from "@material-ui/core/styles";
 import { ReactComponent as Moon } from "../../images/landing/Moon.svg";
 import { ReactComponent as Sun } from "../../images/landing/Sun.svg";
-import Mountains from "../../images/landing/Flat-Mountains.svg";
 import { useChangeTheme } from "../../theme";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -31,6 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			"100%": {
 				transform: "translateY(75vh)",
 				opacity: "0",
+				cursor: "default",
 			},
 		},
 		celestial: {
@@ -41,8 +41,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			top: "170px",
 			right: "15%",
 			position: "absolute",
-			overflow: "visible",
-			width: "80px",
+			cursor: "pointer",
 		},
 		up: {
 			animation: "$up 1.5s ease-in-out both",
@@ -50,19 +49,14 @@ const useStyles = makeStyles((theme: Theme) =>
 		down: {
 			animation: "$down .75s ease-in-out both",
 		},
-        bg: {
-            backgroundImage: `url(${Mountains})`,
-            height: 1000,
-            backgroundSize: "cover",
-        }
 	})
 );
 
-// keeps track of render count so we can not animate the sun/mmon on first render
+// keeps track of render count so we do not animate the sun/moon on first render
 // but animate them on all other renders
 let renderCount: number = 0;
 
-function SvgBackground() {
+function SunMoon() {
 	const classes = useStyles();
 	const changeTheme = useChangeTheme();
 	const theme: Theme = useTheme();
@@ -72,15 +66,11 @@ function SvgBackground() {
 		setSunUp(theme.palette.type === "light");
 	}, [theme.palette.type]);
 
-	return (
-		<div>
-			{renderCount++ === 1 ? (
-				theme.palette.type === "light" ? (
-					<Sun className={classes.celestial} onClick={changeTheme} />
-				) : (
-					<Moon className={classes.celestial} onClick={changeTheme} />
-				)
-			) : (
+	// on first render we do not animate
+	// on all subsequent renders (meaning anytime the theme is switched) we will animate
+	const sunMoonRender = (animate: boolean) => {
+		if (animate) {
+			return (
 				<>
 					<Sun
 						className={[
@@ -98,10 +88,17 @@ function SvgBackground() {
 						onClick={changeTheme}
 					/>
 				</>
-			)}
-            {/* <div className={classes.bg} /> */}
-		</div>
-	);
+			);
+		} else {
+			return sunUp ? (
+				<Sun className={classes.celestial} onClick={changeTheme} />
+			) : (
+				<Moon className={classes.celestial} onClick={changeTheme} />
+			);
+		}
+	};
+
+	return <div>{sunMoonRender(renderCount++ > 1)}</div>;
 }
 
-export default SvgBackground;
+export default SunMoon;

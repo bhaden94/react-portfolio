@@ -1,7 +1,7 @@
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import { AboutObj, AboutObject } from "../../infoObjects/AboutObj";
 import Typography from "@material-ui/core/Typography";
-import SvgBackground from "./SvgBackground";
+import SvgBackground from "../svg-bg/SvgBackground";
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -23,8 +23,9 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		text: {
 			position: "relative",
-			fontSize: "4rem",
 			zIndex: 2,
+			pointerEvents: "none",
+			fontSize: "4rem",
 			[theme.breakpoints.down("md")]: {
 				fontSize: "3rem",
 			},
