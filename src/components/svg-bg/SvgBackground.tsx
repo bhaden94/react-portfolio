@@ -1,12 +1,22 @@
 import SunMoon from "./SunMoon";
-import Mountains from "./Mountains";
+import Foreground from "./Foreground";
+import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme: Theme) =>
+	createStyles({
+		container: {
+			//position: "relative",
+		},
+	})
+);
 
 function SvgBackground() {
-	
+	const classes = useStyles();
+
 	return (
-		<div>
+		<div className={classes.container}>
 			<SunMoon />
-			{/* <Mountains /> */}
+			<Foreground />
 		</div>
 	);
 }
