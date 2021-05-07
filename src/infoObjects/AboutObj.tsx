@@ -25,7 +25,7 @@ export function AboutObject(): AboutObj {
 			"- Thomas Edison",
 		],
 		headline:
-			"Hi I am Brady, a Full Stack Software Engineer and United States Air Force veteran  " +
+			"Hi I am Brady, a Full Stack Software Engineer and United States Air Force veteran " +
 			"passionate about making a difference through code!",
 		strengths: [
 			{
