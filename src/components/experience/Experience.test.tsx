@@ -40,3 +40,5 @@ it("close Experience modal after click close", () => {
 	userEvent.click(closeModal);
 	expect(document.body).toHaveStyle("visibility: visible;");
 });
+
+//test expand in modal

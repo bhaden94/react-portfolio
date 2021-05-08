@@ -56,5 +56,11 @@
     "@types/react-animate-on-scroll": "^2.1.2",
     "@types/react-scroll": "^1.8.2",
     "@types/react-vertical-timeline-component": "^3.0.0"
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "index.tsx",
+      "serviceWorker.ts"
+    ]
   }
 }
