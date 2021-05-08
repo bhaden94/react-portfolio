@@ -57,7 +57,12 @@ function Actions({ flipCard, flipBtn, code, live }: any) {
 					</Tooltip>
 				</Grid>
 				<Grid item>
-					<Button onClick={flipCard} size="small" color="secondary">
+					<Button
+						onClick={flipCard}
+						size="small"
+						color="secondary"
+						data-testid="card-flip-btn"
+					>
 						{flipBtn}
 					</Button>
 				</Grid>
