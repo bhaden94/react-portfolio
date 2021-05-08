@@ -139,6 +139,7 @@ function Experience() {
 						color="primary"
 						className={classes.btn}
 						onClick={() => handleDialogOpen(i)}
+						data-testid={"open-modal-btn"}
 					>
 						Details
 					</Button>
