@@ -59,6 +59,7 @@
   },
   "jest": {
     "coveragePathIgnorePatterns": [
+      "mock/*",
       "index.tsx",
       "serviceWorker.ts"
     ]
