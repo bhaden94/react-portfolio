@@ -1,27 +1,29 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { MockLightTheme } from "../../__mock__/MockTheme";
+import { MobileTheme, DesktopTheme } from "../../__mock__/MockTheme";
 import Navigation from "./Navigation";
 
-it("render Nagigation component on desktop", () => {
-	Object.defineProperty(window, "innerWidth", {
-		writable: true,
-		configurable: true,
-		value: 962, // 2 above material ui md breakpoint
-	});
-	const { debug } = render(<Navigation />);
-	debug();
+it("render Nagigation component on desktop", async () => {
+	render(<Navigation />, { wrapper: DesktopTheme });
+
+	await waitFor(() =>
+		expect(screen.getByTestId("desktop-drawer")).toBeInTheDocument()
+	);
 });
 
-it.only("render Nagigation component on mobile", () => {
-	// Object.defineProperty(window, "innerWidth", {
-	// 	writable: true,
-	// 	configurable: true,
-	// 	value: 500, // 2 below material ui md breakpoint
-	// });
-    // Change the viewport to 500px.
-    global.innerWidth = 500;
-    global.dispatchEvent(new Event('resize'));
-	const { debug } = render(<MockLightTheme><Navigation /></MockLightTheme>);
-	//debug();
+it("render Nagigation component on mobile", async () => {
+	render(<Navigation />, { wrapper: MobileTheme });
+
+	await waitFor(() =>
+		expect(screen.getByTestId("mobile-drawer")).toBeInTheDocument()
+	);
+});
+
+it("open Navigation drawer on mobile", async () => {
+	render(<Navigation />, { wrapper: MobileTheme });
+	await waitFor(() => screen.getByTestId("mobile-drawer"));
+
+	const menuBtn = screen.getByTestId("mobile-drawer-opener");
+	userEvent.click(menuBtn);
+	expect(document.body).toHaveStyle("padding-right: 0px; overflow: hidden;");
 });

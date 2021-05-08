@@ -76,7 +76,10 @@ export default function Navigation() {
 						onClick={handleDrawerToggle}
 						className={classes.menuButton}
 					>
-						<MenuIcon fontSize="large" />
+						<MenuIcon
+							fontSize="large"
+							data-testid="mobile-drawer-opener"
+						/>
 					</IconButton>
 					<NameTitleHeader isDesktop={isDesktop} />
 				</Toolbar>
@@ -96,6 +99,7 @@ export default function Navigation() {
 							ModalProps={{
 								keepMounted: true, // Better open performance on mobile.
 							}}
+							data-testid="mobile-drawer"
 						>
 							<DrawerItems toggleDrawer={handleDrawerToggle} />
 							<DrawerFooter />
@@ -110,6 +114,7 @@ export default function Navigation() {
 							}}
 							variant="permanent"
 							open
+							data-testid="desktop-drawer"
 						>
 							<Link
 								to={"top"}
