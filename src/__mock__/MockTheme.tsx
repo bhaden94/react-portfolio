@@ -22,18 +22,18 @@ export const MockDarkTheme = ({ children }: any) => {
 	return <ThemeProvider theme={darkTheme}>{children}</ThemeProvider>;
 };
 
-export const MobileTheme = (props: any) => {
+export const MobileTheme = ({ children }: any) => {
 	const theme = createMuiTheme({
 		props: { MuiWithWidth: { initialWidth: "sm" } },
 	});
 
-	return <MuiThemeProvider theme={theme}>{props.children}</MuiThemeProvider>;
+	return <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>;
 };
 
-export const DesktopTheme = (props: any) => {
+export const DesktopTheme = ({ children }: any) => {
 	const theme = createMuiTheme({
 		props: { MuiWithWidth: { initialWidth: "lg" } },
 	});
 
-	return <MuiThemeProvider theme={theme}>{props.children}</MuiThemeProvider>;
+	return <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>;
 };

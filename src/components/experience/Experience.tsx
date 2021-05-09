@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useTheme, Theme } from "@material-ui/core/styles";
 import {
@@ -46,9 +46,9 @@ function Experience() {
 	const theme = useTheme();
 	const experience: ExperienceObj[] = ExperienceObject();
 	// open nd close state for experience details view
-	const [open, setOpen] = React.useState<boolean>(false);
+	const [open, setOpen] = useState<boolean>(false);
 	// state to keep track of when job we are seeing more details for
-	const [currJob, setCurrJob] = React.useState<ExperienceObj>(experience[0]);
+	const [currJob, setCurrJob] = useState<ExperienceObj>(experience[0]);
 
 	/* open and close dialog to see more for experience */
 	const handleDialogOpen = (i: number) => {

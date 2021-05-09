@@ -1,4 +1,3 @@
-import React from "react";
 import { EducationObject, EducationObj } from "../../infoObjects/EducationObj";
 import { Theme, makeStyles } from "@material-ui/core/styles";
 import Link from "@material-ui/core/Link";

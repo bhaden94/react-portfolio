@@ -1,4 +1,3 @@
-import React from "react";
 import "./App.css";
 import Navigation from "./components/nav/Navigation";
 import CssBaseline from "@material-ui/core/CssBaseline";
