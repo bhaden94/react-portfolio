@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { MobileTheme, DesktopTheme } from "../../__mock__/MockTheme";
 import DrawerItems from "./DrawerItems";
 import { NavObjects, NavObj } from "../../infoObjects/NavObj";
