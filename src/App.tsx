@@ -10,7 +10,7 @@ import ReturnToTop from "./components/contact/ReturnToTop";
 import LandingPage from "./components/landing/LandingPage";
 import { NavObj, NavObjects } from "./infoObjects/NavObj";
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
 	createStyles({
 		top: {
 			height: "100vh",
@@ -31,7 +31,7 @@ function App() {
 
 	return (
 		<ThemeProvider theme={theme}>
-			<div>
+			<div data-testid="root-app-div">
 				<CssBaseline />
 				<Navigation />
 				<div className="App-header">
