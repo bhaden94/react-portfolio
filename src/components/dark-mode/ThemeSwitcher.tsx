@@ -33,12 +33,14 @@ export default function ThemeSwitcher() {
 		<div className={classes.container}>
 			{theme.palette.type === "light" ? (
 				<Brightness7Icon
+					data-testid={theme.palette.type}
 					onClick={changeTheme}
 					fontSize="large"
 					className={classes.icon}
 				/>
 			) : (
 				<Brightness4Icon
+					data-testid={theme.palette.type}
 					onClick={changeTheme}
 					fontSize="large"
 					className={classes.icon}

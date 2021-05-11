@@ -1,4 +1,3 @@
-import React from "react";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import { AboutObj, AboutObject } from "../../infoObjects/AboutObj";
 import Typography from "@material-ui/core/Typography";

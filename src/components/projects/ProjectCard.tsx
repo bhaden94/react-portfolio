@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Theme, makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -57,7 +57,7 @@ function ProjectCard({ project }: any) {
 	return (
 		<ReactCardFlip isFlipped={isFlipped}>
 			{/* FRONT of card */}
-			<Card className={classes.root} elevation={3}>
+			<Card className={classes.root} elevation={3} data-testid="flipping-card-front">
 				<Link href={project.liveLink} target="_blank" rel="noreferrer">
 					<CardMedia
 						className={classes.media}
@@ -88,7 +88,7 @@ function ProjectCard({ project }: any) {
 			{/* FRONT of card */}
 
 			{/* BACK of card */}
-			<Card className={classes.root}>
+			<Card className={classes.root} data-testid="flipping-card-back">
 				<CardContent>
 					<div className={classes.longDesc}>
 						<Typography gutterBottom variant="h5" component="h3">

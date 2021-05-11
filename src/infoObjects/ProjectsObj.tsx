@@ -67,6 +67,7 @@ export function ProjectObject(): ProjectObj[] {
 			accomplishments: [
 				"React & Bootstrap to visualize data about SpaceX launches",
 				"Custom responsive sidebar component",
+				"One of a kind vertical timeline pagination!"
 			],
 			liveLink: "https://bhaden94.github.io/spacex-app/",
 			codeLink: "https://github.com/bhaden94/spacex-app",

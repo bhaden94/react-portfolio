@@ -1,4 +1,3 @@
-import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import CardActions from "@material-ui/core/CardActions";
@@ -57,7 +56,12 @@ function Actions({ flipCard, flipBtn, code, live }: any) {
 					</Tooltip>
 				</Grid>
 				<Grid item>
-					<Button onClick={flipCard} size="small" color="secondary">
+					<Button
+						onClick={flipCard}
+						size="small"
+						color="secondary"
+						data-testid="card-flip-btn"
+					>
 						{flipBtn}
 					</Button>
 				</Grid>

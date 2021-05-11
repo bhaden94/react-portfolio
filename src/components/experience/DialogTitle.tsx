@@ -1,4 +1,3 @@
-import React from "react";
 import {
 	createStyles,
 	Theme,
@@ -43,6 +42,7 @@ const DialogTitle = withStyles(styles)((props: DialogTitleProps) => {
 				onClick={handleClose}
 				color="primary"
 				fontSize="large"
+				data-testid={"close-modal-btn"}
 			/>
 		</MuiDialogTitle>
 	);

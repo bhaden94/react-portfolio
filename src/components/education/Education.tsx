@@ -1,10 +1,10 @@
-import React from "react";
 import { EducationObject, EducationObj } from "../../infoObjects/EducationObj";
 import { Theme, makeStyles } from "@material-ui/core/styles";
 import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
 import { Typography } from "@material-ui/core";
 import { useGlobalStyles } from "../../theme/globalStyle";
+import { formatDate } from "./formatDate";
 
 const useStyles = makeStyles((theme: Theme) => ({
 	container: {
@@ -62,16 +62,6 @@ function Education() {
 	const education: EducationObj[] = EducationObject();
 	const classes = useStyles();
 	const globalClasses = useGlobalStyles();
-
-	// if the dateCompleted is in the future then we add the word 'Expected' to the beginning
-	const formatDate = (date: Date): string => {
-		const currDate: Date = new Date();
-		const dateString: string = date.toLocaleDateString("default", {
-			month: "long",
-			year: "numeric",
-		});
-		return date > currDate ? `Expected ${dateString}` : dateString;
-	};
 
 	return (
 		<div>

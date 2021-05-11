@@ -1,4 +1,3 @@
-import React from "react";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
@@ -64,6 +63,7 @@ function Contact() {
 						variant="contained"
 						size="large"
 						color="primary"
+						data-testid={`icon-btn${i}`}
 					>
 						{contactInfo.icon}
 					</Button>

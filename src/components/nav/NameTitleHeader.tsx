@@ -1,4 +1,3 @@
-import React from "react";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import { AboutObj, AboutObject } from "../../infoObjects/AboutObj";
@@ -29,7 +28,7 @@ export default function NameTitleHeader({ isDesktop }: INameTitleHeader) {
 	const about: AboutObj = AboutObject();
 
 	return (
-		<div className={classes.container}>
+		<div className={classes.container} data-testid="name-title-header-div">
 			<Typography className={classes.name} color="primary" variant="h1">
 				{about.name}
 			</Typography>

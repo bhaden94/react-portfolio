@@ -1,4 +1,3 @@
-import React from "react";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import { Link } from "react-scroll";
@@ -36,7 +35,10 @@ function ReturnToTop() {
 
 	return (
 		<Link to={"top"} smooth={true} duration={500}>
-			<div className={classes.returnTopContainer}>
+			<div
+				className={classes.returnTopContainer}
+				data-testid="scroll-to-top"
+			>
 				<ArrowUpwardIcon
 					className={classes.returnTop}
 					fontSize="large"

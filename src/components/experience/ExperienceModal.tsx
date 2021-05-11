@@ -104,6 +104,7 @@ function ExperienceModal({ job, open, handleClose }: IExperienceModal) {
 					color="textPrimary"
 					className={classes.techHeader}
 					onClick={handleExpandClick}
+					data-testid="expand-acc-btn"
 				>
 					Accomplishments
 					<ExpandMoreIcon
@@ -113,7 +114,12 @@ function ExperienceModal({ job, open, handleClose }: IExperienceModal) {
 						fontSize="large"
 					/>
 				</Typography>
-				<Collapse in={expanded} timeout="auto" unmountOnExit>
+				<Collapse
+					in={expanded}
+					timeout="auto"
+					unmountOnExit
+					data-testid="exp-expanded-acc"
+				>
 					<ul className={classes.bullets}>
 						{job.bullets.map((bullet: string, i: number) => (
 							<li key={i}>{bullet}</li>

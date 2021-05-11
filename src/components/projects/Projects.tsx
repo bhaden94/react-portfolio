@@ -1,4 +1,3 @@
-import React from "react";
 import { ProjectObject, ProjectObj } from "../../infoObjects/ProjectsObj";
 import Grid from "@material-ui/core/Grid";
 import ProjectCard from "./ProjectCard";
