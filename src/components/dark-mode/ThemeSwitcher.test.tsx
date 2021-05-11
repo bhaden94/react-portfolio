@@ -1,11 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import ThemeSwitcher from "./ThemeSwitcher";
-import { createMount } from "@material-ui/core/test-utils";
 import { MockLightTheme, MockDarkTheme } from "../../__mock__/MockTheme";
-
-beforeAll(() => {
-	createMount();
-});
 
 it("renders ThemeSwitcher with light theme", () => {
 	render(

@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { MobileTheme, DesktopTheme } from "../../__mock__/MockTheme";
 import DrawerItems from "./DrawerItems";
 import { NavObjects, NavObj } from "../../infoObjects/NavObj";
@@ -9,18 +9,18 @@ const mockToggle = jest.fn();
     tests are failing due to calling useStyles in NavObj
     It is saying that the hook is being called outside of a function
 */
-it.skip("render DrawerItems component on desktop", () => {
-	const nav: NavObj[] = NavObjects();
-
-	render(<DrawerItems toggleDrawer={mockToggle} />, {
+it("render DrawerItems component on desktop", () => {
+	render(<DrawerItems toggleDrawer={mockToggle} isDesktop />, {
 		wrapper: DesktopTheme,
 	});
 
-	// nav.forEach((n: NavObj) => {
-	// 	expect(screen.getByText(n.text)).toBeInTheDocument();
-	// });
+	expect(screen.getAllByTestId("nav-link-true").length).toBeGreaterThan(1)
 });
 
-it.skip("render DrawerItems component on mobile", () => {
-	render(<DrawerItems toggleDrawer={mockToggle} />, { wrapper: MobileTheme });
+it("render DrawerItems component on mobile", () => {
+	render(<DrawerItems toggleDrawer={mockToggle} isDesktop={false} />, {
+		wrapper: MobileTheme,
+	});
+
+	expect(screen.getAllByTestId("nav-link-false").length).toBeGreaterThan(1)
 });

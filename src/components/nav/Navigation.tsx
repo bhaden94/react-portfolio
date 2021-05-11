@@ -101,7 +101,10 @@ export default function Navigation() {
 							}}
 							data-testid="mobile-drawer"
 						>
-							<DrawerItems toggleDrawer={handleDrawerToggle} />
+							<DrawerItems
+								toggleDrawer={handleDrawerToggle}
+								isDesktop={isDesktop}
+							/>
 							<DrawerFooter />
 						</SwipeableDrawer>
 					</Suspense>
@@ -126,7 +129,10 @@ export default function Navigation() {
 								<NameTitleHeader isDesktop={isDesktop} />
 							</Link>
 							<Divider />
-							<DrawerItems toggleDrawer={handleDrawerToggle} />
+							<DrawerItems
+								toggleDrawer={handleDrawerToggle}
+								isDesktop={isDesktop}
+							/>
 							<DrawerFooter />
 						</Drawer>
 					</Suspense>

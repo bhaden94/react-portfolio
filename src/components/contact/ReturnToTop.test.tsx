@@ -1,12 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { createMount } from "@material-ui/core/test-utils";
 import { MockLightTheme, MockDarkTheme } from "../../__mock__/MockTheme";
 import ReturnToTop from "./ReturnToTop";
-
-beforeAll(() => {
-	createMount();
-});
 
 it("renders ScrollToTop component in light theme", () => {
 	render(

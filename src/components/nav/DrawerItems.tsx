@@ -2,20 +2,15 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import {
-	makeStyles,
-	Theme,
-	createStyles,
-	useTheme,
-} from "@material-ui/core/styles";
+import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import { NavObjects, NavObj } from "../../infoObjects/NavObj";
 import Typography from "@material-ui/core/Typography";
 import MailIcon from "@material-ui/icons/Mail";
 import { Link } from "react-scroll";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 interface IDrawerItems {
 	toggleDrawer(): void;
+	isDesktop: boolean;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -53,10 +48,8 @@ const useStyles = makeStyles((theme: Theme) =>
 	})
 );
 
-function DrawerItems({ toggleDrawer }: IDrawerItems) {
+function DrawerItems({ toggleDrawer, isDesktop }: IDrawerItems) {
 	const classes = useStyles();
-	const theme = useTheme();
-	const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
 	return (
 		<List disablePadding>
@@ -69,6 +62,7 @@ function DrawerItems({ toggleDrawer }: IDrawerItems) {
 					offset={isDesktop ? 0 : -60}
 					duration={300}
 					key={i}
+					data-testid={`nav-link-${isDesktop}`}
 				>
 					<ListItem
 						button
