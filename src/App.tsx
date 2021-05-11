@@ -27,7 +27,7 @@ const useStyles = makeStyles(() =>
 
 function App() {
 	const classes = useStyles();
-	const theme = useTheme();
+	const theme: Theme = useTheme();
 
 	return (
 		<ThemeProvider theme={theme}>
