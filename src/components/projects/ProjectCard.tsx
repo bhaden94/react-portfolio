@@ -56,7 +56,12 @@ function ProjectCard({ project }: any) {
 				elevation={3}
 				data-testid="flipping-card-front"
 			>
-				<Link href={determineLink()} target="_blank" rel="noreferrer">
+				<Link
+					href={determineLink()}
+					target="_blank"
+					rel="noreferrer"
+					data-testid="flipping-card-media"
+				>
 					<CardMedia
 						className={classes.media}
 						src={project.media}

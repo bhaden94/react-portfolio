@@ -40,3 +40,35 @@ it("flip ProjectCard works", () => {
 	userEvent.click(screen.getAllByTestId("card-flip-btn")[0]);
 	expect(container.style.transform).toBe("");
 });
+
+it("render ProjectCard without liveLink", () => {
+	const mockProject: ProjectObj = {
+		id: 0,
+		media: "pic",
+		title: "test title",
+		shortDesc: "test description",
+		accomplishments: ["acc1", "acc2", "acc3"],
+		codeLink: "test",
+		techUsed: [],
+	};
+
+	render(<ProjectCard project={mockProject} />);
+	expect(
+		screen.getByTestId("flipping-card-media").closest("a")
+	).toHaveAttribute("href", mockProject.codeLink);
+});
+
+it("render ProjectCard without liveLink, codeLink, or techUsed", () => {
+	const mockProject: ProjectObj = {
+		id: 0,
+		media: "pic",
+		title: "test title",
+		shortDesc: "test description",
+		accomplishments: ["acc1", "acc2", "acc3"],
+	};
+
+	render(<ProjectCard project={mockProject} />);
+	expect(
+		screen.getByTestId("flipping-card-media").closest("a")
+	).not.toHaveAttribute("href");
+});
