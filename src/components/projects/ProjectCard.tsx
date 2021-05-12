@@ -1,52 +1,36 @@
 import { useState } from "react";
-import { Theme, makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import Typography from "@material-ui/core/Typography";
 import ReactCardFlip from "react-card-flip";
-import { Icon } from "@icons-pack/react-simple-icons";
 import FlipToFrontIcon from "@material-ui/icons/FlipToFront";
 import FlipToBackIcon from "@material-ui/icons/FlipToBack";
 import Actions from "./Actions";
 import Link from "@material-ui/core/Link";
-
-const useStyles = makeStyles((theme: Theme) => ({
-	root: {
-		width: "100%",
-		height: "450px",
-	},
-	media: {
-		height: 220,
-		width: "100%",
-		filter: "brightness(100%)",
-		transition: "filter .2s ease-in-out",
-		"&:hover": {
-			filter: "brightness(60%)",
-		},
-	},
-	icon: {
-		display: "inline",
-		padding: "10px",
-	},
-	longDesc: {
-		height: "220px",
-	},
-	bullets: {
-		listStyle: "inside",
-		padding: 0,
-		margin: 0,
-		fontSize: "1rem",
-		maxHeight: "180px",
-		overflowY: "auto",
-		"& li": {
-			marginBottom: "8px",
-			color: theme.palette.text.secondary,
-		},
-	},
-}));
+import CardBackContent from "./CardBackContent";
+import CardFrontContent from "./CardFrontContent";
 
 function ProjectCard({ project }: any) {
+	const useStyles = makeStyles(() => ({
+		root: {
+			width: "100%",
+			height: "450px",
+		},
+		media: {
+			height: 220,
+			width: "100%",
+			filter: "brightness(100%)",
+			transition: "filter .2s ease-in-out",
+			"&:hover": {
+				filter:
+					(project.liveLink || project.codeLink) && "brightness(60%)",
+				cursor:
+					project.liveLink || project.codeLink
+						? "pointer"
+						: "default",
+			},
+		},
+	}));
 	const [isFlipped, setIsFlipped] = useState<boolean>(false);
 	const classes = useStyles();
 
@@ -54,11 +38,30 @@ function ProjectCard({ project }: any) {
 		setIsFlipped(!isFlipped);
 	};
 
+	const determineLink = (): string | undefined => {
+		if (project.liveLink) {
+			return project.liveLink;
+		} else if (project.codeLink && !project.liveLink) {
+			return project.codeLink;
+		} else {
+			return undefined;
+		}
+	};
+
 	return (
 		<ReactCardFlip isFlipped={isFlipped}>
 			{/* FRONT of card */}
-			<Card className={classes.root} elevation={3} data-testid="flipping-card-front">
-				<Link href={project.liveLink} target="_blank" rel="noreferrer">
+			<Card
+				className={classes.root}
+				elevation={3}
+				data-testid="flipping-card-front"
+			>
+				<Link
+					href={determineLink()}
+					target="_blank"
+					rel="noreferrer"
+					data-testid="flipping-card-media"
+				>
 					<CardMedia
 						className={classes.media}
 						src={project.media}
@@ -66,18 +69,10 @@ function ProjectCard({ project }: any) {
 						title="Project Image"
 					/>
 				</Link>
-				<CardContent>
-					<Typography gutterBottom variant="h5" component="h2">
-						{project.title}
-					</Typography>
-					<Typography
-						variant="body2"
-						color="textSecondary"
-						component="p"
-					>
-						{project.shortDesc.substring(0, 125)}
-					</Typography>
-				</CardContent>
+				<CardFrontContent
+					title={project.title}
+					shortDesc={project.shortDesc}
+				/>
 				<Actions
 					flipCard={flipCard}
 					flipBtn={<FlipToBackIcon />}
@@ -89,36 +84,10 @@ function ProjectCard({ project }: any) {
 
 			{/* BACK of card */}
 			<Card className={classes.root} data-testid="flipping-card-back">
-				<CardContent>
-					<div className={classes.longDesc}>
-						<Typography gutterBottom variant="h5" component="h3">
-							Accomplishments
-						</Typography>
-						<ul className={classes.bullets}>
-							{project.accomplishments.map(
-								(acc: string, i: number) => (
-									<li key={i}>{acc}</li>
-								)
-							)}
-						</ul>
-					</div>
-					<Typography gutterBottom variant="h6" component="h4">
-						Technologies Used
-					</Typography>
-					{/* only allow first 9 technologies here so we dont overflow the card */}
-					{project.techUsed
-						.slice(0, 9)
-						.map((tech: Icon, i: number) => (
-							<div
-								key={i}
-								className={["icon-hover", classes.icon].join(
-									" "
-								)}
-							>
-								{tech}
-							</div>
-						))}
-				</CardContent>
+				<CardBackContent
+					accomplishments={project.accomplishments}
+					techUsed={project.techUsed}
+				/>
 				<Actions flipCard={flipCard} flipBtn={<FlipToFrontIcon />} />
 			</Card>
 			{/* BACK of card */}

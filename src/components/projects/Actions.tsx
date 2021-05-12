@@ -22,38 +22,42 @@ function Actions({ flipCard, flipBtn, code, live }: any) {
 		<CardActions className={classes.actions}>
 			<Grid container justify="space-between">
 				<Grid item>
-					<Tooltip
-						title="Code"
-						placement="bottom"
-						enterDelay={250}
-						arrow
-					>
-						<Button
-							href={code}
-							size="small"
-							color="primary"
-							target="_blank"
-							rel="noreferrer"
+					{code && (
+						<Tooltip
+							title="Code"
+							placement="bottom"
+							enterDelay={250}
+							arrow
 						>
-							<GitHubIcon />
-						</Button>
-					</Tooltip>
-					<Tooltip
-						title="Live Application"
-						placement="bottom"
-						enterDelay={250}
-						arrow
-					>
-						<Button
-							href={live}
-							size="small"
-							color="primary"
-							target="_blank"
-							rel="noreferrer"
+							<Button
+								href={code}
+								size="small"
+								color="primary"
+								target="_blank"
+								rel="noreferrer"
+							>
+								<GitHubIcon />
+							</Button>
+						</Tooltip>
+					)}
+					{live && (
+						<Tooltip
+							title="Live Application"
+							placement="bottom"
+							enterDelay={250}
+							arrow
 						>
-							<LinkIcon />
-						</Button>
-					</Tooltip>
+							<Button
+								href={live}
+								size="small"
+								color="primary"
+								target="_blank"
+								rel="noreferrer"
+							>
+								<LinkIcon />
+							</Button>
+						</Tooltip>
+					)}
 				</Grid>
 				<Grid item>
 					<Button

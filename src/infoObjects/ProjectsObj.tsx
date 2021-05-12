@@ -11,9 +11,9 @@ export interface ProjectObj {
 	title: string;
 	shortDesc: string; // max 125 characters long, everything else will be cutoff in card
 	accomplishments: string[]; // This can be as many bullets as you want, but will show a scroll bar if necesary
-	liveLink: string;
-	codeLink: string;
-	techUsed: TechnologiesObj[]; // max 9 techologies here for proper display on card
+	liveLink?: string;
+	codeLink?: string;
+	techUsed?: TechnologiesObj[]; // max 9 techologies here for proper display on card
 }
 
 /*
@@ -67,7 +67,7 @@ export function ProjectObject(): ProjectObj[] {
 			accomplishments: [
 				"React & Bootstrap to visualize data about SpaceX launches",
 				"Custom responsive sidebar component",
-				"One of a kind vertical timeline pagination!"
+				"One of a kind vertical timeline pagination!",
 			],
 			liveLink: "https://bhaden94.github.io/spacex-app/",
 			codeLink: "https://github.com/bhaden94/spacex-app",
