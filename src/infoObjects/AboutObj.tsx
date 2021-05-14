@@ -19,13 +19,13 @@ export interface AboutObj {
 export function AboutObject(): AboutObj {
 	return {
 		name: "Brady Haden",
-		title: "Full Stack Software Engineer",
+		title: "Software Engineer",
 		landingOpener: [
 			'"There\'s a way to do it better. Find it."',
 			"- Thomas Edison",
 		],
 		headline:
-			"Hi I am Brady, a Full Stack Software Engineer and United States Air Force veteran " +
+			"Hi I am Brady, a Software Engineer and United States Air Force veteran " +
 			"passionate about making a difference through code!",
 		strengths: [
 			{

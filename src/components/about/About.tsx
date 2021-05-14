@@ -93,7 +93,7 @@ function About() {
 				<ScrollAnimation
 					key={i}
 					duration={0.5}
-					animateIn="fadeInUp"
+					animateIn="animate__fadeInUp"
 					animateOnce={true}
 				>
 					<Paper className={classes.fadeIn} elevation={3}>
