@@ -1,17 +1,16 @@
+import Button from "@material-ui/core/Button";
+import { makeStyles, Theme, useTheme } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
 import { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { useTheme, Theme } from "@material-ui/core/styles";
 import {
 	VerticalTimeline,
-	VerticalTimelineElement,
+	VerticalTimelineElement
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import {
-	ExperienceObject,
-	ExperienceObj,
-} from "../../infoObjects/ExperienceObj";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
+	ExperienceObject, IExperienceObject
+} from "../../infoObjects/ExperienceObject";
+import { formatExperienceDate } from "../../utils/formatDate";
 import ExperienceModal from "./ExperienceModal";
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -44,11 +43,11 @@ const useStyles = makeStyles((theme: Theme) => ({
 function Experience() {
 	const classes = useStyles();
 	const theme = useTheme();
-	const experience: ExperienceObj[] = ExperienceObject();
-	// open nd close state for experience details view
+	const experience: IExperienceObject[] = ExperienceObject();
+	// open and close state for experience details view
 	const [open, setOpen] = useState<boolean>(false);
-	// state to keep track of when job we are seeing more details for
-	const [currJob, setCurrJob] = useState<ExperienceObj>(experience[0]);
+	// state to keep track of the job we are seeing more details for
+	const [currJob, setCurrJob] = useState<IExperienceObject>(experience[0]);
 
 	/* open and close dialog to see more for experience */
 	const handleDialogOpen = (i: number) => {
@@ -60,27 +59,6 @@ function Experience() {
 		setOpen(false);
 	};
 	/* end open and close dialog functions */
-
-	/* 
-		format the start and end dates of projects
-		also checks if the end date is a string, like 'present' and uses that if it is
-	*/
-	const formatDate = (start: Date, end: Date | string): string => {
-		const startDate: string = start.toLocaleDateString("default", {
-			month: "short",
-			year: "numeric",
-		});
-		let endDate: string;
-		if (end instanceof Date) {
-			endDate = end.toLocaleDateString("default", {
-				month: "short",
-				year: "numeric",
-			});
-		} else {
-			endDate = end;
-		}
-		return `${startDate} - ${endDate}`;
-	};
 
 	/* Vertical timeline specific styles */
 	const content = {
@@ -98,19 +76,31 @@ function Experience() {
 		background: "#fff",
 		boxShadow: `none`,
 	};
+
+	const iconImageStyle = {
+		width: "100%",
+		height: "100%",
+		borderRadius: "50%",
+	};
 	/* end specific styles */
 
 	return (
 		<VerticalTimeline className={classes.customTimeline} animate={false}>
-			{experience.map((job: ExperienceObj, i: number) => (
+			{experience.map((job: IExperienceObject, i: number) => (
 				<VerticalTimelineElement
 					key={i}
 					className="vertical-timeline-element--work"
 					contentStyle={content}
 					contentArrowStyle={arrowStyle}
-					date={formatDate(job.startDate, job.endDate)}
+					date={formatExperienceDate(job.startDate, job.endDate)}
 					iconStyle={iconStyle}
-					icon={job.media}
+					icon={
+						<img
+							src={job.media}
+							style={iconImageStyle}
+							alt={`${job.company} logo`}
+						/>
+					}
 				>
 					<Typography
 						color="textPrimary"

@@ -1,38 +1,38 @@
 import {
-	Docker,
-	Spring,
-	ReactJs,
+	Amazonaws,
 	Angular,
-	NodeDotJs,
+	Bootstrap,
+	Csharp,
+	CssThree,
+	Docker,
+	Elasticsearch,
 	Git,
 	Github,
 	Gitlab,
-	Mysql,
-	Postgresql,
-	Mongodb,
-	Java,
-	Javascript,
-	Typescript,
-	Sonarqube,
-	Jira,
 	Grafana,
 	Heroku,
-	Bootstrap,
-	MaterialUi,
-	Nginx,
 	Html5,
-	CssThree,
-	Rancher,
-	Mattermost,
-	Python,
-	Amazonaws,
+	Java,
+	Javascript,
+	Jira,
 	Kibana,
-	Elasticsearch,
+	MaterialUi,
+	Mattermost,
 	Microsoftazure,
-	Csharp,
+	Mongodb,
+	Mysql,
+	Nginx,
+	NodeDotJs,
+	Postgresql,
+	Python,
+	Rancher,
+	ReactJs,
+	Sonarqube,
+	Spring,
+	Typescript
 } from "@icons-pack/react-simple-icons";
 
-export interface TechnologiesObj {
+export interface ITechnologiesObject {
 	[key: string]: any;
 }
 
@@ -49,7 +49,7 @@ export interface TechnologiesObj {
 export function TechnologiesObject(
 	size?: number,
 	color?: string
-): TechnologiesObj {
+): ITechnologiesObject {
 	return {
 		docker: <Docker color={color || "#2496ED"} size={size || 50} />,
 		spring: <Spring color={color || "#6DB33F"} size={size || 50} />,
@@ -79,7 +79,9 @@ export function TechnologiesObject(
 		python: <Python color={color || "#3776AB"} size={size || 50} />,
 		aws: <Amazonaws color={color || "#146eb4"} size={size || 50} />,
 		kibana: <Kibana color={color || "#005571"} size={size || 50} />,
-		elasticsearch: <Elasticsearch color={color || "#005571"} size={size || 50} />,
+		elasticsearch: (
+			<Elasticsearch color={color || "#005571"} size={size || 50} />
+		),
 		azure: <Microsoftazure color={color || "#0089D6"} size={size || 50} />,
 		csharp: <Csharp color={color || "#239120"} size={size || 50} />,
 		// get icons from https://simpleicons.org/

@@ -1,8 +1,4 @@
-import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
-
-interface IHeaderProps {
-	text: string;
-}
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -19,6 +15,10 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 	})
 );
+
+interface IHeaderProps {
+	text: string;
+}
 
 function Header({ text }: IHeaderProps) {
 	const classes = useStyles();

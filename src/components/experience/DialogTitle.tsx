@@ -1,10 +1,10 @@
+import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import {
 	createStyles,
 	Theme,
 	withStyles,
-	WithStyles,
+	WithStyles
 } from "@material-ui/core/styles";
-import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 

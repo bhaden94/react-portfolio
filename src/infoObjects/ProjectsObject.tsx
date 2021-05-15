@@ -1,11 +1,11 @@
-import {
-	TechnologiesObject,
-	TechnologiesObj,
-} from "../infoObjects/TechnologiesObj";
-import spacex from "../images/projects/spacex-app.png";
 import covid from "../images/projects/covid-app.png";
+import spacex from "../images/projects/spacex-app.png";
+import {
+	ITechnologiesObject,
+	TechnologiesObject
+} from "./TechnologiesObject";
 
-export interface ProjectObj {
+export interface IProjectObject {
 	id: number;
 	media: string;
 	title: string;
@@ -13,7 +13,7 @@ export interface ProjectObj {
 	accomplishments: string[]; // This can be as many bullets as you want, but will show a scroll bar if necesary
 	liveLink?: string;
 	codeLink?: string;
-	techUsed?: TechnologiesObj[]; // max 9 techologies here for proper display on card
+	techUsed?: ITechnologiesObject[]; // max 9 techologies here for proper display on card
 }
 
 /*
@@ -31,8 +31,8 @@ export interface ProjectObj {
 	This is so we don't overflow the card on some screen sizes
 		note: go to TechnologiesObj.tsx to modify the list of technologies that are available for use
 */
-export function ProjectObject(): ProjectObj[] {
-	const tech: TechnologiesObj = TechnologiesObject(35);
+export function ProjectObject(): IProjectObject[] {
+	const tech: ITechnologiesObject = TechnologiesObject(35);
 
 	// make sure projects are in the order you want them displayed
 	return [

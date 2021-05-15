@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { AboutObj, AboutObject, Strength } from "../../infoObjects/AboutObj";
+import { IAboutObject, AboutObject, IStrength } from "../../infoObjects/AboutObject";
 import About from "./About";
 
 beforeEach(() => {
@@ -7,25 +7,25 @@ beforeEach(() => {
 });
 
 it("render About component headline", () => {
-	const about: AboutObj = AboutObject();
+	const about: IAboutObject = AboutObject();
 	const headline: string = about.headline;
 
 	expect(screen.getByText(headline)).toBeInTheDocument();
 });
 
 it("render About component strengths text", () => {
-	const about: AboutObj = AboutObject();
+	const about: IAboutObject = AboutObject();
 
-	about.strengths.forEach((strength: Strength, i: number) => {
+	about.strengths.forEach((strength: IStrength, i: number) => {
 		expect(screen.getByText(strength.short)).toBeInTheDocument();
 		expect(screen.getByText(strength.long)).toBeInTheDocument();
 	});
 });
 
 it("render About component strengths images", () => {
-	const about: AboutObj = AboutObject();
+	const about: IAboutObject = AboutObject();
 
-	about.strengths.forEach((strength: Strength, i: number) => {
+	about.strengths.forEach((strength: IStrength, i: number) => {
 		expect(screen.getByAltText(strength.short)).toBeInTheDocument();
 	});
 });

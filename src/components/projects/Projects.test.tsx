@@ -1,9 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import Projects from "./Projects";
-import { ProjectObject, ProjectObj } from "../../infoObjects/ProjectsObj";
+import { ProjectObject, IProjectObject } from "../../infoObjects/ProjectsObject";
 
 it("render Projects component with front and back of card", () => {
-	const projects: ProjectObj[] = ProjectObject();
+	const projects: IProjectObject[] = ProjectObject();
 
 	render(<Projects />);
 	projects.forEach((_, i: number) => {

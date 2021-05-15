@@ -1,10 +1,10 @@
-import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
-import LinkIcon from "@material-ui/icons/Link";
-import GitHubIcon from "@material-ui/icons/GitHub";
+import CardActions from "@material-ui/core/CardActions";
+import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core/styles";
 import Tooltip from "@material-ui/core/Tooltip";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import LinkIcon from "@material-ui/icons/Link";
 
 const useStyles = makeStyles({
 	actions: {
@@ -15,7 +15,14 @@ const useStyles = makeStyles({
 	},
 });
 
-function Actions({ flipCard, flipBtn, code, live }: any) {
+interface IActions {
+	flipCard: () => void;
+	flipBtn: any;
+	code: string | undefined;
+	live: string | undefined;
+}
+
+function Actions({ flipCard, flipBtn, code, live }: IActions) {
 	const classes = useStyles();
 
 	return (

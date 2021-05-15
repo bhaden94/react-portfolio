@@ -1,28 +1,21 @@
-import {
-	TechnologiesObject,
-	TechnologiesObj,
-} from "../infoObjects/TechnologiesObj";
 import Logo1 from "../images/experience/af-logo.jpg";
-import Logo2 from "../images/experience/levelup-logo.png";
 import Logo3 from "../images/experience/JD-logo.png";
+import Logo2 from "../images/experience/levelup-logo.png";
 import Logo4 from "../images/experience/microsoft-logo.jpg";
+import {
+	ITechnologiesObject, TechnologiesObject
+} from "./TechnologiesObject";
 
-export interface ExperienceObj {
+export interface IExperienceObject {
 	startDate: Date;
 	endDate: Date | string;
 	title: string;
 	company: string;
 	bullets: string[];
-	media: any;
+	media: string;
 	description?: string;
-	techUsed?: TechnologiesObj[];
+	techUsed?: ITechnologiesObject[];
 }
-
-const imageStyle = {
-	width: "100%",
-	height: "100%",
-	borderRadius: "50%",
-};
 
 /*
     This is where you will put in your past experience
@@ -30,8 +23,8 @@ const imageStyle = {
 
     note: put the experience objects in the order they should appear on the page
 */
-export function ExperienceObject(): ExperienceObj[] {
-	const tech: TechnologiesObj = TechnologiesObject(35);
+export function ExperienceObject(): IExperienceObject[] {
+	const tech: ITechnologiesObject = TechnologiesObject(35);
 
 	return [
 		{
@@ -40,7 +33,7 @@ export function ExperienceObject(): ExperienceObj[] {
 			title: "Software Engineer",
 			company: "Microsoft",
 			bullets: ["To be determined..."],
-			media: <img src={Logo4} style={imageStyle} alt="company logo" />,
+			media: Logo4,
 			techUsed: [tech.azure, tech.postgresql, tech.mysql, tech.csharp],
 		},
 		{
@@ -52,7 +45,7 @@ export function ExperienceObject(): ExperienceObj[] {
 				"Designed and deployed automated aggregation for AWS indexes that summarized timeframes of data",
 				"Created documentation on how teams could utilize machine learning algorithms to alert when anomalous data is found in real time",
 			],
-			media: <img src={Logo3} style={imageStyle} alt="company logo" />,
+			media: Logo3,
 			techUsed: [
 				tech.aws,
 				tech.python,
@@ -74,7 +67,7 @@ export function ExperienceObject(): ExperienceObj[] {
 				"Built and modified Nginx configuration script for application to increase security by blocking XSS/SSH attacks and limiting allowable domains",
 				"Modified Docker configuration to use Department of Defense hardened images for application frontend and backend to increase security",
 			],
-			media: <img src={Logo2} style={imageStyle} alt="company logo" />,
+			media: Logo2,
 			techUsed: [
 				tech.java,
 				tech.typescript,
@@ -102,7 +95,7 @@ export function ExperienceObject(): ExperienceObj[] {
 				"Responsible for quality control on 1000+ reports per year, obtaining 99% accuracy rate each period, well above standard",
 				"Conducted bi-annual job performance, goal setting, and career growth counseling for 3 team members",
 			],
-			media: <img src={Logo1} style={imageStyle} alt="company logo" />,
+			media: Logo1,
 			description:
 				"Produced/presented topical high-interest technical & operational intelligence briefings to leadership.",
 		},
@@ -116,7 +109,7 @@ export function ExperienceObject(): ExperienceObj[] {
 				"Worked with a 10-person team to recover collapsed private plane; cleared international airport runway in less than 1 hour",
 				"Responded to last minute pre-flight problem for critical Secretary of Defense mission; troubleshot and repaired C-17 cargo ramp that ensured on time take-off",
 			],
-			media: <img src={Logo1} style={imageStyle} alt="company logo" />,
+			media: Logo1,
 			description:
 				"Specialized in troubleshooting, rigging, and repair of C-17 aircraft flight controls, landing gear, ramp & door. Crash recovery personnel.",
 		},

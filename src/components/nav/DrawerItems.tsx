@@ -2,16 +2,11 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
-import { NavObjects, NavObj } from "../../infoObjects/NavObj";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import MailIcon from "@material-ui/icons/Mail";
 import { Link } from "react-scroll";
-
-interface IDrawerItems {
-	toggleDrawer(): void;
-	isDesktop: boolean;
-}
+import { INavObject, NavObject } from "../../infoObjects/NavObject";
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -48,12 +43,17 @@ const useStyles = makeStyles((theme: Theme) =>
 	})
 );
 
+interface IDrawerItems {
+	toggleDrawer: () => void;
+	isDesktop: boolean;
+}
+
 function DrawerItems({ toggleDrawer, isDesktop }: IDrawerItems) {
 	const classes = useStyles();
 
 	return (
 		<List disablePadding>
-			{NavObjects().map((listItem: NavObj, i: number) => (
+			{NavObject().map((listItem: INavObject, i: number) => (
 				<Link
 					activeClass={classes.active}
 					to={listItem.text}

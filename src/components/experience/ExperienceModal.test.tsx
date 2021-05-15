@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { ExperienceObj } from "../../infoObjects/ExperienceObj";
+import { IExperienceObject } from "../../infoObjects/ExperienceObject";
 import ExperienceModal from "./ExperienceModal";
 
 it("expands Accomplishments section in ExperienceModal", () => {
-	const mockJob: ExperienceObj = {
+	const mockJob: IExperienceObject = {
 		startDate: new Date(2021, 3, 0),
 		endDate: "Present",
 		title: "Test Title",

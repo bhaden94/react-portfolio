@@ -8,7 +8,7 @@ import Header from "./components/section-headers/Header";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import ReturnToTop from "./components/contact/ReturnToTop";
 import LandingPage from "./components/landing/LandingPage";
-import { NavObj, NavObjects } from "./infoObjects/NavObj";
+import { INavObject, NavObject } from "./infoObjects/NavObject";
 
 const useStyles = makeStyles(() =>
 	createStyles({
@@ -42,7 +42,7 @@ function App() {
 						<LandingPage />
 					</div>
 
-					{NavObjects().map((listItem: NavObj, i: number) => (
+					{NavObject().map((listItem: INavObject, i: number) => (
 						<div id={listItem.text} key={i} className={classes.section}>
 							<Header text={listItem.text} />
 							{listItem.section}

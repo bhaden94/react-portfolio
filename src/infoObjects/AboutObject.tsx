@@ -2,21 +2,21 @@ import ui from "../images/about/browser.svg";
 import perf from "../images/about/performance.svg";
 import resp from "../images/about/responsive-design.svg";
 
-export interface Strength {
+export interface IStrength {
 	short: string;
 	long: string;
 	image: any;
 }
 
-export interface AboutObj {
+export interface IAboutObject {
 	name: string;
 	title: string;
 	landingOpener: string[];
 	headline: string;
-	strengths: Strength[];
+	strengths: IStrength[];
 }
 
-export function AboutObject(): AboutObj {
+export function AboutObject(): IAboutObject {
 	return {
 		name: "Brady Haden",
 		title: "Software Engineer",
@@ -40,8 +40,7 @@ export function AboutObject(): AboutObj {
 			},
 			{
 				short: "Responsive Web Design",
-				long:
-					"Over half of internet usage is from phones or tablets. I take pride in making sites for all devices.",
+				long: "Over half of internet usage is from phones or tablets. I take pride in making sites for all devices.",
 				image: resp,
 			},
 		],

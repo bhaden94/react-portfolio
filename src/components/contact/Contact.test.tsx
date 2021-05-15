@@ -1,11 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import Contact from "./Contact";
-import { ContactObj, ContactObject } from "../../infoObjects/ContactObj";
+import { IContactObject, ContactObject } from "../../infoObjects/ContactObject";
 
 it("renders Contact component with link and icon button", () => {
-	const contact: ContactObj[] = ContactObject({});
+	const contact: IContactObject[] = ContactObject({});
 	render(<Contact />);
-	contact.forEach((c: ContactObj, i: number) => {
+	contact.forEach((c: IContactObject, i: number) => {
 		expect(screen.getByText(c.text)).toBeInTheDocument();
 		expect(screen.getByText(c.text).closest("a")).toHaveAttribute(
 			"href",

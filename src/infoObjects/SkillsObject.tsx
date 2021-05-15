@@ -1,8 +1,8 @@
-import { TechnologiesObj, TechnologiesObject } from "./TechnologiesObj";
+import { ITechnologiesObject, TechnologiesObject } from "./TechnologiesObject";
 
-export interface SkillsObj {
+export interface ISkillsObject {
 	title: string;
-	tech: { name: string; icon: TechnologiesObj }[];
+	tech: { name: string; icon: ITechnologiesObject }[];
 }
 
 /*
@@ -17,8 +17,8 @@ export interface SkillsObj {
 	If there is an icon that is not there go to https://simpleicons.org/
 	to find more and import them in TechologiesObj.tsx
 */
-export function SkillsObject(): SkillsObj[] {
-	const tech: TechnologiesObj = TechnologiesObject(75);
+export function SkillsObject(): ISkillsObject[] {
+	const tech: ITechnologiesObject = TechnologiesObject(75);
 
 	return [
 		{

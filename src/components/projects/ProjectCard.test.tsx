@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import ProjectCard from "./ProjectCard";
-import { ProjectObject, ProjectObj } from "../../infoObjects/ProjectsObj";
+import { ProjectObject, IProjectObject } from "../../infoObjects/ProjectsObject";
 
-const projects: ProjectObj[] = ProjectObject();
+const projects: IProjectObject[] = ProjectObject();
 
 it("render ProjectCard component with title and description on front of card", () => {
-	projects.forEach((p: ProjectObj) => {
+	projects.forEach((p: IProjectObject) => {
 		render(<ProjectCard project={p} />);
 		expect(screen.getByText(p.title)).toBeInTheDocument();
 		expect(screen.getByText(p.shortDesc)).toBeInTheDocument();
@@ -14,7 +14,7 @@ it("render ProjectCard component with title and description on front of card", (
 });
 
 it("render ProjectCard component with accomplishments on back of card", () => {
-	projects.forEach((p: ProjectObj, i: number) => {
+	projects.forEach((p: IProjectObject, i: number) => {
 		render(<ProjectCard project={p} />);
 		p.accomplishments.forEach((a: string) => {
 			expect(screen.getByText(a)).toBeInTheDocument();
@@ -23,7 +23,7 @@ it("render ProjectCard component with accomplishments on back of card", () => {
 });
 
 it("flip ProjectCard works", () => {
-	const mockProject: ProjectObj = {
+	const mockProject: IProjectObject = {
 		id: 0,
 		media: "pic",
 		title: "test title",
@@ -42,7 +42,7 @@ it("flip ProjectCard works", () => {
 });
 
 it("render ProjectCard without liveLink", () => {
-	const mockProject: ProjectObj = {
+	const mockProject: IProjectObject = {
 		id: 0,
 		media: "pic",
 		title: "test title",
@@ -59,7 +59,7 @@ it("render ProjectCard without liveLink", () => {
 });
 
 it("render ProjectCard without liveLink, codeLink, or techUsed", () => {
-	const mockProject: ProjectObj = {
+	const mockProject: IProjectObject = {
 		id: 0,
 		media: "pic",
 		title: "test title",
@@ -71,4 +71,5 @@ it("render ProjectCard without liveLink, codeLink, or techUsed", () => {
 	expect(
 		screen.getByTestId("flipping-card-media").closest("a")
 	).not.toHaveAttribute("href");
+	expect(screen.queryByText("Technologies Used")).not.toBeInTheDocument();
 });

@@ -1,4 +1,4 @@
-export interface EducationObj {
+export interface IEducationObject {
 	degree: string;
 	school: string;
 	schoolLink?: string; // optional
@@ -7,15 +7,17 @@ export interface EducationObj {
 }
 
 /*
-    This is where your edication will go. 
+    This is where your education will go. 
     Put anything here, even free courses you have taken if you want!
     
-    Put in order you want to appear on screen
+    Place in the order you want to appear on screen
 
-    The link to school, date finished, and bullets are all optional here.
+    The schoolLink, dateFinished, and bullets are all optional here.
     You can also put in a future date for dateFinished and it will display as an 'Expected' date
+
+	For the date it is new Date(year, month, day) where months are numbered 1-12
 */
-export function EducationObject(): EducationObj[] {
+export function EducationObject(): IEducationObject[] {
 	return [
 		{
 			degree: "Full Stack Software Engineer Bootcamp",
@@ -37,14 +39,12 @@ export function EducationObject(): EducationObj[] {
 			],
 		},
 		{
-			degree:
-				"Associate of Applied Science (AAS) Intelligence Studies and Technology",
+			degree: "Associate of Applied Science (AAS) Intelligence Studies and Technology",
 			school: "Community College of the Air Force",
 			dateFinished: new Date(2020, 8, 0),
 		},
 		{
-			degree:
-				"Associate of Applied Science (AAS) Aviation Maintenance Technology",
+			degree: "Associate of Applied Science (AAS) Aviation Maintenance Technology",
 			school: "Community College of the Air Force",
 			dateFinished: new Date(2017, 5, 0),
 		},

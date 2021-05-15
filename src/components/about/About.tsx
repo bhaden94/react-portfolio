@@ -1,5 +1,5 @@
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
-import { AboutObj, AboutObject, Strength } from "../../infoObjects/AboutObj";
+import { IAboutObject, AboutObject, IStrength } from "../../infoObjects/AboutObject";
 import Typography from "@material-ui/core/Typography";
 import ScrollAnimation from "react-animate-on-scroll";
 import Paper from "@material-ui/core/Paper";
@@ -76,7 +76,7 @@ const useStyles = makeStyles((theme: Theme) =>
 function About() {
 	const classes = useStyles();
 	const globalClasses = useGlobalStyles();
-	const about: AboutObj = AboutObject();
+	const about: IAboutObject = AboutObject();
 
 	return (
 		<div className={globalClasses.container}>
@@ -89,7 +89,7 @@ function About() {
 			<Typography className={classes.strengthHead}>
 				Strengths & Focus Areas
 			</Typography>
-			{about.strengths.map((strength: Strength, i: number) => (
+			{about.strengths.map((strength: IStrength, i: number) => (
 				<ScrollAnimation
 					key={i}
 					duration={0.5}

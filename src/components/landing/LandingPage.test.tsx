@@ -1,9 +1,9 @@
 import { render, screen } from "@testing-library/react";
-import { AboutObj, AboutObject } from "../../infoObjects/AboutObj";
+import { IAboutObject, AboutObject } from "../../infoObjects/AboutObject";
 import LandingPage from "./LandingPage";
 
 it("renders LandingPage component with proper text", () => {
-	const about: AboutObj = AboutObject();
+	const about: IAboutObject = AboutObject();
 	const opener: string[] = about.landingOpener;
 
 	render(<LandingPage />);

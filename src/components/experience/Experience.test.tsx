@@ -2,8 +2,8 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {
 	ExperienceObject,
-	ExperienceObj,
-} from "../../infoObjects/ExperienceObj";
+	IExperienceObject,
+} from "../../infoObjects/ExperienceObject";
 import Experience from "./Experience";
 
 const observe = jest.fn();
@@ -20,10 +20,10 @@ beforeEach(() => {
 	render(<Experience />);
 });
 
-const exp: ExperienceObj[] = ExperienceObject();
+const exp: IExperienceObject[] = ExperienceObject();
 
 it("render Experience component with title and company name", () => {
-	exp.forEach((e: ExperienceObj) => {
+	exp.forEach((e: IExperienceObject) => {
 		expect(screen.getAllByText(e.title)[0]).toBeInTheDocument();
 		expect(screen.getAllByText(e.company)[0]).toBeInTheDocument();
 	});

@@ -1,12 +1,12 @@
 import {
+	createStyles,
 	makeStyles,
 	Theme,
-	createStyles,
-	useTheme,
+	useTheme
 } from "@material-ui/core/styles";
-import { useChangeTheme } from "../../theme";
-import Brightness7Icon from "@material-ui/icons/Brightness7";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
+import Brightness7Icon from "@material-ui/icons/Brightness7";
+import { useChangeTheme } from "../../theme";
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
 	})
 );
 
-export default function ThemeSwitcher() {
+function ThemeSwitcher() {
 	const changeTheme = useChangeTheme();
 	const theme = useTheme();
 	const classes = useStyles();
@@ -49,3 +49,5 @@ export default function ThemeSwitcher() {
 		</div>
 	);
 }
+
+export default ThemeSwitcher;

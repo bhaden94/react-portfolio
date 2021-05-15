@@ -1,7 +1,7 @@
 import { PropTypes } from "@material-ui/core";
 import { blueGrey, grey, teal, amber } from "@material-ui/core/colors";
 
-interface ThemeObj2 {
+interface ILightDarkTheme {
 	primary: string | PropTypes.Color;
 	secondary: string | PropTypes.Color;
 	background: {
@@ -14,9 +14,9 @@ interface ThemeObj2 {
 	};
 }
 
-export interface ThemeObj {
-	light: ThemeObj2;
-	dark: ThemeObj2;
+export interface IThemeObject {
+	light: ILightDarkTheme;
+	dark: ILightDarkTheme;
 }
 
 /*
@@ -28,7 +28,7 @@ export interface ThemeObj {
 	Or you may import and use Materil-UI colors as in the example
 		https://material-ui.com/customization/color/
 */
-export function ThemeObjects(): ThemeObj {
+export function ThemeObject(): IThemeObject {
 	return {
 		light: {
 			primary: teal[900],

@@ -4,7 +4,7 @@ import AlternateEmailIcon from "@material-ui/icons/AlternateEmail";
 // import TwitterIcon from '@material-ui/icons/Twitter';
 // import FacebookIcon from '@material-ui/icons/Facebook';
 
-export interface ContactObj {
+export interface IContactObject {
 	link: string;
 	text: string;
 	icon: any;
@@ -19,7 +19,7 @@ export interface ContactObj {
 
     Put the jobjects in the order your want them to show up in the navbar and the contact section
 */
-export function ContactObject(iconClass: any): ContactObj[] {
+export function ContactObject(iconClass: string): IContactObject[] {
 	return [
 		{
 			link: "https://github.com/bhaden94",

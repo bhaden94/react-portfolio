@@ -1,10 +1,10 @@
-import FaceIcon from "@material-ui/icons/Face";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import BarChartIcon from "@material-ui/icons/BarChart";
 import DashboardIcon from "@material-ui/icons/Dashboard";
-import WorkIcon from "@material-ui/icons/Work";
+import FaceIcon from "@material-ui/icons/Face";
 import SchoolIcon from "@material-ui/icons/School";
-import About from "../components/about/About"
-import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
+import WorkIcon from "@material-ui/icons/Work";
+import About from "../components/about/About";
 import Education from "../components/education/Education";
 import Experience from "../components/experience/Experience";
 import Projects from "../components/projects/Projects";
@@ -18,14 +18,14 @@ const useStyles = makeStyles((theme: Theme) =>
 	})
 );
 
-export interface NavObj {
+export interface INavObject {
 	id: number;
 	text: string;
 	icon: any;
 	section: any;
 }
 
-export function NavObjects(): NavObj[] {
+export function NavObject(): INavObject[] {
 	const classes = useStyles();
 
 	return [
@@ -33,31 +33,31 @@ export function NavObjects(): NavObj[] {
 			id: 0,
 			text: "About",
 			icon: <FaceIcon className={classes.icon} />,
-			section: <About />
+			section: <About />,
 		},
 		{
 			id: 1,
 			text: "Skills",
 			icon: <BarChartIcon className={classes.icon} />,
-			section: <Skills />
+			section: <Skills />,
 		},
 		{
 			id: 2,
 			text: "Projects",
 			icon: <DashboardIcon className={classes.icon} />,
-			section: <Projects />
+			section: <Projects />,
 		},
 		{
 			id: 3,
 			text: "Experience",
 			icon: <WorkIcon className={classes.icon} />,
-			section: <Experience />
+			section: <Experience />,
 		},
 		{
 			id: 4,
 			text: "Education",
 			icon: <SchoolIcon className={classes.icon} />,
-			section: <Education />
+			section: <Education />,
 		},
 	];
 }
