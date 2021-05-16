@@ -6,7 +6,7 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import MailIcon from "@material-ui/icons/Mail";
 import { Link } from "react-scroll";
-import { INavObject, NavObject } from "../../infoObjects/NavObject";
+import { INavObject, NavObject } from "../../information/NavObject";
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({

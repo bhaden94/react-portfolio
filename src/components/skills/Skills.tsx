@@ -1,7 +1,7 @@
 import Paper from "@material-ui/core/Paper";
 import { makeStyles, Theme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import { ISkillsObject, SkillsObject } from "../../infoObjects/SkillsObject";
+import { ISkillsObject, SkillsObject } from "../../information/SkillsObject";
 import { useGlobalStyles } from "../../theme/globalStyle";
 
 const useStyles = makeStyles((theme: Theme) => ({

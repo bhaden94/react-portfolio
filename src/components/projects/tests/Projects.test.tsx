@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import Projects from "./Projects";
-import { ProjectObject, IProjectObject } from "../../infoObjects/ProjectsObject";
+import Projects from "../Projects";
+import { ProjectObject, IProjectObject } from "../../../information/ProjectsObject";
 
 it("render Projects component with front and back of card", () => {
 	const projects: IProjectObject[] = ProjectObject();

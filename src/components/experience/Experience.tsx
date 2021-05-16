@@ -9,7 +9,7 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 import {
 	ExperienceObject, IExperienceObject
-} from "../../infoObjects/ExperienceObject";
+} from "../../information/ExperienceObject";
 import { formatExperienceDate } from "../../utils/formatDate";
 import ExperienceModal from "./ExperienceModal";
 

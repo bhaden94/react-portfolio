@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import ProjectCard from "./ProjectCard";
-import { ProjectObject, IProjectObject } from "../../infoObjects/ProjectsObject";
+import ProjectCard from "../ProjectCard";
+import { ProjectObject, IProjectObject } from "../../../information/ProjectsObject";
 
 const projects: IProjectObject[] = ProjectObject();
 

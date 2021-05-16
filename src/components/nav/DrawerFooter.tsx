@@ -7,7 +7,7 @@ import {
 	useTheme,
 } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import { IContactObject, ContactObject } from "../../infoObjects/ContactObject";
+import { IContactObject, ContactObject } from "../../information/ContactObject";
 import ThemeSwitcher from "../dark-mode/ThemeSwitcher";
 
 const useStyles = makeStyles((theme: Theme) =>

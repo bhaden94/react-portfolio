@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import Skills from "./Skills";
-import { SkillsObject, ISkillsObject } from "../../infoObjects/SkillsObject";
+import Skills from "../Skills";
+import { SkillsObject, ISkillsObject } from "../../../information/SkillsObject";
 
 it("renders Skills component with object titles", () => {
 	const skills: ISkillsObject[] = SkillsObject();

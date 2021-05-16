@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import { IAboutObject, AboutObject, IStrength } from "../../infoObjects/AboutObject";
-import About from "./About";
+import { IAboutObject, AboutObject, IStrength } from "../../../information/AboutObject";
+import About from "../About";
 
 beforeEach(() => {
 	render(<About />);

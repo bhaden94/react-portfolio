@@ -2,7 +2,7 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import { IContactObject, ContactObject } from "../../infoObjects/ContactObject";
+import { IContactObject, ContactObject } from "../../information/ContactObject";
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({

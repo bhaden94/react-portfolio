@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import { MobileTheme, DesktopTheme } from "../../__mock__/MockTheme";
-import DrawerItems from "./DrawerItems";
-import { NavObject, INavObject } from "../../infoObjects/NavObject";
+import { MobileTheme, DesktopTheme } from "../../../__mock__/MockTheme";
+import DrawerItems from "../DrawerItems";
 
 const mockToggle = jest.fn();
 

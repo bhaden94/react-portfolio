@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import ThemeSwitcher from "./ThemeSwitcher";
-import { MockLightTheme, MockDarkTheme } from "../../__mock__/MockTheme";
+import ThemeSwitcher from "../ThemeSwitcher";
+import { MockLightTheme, MockDarkTheme } from "../../../__mock__/MockTheme";
 
 it("renders ThemeSwitcher with light theme", () => {
 	render(

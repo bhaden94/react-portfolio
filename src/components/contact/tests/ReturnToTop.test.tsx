@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import { MockLightTheme, MockDarkTheme } from "../../__mock__/MockTheme";
-import ReturnToTop from "./ReturnToTop";
+import { MockLightTheme, MockDarkTheme } from "../../../__mock__/MockTheme";
+import ReturnToTop from "../ReturnToTop";
 
 it("renders ScrollToTop component in light theme", () => {
 	render(

@@ -1,6 +1,6 @@
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import { AboutObject, IAboutObject } from "../../infoObjects/AboutObject";
+import { AboutObject, IAboutObject } from "../../information/AboutObject";
 
 interface INameTitleHeader {
 	isDesktop: boolean;

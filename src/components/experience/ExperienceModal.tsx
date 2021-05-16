@@ -7,7 +7,7 @@ import { TransitionProps } from "@material-ui/core/transitions";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import React from "react";
-import { IExperienceObject } from "../../infoObjects/ExperienceObject";
+import { IExperienceObject } from "../../information/ExperienceObject";
 import DialogTitle from "./DialogTitle";
 
 const Transition = React.forwardRef(function Transition(

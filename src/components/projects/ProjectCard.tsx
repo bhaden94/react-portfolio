@@ -6,7 +6,7 @@ import FlipToBackIcon from "@material-ui/icons/FlipToBack";
 import FlipToFrontIcon from "@material-ui/icons/FlipToFront";
 import { useState } from "react";
 import ReactCardFlip from "react-card-flip";
-import { IProjectObject } from "../../infoObjects/ProjectsObject";
+import { IProjectObject } from "../../information/ProjectsObject";
 import Actions from "./Actions";
 import CardBackContent from "./CardBackContent";
 import CardFrontContent from "./CardFrontContent";

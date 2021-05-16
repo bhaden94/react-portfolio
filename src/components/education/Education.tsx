@@ -2,7 +2,7 @@ import { Typography } from "@material-ui/core";
 import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles, Theme } from "@material-ui/core/styles";
-import { IEducationObject, EducationObject } from "../../infoObjects/EducationObject";
+import { IEducationObject, EducationObject } from "../../information/EducationObject";
 import { useGlobalStyles } from "../../theme/globalStyle";
 import { formatEducationDate } from "../../utils/formatDate";
 

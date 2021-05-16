@@ -1,7 +1,7 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { MobileTheme, DesktopTheme } from "../../__mock__/MockTheme";
-import Navigation from "./Navigation";
+import { MobileTheme, DesktopTheme } from "../../../__mock__/MockTheme";
+import Navigation from "../Navigation";
 
 it("render Nagigation component on desktop", async () => {
 	render(<Navigation />, { wrapper: DesktopTheme });

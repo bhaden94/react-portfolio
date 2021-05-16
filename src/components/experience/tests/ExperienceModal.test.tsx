@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { IExperienceObject } from "../../infoObjects/ExperienceObject";
-import ExperienceModal from "./ExperienceModal";
+import { IExperienceObject } from "../../../information/ExperienceObject";
+import ExperienceModal from "../ExperienceModal";
 
 it("expands Accomplishments section in ExperienceModal", () => {
 	const mockJob: IExperienceObject = {

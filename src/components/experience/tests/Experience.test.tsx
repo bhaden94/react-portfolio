@@ -3,8 +3,8 @@ import userEvent from "@testing-library/user-event";
 import {
 	ExperienceObject,
 	IExperienceObject,
-} from "../../infoObjects/ExperienceObject";
-import Experience from "./Experience";
+} from "../../../information/ExperienceObject";
+import Experience from "../Experience";
 
 const observe = jest.fn();
 const unobserve = jest.fn();

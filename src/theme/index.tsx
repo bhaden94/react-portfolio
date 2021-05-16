@@ -5,7 +5,7 @@ import {
 	useTheme,
 } from "@material-ui/core/styles";
 import React from "react";
-import { IThemeObject, ThemeObject } from "../infoObjects/ThemeObject";
+import { IThemeObject, ThemeObject } from "../information/ThemeObject";
 
 interface ThemeProviderProps {
 	children: React.ReactNode;

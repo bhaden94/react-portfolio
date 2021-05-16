@@ -1,5 +1,5 @@
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
-import { IAboutObject, AboutObject, IStrength } from "../../infoObjects/AboutObject";
+import { IAboutObject, AboutObject, IStrength } from "../../information/AboutObject";
 import Typography from "@material-ui/core/Typography";
 import ScrollAnimation from "react-animate-on-scroll";
 import Paper from "@material-ui/core/Paper";

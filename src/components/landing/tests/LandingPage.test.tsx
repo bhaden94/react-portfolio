@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import { IAboutObject, AboutObject } from "../../infoObjects/AboutObject";
-import LandingPage from "./LandingPage";
+import { IAboutObject, AboutObject } from "../../../information/AboutObject";
+import LandingPage from "../LandingPage";
 
 it("renders LandingPage component with proper text", () => {
 	const about: IAboutObject = AboutObject();

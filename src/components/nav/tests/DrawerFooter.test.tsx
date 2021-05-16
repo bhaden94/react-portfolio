@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import { MockDarkTheme, MockLightTheme } from "../../__mock__/MockTheme";
-import DrawerFooter from "./DrawerFooter";
+import { MockDarkTheme, MockLightTheme } from "../../../__mock__/MockTheme";
+import DrawerFooter from "../DrawerFooter";
 
 it("renders DrawerFooter component with dark theme", () => {
 	render(

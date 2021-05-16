@@ -1,7 +1,7 @@
 import CardContent from "@material-ui/core/CardContent";
 import { makeStyles, Theme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import { ITechnologiesObject } from "../../infoObjects/TechnologiesObject";
+import { ITechnologiesObject } from "../../information/TechnologiesObject";
 
 interface ICardBackContent {
 	accomplishments: string[];

@@ -1,5 +1,5 @@
 import Grid from "@material-ui/core/Grid";
-import { IProjectObject, ProjectObject } from "../../infoObjects/ProjectsObject";
+import { IProjectObject, ProjectObject } from "../../information/ProjectsObject";
 import { useGlobalStyles } from "../../theme/globalStyle";
 import ProjectCard from "./ProjectCard";
 

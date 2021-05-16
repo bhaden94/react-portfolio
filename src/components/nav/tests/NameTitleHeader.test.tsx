@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import NameTitleHeader from "./NameTitleHeader";
+import NameTitleHeader from "../NameTitleHeader";
 
 it("render NameTitleHeader component on desktop", () => {
 	render(<NameTitleHeader isDesktop />);
