@@ -1,16 +1,21 @@
-import { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
-import ReactCardFlip from "react-card-flip";
-import FlipToFrontIcon from "@material-ui/icons/FlipToFront";
-import FlipToBackIcon from "@material-ui/icons/FlipToBack";
-import Actions from "./Actions";
 import Link from "@material-ui/core/Link";
+import { makeStyles } from "@material-ui/core/styles";
+import FlipToBackIcon from "@material-ui/icons/FlipToBack";
+import FlipToFrontIcon from "@material-ui/icons/FlipToFront";
+import { useState } from "react";
+import ReactCardFlip from "react-card-flip";
+import { IProjectObject } from "../../information/ProjectsObject";
+import Actions from "./Actions";
 import CardBackContent from "./CardBackContent";
 import CardFrontContent from "./CardFrontContent";
 
-function ProjectCard({ project }: any) {
+interface IProjectCard {
+	project: IProjectObject;
+}
+
+function ProjectCard({ project }: IProjectCard) {
 	const useStyles = makeStyles(() => ({
 		root: {
 			width: "100%",
@@ -88,7 +93,12 @@ function ProjectCard({ project }: any) {
 					accomplishments={project.accomplishments}
 					techUsed={project.techUsed}
 				/>
-				<Actions flipCard={flipCard} flipBtn={<FlipToFrontIcon />} />
+				<Actions
+					flipCard={flipCard}
+					flipBtn={<FlipToFrontIcon />}
+					code={project.codeLink}
+					live={project.liveLink}
+				/>
 			</Card>
 			{/* BACK of card */}
 		</ReactCardFlip>

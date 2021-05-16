@@ -1,20 +1,21 @@
-import React, { Suspense } from "react";
 import AppBar from "@material-ui/core/AppBar";
+import Divider from "@material-ui/core/Divider";
 import Hidden from "@material-ui/core/Hidden";
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import Toolbar from "@material-ui/core/Toolbar";
 import {
-	makeStyles,
-	useTheme,
-	Theme,
 	createStyles,
+	makeStyles,
+	Theme,
+	useTheme
 } from "@material-ui/core/styles";
+import Toolbar from "@material-ui/core/Toolbar";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import NameTitleHeader from "./NameTitleHeader";
+import MenuIcon from "@material-ui/icons/Menu";
+import React, { Suspense } from "react";
 import { Link } from "react-scroll";
-import Divider from "@material-ui/core/Divider";
+import NameTitleHeader from "./NameTitleHeader";
 
+/* Lazy imports */
 const Drawer = React.lazy(() => import("@material-ui/core/Drawer"));
 const SwipeableDrawer = React.lazy(
 	() => import("@material-ui/core/SwipeableDrawer")
@@ -22,8 +23,9 @@ const SwipeableDrawer = React.lazy(
 const DrawerItems = React.lazy(() => import("./DrawerItems"));
 const DrawerFooter = React.lazy(() => import("./DrawerFooter"));
 
-const drawerWidth: number = 240;
-const drawerBreakpoint: any = "md";
+// constants
+const DRAWER_WIDTH: number = 240;
+const DRAWER_BREAKPOINT: any = "md";
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -31,31 +33,31 @@ const useStyles = makeStyles((theme: Theme) =>
 			display: "flex",
 		},
 		drawer: {
-			[theme.breakpoints.up(drawerBreakpoint)]: {
-				width: drawerWidth,
+			[theme.breakpoints.up(DRAWER_BREAKPOINT)]: {
+				width: DRAWER_WIDTH,
 				flexShrink: 0,
 			},
 		},
 		appBar: {
 			backgroundColor: theme.palette.background.paper,
 			color: theme.palette.primary.main,
-			[theme.breakpoints.up(drawerBreakpoint)]: {
+			[theme.breakpoints.up(DRAWER_BREAKPOINT)]: {
 				display: "none",
 			},
 		},
 		menuButton: {
 			marginRight: theme.spacing(2),
-			[theme.breakpoints.up(drawerBreakpoint)]: {
+			[theme.breakpoints.up(DRAWER_BREAKPOINT)]: {
 				display: "none",
 			},
 		},
 		drawerPaper: {
-			width: drawerWidth,
+			width: DRAWER_WIDTH,
 		},
 	})
 );
 
-export default function Navigation() {
+function Navigation() {
 	const classes = useStyles();
 	const theme = useTheme();
 	const [mobileOpen, setMobileOpen] = React.useState<boolean>(false);
@@ -141,3 +143,5 @@ export default function Navigation() {
 		</div>
 	);
 }
+
+export default Navigation;

@@ -1,8 +1,8 @@
-import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
-import Button from "@material-ui/core/Button";
-import { ContactObj, ContactObject } from "../../infoObjects/ContactObj";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import { IContactObject, ContactObject } from "../../information/ContactObject";
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -49,11 +49,11 @@ const useStyles = makeStyles((theme: Theme) =>
 
 function Contact() {
 	const classes = useStyles();
-	const contact: ContactObj[] = ContactObject(classes.icon);
+	const contact: IContactObject[] = ContactObject(classes.icon);
 
 	return (
 		<Grid container direction="column" className={classes.container}>
-			{contact.map((contactInfo: ContactObj, i: number) => (
+			{contact.map((contactInfo: IContactObject, i: number) => (
 				<Grid key={i} item className={classes.item}>
 					<Button
 						href={contactInfo.link}

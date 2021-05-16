@@ -1,7 +1,7 @@
-import { SkillsObject, SkillsObj } from "../../infoObjects/SkillsObj";
-import { Theme, makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
+import { makeStyles, Theme } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+import { ISkillsObject, SkillsObject } from "../../information/SkillsObject";
 import { useGlobalStyles } from "../../theme/globalStyle";
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -23,13 +23,13 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 function Skills() {
-	const skills: SkillsObj[] = SkillsObject();
+	const skills: ISkillsObject[] = SkillsObject();
 	const classes = useStyles();
 	const globalClasses = useGlobalStyles();
 
 	return (
 		<div>
-			{skills.map((skill: SkillsObj, i: number) => (
+			{skills.map((skill: ISkillsObject, i: number) => (
 				<Paper
 					key={i}
 					className={globalClasses.container}

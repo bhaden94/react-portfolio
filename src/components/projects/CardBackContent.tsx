@@ -1,9 +1,14 @@
-import { Theme, makeStyles } from "@material-ui/core/styles";
 import CardContent from "@material-ui/core/CardContent";
+import { makeStyles, Theme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import { Icon } from "@icons-pack/react-simple-icons";
+import { ITechnologiesObject } from "../../information/TechnologiesObject";
 
-function CardBackContent({ accomplishments, techUsed }: any) {
+interface ICardBackContent {
+	accomplishments: string[];
+	techUsed: ITechnologiesObject[] | undefined;
+}
+
+function CardBackContent({ accomplishments, techUsed }: ICardBackContent) {
 	const useStyles = makeStyles((theme: Theme) => ({
 		icon: {
 			display: "inline",
@@ -46,7 +51,7 @@ function CardBackContent({ accomplishments, techUsed }: any) {
 			)}
 			{/* only allow first 9 technologies here so we dont overflow the card  */}
 			{techUsed &&
-				techUsed.slice(0, 9).map((tech: Icon, i: number) => (
+				techUsed.slice(0, 9).map((tech: any, i: number) => (
 					<div
 						key={i}
 						className={["icon-hover", classes.icon].join(" ")}

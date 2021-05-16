@@ -1,13 +1,13 @@
-import React from "react";
-import { makeStyles, Theme } from "@material-ui/core/styles";
+import Collapse from "@material-ui/core/Collapse";
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
-import Collapse from "@material-ui/core/Collapse";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Slide from "@material-ui/core/Slide";
-import Typography from "@material-ui/core/Typography";
+import { makeStyles, Theme } from "@material-ui/core/styles";
 import { TransitionProps } from "@material-ui/core/transitions";
-import { ExperienceObj } from "../../infoObjects/ExperienceObj";
+import Typography from "@material-ui/core/Typography";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import React from "react";
+import { IExperienceObject } from "../../information/ExperienceObject";
 import DialogTitle from "./DialogTitle";
 
 const Transition = React.forwardRef(function Transition(
@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 interface IExperienceModal {
-	job: ExperienceObj;
+	job: IExperienceObject;
 	open: boolean;
 	handleClose: () => void;
 }

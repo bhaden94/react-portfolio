@@ -1,14 +1,14 @@
-import {
-	makeStyles,
-	Theme,
-	createStyles,
-	useTheme,
-} from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
-import ThemeSwitcher from "../dark-mode/ThemeSwitcher";
+import {
+	createStyles,
+	makeStyles,
+	Theme,
+	useTheme,
+} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import { ContactObj, ContactObject } from "../../infoObjects/ContactObj";
+import { IContactObject, ContactObject } from "../../information/ContactObject";
+import ThemeSwitcher from "../dark-mode/ThemeSwitcher";
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme: Theme) =>
 function DrawerFooter() {
 	const classes = useStyles();
 	const theme = useTheme();
-	const contact: ContactObj[] = ContactObject(classes.icon);
+	const contact: IContactObject[] = ContactObject(classes.icon);
 
 	return (
 		<div className={classes.footer}>
@@ -59,7 +59,7 @@ function DrawerFooter() {
 				justify="space-around"
 				alignItems="flex-start"
 			>
-				{contact.map((contactItem: ContactObj, i: number) => (
+				{contact.map((contactItem: IContactObject, i: number) => (
 					<Grid key={i} item xs={3}>
 						<Link
 							href={contactItem.link}

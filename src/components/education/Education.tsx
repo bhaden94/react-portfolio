@@ -1,10 +1,10 @@
-import { EducationObject, EducationObj } from "../../infoObjects/EducationObj";
-import { Theme, makeStyles } from "@material-ui/core/styles";
+import { Typography } from "@material-ui/core";
 import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
-import { Typography } from "@material-ui/core";
+import { makeStyles, Theme } from "@material-ui/core/styles";
+import { IEducationObject, EducationObject } from "../../information/EducationObject";
 import { useGlobalStyles } from "../../theme/globalStyle";
-import { formatDate } from "./formatDate";
+import { formatEducationDate } from "../../utils/formatDate";
 
 const useStyles = makeStyles((theme: Theme) => ({
 	container: {
@@ -59,13 +59,13 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 function Education() {
-	const education: EducationObj[] = EducationObject();
+	const education: IEducationObject[] = EducationObject();
 	const classes = useStyles();
 	const globalClasses = useGlobalStyles();
 
 	return (
 		<div>
-			{education.map((ed: EducationObj, i: number) => (
+			{education.map((ed: IEducationObject, i: number) => (
 				<Paper
 					key={i}
 					className={[
@@ -87,7 +87,7 @@ function Education() {
 						</Link>
 					</Typography>
 					<Typography color="textSecondary">
-						{ed.dateFinished && formatDate(ed.dateFinished)}
+						{ed.dateFinished && formatEducationDate(ed.dateFinished)}
 					</Typography>
 					<Typography
 						className={classes.degree}

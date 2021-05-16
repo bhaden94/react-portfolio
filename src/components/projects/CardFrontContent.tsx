@@ -1,7 +1,12 @@
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 
-function CardFrontContent({ title, shortDesc }: any) {
+interface ICardFrontContent {
+	title: string;
+	shortDesc: string;
+}
+
+function CardFrontContent({ title, shortDesc }: ICardFrontContent) {
 	return (
 		<CardContent>
 			<Typography gutterBottom variant="h5" component="h2">

@@ -1,12 +1,11 @@
-import React from "react";
 import {
 	createMuiTheme,
-	ThemeProvider as MuiThemeProvider,
 	Theme,
+	ThemeProvider as MuiThemeProvider,
+	useTheme,
 } from "@material-ui/core/styles";
-
-import { useTheme } from "@material-ui/core/styles";
-import { ThemeObj, ThemeObjects } from "../infoObjects/ThemeObj";
+import React from "react";
+import { IThemeObject, ThemeObject } from "../information/ThemeObject";
 
 interface ThemeProviderProps {
 	children: React.ReactNode;
@@ -37,7 +36,7 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, theme }) => {
 	);
 
 	const memoizedTheme = React.useMemo(() => {
-		const colors: ThemeObj = ThemeObjects();
+		const colors: IThemeObject = ThemeObject();
 
 		return createMuiTheme({
 			...theme,

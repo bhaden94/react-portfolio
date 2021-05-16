@@ -1,6 +1,6 @@
-import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
-import { AboutObj, AboutObject } from "../../infoObjects/AboutObj";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
+import { AboutObject, IAboutObject } from "../../information/AboutObject";
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 function LandingPage() {
 	const classes = useStyles();
-	const about: AboutObj = AboutObject();
+	const about: IAboutObject = AboutObject();
 
 	return (
 		<div className={classes.container}>
