@@ -71,6 +71,7 @@ function Actions({ flipCard, flipBtn, code, live }: IActions) {
 						onClick={flipCard}
 						size="small"
 						color="secondary"
+						aria-label="Flip project card"
 						data-testid="card-flip-btn"
 					>
 						{flipBtn}

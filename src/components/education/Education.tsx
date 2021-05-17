@@ -2,7 +2,10 @@ import { Typography } from "@material-ui/core";
 import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles, Theme } from "@material-ui/core/styles";
-import { IEducationObject, EducationObject } from "../../information/EducationObject";
+import {
+	IEducationObject,
+	EducationObject,
+} from "../../information/EducationObject";
 import { useGlobalStyles } from "../../theme/globalStyle";
 import { formatEducationDate } from "../../utils/formatDate";
 
@@ -74,7 +77,7 @@ function Education() {
 					].join(" ")}
 					elevation={3}
 				>
-					<Typography component="h4">
+					<Typography variant="h4" variantMapping={{ h4: "h3" }}>
 						<Link
 							className={
 								ed.schoolLink ? classes.school : classes.title
@@ -87,7 +90,8 @@ function Education() {
 						</Link>
 					</Typography>
 					<Typography color="textSecondary">
-						{ed.dateFinished && formatEducationDate(ed.dateFinished)}
+						{ed.dateFinished &&
+							formatEducationDate(ed.dateFinished)}
 					</Typography>
 					<Typography
 						className={classes.degree}

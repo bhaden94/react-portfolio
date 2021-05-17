@@ -38,6 +38,7 @@ function Skills() {
 					<Typography
 						className={classes.title}
 						variant="h4"
+						variantMapping={{ h4: "h3" }}
 						color="textSecondary"
 					>
 						{skill.title}

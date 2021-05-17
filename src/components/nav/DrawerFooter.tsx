@@ -65,6 +65,7 @@ function DrawerFooter() {
 							href={contactItem.link}
 							target="_blank"
 							rel="noreferrer"
+							aria-label={contactItem.name}
 						>
 							{contactItem.icon}
 						</Link>
