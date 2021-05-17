@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 	},
 	title: {
 		fontSize: "1.5rem",
+		color: theme.palette.primary.main,
 		"&:hover": {
 			textDecoration: "none",
 			cursor: "default",
@@ -78,16 +79,18 @@ function Education() {
 					elevation={3}
 				>
 					<Typography variant="h4" variantMapping={{ h4: "h3" }}>
-						<Link
-							className={
-								ed.schoolLink ? classes.school : classes.title
-							}
-							href={ed.schoolLink}
-							target="_blank"
-							rel="noreferrer"
-						>
-							{ed.school}
-						</Link>
+						{ed.schoolLink ? (
+							<Link
+								className={classes.school}
+								href={ed.schoolLink}
+								target="_blank"
+								rel="noreferrer"
+							>
+								{ed.school}
+							</Link>
+						) : (
+							<div className={classes.title}>{ed.school}</div>
+						)}
 					</Typography>
 					<Typography color="textSecondary">
 						{ed.dateFinished &&
