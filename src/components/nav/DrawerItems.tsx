@@ -50,11 +50,12 @@ interface IDrawerItems {
 
 function DrawerItems({ toggleDrawer, isDesktop }: IDrawerItems) {
 	const classes = useStyles();
+	const nav: INavObject[] = NavObject();
 
 	return (
 		<List disablePadding>
-			{NavObject().map((listItem: INavObject, i: number) => (
-				<li>
+			{nav.map((listItem: INavObject, i: number) => (
+				<li key={i}>
 					<Link
 						activeClass={classes.active}
 						to={listItem.text}
@@ -62,7 +63,6 @@ function DrawerItems({ toggleDrawer, isDesktop }: IDrawerItems) {
 						smooth={true}
 						offset={isDesktop ? 0 : -60}
 						duration={300}
-						key={i}
 						data-testid={`nav-link-${isDesktop}`}
 					>
 						<ListItem
@@ -83,7 +83,7 @@ function DrawerItems({ toggleDrawer, isDesktop }: IDrawerItems) {
 					</Link>
 				</li>
 			))}
-			<li>
+			<li key={nav.length}>
 				<Link
 					activeClass={classes.active}
 					to={"Contact"}
