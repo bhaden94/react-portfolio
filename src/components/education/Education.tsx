@@ -2,7 +2,10 @@ import { Typography } from "@material-ui/core";
 import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles, Theme } from "@material-ui/core/styles";
-import { IEducationObject, EducationObject } from "../../information/EducationObject";
+import {
+	IEducationObject,
+	EducationObject,
+} from "../../information/EducationObject";
 import { useGlobalStyles } from "../../theme/globalStyle";
 import { formatEducationDate } from "../../utils/formatDate";
 
@@ -12,6 +15,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 	},
 	title: {
 		fontSize: "1.5rem",
+		color: theme.palette.primary.main,
 		"&:hover": {
 			textDecoration: "none",
 			cursor: "default",
@@ -74,20 +78,23 @@ function Education() {
 					].join(" ")}
 					elevation={3}
 				>
-					<Typography component="h4">
-						<Link
-							className={
-								ed.schoolLink ? classes.school : classes.title
-							}
-							href={ed.schoolLink}
-							target="_blank"
-							rel="noreferrer"
-						>
-							{ed.school}
-						</Link>
+					<Typography variant="h4" variantMapping={{ h4: "h3" }}>
+						{ed.schoolLink ? (
+							<Link
+								className={classes.school}
+								href={ed.schoolLink}
+								target="_blank"
+								rel="noreferrer"
+							>
+								{ed.school}
+							</Link>
+						) : (
+							<div className={classes.title}>{ed.school}</div>
+						)}
 					</Typography>
 					<Typography color="textSecondary">
-						{ed.dateFinished && formatEducationDate(ed.dateFinished)}
+						{ed.dateFinished &&
+							formatEducationDate(ed.dateFinished)}
 					</Typography>
 					<Typography
 						className={classes.degree}

@@ -50,63 +50,67 @@ interface IDrawerItems {
 
 function DrawerItems({ toggleDrawer, isDesktop }: IDrawerItems) {
 	const classes = useStyles();
+	const nav: INavObject[] = NavObject();
 
 	return (
 		<List disablePadding>
-			{NavObject().map((listItem: INavObject, i: number) => (
+			{nav.map((listItem: INavObject, i: number) => (
+				<li key={i}>
+					<Link
+						activeClass={classes.active}
+						to={listItem.text}
+						spy={true}
+						smooth={true}
+						offset={isDesktop ? 0 : -60}
+						duration={300}
+						data-testid={`nav-link-${isDesktop}`}
+					>
+						<ListItem
+							button
+							className={classes.navItem}
+							onClick={toggleDrawer}
+						>
+							<ListItemIcon>{listItem.icon}</ListItemIcon>
+							<ListItemText
+								disableTypography
+								primary={
+									<Typography color="textSecondary">
+										{listItem.text}
+									</Typography>
+								}
+							/>
+						</ListItem>
+					</Link>
+				</li>
+			))}
+			<li key={nav.length}>
 				<Link
 					activeClass={classes.active}
-					to={listItem.text}
+					to={"Contact"}
 					spy={true}
 					smooth={true}
 					offset={isDesktop ? 0 : -60}
 					duration={300}
-					key={i}
-					data-testid={`nav-link-${isDesktop}`}
 				>
 					<ListItem
 						button
 						className={classes.navItem}
 						onClick={toggleDrawer}
 					>
-						<ListItemIcon>{listItem.icon}</ListItemIcon>
+						<ListItemIcon>
+							<MailIcon className={classes.icon} />
+						</ListItemIcon>
 						<ListItemText
 							disableTypography
 							primary={
 								<Typography color="textSecondary">
-									{listItem.text}
+									Contact
 								</Typography>
 							}
 						/>
 					</ListItem>
 				</Link>
-			))}
-			<Link
-				activeClass={classes.active}
-				to={"Contact"}
-				spy={true}
-				smooth={true}
-				offset={isDesktop ? 0 : -60}
-				duration={300}
-			>
-				<ListItem
-					button
-					className={classes.navItem}
-					onClick={toggleDrawer}
-				>
-					<ListItemIcon>
-						<MailIcon className={classes.icon} />
-					</ListItemIcon>
-					<ListItemText
-						disableTypography
-						primary={
-							<Typography color="textSecondary">
-								Contact
-							</Typography>
-						}
-					/>
-				</ListItem>
-			</Link>
+			</li>
 		</List>
 	);
 }

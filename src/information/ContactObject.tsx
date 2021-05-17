@@ -5,6 +5,7 @@ import AlternateEmailIcon from "@material-ui/icons/AlternateEmail";
 // import FacebookIcon from '@material-ui/icons/Facebook';
 
 export interface IContactObject {
+	name: string;
 	link: string;
 	text: string;
 	icon: any;
@@ -22,27 +23,32 @@ export interface IContactObject {
 export function ContactObject(iconClass: string): IContactObject[] {
 	return [
 		{
+			name: "Github",
 			link: "https://github.com/bhaden94",
 			text: "See me on GitHub",
 			icon: <GitHubIcon fontSize="large" className={iconClass} />,
 		},
 		{
+			name: "LinkedIn",
 			link: "https://www.linkedin.com/in/brady-haden/",
 			text: "Connect on LinkedIn",
 			icon: <LinkedInIcon fontSize="large" className={iconClass} />,
 		},
 		{
+			name: "Email",
 			link:
 				"mailto:brady.s.haden@gmail.com?subject=Greetings From Portfolio",
 			text: "Send me an email",
 			icon: <AlternateEmailIcon fontSize="large" className={iconClass} />,
 		},
 		// {
+		//	   name: "Twitter",
 		//     link: 'https://www.twitter.com',
 		//     text: 'Follow me on Twitter',
 		//     icon: <TwitterIcon fontSize='large' className={iconClass} />
 		// },
 		// {
+		//	   name: "Facebook",
 		//     link: 'https://www.facebook.com',
 		//     text: 'Friend me on Facebook',
 		//     icon: <FacebookIcon fontSize='large' className={iconClass} />

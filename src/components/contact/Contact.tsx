@@ -63,6 +63,7 @@ function Contact() {
 						variant="contained"
 						size="large"
 						color="primary"
+						aria-label={contactInfo.name}
 						data-testid={`icon-btn${i}`}
 					>
 						{contactInfo.icon}
