@@ -1,15 +1,15 @@
-import "./App.css";
-import Navigation from "./components/nav/Navigation";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import ThemeProvider from "./theme";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import useTheme from "@material-ui/core/styles/useTheme";
+import "./App.css";
 import Contact from "./components/contact/Contact";
-import Header from "./components/section-headers/Header";
-import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import ReturnToTop from "./components/contact/ReturnToTop";
 import LandingPage from "./components/landing/LandingPage";
-import { INavObject, NavObject } from "./information/NavObject";
+import Navigation from "./components/nav/Navigation";
+import Header from "./components/section-headers/Header";
 import { AboutObject } from "./information/AboutObject";
+import { INavObject, NavObject } from "./information/NavObject";
+import ThemeProvider from "./theme";
 
 function App() {
 	const theme: Theme = useTheme();
