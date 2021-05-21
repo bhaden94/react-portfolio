@@ -27,9 +27,9 @@ function LandingPage() {
 				[theme.breakpoints.down("sm")]: {
 					fontSize: "2.5rem",
 				},
-				color: about.landingOpenerColorOverride
-					? about.landingOpenerColorOverride
-					: theme.palette.text.primary,
+				color:
+					about.landingOpenerColorOverride ||
+					theme.palette.text.primary,
 			},
 		})
 	);
