@@ -9,25 +9,28 @@ import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import ReturnToTop from "./components/contact/ReturnToTop";
 import LandingPage from "./components/landing/LandingPage";
 import { INavObject, NavObject } from "./information/NavObject";
-
-const useStyles = makeStyles(() =>
-	createStyles({
-		top: {
-			height: "100vh",
-		},
-		section: {
-			width: "100%",
-		},
-		bottom: {
-			minHeight: "100vh",
-			position: "relative",
-		},
-	})
-);
+import { AboutObject } from "./information/AboutObject";
 
 function App() {
-	const classes = useStyles();
 	const theme: Theme = useTheme();
+	const useStyles = makeStyles(() =>
+		createStyles({
+			top: {
+				height: "100vh",
+				backgroundImage: `url(${AboutObject().landingImage})`,
+				backgroundAttachment: "fixed",
+				backgroundSize: "cover",
+			},
+			section: {
+				width: "100%",
+			},
+			bottom: {
+				minHeight: "100vh",
+				position: "relative",
+			},
+		})
+	);
+	const classes = useStyles();
 
 	return (
 		<ThemeProvider theme={theme}>
@@ -43,7 +46,11 @@ function App() {
 					</div>
 
 					{NavObject().map((listItem: INavObject, i: number) => (
-						<div id={listItem.text} key={i} className={classes.section}>
+						<div
+							id={listItem.text}
+							key={i}
+							className={classes.section}
+						>
 							<Header text={listItem.text} />
 							{listItem.section}
 						</div>

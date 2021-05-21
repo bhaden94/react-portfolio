@@ -2,16 +2,20 @@ import ui from "../images/about/browser.svg";
 import perf from "../images/about/performance.svg";
 import resp from "../images/about/responsive-design.svg";
 
+import Bg from "../images/landing/Flat-Mountains.svg";
+
 export interface IStrength {
 	short: string;
 	long: string;
-	image: any;
+	image: string;
 }
 
 export interface IAboutObject {
 	name: string;
 	title: string;
 	landingOpener: string[];
+	landingOpenerColorOverride?: string;
+	landingImage: string;
 	headline: string;
 	strengths: IStrength[];
 }
@@ -24,6 +28,7 @@ export function AboutObject(): IAboutObject {
 			'"There\'s a way to do it better. Find it."',
 			"- Thomas Edison",
 		],
+		landingImage: Bg,
 		headline:
 			"Hi I am Brady, a Software Engineer and United States Air Force veteran " +
 			"passionate about making a difference through code!",
