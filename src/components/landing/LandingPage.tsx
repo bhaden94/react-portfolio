@@ -39,7 +39,12 @@ function LandingPage() {
 		<div className={classes.container}>
 			<div className={classes.textContainer}>
 				{about.landingOpener.map((str: string, i: number) => (
-					<Typography key={i} variant="h2" className={classes.text}>
+					<Typography
+						key={i}
+						variant="h2"
+						className={classes.text}
+						data-testid="landing-opener-text"
+					>
 						{str}
 					</Typography>
 				))}
