@@ -4,11 +4,12 @@ import Typography from "@material-ui/core/Typography";
 import { useState } from "react";
 import {
 	VerticalTimeline,
-	VerticalTimelineElement
+	VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import {
-	ExperienceObject, IExperienceObject
+	ExperienceObject,
+	IExperienceObject,
 } from "../../information/ExperienceObject";
 import { formatExperienceDate } from "../../utils/formatDate";
 import ExperienceModal from "./ExperienceModal";
@@ -99,6 +100,7 @@ function Experience() {
 							src={job.media}
 							style={iconImageStyle}
 							alt={`${job.company} logo`}
+							data-testid={`timeline-img-${i}`}
 						/>
 					}
 				>
@@ -120,6 +122,7 @@ function Experience() {
 						<Typography
 							color="textSecondary"
 							className={classes.desc}
+							data-testid={`timeline-description-${i}`}
 						>
 							{job.description}
 						</Typography>
