@@ -56,3 +56,9 @@ export function ThemeObject(): IThemeObject {
 		},
 	};
 }
+
+/*
+background-color: #004d40;
+background-image: linear-gradient(160deg, #004d40 0%, #009688 100%);
+
+*/

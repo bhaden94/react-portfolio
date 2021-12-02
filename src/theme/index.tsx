@@ -40,6 +40,19 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, theme }) => {
 
 		return createMuiTheme({
 			...theme,
+			overrides: {
+				MuiCssBaseline: {
+				  '@global': {
+					 body: {
+					   background: themeOptions.paletteType === "light"
+					   		? 'linear-gradient(160deg, #004d40 0%, #009688 100%)'
+							: 'radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(0,77,64,1) 50%, rgba(0,77,64,1) 100%)',
+					   backgroundRepeat: "no-repeat",
+					   backgroundAttachment: "fixed",
+					},
+				  },
+				},
+			},
 			palette: {
 				type: themeOptions.paletteType,
 				primary: {
