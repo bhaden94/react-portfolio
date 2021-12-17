@@ -20,6 +20,15 @@ export interface IEducationObject {
 export function EducationObject(): IEducationObject[] {
 	return [
 		{
+			degree: "AZ-900 Certification",
+			school: "Microsoft Certified: Azure Fundamentals",
+			schoolLink: "https://www.credly.com/badges/48b54af7-e575-4e03-be40-b908478ae490?source=linked_in_profile",
+			dateFinished: new Date(2021, 10, 0),
+			bullets: [
+				"Demonstrated foundational level knowledge of cloud services and how those services are provided with Microsoft Azure.",
+			],
+		},
+		{
 			degree: "Full Stack Software Engineer Bootcamp",
 			school: "Galvanize",
 			schoolLink: "https://www.galvanize.com/",

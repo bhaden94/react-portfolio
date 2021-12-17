@@ -1,9 +1,7 @@
 import covid from "../images/projects/covid-app.png";
 import spacex from "../images/projects/spacex-app.png";
-import {
-	ITechnologiesObject,
-	TechnologiesObject
-} from "./TechnologiesObject";
+import loki from "../images/projects/loki-bot.png";
+import { ITechnologiesObject, TechnologiesObject } from "./TechnologiesObject";
 
 export interface IProjectObject {
 	id: number;
@@ -78,24 +76,20 @@ export function ProjectObject(): IProjectObject[] {
 				tech.github,
 			],
 		},
-		// {
-		// 	id: 2,
-		// 	media: spacex,
-		// 	title: "title",
-		// 	shortDesc:
-		// 		"short desc",
-		// 	accomplishments: [
-		// 		"acc 1",
-		// 		"acc 2",
-		// 	],
-		// 	liveLink: "link to live app",
-		// 	codeLink: "link to code",
-		// 	techUsed: [
-		// 		tech.react,
-		// 		tech.javascript,
-		// 		tech.bootstrap,
-		// 		tech.github,
-		// 	],
-		// },
+		{
+			id: 2,
+			media: loki,
+			title: "Loki Discord Chat Bot",
+			shortDesc:
+				"Trained chat bot to act like everyone's favorite Marvel character, Loki.",
+			accomplishments: [
+				"Microsoft GPT-2 & Jupyter Notebooks workflows to train/upload bot",
+				"Python for sanitizing raw transcripts from Loki show & interact with Discord API",
+				"Loki bot has been up 99.95% over the last 30 days",
+			],
+			liveLink: "https://huggingface.co/bhaden94/LokiDiscordBot-medium",
+			codeLink: "https://github.com/bhaden94/LokiDiscordChatbot",
+			techUsed: [tech.python, tech.github, tech.jupyter],
+		},
 	];
 }

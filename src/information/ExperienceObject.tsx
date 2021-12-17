@@ -2,9 +2,7 @@ import Logo1 from "../images/experience/af-logo.jpg";
 import Logo3 from "../images/experience/JD-logo.png";
 import Logo2 from "../images/experience/levelup-logo.png";
 import Logo4 from "../images/experience/microsoft-logo.jpg";
-import {
-	ITechnologiesObject, TechnologiesObject
-} from "./TechnologiesObject";
+import { ITechnologiesObject, TechnologiesObject } from "./TechnologiesObject";
 
 export interface IExperienceObject {
 	startDate: Date;
@@ -32,7 +30,14 @@ export function ExperienceObject(): IExperienceObject[] {
 			endDate: "Present",
 			title: "Software Engineer",
 			company: "Microsoft",
-			bullets: ["To be determined..."],
+			bullets: [
+				"Owned VM OS upgrades feature for all Azure Flexible Server for PostgreSQL Linux managed instances.",
+				"Implemented scalable OS upgrades to be performed on thousands of servers at once by utilizing a Docker container for execution.",
+				"Expanded feature by adding more granular control to allow security related packages and specific whitelisted packages that could be chosen for upgrade. Decreased downtime for customer since these options did not require a reboot.",
+				"Deployed Azure MySQL & PostgreSQL Flexible Servers to four new Azure regions for specific business customers.",
+				"Initialized test runners to imitate customers by creating synthetic workloads and publishing metrics in the new regions.",
+				"Coded C# backend PaaS & IaaS database services & API’s in highly distributed/multi-threaded systems.",
+			],
 			media: Logo4,
 			techUsed: [tech.azure, tech.postgresql, tech.mysql, tech.csharp],
 		},
