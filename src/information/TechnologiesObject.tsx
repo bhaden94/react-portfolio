@@ -5,6 +5,7 @@ import {
 	Csharp,
 	CssThree,
 	Docker,
+	DotNet,
 	Elasticsearch,
 	Git,
 	Github,
@@ -17,6 +18,7 @@ import {
 	Jira,
 	Jupyter,
 	Kibana,
+	Linux,
 	MaterialUi,
 	Mattermost,
 	Microsoftazure,
@@ -25,6 +27,7 @@ import {
 	Nginx,
 	NodeDotJs,
 	Postgresql,
+	Powershell,
 	Python,
 	Rancher,
 	ReactJs,
@@ -86,6 +89,9 @@ export function TechnologiesObject(
 		azure: <Microsoftazure color={color || "#0089D6"} size={size || 50} />,
 		csharp: <Csharp color={color || "#239120"} size={size || 50} />,
 		jupyter: <Jupyter color={color || "#F37626"} size={size || 50} />,
+		linux: <Linux color={color || "#FCC624"} size={size || 50} />,
+		powershell: <Powershell color={color || "#5391FE"} size={size || 50} />,
+		dotnet: <DotNet color={color || "#512BD4"} size={size || 50} />,
 		// get icons from https://simpleicons.org/
 	};
 }
