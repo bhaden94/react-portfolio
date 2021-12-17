@@ -15,6 +15,7 @@ import {
 	Java,
 	Javascript,
 	Jira,
+	Jupyter,
 	Kibana,
 	MaterialUi,
 	Mattermost,
@@ -29,7 +30,7 @@ import {
 	ReactJs,
 	Sonarqube,
 	Spring,
-	Typescript
+	Typescript,
 } from "@icons-pack/react-simple-icons";
 
 export interface ITechnologiesObject {
@@ -84,6 +85,7 @@ export function TechnologiesObject(
 		),
 		azure: <Microsoftazure color={color || "#0089D6"} size={size || 50} />,
 		csharp: <Csharp color={color || "#239120"} size={size || 50} />,
+		jupyter: <Jupyter color={color || "#F37626"} size={size || 50} />,
 		// get icons from https://simpleicons.org/
 	};
 }
