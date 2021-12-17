@@ -39,7 +39,15 @@ export function ExperienceObject(): IExperienceObject[] {
 				"Coded C# backend PaaS & IaaS database services & API’s in highly distributed/multi-threaded systems.",
 			],
 			media: Logo4,
-			techUsed: [tech.azure, tech.postgresql, tech.mysql, tech.csharp],
+			techUsed: [
+				tech.azure,
+				tech.linux,
+				tech.dotnet,
+				tech.csharp,
+				tech.postgresql,
+				tech.mysql,
+				tech.powershell,
+			],
 		},
 		{
 			startDate: new Date(2021, 1, 0),

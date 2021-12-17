@@ -84,6 +84,23 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, theme }) => {
 						div: {
 							transition: "background-color 0.2s linear",
 						},
+						"*::-webkit-scrollbar": {
+							width: "0.8em",
+						},
+						"*::-webkit-scrollbar-track": {
+							"-webkit-box-shadow": "inset 0 0 3px rgba(0, 0, 0, 0.75)",
+							backgroundColor:
+								themeOptions.paletteType === "light"
+									? colors.light.background.default
+									: colors.dark.background.default,
+						},
+						"*::-webkit-scrollbar-thumb": {
+							backgroundColor:
+								themeOptions.paletteType === "light"
+									? colors.light.primary
+									: colors.dark.primary,
+							borderRadius: "20px",
+						},
 					},
 				},
 				MuiPaper: {
