@@ -75,6 +75,33 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, theme }) => {
 							: colors.dark.text.secondary,
 				},
 			},
+			overrides: {
+				MuiCssBaseline: {
+					"@global": {
+						body: {
+							transition: "all 0.2s linear",
+						},
+						div: {
+							transition: "background-color 0.2s linear",
+						},
+					},
+				},
+				MuiPaper: {
+					root: {
+						transition: "all 0.2s linear",
+					},
+				},
+				MuiAppBar: {
+					root: {
+						transition: "all 0.2s linear",
+					},
+				},
+				MuiTypography: {
+					root: {
+						transition: "color 0.2 linear",
+					},
+				},
+			},
 		});
 	}, [theme, themeOptions.paletteType]);
 
