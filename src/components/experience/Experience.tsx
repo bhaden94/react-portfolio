@@ -1,7 +1,7 @@
 import Button from "@material-ui/core/Button";
 import { makeStyles, Theme, useTheme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
 	VerticalTimeline,
 	VerticalTimelineElement,
@@ -13,6 +13,8 @@ import {
 } from "../../information/ExperienceObject";
 import { formatExperienceDate } from "../../utils/formatDate";
 import ExperienceModal from "./ExperienceModal";
+import { Chrono } from "react-chrono";
+import { TimelineItemModel } from "react-chrono/dist/models/TimelineItemModel";
 
 const useStyles = makeStyles((theme: Theme) => ({
 	customTimeline: {
@@ -49,6 +51,14 @@ function Experience() {
 	const [open, setOpen] = useState<boolean>(false);
 	// state to keep track of the job we are seeing more details for
 	const [currJob, setCurrJob] = useState<IExperienceObject>(experience[0]);
+	const [chronoKey, setChronoKey] = useState<number>(Math.random());
+	const chronoTheme = {
+		secondary: theme.palette.secondary.main,
+		cardBgColor: theme.palette.background.paper,
+		cardForeColor: theme.palette.text.primary,
+		titleColor: theme.palette.primary.main,
+		titleColorActive: theme.palette.text.primary,
+	};
 
 	/* open and close dialog to see more for experience */
 	const handleDialogOpen = (i: number) => {
@@ -85,66 +95,98 @@ function Experience() {
 	};
 	/* end specific styles */
 
+	const items: TimelineItemModel[] = experience.map((job) => ({
+		title: formatExperienceDate(job.startDate, job.endDate),
+		cardTitle: job.title,
+		cardSubtitle: job.company,
+		cardDetailedText: job.description,
+	}));
+
+	useEffect(() => {
+		setChronoKey(Math.random());
+	}, [theme.palette.type]);
+
+	// colors not changing with theme. There is an issue opened for this. Don't switch until this is fixed.
 	return (
-		<VerticalTimeline className={classes.customTimeline} animate={false}>
-			{experience.map((job: IExperienceObject, i: number) => (
-				<VerticalTimelineElement
-					key={i}
-					className="vertical-timeline-element--work"
-					contentStyle={content}
-					contentArrowStyle={arrowStyle}
-					date={formatExperienceDate(job.startDate, job.endDate)}
-					iconStyle={iconStyle}
-					icon={
+		<div style={{ width: "100%", height: "100%" }}>
+			<Chrono
+				key={chronoKey}
+				theme={chronoTheme}
+				items={items}
+				mode="VERTICAL_ALTERNATING"
+			>
+				<div className="chrono-icons">
+					{experience.map((job) => (
 						<img
 							src={job.media}
 							style={iconImageStyle}
 							alt={`${job.company} logo`}
-							data-testid={`timeline-img-${i}`}
 						/>
-					}
-				>
-					<Typography
-						color="textPrimary"
-						variant="h3"
-						className={classes.title}
-					>
-						{job.title}
-					</Typography>
-					<Typography
-						color="textPrimary"
-						variant="h4"
-						className={classes.company}
-					>
-						{job.company}
-					</Typography>
-					{job.description && (
-						<Typography
-							color="textSecondary"
-							className={classes.desc}
-							data-testid={`timeline-description-${i}`}
-						>
-							{job.description}
-						</Typography>
-					)}
-					<Button
-						variant="contained"
-						color="primary"
-						className={classes.btn}
-						onClick={() => handleDialogOpen(i)}
-						data-testid="open-modal-btn"
-					>
-						Details
-					</Button>
-					<ExperienceModal
-						job={currJob}
-						open={open}
-						handleClose={handleDialogClose}
-					/>
-				</VerticalTimelineElement>
-			))}
-		</VerticalTimeline>
+					))}
+				</div>
+			</Chrono>
+		</div>
 	);
+	// return (
+	// 	<VerticalTimeline className={classes.customTimeline} animate={false}>
+	// 		{experience.map((job: IExperienceObject, i: number) => (
+	// 			<VerticalTimelineElement
+	// 				key={i}
+	// 				className="vertical-timeline-element--work"
+	// 				contentStyle={content}
+	// 				contentArrowStyle={arrowStyle}
+	// 				date={formatExperienceDate(job.startDate, job.endDate)}
+	// 				iconStyle={iconStyle}
+	// 				icon={
+	// 					<img
+	// 						src={job.media}
+	// 						style={iconImageStyle}
+	// 						alt={`${job.company} logo`}
+	// 						data-testid={`timeline-img-${i}`}
+	// 					/>
+	// 				}
+	// 			>
+	// 				<Typography
+	// 					color="textPrimary"
+	// 					variant="h3"
+	// 					className={classes.title}
+	// 				>
+	// 					{job.title}
+	// 				</Typography>
+	// 				<Typography
+	// 					color="textPrimary"
+	// 					variant="h4"
+	// 					className={classes.company}
+	// 				>
+	// 					{job.company}
+	// 				</Typography>
+	// 				{job.description && (
+	// 					<Typography
+	// 						color="textSecondary"
+	// 						className={classes.desc}
+	// 						data-testid={`timeline-description-${i}`}
+	// 					>
+	// 						{job.description}
+	// 					</Typography>
+	// 				)}
+	// 				<Button
+	// 					variant="contained"
+	// 					color="primary"
+	// 					className={classes.btn}
+	// 					onClick={() => handleDialogOpen(i)}
+	// 					data-testid="open-modal-btn"
+	// 				>
+	// 					Details
+	// 				</Button>
+	// 				<ExperienceModal
+	// 					job={currJob}
+	// 					open={open}
+	// 					handleClose={handleDialogClose}
+	// 				/>
+	// 			</VerticalTimelineElement>
+	// 		))}
+	// 	</VerticalTimeline>
+	// );
 }
 
 export default Experience;
