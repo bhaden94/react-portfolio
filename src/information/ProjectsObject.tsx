@@ -42,8 +42,8 @@ export function ProjectObject(): IProjectObject[] {
 			shortDesc:
 				"Calculators specific to U.S. Veterans and their benefits.",
 			accomplishments: [
-				"No backend needed with NextJS and service side rendering",
-				"Useful calculators for Veterans",
+				"Dynamic rendering in autofill to speed up location search",
+				"No backend needed with NextJS and server side rendering",
 			],
 			liveLink: "https://va-calculator.com",
 			codeLink: "https://github.com/bhaden94/va-calculator",
