@@ -2,6 +2,7 @@ import ui from "../images/about/browser.svg";
 import perf from "../images/about/performance.svg";
 import resp from "../images/about/responsive-design.svg";
 
+import Bg from "../images/landing/Flat-Mountains.svg";
 import featuredDesktop from "../images/landing/desktop-featured.png";
 import featuredMobile from "../images/landing/mobile-featured.png";
 
@@ -16,6 +17,7 @@ export interface IAboutObject {
 	title: string;
 	landingOpener: string[];
 	landingOpenerColorOverride?: string;
+	staticBackground: string;
 	landingDesktopImage: string;
 	landingMobileImage: string;
 	featuredLink: string;
@@ -30,6 +32,7 @@ export function AboutObject(): IAboutObject {
 		landingOpener: [
 			"Featured: VA Loan Second Tier Entitlement Calculator",
 		],
+		staticBackground: Bg,
 		landingDesktopImage: featuredDesktop,
 		landingMobileImage: featuredMobile,
 		featuredLink: "https://va-calculator.com",

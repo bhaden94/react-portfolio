@@ -68,6 +68,7 @@ function LandingPage() {
 				boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
 				"&:hover": {
 					scale: "1.05",
+					zIndex: 9,
 				},
 			},
 			featuredMobileImage: {
@@ -130,6 +131,7 @@ function LandingPage() {
 			<div className={classes.featuredImageContainer}>
 				<img
 					src={about.landingDesktopImage}
+					alt="Featured app desktop view"
 					className={[
 						classes.featuredImages,
 						classes.featuredDesktopImage,
@@ -137,6 +139,7 @@ function LandingPage() {
 				/>
 				<img
 					src={about.landingMobileImage}
+					alt="Featured app mobile view"
 					className={[
 						classes.featuredImages,
 						classes.featuredMobileImage,
