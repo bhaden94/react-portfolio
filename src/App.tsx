@@ -17,7 +17,7 @@ function App() {
 		createStyles({
 			top: {
 				height: "100vh",
-				backgroundImage: `url(${AboutObject().landingImage})`,
+				backgroundImage: `url(${AboutObject().staticBackground})`,
 				backgroundAttachment: "fixed",
 				backgroundSize: "cover",
 			},
