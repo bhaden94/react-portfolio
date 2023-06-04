@@ -1,6 +1,7 @@
 import covid from "../images/projects/covid-app.png";
 import spacex from "../images/projects/spacex-app.png";
 import loki from "../images/projects/loki-bot.png";
+import vaCalculator from "../images/projects/va-calculator-app.png";
 import { ITechnologiesObject, TechnologiesObject } from "./TechnologiesObject";
 
 export interface IProjectObject {
@@ -36,6 +37,20 @@ export function ProjectObject(): IProjectObject[] {
 	return [
 		{
 			id: 0,
+			media: vaCalculator,
+			title: "VA Calculator",
+			shortDesc:
+				"Calculators specific to U.S. Veterans and their benefits.",
+			accomplishments: [
+				"No backend needed with NextJS and service side rendering",
+				"Useful calculators for Veterans",
+			],
+			liveLink: "https://va-calculator.com",
+			codeLink: "https://github.com/bhaden94/va-calculator",
+			techUsed: [tech.nextJs, tech.typescript, tech.materialui],
+		},
+		{
+			id: 1,
 			media: covid,
 			title: "Covid-19 Tracker V2",
 			shortDesc: "Visualize global key data related to Covid-19 virus.",
@@ -57,7 +72,7 @@ export function ProjectObject(): IProjectObject[] {
 			],
 		},
 		{
-			id: 1,
+			id: 2,
 			media: spacex,
 			title: "SpaceX Timeline",
 			shortDesc:
@@ -77,7 +92,7 @@ export function ProjectObject(): IProjectObject[] {
 			],
 		},
 		{
-			id: 2,
+			id: 3,
 			media: loki,
 			title: "Loki Discord Chat Bot",
 			shortDesc:

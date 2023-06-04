@@ -29,10 +29,6 @@ export function SkillsObject(): ISkillsObject[] {
 					icon: tech.react,
 				},
 				{
-					name: "JavaScript",
-					icon: tech.javascript,
-				},
-				{
 					name: "TypeScript",
 					icon: tech.typescript,
 				},
@@ -54,16 +50,12 @@ export function SkillsObject(): ISkillsObject[] {
 					icon: tech.java,
 				},
 				{
-					name: "Spring",
-					icon: tech.spring,
+					name: "C#",
+					icon: tech.csharp,
 				},
 				{
-					name: "NodeJS",
-					icon: tech.node,
-				},
-				{
-					name: "MongoDB",
-					icon: tech.mongodb,
+					name: "Python",
+					icon: tech.python,
 				},
 				{
 					name: "PostgreSQL",
@@ -76,27 +68,6 @@ export function SkillsObject(): ISkillsObject[] {
 			],
 		},
 		{
-			title: "Workflow",
-			tech: [
-				{
-					name: "GitLab",
-					icon: tech.gitlab,
-				},
-				{
-					name: "GitHub",
-					icon: tech.github,
-				},
-				{
-					name: "Git",
-					icon: tech.git,
-				},
-				{
-					name: "Jira",
-					icon: tech.jira,
-				},
-			],
-		},
-		{
 			title: "Other",
 			tech: [
 				{
@@ -104,16 +75,12 @@ export function SkillsObject(): ISkillsObject[] {
 					icon: tech.docker,
 				},
 				{
-					name: "SonarQube",
-					icon: tech.sonarqube,
+					name: "Azure",
+					icon: tech.azure,
 				},
 				{
-					name: "Grafana",
-					icon: tech.grafana,
-				},
-				{
-					name: "Heroku",
-					icon: tech.heroku,
+					name: "Linux",
+					icon: tech.linux,
 				},
 			],
 		},

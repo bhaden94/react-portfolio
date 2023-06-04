@@ -24,6 +24,7 @@ import {
 	Microsoftazure,
 	Mongodb,
 	Mysql,
+	NextDotJs,
 	Nginx,
 	NodeDotJs,
 	Postgresql,
@@ -92,6 +93,7 @@ export function TechnologiesObject(
 		linux: <Linux color={color || "#FCC624"} size={size || 50} />,
 		powershell: <Powershell color={color || "#5391FE"} size={size || 50} />,
 		dotnet: <DotNet color={color || "#512BD4"} size={size || 50} />,
+		nextJs: <NextDotJs color={color || "#000000"} size={size || 50} />,
 		// get icons from https://simpleicons.org/
 	};
 }
