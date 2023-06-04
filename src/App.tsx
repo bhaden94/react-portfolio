@@ -17,9 +17,9 @@ function App() {
 		createStyles({
 			top: {
 				height: "100vh",
-				backgroundImage: `url(${AboutObject().landingImage})`,
-				backgroundAttachment: "fixed",
-				backgroundSize: "cover",
+				// backgroundImage: `url(${AboutObject().landingDesktopImage})`,
+				// backgroundAttachment: "fixed",
+				// backgroundSize: "cover",
 			},
 			section: {
 				width: "100%",

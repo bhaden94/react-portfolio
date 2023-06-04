@@ -2,7 +2,8 @@ import ui from "../images/about/browser.svg";
 import perf from "../images/about/performance.svg";
 import resp from "../images/about/responsive-design.svg";
 
-import Bg from "../images/landing/Flat-Mountains.svg";
+import featuredDesktop from "../images/landing/desktop-featured.png";
+import featuredMobile from "../images/landing/mobile-featured.png";
 
 export interface IStrength {
 	short: string;
@@ -15,7 +16,9 @@ export interface IAboutObject {
 	title: string;
 	landingOpener: string[];
 	landingOpenerColorOverride?: string;
-	landingImage: string;
+	landingDesktopImage: string;
+	landingMobileImage: string;
+	featuredLink: string;
 	headline: string;
 	strengths: IStrength[];
 }
@@ -25,10 +28,11 @@ export function AboutObject(): IAboutObject {
 		name: "Brady Haden",
 		title: "Software Engineer",
 		landingOpener: [
-			'"There\'s a way to do it better. Find it."',
-			"- Thomas Edison",
+			"Featured: VA Loan Second Tier Entitlement Calculator",
 		],
-		landingImage: Bg,
+		landingDesktopImage: featuredDesktop,
+		landingMobileImage: featuredMobile,
+		featuredLink: "https://va-calculator.com",
 		headline:
 			"Hi I am Brady, a Software Engineer and United States Air Force veteran " +
 			"passionate about making a difference through code!",
