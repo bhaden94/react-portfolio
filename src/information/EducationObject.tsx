@@ -42,7 +42,7 @@ export function EducationObject(): IEducationObject[] {
 			degree: "Bachelor of Science (B.S.) Information Computer Science",
 			school: "Park University",
 			schoolLink: "https://www.park.edu/",
-			dateFinished: new Date(2022, 5, 0),
+			dateFinished: new Date(2023, 5, 0),
 			bullets: [
 				"Tutored 21 students a total of 228 hours in Java and C++ OOP advanced topics, Discrete Math, and Data Structures & Algorithms",
 			],
