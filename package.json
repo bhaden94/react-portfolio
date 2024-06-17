@@ -29,6 +29,7 @@
 		"react-scroll": "^1.9.0",
 		"react-vertical-timeline-component": "^3.3.1",
 		"sanity": "^3.46.1",
+		"styled-components": "^6.1.11",
 		"web-vitals": "^0.2.4"
 	},
 	"overrides": {
