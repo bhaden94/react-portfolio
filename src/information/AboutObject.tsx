@@ -1,8 +1,8 @@
-import ui from "../images/about/browser.svg";
-import perf from "../images/about/performance.svg";
-import resp from "../images/about/responsive-design.svg";
+// import ui from "../images/about/browser.svg";
+// import perf from "../images/about/performance.svg";
+// import resp from "../images/about/responsive-design.svg";
 
-import Bg from "../images/landing/Flat-Mountains.svg";
+// import Bg from "../images/landing/Flat-Mountains.svg";
 import featuredDesktop from "../images/landing/desktop-featured.png";
 import featuredMobile from "../images/landing/mobile-featured.png";
 
@@ -32,7 +32,7 @@ export function AboutObject(): IAboutObject {
 		landingOpener: [
 			"Featured: VA Loan Second Tier Entitlement Calculator",
 		],
-		staticBackground: Bg,
+		staticBackground: "", //Bg,
 		landingDesktopImage: featuredDesktop,
 		landingMobileImage: featuredMobile,
 		featuredLink: "https://va-calculator.com",
@@ -43,17 +43,17 @@ export function AboutObject(): IAboutObject {
 			{
 				short: "Beautifully Simplistic UI",
 				long: "Less is more.",
-				image: ui,
+				image: "", //ui,
 			},
 			{
 				short: "Performance Optimized Code",
 				long: "My code is efficient, fast, and organized.",
-				image: perf,
+				image: "", //perf,
 			},
 			{
 				short: "Responsive Web Design",
 				long: "Over half of internet usage is from phones or tablets. I take pride in making sites for all devices.",
-				image: resp,
+				image: "", //resp,
 			},
 		],
 	};

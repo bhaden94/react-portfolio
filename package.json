@@ -1,70 +1,107 @@
 {
-  "name": "portfolio",
-  "homepage": "https://www.bradyhaden.com",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@icons-pack/react-simple-icons": "^4.2.0",
-    "@material-ui/core": "^4.11.2",
-    "@material-ui/icons": "^4.11.2",
-    "@material-ui/lab": "^4.0.0-alpha.57",
-    "@testing-library/jest-dom": "^5.12.0",
-    "@testing-library/react": "^11.2.6",
-    "@testing-library/user-event": "^12.1.10",
-    "@types/jest": "^26.0.19",
-    "@types/node": "^14.14.13",
-    "@types/react": "^17.0.5",
-    "@types/react-dom": "^17.0.5",
-    "animate.css": "^4.1.1",
-    "gh-pages": "^3.1.0",
-    "react": "^17.0.2",
-    "react-animate-on-scroll": "^2.1.5",
-    "react-card-flip": "^1.0.11",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "react-scroll": "^1.8.1",
-    "react-vertical-timeline-component": "^3.3.1",
-    "typescript": "^4.1.3",
-    "web-vitals": "^0.2.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@testing-library/react-hooks": "^5.1.2",
-    "@types/react-animate-on-scroll": "^2.1.2",
-    "@types/react-scroll": "^1.8.2",
-    "@types/react-vertical-timeline-component": "^3.0.0"
-  },
-  "jest": {
-    "coveragePathIgnorePatterns": [
-      "mock/*",
-      "information/*",
-      "index.tsx",
-      "serviceWorker.ts"
-    ]
-  }
+	"name": "portfolio",
+	"homepage": "https://www.bradyhaden.com",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@icons-pack/react-simple-icons": "^4.7.0",
+		"@material-ui/core": "^4.11.2",
+		"@material-ui/icons": "^4.11.2",
+		"@material-ui/lab": "^4.0.0-alpha.57",
+		"@sanity/asset-utils": "^1.3.0",
+		"@sanity/client": "^6.20.0",
+		"@sanity/vision": "^3.46.1",
+		"@tanstack/react-router": "^1.38.1",
+		"@testing-library/jest-dom": "^5.12.0",
+		"@testing-library/react": "^11.2.6",
+		"@testing-library/user-event": "^12.1.10",
+		"@types/jest": "^26.0.19",
+		"@types/node": "^14.14.13",
+		"@types/react": "^18.3.3",
+		"@types/react-dom": "^18.3.0",
+		"animate.css": "^4.1.1",
+		"gh-pages": "^3.1.0",
+		"react": "^18.3.1",
+		"react-animate-on-scroll": "^2.1.9",
+		"react-card-flip": "^1.1.6",
+		"react-dom": "^18.3.1",
+		"react-scripts": "5.0.1",
+		"react-scroll": "^1.9.0",
+		"react-vertical-timeline-component": "^3.3.1",
+		"sanity": "^3.46.1",
+		"web-vitals": "^0.2.4"
+	},
+	"overrides": {
+		"react-scripts": {
+			"typescript": "^5"
+		},
+		"@icons-pack/react-simple-icons": {
+			"react": "$react"
+		},
+		"@material-ui/core": {
+			"react": "$react",
+			"react-dom": "$react-dom",
+			"@types/react": "$@types/react",
+			"@types/react-dom": "$@types/react-dom"
+		},
+		"@material-ui/icons": {
+			"react": "$react",
+			"react-dom": "$react-dom",
+			"@types/react": "$@types/react",
+			"@types/react-dom": "$@types/react-dom"
+		},
+		"@material-ui/lab": {
+			"react": "$react",
+			"react-dom": "$react-dom",
+			"@types/react": "$@types/react",
+			"@types/react-dom": "$@types/react-dom"
+		},
+		"react-card-flip": {
+			"react": "$react",
+			"react-dom": "$react-dom",
+			"@types/react": "$@types/react",
+			"@types/react-dom": "$@types/react-dom"
+		}
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"@testing-library/react-hooks": "^5.1.2",
+		"@types/react-animate-on-scroll": "^2.1.2",
+		"@types/react-scroll": "^1.8.2",
+		"@types/react-vertical-timeline-component": "^3.0.0",
+		"typescript": "^5.4.5"
+	},
+	"jest": {
+		"coveragePathIgnorePatterns": [
+			"mock/*",
+			"information/*",
+			"index.tsx",
+			"serviceWorker.ts"
+		]
+	}
 }

@@ -1,10 +1,13 @@
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
-import { IAboutObject, AboutObject, IStrength } from "../../information/AboutObject";
+import { IAboutObject, IStrength } from "../../information/AboutObject";
 import Typography from "@material-ui/core/Typography";
-import ScrollAnimation from "react-animate-on-scroll";
+// import ScrollAnimation from "react-animate-on-scroll";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import { useGlobalStyles } from "../../theme/globalStyle";
+import { getAbout } from "../../sanity-client/sanity.queries";
+import { useEffect, useState } from "react";
+import { getImageFromRef } from "../../sanity-client/sanity.image";
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -76,84 +79,92 @@ const useStyles = makeStyles((theme: Theme) =>
 function About() {
 	const classes = useStyles();
 	const globalClasses = useGlobalStyles();
-	const about: IAboutObject = AboutObject();
+	const [about, setAbout] = useState<IAboutObject>();
+
+	useEffect(() => {
+		const fetchData = async () => {
+			const aboutQuery = await getAbout();
+			setAbout(aboutQuery);
+		};
+		fetchData();
+	}, []);
 
 	return (
 		<div className={globalClasses.container}>
 			<div className={classes.headContainer}>
 				<Typography className={classes.headline}>
-					{about.headline}
+					{about?.headline}
 				</Typography>
 			</div>
 
 			<Typography className={classes.strengthHead}>
 				Strengths & Focus Areas
 			</Typography>
-			{about.strengths.map((strength: IStrength, i: number) => (
-				<ScrollAnimation
-					key={i}
-					duration={0.5}
-					animateIn="animate__fadeInUp"
-					animateOnce={true}
-				>
-					<Paper className={classes.fadeIn} elevation={3}>
-						{i % 2 === 0 ? (
-							<Grid
-								container
-								justify="space-between"
-								alignItems="center"
-							>
-								<Grid item xs={12} md={8}>
-									<Typography
-										className={classes.strength}
-										color="textSecondary"
-									>
-										{strength.short}
-									</Typography>
-								</Grid>
-								<Grid item xs={12} md={4}>
-									<img
-										src={strength.image}
-										className={classes.image}
-										alt={strength.short}
-									/>
-								</Grid>
+			{about?.strengths.map((strength: IStrength, i: number) => (
+				// <ScrollAnimation
+				// 	key={i}
+				// 	duration={0.5}
+				// 	animateIn="animate__fadeInUp"
+				// 	animateOnce={true}
+				// >
+				<Paper className={classes.fadeIn} elevation={3}>
+					{i % 2 === 0 ? (
+						<Grid
+							container
+							justify="space-between"
+							alignItems="center"
+						>
+							<Grid item xs={12} md={8}>
+								<Typography
+									className={classes.strength}
+									color="textSecondary"
+								>
+									{strength.short}
+								</Typography>
 							</Grid>
-						) : (
-							<Grid
-								container
-								justify="space-between"
-								alignItems="center"
-							>
-								<Grid item xs={12} md={4}>
-									<img
-										src={strength.image}
-										className={classes.image}
-										alt={strength.short}
-									/>
-								</Grid>
-								<Grid item xs={12} md={8}>
-									<Typography
-										className={classes.strength}
-										color="textSecondary"
-									>
-										{strength.short}
-									</Typography>
-								</Grid>
+							<Grid item xs={12} md={4}>
+								<img
+									src={getImageFromRef(strength.image)?.url}
+									className={classes.image}
+									alt={strength.short}
+								/>
 							</Grid>
-						)}
+						</Grid>
+					) : (
+						<Grid
+							container
+							justify="space-between"
+							alignItems="center"
+						>
+							<Grid item xs={12} md={4}>
+								<img
+									src={getImageFromRef(strength.image)?.url}
+									className={classes.image}
+									alt={strength.short}
+								/>
+							</Grid>
+							<Grid item xs={12} md={8}>
+								<Typography
+									className={classes.strength}
+									color="textSecondary"
+								>
+									{strength.short}
+								</Typography>
+							</Grid>
+						</Grid>
+					)}
 
-						{/* What is overlayed on hover */}
-						<Paper className={classes.overlay}>
-							<Typography
-								className={classes.overlayText}
-								color="textSecondary"
-							>
-								{strength.long}
-							</Typography>
-						</Paper>
+					{/* What is overlayed on hover */}
+					<Paper className={classes.overlay}>
+						<Typography
+							className={classes.overlayText}
+							color="textSecondary"
+						>
+							{strength.long}
+						</Typography>
 					</Paper>
-				</ScrollAnimation>
+				</Paper>
+				// </ScrollAnimation>
 			))}
 		</div>
 	);

@@ -10,7 +10,10 @@ beforeEach(() => {
 		name: "Test Name",
 		title: "Software Engineer",
 		landingOpener: ["test landing opener"],
-		landingImage: "test image",
+		staticBackground: "test static",
+		landingDesktopImage: "test image",
+		landingMobileImage: "test mobile image",
+		featuredLink: "link",
 		headline: "test",
 		strengths: [
 			{
@@ -34,8 +37,11 @@ it("renders LandingPage component without landingOpenerColorOverride", () => {
 	mockedAboutObject = {
 		name: "Test Name",
 		title: "Software Engineer",
-		landingOpener: ["test"],
-		landingImage: "test image",
+		landingOpener: ["test landing opener"],
+		staticBackground: "test static",
+		landingDesktopImage: "test image",
+		landingMobileImage: "test mobile image",
+		featuredLink: "link",
 		headline: "test",
 		strengths: [
 			{

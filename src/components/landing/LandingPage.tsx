@@ -2,10 +2,13 @@ import Button from "@material-ui/core/Button";
 import Link from "@material-ui/core/Link";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import { AboutObject, IAboutObject } from "../../information/AboutObject";
+import { IAboutObject } from "../../information/AboutObject";
+import { useEffect, useState } from "react";
+import { getAbout } from "../../sanity-client/sanity.queries";
+import { getImageFromRef } from "../../sanity-client/sanity.image";
 
 function LandingPage() {
-	const about: IAboutObject = AboutObject();
+	const [about, setAbout] = useState<IAboutObject>();
 	const useStyles = makeStyles((theme: Theme) =>
 		createStyles({
 			container: {
@@ -41,7 +44,7 @@ function LandingPage() {
 			text: {
 				fontSize: "2rem",
 				color:
-					about.landingOpenerColorOverride ||
+					about?.landingOpenerColorOverride ||
 					theme.palette.text.primary,
 			},
 			btnContainer: {
@@ -95,11 +98,19 @@ function LandingPage() {
 	);
 	const classes = useStyles();
 
+	useEffect(() => {
+		const fetchData = async () => {
+			const aboutQuery = await getAbout();
+			setAbout(aboutQuery);
+		};
+		fetchData();
+	}, []);
+
 	return (
 		<div className={classes.container}>
 			<div className={classes.textAndBtnContainer}>
 				<div className={classes.textContainer}>
-					{about.landingOpener.map((str: string, i: number) => (
+					{about?.landingOpener.map((str: string, i: number) => (
 						<Typography
 							key={i}
 							variant="h2"
@@ -112,7 +123,7 @@ function LandingPage() {
 				</div>
 				<div className={classes.btnContainer}>
 					<Link
-						href={about.featuredLink}
+						href={about?.featuredLink}
 						target="_blank"
 						rel="noreferrer"
 						aria-label="Featured app"
@@ -130,7 +141,7 @@ function LandingPage() {
 			</div>
 			<div className={classes.featuredImageContainer}>
 				<img
-					src={about.landingDesktopImage}
+					src={getImageFromRef(about?.landingDesktopImage)?.url}
 					alt="Featured app desktop view"
 					className={[
 						classes.featuredImages,
@@ -138,7 +149,7 @@ function LandingPage() {
 					].join(" ")}
 				/>
 				<img
-					src={about.landingMobileImage}
+					src={getImageFromRef(about?.landingMobileImage)?.url}
 					alt="Featured app mobile view"
 					className={[
 						classes.featuredImages,
