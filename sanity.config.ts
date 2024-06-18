@@ -1,11 +1,10 @@
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
-import { schemaTypes } from "./schemaTypes";
+import { schemaTypes } from "./src/studio/schemaTypes";
+import { SANITY_DATASET, SANITY_PROJECT_ID } from "./src/studio/constants";
 
-export const SANITY_PROJECT_ID = "0kc6p0xa";
-export const SANITY_DATASET = "production";
-export const config = defineConfig({
+export default defineConfig({
 	name: "default",
 	title: "portfolio",
 
