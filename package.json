@@ -69,9 +69,8 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "sanity-build": "sanity build ./src/studio/ -y",
-    "sanity-deploy": "sanity deploy ./src/studio/ --no-build",
-    "complete-deploy": "npm run predeploy & npm run sanity-build & npm run sanity-deploy & npm run deploy"
+    "sanity-deploy": "rimraf ./src/studio & sanity deploy ./src/studio/ -y",
+    "complete-deploy": "npm run predeploy & npm run sanity-deploy & npm run deploy"
   },
   "eslintConfig": {
     "extends": [
