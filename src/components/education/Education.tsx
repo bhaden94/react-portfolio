@@ -5,7 +5,7 @@ import { makeStyles, Theme } from "@material-ui/core/styles";
 import { useGlobalStyles } from "../../theme/globalStyle";
 import { formatEducationDate } from "../../utils/formatDate";
 import { useState, useEffect } from "react";
-import { EducationSchema } from "../../studio/schemaTypes/education";
+import { EducationSchema } from "../../sanity-client/schemaTypes/education";
 import { getEducationInfo } from "../../sanity-client/sanity.queries";
 
 const useStyles = makeStyles((theme: Theme) => ({

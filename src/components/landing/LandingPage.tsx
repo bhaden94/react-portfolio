@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import { useEffect, useState } from "react";
 import { getAbout } from "../../sanity-client/sanity.queries";
 import { getImageFromRef } from "../../sanity-client/sanity.image";
-import { AboutSchema } from "../../studio/schemaTypes/about";
+import { AboutSchema } from "../../sanity-client/schemaTypes/about";
 
 function LandingPage() {
   const [about, setAbout] = useState<AboutSchema>();

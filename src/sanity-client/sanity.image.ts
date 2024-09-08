@@ -3,7 +3,7 @@ import {
   SanityImageSource,
   tryGetImageAsset,
 } from "@sanity/asset-utils";
-import { SANITY_DATASET, SANITY_PROJECT_ID } from "../studio/constants";
+import { SANITY_DATASET, SANITY_PROJECT_ID } from "./sanityConstants";
 
 export type ImageReference = {
   _key?: string;

@@ -1,8 +1,8 @@
 import { createClient } from "@sanity/client";
-import { SANITY_DATASET, SANITY_PROJECT_ID } from "../studio/constants";
-import { AboutSchema } from "../studio/schemaTypes/about";
-import { ContactSchema } from "../studio/schemaTypes/contact";
-import { EducationSchema } from "../studio/schemaTypes/education";
+import { SANITY_DATASET, SANITY_PROJECT_ID } from "./sanityConstants";
+import { AboutSchema } from "./schemaTypes/about";
+import { ContactSchema } from "./schemaTypes/contact";
+import { EducationSchema } from "./schemaTypes/education";
 
 const isProd = process.env.NODE_ENV === "production";
 

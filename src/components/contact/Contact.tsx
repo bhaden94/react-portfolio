@@ -8,7 +8,7 @@ import {
   TContactIcon,
   ContactIconMap,
   ContactSchema,
-} from "../../studio/schemaTypes/contact";
+} from "../../sanity-client/schemaTypes/contact";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

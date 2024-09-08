@@ -7,7 +7,7 @@ import { useGlobalStyles } from "../../theme/globalStyle";
 import { getAbout } from "../../sanity-client/sanity.queries";
 import { useEffect, useState } from "react";
 import { getImageFromRef } from "../../sanity-client/sanity.image";
-import { AboutSchema, StrengthSchema } from "../../studio/schemaTypes/about";
+import { AboutSchema, StrengthSchema } from "../../sanity-client/schemaTypes/about";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
