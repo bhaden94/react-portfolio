@@ -2,13 +2,13 @@ import Button from "@material-ui/core/Button";
 import Link from "@material-ui/core/Link";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import { IAboutObject } from "../../information/AboutObject";
 import { useEffect, useState } from "react";
 import { getAbout } from "../../sanity-client/sanity.queries";
 import { getImageFromRef } from "../../sanity-client/sanity.image";
+import { AboutSchema } from "../../studio/schemaTypes/about";
 
 function LandingPage() {
-  const [about, setAbout] = useState<IAboutObject>();
+  const [about, setAbout] = useState<AboutSchema>();
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       container: {
