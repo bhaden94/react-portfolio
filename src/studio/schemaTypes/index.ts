@@ -1,6 +1,7 @@
 import blockContent from "./blockContent";
 import about from "./about";
 import contact from "./contact";
+import education from "./education";
 
 export type ImageReference = {
   _key?: string;
@@ -11,4 +12,4 @@ export type ImageReference = {
   };
 };
 
-export const schemaTypes = [about, contact, blockContent];
+export const schemaTypes = [about, contact, education, blockContent];

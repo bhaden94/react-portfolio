@@ -1,6 +1,8 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
 import { ImageReference } from ".";
 
+// TODO: Add validations
+
 export interface StrengthSchema {
   short: string;
   long: string;

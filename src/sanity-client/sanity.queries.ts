@@ -2,6 +2,7 @@ import { createClient } from "@sanity/client";
 import { SANITY_DATASET, SANITY_PROJECT_ID } from "../studio/constants";
 import { AboutSchema } from "../studio/schemaTypes/about";
 import { ContactSchema } from "../studio/schemaTypes/contact";
+import { EducationSchema } from "../studio/schemaTypes/education";
 
 const isProd = process.env.NODE_ENV === "production";
 
@@ -14,11 +15,13 @@ export const client = createClient({
 
 // uses GROQ to query content: https://www.sanity.io/docs/groq
 export async function getAbout(): Promise<AboutSchema> {
-  const posts = await client.fetch('*[_type == "about"][0]');
-  return posts;
+  return await client.fetch('*[_type == "about"][0]');
 }
 
 export async function getContactInfo(): Promise<ContactSchema[]> {
-  const posts = await client.fetch('*[_type == "contact"]');
-  return posts;
+  return await client.fetch('*[_type == "contact"]');
+}
+
+export async function getEducationInfo(): Promise<EducationSchema[]> {
+  return await client.fetch('*[_type == "education"] | order(priority asc)');
 }

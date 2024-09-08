@@ -11,6 +11,8 @@ export const ContactIconMap = {
 
 export type TContactIcon = "GitHub" | "LinkedIn" | "Email";
 
+// TODO: Add validations
+
 export interface ContactSchema {
   name: string;
   link: string;

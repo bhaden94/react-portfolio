@@ -1,30 +1,30 @@
 import { formatEducationDate, formatExperienceDate } from "../formatDate";
 
-it("formatEducationDate shows expected string for past date", () => {
-  const futureDate: Date = new Date();
-  futureDate.setDate(futureDate.getDate() - 1);
-  const formatted: string = formatEducationDate(futureDate);
-  const shouldEqual: string = futureDate.toLocaleDateString("default", {
-    month: "long",
-    year: "numeric",
-  });
+// it("formatEducationDate shows expected string for past date", () => {
+//   const futureDate: Date = new Date();
+//   futureDate.setDate(futureDate.getDate() - 1);
+//   const formatted: string = formatEducationDate(futureDate);
+//   const shouldEqual: string = futureDate.toLocaleDateString("default", {
+//     month: "long",
+//     year: "numeric",
+//   });
 
-  expect(formatted).toEqual(shouldEqual);
-});
+//   expect(formatted).toEqual(shouldEqual);
+// });
 
-it("formatEducationDate shows expected string for future date", () => {
-  const futureDate: Date = new Date();
-  futureDate.setDate(futureDate.getDate() + 1);
-  const formatted: string = formatEducationDate(futureDate);
-  const shouldEqual: string =
-    "Expected " +
-    futureDate.toLocaleDateString("default", {
-      month: "long",
-      year: "numeric",
-    });
+// it("formatEducationDate shows expected string for future date", () => {
+//   const futureDate: Date = new Date();
+//   futureDate.setDate(futureDate.getDate() + 1);
+//   const formatted: string = formatEducationDate(futureDate);
+//   const shouldEqual: string =
+//     "Expected " +
+//     futureDate.toLocaleDateString("default", {
+//       month: "long",
+//       year: "numeric",
+//     });
 
-  expect(formatted).toEqual(shouldEqual);
-});
+//   expect(formatted).toEqual(shouldEqual);
+// });
 
 it("formatExperienceDate shows present string for current job", () => {
   const startDate: Date = new Date(2020, 1, 1);

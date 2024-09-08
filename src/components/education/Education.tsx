@@ -2,12 +2,11 @@ import { Typography } from "@material-ui/core";
 import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles, Theme } from "@material-ui/core/styles";
-import {
-  IEducationObject,
-  EducationObject,
-} from "../../information/EducationObject";
 import { useGlobalStyles } from "../../theme/globalStyle";
 import { formatEducationDate } from "../../utils/formatDate";
+import { useState, useEffect } from "react";
+import { EducationSchema } from "../../studio/schemaTypes/education";
+import { getEducationInfo } from "../../sanity-client/sanity.queries";
 
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
@@ -63,13 +62,21 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 function Education() {
-  const education: IEducationObject[] = EducationObject();
   const classes = useStyles();
   const globalClasses = useGlobalStyles();
+  const [educationInfo, setEducationInfo] = useState<EducationSchema[]>();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const educationQuery = await getEducationInfo();
+      setEducationInfo(educationQuery);
+    };
+    fetchData();
+  }, []);
 
   return (
     <div>
-      {education.map((ed: IEducationObject, i: number) => (
+      {educationInfo?.map((ed: EducationSchema, i: number) => (
         <Paper
           key={i}
           className={[globalClasses.container, classes.container].join(" ")}

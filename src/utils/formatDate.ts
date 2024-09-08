@@ -1,11 +1,12 @@
 // if the dateCompleted is in the future then we add the word 'Expected' to the beginning
-export const formatEducationDate = (date: Date): string => {
+export const formatEducationDate = (date: string): string => {
+  const givenDate: Date = new Date(date);
   const currDate: Date = new Date();
-  const dateString: string = date.toLocaleDateString("default", {
+  const dateString: string = givenDate.toLocaleDateString("default", {
     month: "long",
     year: "numeric",
   });
-  return date > currDate ? `Expected ${dateString}` : dateString;
+  return givenDate > currDate ? `Expected ${dateString}` : dateString;
 };
 
 /* 
