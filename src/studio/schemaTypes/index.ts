@@ -1,14 +1,14 @@
-import blockContent from './blockContent'
-import about from './about'
-import contact from './contact';
+import blockContent from "./blockContent";
+import about from "./about";
+import contact from "./contact";
 
 export type ImageReference = {
-	_key?: string;
-	_type: "image";
-	asset: {
-		_ref: string;
-		_type: "reference";
-	};
+  _key?: string;
+  _type: "image";
+  asset: {
+    _ref: string;
+    _type: "reference";
+  };
 };
 
-export const schemaTypes = [about, contact, blockContent]
+export const schemaTypes = [about, contact, blockContent];

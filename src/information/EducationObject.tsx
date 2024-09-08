@@ -1,9 +1,9 @@
 export interface IEducationObject {
-	degree: string;
-	school: string;
-	schoolLink?: string; // optional
-	dateFinished?: Date; // optional
-	bullets?: string[]; // optional
+  degree: string;
+  school: string;
+  schoolLink?: string; // optional
+  dateFinished?: Date; // optional
+  bullets?: string[]; // optional
 }
 
 /*
@@ -18,44 +18,47 @@ export interface IEducationObject {
 	For the date it is new Date(year, month, day) where months are numbered 1-12
 */
 export function EducationObject(): IEducationObject[] {
-	return [
-		{
-			degree: "AZ-900 Certification",
-			school: "Microsoft Certified: Azure Fundamentals",
-			schoolLink: "https://www.credly.com/badges/48b54af7-e575-4e03-be40-b908478ae490?source=linked_in_profile",
-			dateFinished: new Date(2021, 10, 0),
-			bullets: [
-				"Demonstrated foundational level knowledge of cloud services and how those services are provided with Microsoft Azure.",
-			],
-		},
-		{
-			degree: "Full Stack Software Engineer Bootcamp",
-			school: "Galvanize",
-			schoolLink: "https://www.galvanize.com/",
-			dateFinished: new Date(2020, 9, 0),
-			bullets: [
-				"Selected from applicant pool of 323 to participate in the first ever Digital Airman Internship Program in the Air Force",
-				"Collaborated with other developers on group projects and established a project workflow using Git & GitHub",
-			],
-		},
-		{
-			degree: "Bachelor of Science (B.S.) Information Computer Science",
-			school: "Park University",
-			schoolLink: "https://www.park.edu/",
-			dateFinished: new Date(2023, 5, 0),
-			bullets: [
-				"Tutored 21 students a total of 228 hours in Java and C++ OOP advanced topics, Discrete Math, and Data Structures & Algorithms",
-			],
-		},
-		{
-			degree: "Associate of Applied Science (AAS) Intelligence Studies and Technology",
-			school: "Community College of the Air Force",
-			dateFinished: new Date(2020, 8, 0),
-		},
-		{
-			degree: "Associate of Applied Science (AAS) Aviation Maintenance Technology",
-			school: "Community College of the Air Force",
-			dateFinished: new Date(2017, 5, 0),
-		},
-	];
+  return [
+    {
+      degree: "AZ-900 Certification",
+      school: "Microsoft Certified: Azure Fundamentals",
+      schoolLink:
+        "https://www.credly.com/badges/48b54af7-e575-4e03-be40-b908478ae490?source=linked_in_profile",
+      dateFinished: new Date(2021, 10, 0),
+      bullets: [
+        "Demonstrated foundational level knowledge of cloud services and how those services are provided with Microsoft Azure.",
+      ],
+    },
+    {
+      degree: "Full Stack Software Engineer Bootcamp",
+      school: "Galvanize",
+      schoolLink: "https://www.galvanize.com/",
+      dateFinished: new Date(2020, 9, 0),
+      bullets: [
+        "Selected from applicant pool of 323 to participate in the first ever Digital Airman Internship Program in the Air Force",
+        "Collaborated with other developers on group projects and established a project workflow using Git & GitHub",
+      ],
+    },
+    {
+      degree: "Bachelor of Science (B.S.) Information Computer Science",
+      school: "Park University",
+      schoolLink: "https://www.park.edu/",
+      dateFinished: new Date(2023, 5, 0),
+      bullets: [
+        "Tutored 21 students a total of 228 hours in Java and C++ OOP advanced topics, Discrete Math, and Data Structures & Algorithms",
+      ],
+    },
+    {
+      degree:
+        "Associate of Applied Science (AAS) Intelligence Studies and Technology",
+      school: "Community College of the Air Force",
+      dateFinished: new Date(2020, 8, 0),
+    },
+    {
+      degree:
+        "Associate of Applied Science (AAS) Aviation Maintenance Technology",
+      school: "Community College of the Air Force",
+      dateFinished: new Date(2017, 5, 0),
+    },
+  ];
 }

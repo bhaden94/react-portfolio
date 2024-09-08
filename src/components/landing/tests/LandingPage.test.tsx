@@ -6,62 +6,62 @@ jest.mock("../../../information/AboutObject");
 let mockedAboutObject: IAboutObject;
 
 beforeEach(() => {
-	mockedAboutObject = {
-		name: "Test Name",
-		title: "Software Engineer",
-		landingOpener: ["test landing opener"],
-		staticBackground: "test static",
-		landingDesktopImage: "test image",
-		landingMobileImage: "test mobile image",
-		featuredLink: "link",
-		headline: "test",
-		strengths: [
-			{
-				short: "test",
-				long: "test",
-				image: "test image",
-			},
-		],
-	};
+  mockedAboutObject = {
+    name: "Test Name",
+    title: "Software Engineer",
+    landingOpener: ["test landing opener"],
+    staticBackground: "test static",
+    landingDesktopImage: "test image",
+    landingMobileImage: "test mobile image",
+    featuredLink: "link",
+    headline: "test",
+    strengths: [
+      {
+        short: "test",
+        long: "test",
+        image: "test image",
+      },
+    ],
+  };
 });
 
 it("renders LandingPage component with opener", () => {
-	(AboutObject as jest.Mock).mockReturnValue(mockedAboutObject);
+  (AboutObject as jest.Mock).mockReturnValue(mockedAboutObject);
 
-	render(<LandingPage />);
+  render(<LandingPage />);
 
-	expect(screen.getByText("test landing opener")).toBeInTheDocument();
+  expect(screen.getByText("test landing opener")).toBeInTheDocument();
 });
 
 it("renders LandingPage component without landingOpenerColorOverride", () => {
-	mockedAboutObject = {
-		name: "Test Name",
-		title: "Software Engineer",
-		landingOpener: ["test landing opener"],
-		staticBackground: "test static",
-		landingDesktopImage: "test image",
-		landingMobileImage: "test mobile image",
-		featuredLink: "link",
-		headline: "test",
-		strengths: [
-			{
-				short: "test",
-				long: "test",
-				image: "test image",
-			},
-		],
-	};
-	(AboutObject as jest.Mock).mockReturnValue(mockedAboutObject);
+  mockedAboutObject = {
+    name: "Test Name",
+    title: "Software Engineer",
+    landingOpener: ["test landing opener"],
+    staticBackground: "test static",
+    landingDesktopImage: "test image",
+    landingMobileImage: "test mobile image",
+    featuredLink: "link",
+    headline: "test",
+    strengths: [
+      {
+        short: "test",
+        long: "test",
+        image: "test image",
+      },
+    ],
+  };
+  (AboutObject as jest.Mock).mockReturnValue(mockedAboutObject);
 
-	render(<LandingPage />);
+  render(<LandingPage />);
 });
 
 it("renders LandingPage component with landingOpenerColorOverride", () => {
-	mockedAboutObject.landingOpenerColorOverride = "#32a852";
-	(AboutObject as jest.Mock).mockReturnValue(mockedAboutObject);
+  mockedAboutObject.landingOpenerColorOverride = "#32a852";
+  (AboutObject as jest.Mock).mockReturnValue(mockedAboutObject);
 
-	render(<LandingPage />);
-	expect(screen.getAllByTestId("landing-opener-text")[0]).toHaveStyle(
-		"color: #32a852;"
-	);
+  render(<LandingPage />);
+  expect(screen.getAllByTestId("landing-opener-text")[0]).toHaveStyle(
+    "color: #32a852;",
+  );
 });

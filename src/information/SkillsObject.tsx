@@ -1,8 +1,8 @@
 import { ITechnologiesObject, TechnologiesObject } from "./TechnologiesObject";
 
 export interface ISkillsObject {
-	title: string;
-	tech: { name: string; icon: ITechnologiesObject }[];
+  title: string;
+  tech: { name: string; icon: ITechnologiesObject }[];
 }
 
 /*
@@ -18,71 +18,71 @@ export interface ISkillsObject {
 	to find more and import them in TechologiesObj.tsx
 */
 export function SkillsObject(): ISkillsObject[] {
-	const tech: ITechnologiesObject = TechnologiesObject(75);
+  const tech: ITechnologiesObject = TechnologiesObject(75);
 
-	return [
-		{
-			title: "Frontend",
-			tech: [
-				{
-					name: "React",
-					icon: tech.react,
-				},
-				{
-					name: "TypeScript",
-					icon: tech.typescript,
-				},
-				{
-					name: "HTML5",
-					icon: tech.html,
-				},
-				{
-					name: "CSS3",
-					icon: tech.css,
-				},
-			],
-		},
-		{
-			title: "Backend",
-			tech: [
-				{
-					name: "Java",
-					icon: tech.java,
-				},
-				{
-					name: "C#",
-					icon: tech.csharp,
-				},
-				{
-					name: "Python",
-					icon: tech.python,
-				},
-				{
-					name: "PostgreSQL",
-					icon: tech.postgresql,
-				},
-				{
-					name: "MySQL",
-					icon: tech.mysql,
-				},
-			],
-		},
-		{
-			title: "Other",
-			tech: [
-				{
-					name: "Docker",
-					icon: tech.docker,
-				},
-				{
-					name: "Azure",
-					icon: tech.azure,
-				},
-				{
-					name: "Linux",
-					icon: tech.linux,
-				},
-			],
-		},
-	];
+  return [
+    {
+      title: "Frontend",
+      tech: [
+        {
+          name: "React",
+          icon: tech.react,
+        },
+        {
+          name: "TypeScript",
+          icon: tech.typescript,
+        },
+        {
+          name: "HTML5",
+          icon: tech.html,
+        },
+        {
+          name: "CSS3",
+          icon: tech.css,
+        },
+      ],
+    },
+    {
+      title: "Backend",
+      tech: [
+        {
+          name: "Java",
+          icon: tech.java,
+        },
+        {
+          name: "C#",
+          icon: tech.csharp,
+        },
+        {
+          name: "Python",
+          icon: tech.python,
+        },
+        {
+          name: "PostgreSQL",
+          icon: tech.postgresql,
+        },
+        {
+          name: "MySQL",
+          icon: tech.mysql,
+        },
+      ],
+    },
+    {
+      title: "Other",
+      tech: [
+        {
+          name: "Docker",
+          icon: tech.docker,
+        },
+        {
+          name: "Azure",
+          icon: tech.azure,
+        },
+        {
+          name: "Linux",
+          icon: tech.linux,
+        },
+      ],
+    },
+  ];
 }

@@ -11,124 +11,117 @@ import { IExperienceObject } from "../../information/ExperienceObject";
 import DialogTitle from "./DialogTitle";
 
 const Transition = React.forwardRef(function Transition(
-	props: TransitionProps & { children?: React.ReactElement<any, any> },
-	ref: React.Ref<unknown>
+  props: TransitionProps & { children?: React.ReactElement<any, any> },
+  ref: React.Ref<unknown>,
 ) {
-	return <Slide direction="up" ref={ref} {...props} />;
+  return <Slide direction="up" ref={ref} {...props} />;
 });
 
 const useStyles = makeStyles((theme: Theme) => ({
-	bullets: {
-		listStyle: "inside",
-		padding: 0,
-		fontSize: "1rem",
-		"& li": {
-			marginTop: "15px",
-			color: theme.palette.text.secondary,
-		},
-	},
-	icon: {
-		display: "inline",
-		padding: "10px",
-	},
-	techHeader: {
-		paddingBottom: 5,
-		marginBottom: 15,
-		borderBottom: `solid ${theme.palette.text.secondary} 2px`,
-		transition: "all 250ms",
-		"&:hover": {
-			cursor: "pointer",
-		},
-	},
-	expandClose: {
-		float: "right",
-		transform: "rotate(0deg)",
-		transition: "all 250ms",
-	},
-	expandOpen: {
-		float: "right",
-		transform: "rotate(180deg)",
-		transition: "all 250ms",
-	},
-	spaceBot: {
-		marginBottom: 20,
-	},
+  bullets: {
+    listStyle: "inside",
+    padding: 0,
+    fontSize: "1rem",
+    "& li": {
+      marginTop: "15px",
+      color: theme.palette.text.secondary,
+    },
+  },
+  icon: {
+    display: "inline",
+    padding: "10px",
+  },
+  techHeader: {
+    paddingBottom: 5,
+    marginBottom: 15,
+    borderBottom: `solid ${theme.palette.text.secondary} 2px`,
+    transition: "all 250ms",
+    "&:hover": {
+      cursor: "pointer",
+    },
+  },
+  expandClose: {
+    float: "right",
+    transform: "rotate(0deg)",
+    transition: "all 250ms",
+  },
+  expandOpen: {
+    float: "right",
+    transform: "rotate(180deg)",
+    transition: "all 250ms",
+  },
+  spaceBot: {
+    marginBottom: 20,
+  },
 }));
 
 interface IExperienceModal {
-	job: IExperienceObject;
-	open: boolean;
-	handleClose: () => void;
+  job: IExperienceObject;
+  open: boolean;
+  handleClose: () => void;
 }
 
 function ExperienceModal({ job, open, handleClose }: IExperienceModal) {
-	const classes = useStyles();
-	const [expanded, setExpanded] = React.useState<boolean>(false);
+  const classes = useStyles();
+  const [expanded, setExpanded] = React.useState<boolean>(false);
 
-	const handleExpandClick = () => {
-		setExpanded(!expanded);
-	};
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
 
-	return (
-		<Dialog
-			open={open}
-			TransitionComponent={Transition}
-			keepMounted
-			onClose={handleClose}
-			aria-labelledby="alert-dialog-slide-title"
-			aria-describedby="alert-dialog-slide-description"
-		>
-			<DialogTitle id="customized-dialog-title" handleClose={handleClose}>
-				{job.title}
-			</DialogTitle>
-			<DialogContent>
-				{job.techUsed && (
-					<div className={classes.spaceBot}>
-						<Typography variant="h6" className={classes.techHeader}>
-							Technology Used
-						</Typography>
-						{job.techUsed.map((tech: any, i: number) => (
-							<div
-								key={i}
-								className={["icon-hover", classes.icon].join(
-									" "
-								)}
-							>
-								{tech}
-							</div>
-						))}
-					</div>
-				)}
-				<Typography
-					variant="h6"
-					color="textPrimary"
-					className={classes.techHeader}
-					onClick={handleExpandClick}
-					data-testid="expand-acc-btn"
-				>
-					Accomplishments
-					<ExpandMoreIcon
-						className={
-							expanded ? classes.expandOpen : classes.expandClose
-						}
-						fontSize="large"
-					/>
-				</Typography>
-				<Collapse
-					in={expanded}
-					timeout="auto"
-					unmountOnExit
-					data-testid="exp-expanded-acc"
-				>
-					<ul className={classes.bullets}>
-						{job.bullets.map((bullet: string, i: number) => (
-							<li key={i}>{bullet}</li>
-						))}
-					</ul>
-				</Collapse>
-			</DialogContent>
-		</Dialog>
-	);
+  return (
+    <Dialog
+      open={open}
+      TransitionComponent={Transition}
+      keepMounted
+      onClose={handleClose}
+      aria-labelledby="alert-dialog-slide-title"
+      aria-describedby="alert-dialog-slide-description"
+    >
+      <DialogTitle id="customized-dialog-title" handleClose={handleClose}>
+        {job.title}
+      </DialogTitle>
+      <DialogContent>
+        {job.techUsed && (
+          <div className={classes.spaceBot}>
+            <Typography variant="h6" className={classes.techHeader}>
+              Technology Used
+            </Typography>
+            {job.techUsed.map((tech: any, i: number) => (
+              <div key={i} className={["icon-hover", classes.icon].join(" ")}>
+                {tech}
+              </div>
+            ))}
+          </div>
+        )}
+        <Typography
+          variant="h6"
+          color="textPrimary"
+          className={classes.techHeader}
+          onClick={handleExpandClick}
+          data-testid="expand-acc-btn"
+        >
+          Accomplishments
+          <ExpandMoreIcon
+            className={expanded ? classes.expandOpen : classes.expandClose}
+            fontSize="large"
+          />
+        </Typography>
+        <Collapse
+          in={expanded}
+          timeout="auto"
+          unmountOnExit
+          data-testid="exp-expanded-acc"
+        >
+          <ul className={classes.bullets}>
+            {job.bullets.map((bullet: string, i: number) => (
+              <li key={i}>{bullet}</li>
+            ))}
+          </ul>
+        </Collapse>
+      </DialogContent>
+    </Dialog>
+  );
 }
 
 export default ExperienceModal;

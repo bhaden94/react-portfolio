@@ -3,14 +3,14 @@ import { createMuiTheme, Theme } from "@material-ui/core/styles";
 import ThemeProvider from "./index";
 
 it("renders ThemeProvider component with children", () => {
-	const mockTheme: Theme = createMuiTheme({});
-	render(
-		<ThemeProvider theme={mockTheme}>
-			<div>Test div</div>
-		</ThemeProvider>
-	);
+  const mockTheme: Theme = createMuiTheme({});
+  render(
+    <ThemeProvider theme={mockTheme}>
+      <div>Test div</div>
+    </ThemeProvider>,
+  );
 
-	expect(screen.getByText("Test div")).toBeInTheDocument();
+  expect(screen.getByText("Test div")).toBeInTheDocument();
 });
 
 // it("useChangeTheme toggles between dark and light", () => {

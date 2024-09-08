@@ -11,53 +11,53 @@ import Projects from "../components/projects/Projects";
 import Skills from "../components/skills/Skills";
 
 const useStyles = makeStyles((theme: Theme) =>
-	createStyles({
-		icon: {
-			color: theme.palette.primary.main,
-		},
-	})
+  createStyles({
+    icon: {
+      color: theme.palette.primary.main,
+    },
+  }),
 );
 
 export interface INavObject {
-	id: number;
-	text: string;
-	icon: any;
-	section: any;
+  id: number;
+  text: string;
+  icon: any;
+  section: any;
 }
 
 export function NavObject(): INavObject[] {
-	const classes = useStyles();
+  const classes = useStyles();
 
-	return [
-		{
-			id: 0,
-			text: "About",
-			icon: <FaceIcon className={classes.icon} />,
-			section: <About />,
-		},
-		{
-			id: 1,
-			text: "Skills",
-			icon: <BarChartIcon className={classes.icon} />,
-			section: <Skills />,
-		},
-		{
-			id: 2,
-			text: "Projects",
-			icon: <DashboardIcon className={classes.icon} />,
-			section: <Projects />,
-		},
-		{
-			id: 3,
-			text: "Experience",
-			icon: <WorkIcon className={classes.icon} />,
-			section: <Experience />,
-		},
-		{
-			id: 4,
-			text: "Education",
-			icon: <SchoolIcon className={classes.icon} />,
-			section: <Education />,
-		},
-	];
+  return [
+    {
+      id: 0,
+      text: "About",
+      icon: <FaceIcon className={classes.icon} />,
+      section: <About />,
+    },
+    {
+      id: 1,
+      text: "Skills",
+      icon: <BarChartIcon className={classes.icon} />,
+      section: <Skills />,
+    },
+    {
+      id: 2,
+      text: "Projects",
+      icon: <DashboardIcon className={classes.icon} />,
+      section: <Projects />,
+    },
+    {
+      id: 3,
+      text: "Experience",
+      icon: <WorkIcon className={classes.icon} />,
+      section: <Experience />,
+    },
+    {
+      id: 4,
+      text: "Education",
+      icon: <SchoolIcon className={classes.icon} />,
+      section: <Education />,
+    },
+  ];
 }

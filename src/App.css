@@ -1,32 +1,36 @@
 a {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .App-header {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	font-size: calc(10px + 2vmin);
-	margin-left: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  margin-left: 240px;
 }
 
 .icon-hover > * {
-	transition: transform 0.3s ease, filter 0.25s ease-in-out;
-	-webkit-transition: transform 0.3s ease, filter 0.25s ease-in-out;
+  transition:
+    transform 0.3s ease,
+    filter 0.25s ease-in-out;
+  -webkit-transition:
+    transform 0.3s ease,
+    filter 0.25s ease-in-out;
 }
 
 .icon-hover:hover > * {
-	-webkit-filter: drop-shadow(1px 1px 1px rgba(30, 30, 30, 0.7));
-	filter: drop-shadow(1px 1px 1px rgba(30, 30, 30, 0.7));
-	-webkit-transform: scale(1.2);
-	-ms-transform: scale(1.2);
-	transform: scale(1.2);
+  -webkit-filter: drop-shadow(1px 1px 1px rgba(30, 30, 30, 0.7));
+  filter: drop-shadow(1px 1px 1px rgba(30, 30, 30, 0.7));
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 /* handles desktop persistant sidebar and mobile drawer */
 @media only screen and (max-width: 959px) {
-	.App-header {
-		margin-left: 0px;
-	}
+  .App-header {
+    margin-left: 0px;
+  }
 }

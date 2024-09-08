@@ -9,17 +9,17 @@ const mockToggle = jest.fn();
     It is saying that the hook is being called outside of a function
 */
 it("render DrawerItems component on desktop", () => {
-	render(<DrawerItems toggleDrawer={mockToggle} isDesktop />, {
-		wrapper: DesktopTheme,
-	});
+  render(<DrawerItems toggleDrawer={mockToggle} isDesktop />, {
+    wrapper: DesktopTheme,
+  });
 
-	expect(screen.getAllByTestId("nav-link-true").length).toBeGreaterThan(1)
+  expect(screen.getAllByTestId("nav-link-true").length).toBeGreaterThan(1);
 });
 
 it("render DrawerItems component on mobile", () => {
-	render(<DrawerItems toggleDrawer={mockToggle} isDesktop={false} />, {
-		wrapper: MobileTheme,
-	});
+  render(<DrawerItems toggleDrawer={mockToggle} isDesktop={false} />, {
+    wrapper: MobileTheme,
+  });
 
-	expect(screen.getAllByTestId("nav-link-false").length).toBeGreaterThan(1)
+  expect(screen.getAllByTestId("nav-link-false").length).toBeGreaterThan(1);
 });
