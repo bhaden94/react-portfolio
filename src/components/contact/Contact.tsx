@@ -2,7 +2,13 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import { IContactObject, ContactObject } from "../../information/ContactObject";
+import { useEffect, useState } from "react";
+import { getContactInfo } from "../../sanity-client/sanity.queries";
+import {
+	TContactIcon,
+	ContactIconMap,
+	ContactSchema,
+} from "../../studio/schemaTypes/contact";
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -47,13 +53,34 @@ const useStyles = makeStyles((theme: Theme) =>
 	})
 );
 
+const ContactIcon = ({
+	iconKey,
+	iconClass,
+}: {
+	iconKey: TContactIcon;
+	iconClass: string;
+}) => {
+	const FoundIcon = ContactIconMap[iconKey];
+	return FoundIcon ? (
+		<FoundIcon fontSize="large" className={iconClass} />
+	) : null;
+};
+
 function Contact() {
 	const classes = useStyles();
-	const contact: IContactObject[] = ContactObject(classes.icon);
+	const [contactInfo, setContactInfo] = useState<ContactSchema[]>();
+
+	useEffect(() => {
+		const fetchData = async () => {
+			const contactQuery = await getContactInfo();
+			setContactInfo(contactQuery);
+		};
+		fetchData();
+	}, []);
 
 	return (
 		<Grid container direction="column" className={classes.container}>
-			{contact.map((contactInfo: IContactObject, i: number) => (
+			{contactInfo?.map((contactInfo: ContactSchema, i: number) => (
 				<Grid key={i} item className={classes.item}>
 					<Button
 						href={contactInfo.link}
@@ -66,7 +93,10 @@ function Contact() {
 						aria-label={contactInfo.name}
 						data-testid={`icon-btn${i}`}
 					>
-						{contactInfo.icon}
+						<ContactIcon
+							iconKey={contactInfo.icon}
+							iconClass={classes.icon}
+						/>
 					</Button>
 					<Link
 						className={classes.text}

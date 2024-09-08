@@ -1,5 +1,4 @@
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
-import { IAboutObject, IStrength } from "../../information/AboutObject";
 import Typography from "@material-ui/core/Typography";
 // import ScrollAnimation from "react-animate-on-scroll";
 import Paper from "@material-ui/core/Paper";
@@ -8,6 +7,7 @@ import { useGlobalStyles } from "../../theme/globalStyle";
 import { getAbout } from "../../sanity-client/sanity.queries";
 import { useEffect, useState } from "react";
 import { getImageFromRef } from "../../sanity-client/sanity.image";
+import { AboutSchema, StrengthSchema } from "../../studio/schemaTypes/about";
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -79,7 +79,7 @@ const useStyles = makeStyles((theme: Theme) =>
 function About() {
 	const classes = useStyles();
 	const globalClasses = useGlobalStyles();
-	const [about, setAbout] = useState<IAboutObject>();
+	const [about, setAbout] = useState<AboutSchema>();
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -100,7 +100,7 @@ function About() {
 			<Typography className={classes.strengthHead}>
 				Strengths & Focus Areas
 			</Typography>
-			{about?.strengths.map((strength: IStrength, i: number) => (
+			{about?.strengths.map((strength: StrengthSchema, i: number) => (
 				// <ScrollAnimation
 				// 	key={i}
 				// 	duration={0.5}
