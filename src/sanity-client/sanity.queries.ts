@@ -3,6 +3,7 @@ import { SANITY_DATASET, SANITY_PROJECT_ID } from "./sanityConstants";
 import { AboutSchema } from "./schemaTypes/about";
 import { ContactSchema } from "./schemaTypes/contact";
 import { EducationSchema } from "./schemaTypes/education";
+import { ExperienceSchema } from "./schemaTypes/experience";
 
 const isProd = process.env.NODE_ENV === "production";
 
@@ -24,4 +25,8 @@ export async function getContactInfo(): Promise<ContactSchema[]> {
 
 export async function getEducationInfo(): Promise<EducationSchema[]> {
   return await client.fetch('*[_type == "education"] | order(priority asc)');
+}
+
+export async function getExperienceInfo(): Promise<ExperienceSchema[]> {
+  return await client.fetch('*[_type == "experience"] | order(endDate desc)');
 }

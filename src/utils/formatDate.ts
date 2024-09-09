@@ -14,21 +14,21 @@ export const formatEducationDate = (date: string): string => {
 	also checks if the end date is a string, like 'present'
 */
 export const formatExperienceDate = (
-  start: Date,
-  end: Date | string,
+  start: string,
+  end: string | null,
 ): string => {
-  const startDate: string = start.toLocaleDateString("default", {
+  const startDate: string = new Date(start).toLocaleDateString("default", {
     month: "short",
     year: "numeric",
   });
   let endDate: string;
-  if (end instanceof Date) {
-    endDate = end.toLocaleDateString("default", {
+  if (end) {
+    endDate = new Date(end).toLocaleDateString("default", {
       month: "short",
       year: "numeric",
     });
   } else {
-    endDate = end;
+    endDate = "Present";
   }
   return `${startDate} - ${endDate}`;
 };

@@ -1,13 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import {
-  ExperienceObject,
-  IExperienceObject,
-} from "../../../information/ExperienceObject";
 import Experience from "../Experience";
+import { ExperienceSchema } from "../../../sanity-client/schemaTypes/experience";
 
 jest.mock("../../../information/ExperienceObject");
-let mockedExperienceObject: IExperienceObject[];
+let mockedExperienceObject: ExperienceSchema[];
 
 const observe = jest.fn();
 const unobserve = jest.fn();
@@ -24,17 +21,21 @@ beforeEach(() => {
   // This is close to what the default file looks like
   mockedExperienceObject = [
     {
-      startDate: new Date(2021, 3, 0),
+      startDate: new Date(2021, 3, 0).toDateString(),
       endDate: "Present",
       title: "Software Engineer",
       company: "Microsoft",
       bullets: ["Did cool stuff", "Did more really cool stuff"],
-      media: "microsoft-img-link",
+      media: {
+        _key: "testKey",
+        _type: "image",
+        asset: { _ref: "testRef", _type: "reference" },
+      },
       description: "test description",
     },
     {
-      startDate: new Date(2021, 6, 0),
-      endDate: new Date(2021, 9, 0),
+      startDate: new Date(2021, 6, 0).toDateString(),
+      endDate: new Date(2021, 9, 0).toDateString(),
       title: "Software Engineer Intern",
       company: "Amazon Web Services",
       bullets: [
@@ -42,10 +43,14 @@ beforeEach(() => {
         "Did another really cool thing",
         "Completed a really cool feature",
       ],
-      media: "aws-img-link",
+      media: {
+        _key: "testKey",
+        _type: "image",
+        asset: { _ref: "testRef", _type: "reference" },
+      },
     },
   ];
-  (ExperienceObject as jest.Mock).mockReturnValue(mockedExperienceObject);
+  jest.fn().mockReturnValue(mockedExperienceObject);
   render(<Experience />);
 });
 

@@ -34,7 +34,7 @@ export default defineType({
     defineField({
       name: "dateFinished",
       title: "Date Finished",
-      type: "datetime",
+      type: "date",
     }),
     defineField({
       name: "bullets",

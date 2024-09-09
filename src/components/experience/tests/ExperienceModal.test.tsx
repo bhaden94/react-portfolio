@@ -1,16 +1,20 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { IExperienceObject } from "../../../information/ExperienceObject";
 import ExperienceModal from "../ExperienceModal";
+import { ExperienceSchema } from "../../../sanity-client/schemaTypes/experience";
 
 it("expands Accomplishments section in ExperienceModal", () => {
-  const mockJob: IExperienceObject = {
-    startDate: new Date(2021, 3, 0),
-    endDate: "Present",
+  const mockJob: ExperienceSchema = {
+    startDate: new Date(2021, 3, 0).toDateString(),
+    endDate: null,
     title: "Test Title",
     company: "The best company",
     bullets: ["To be determined..."],
-    media: "test media",
+    media: {
+      _key: "testKey",
+      _type: "image",
+      asset: { _ref: "testRef", _type: "reference" },
+    },
     techUsed: [],
   };
   const mockClose = jest.fn();

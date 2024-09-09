@@ -27,8 +27,8 @@ import { formatEducationDate, formatExperienceDate } from "../formatDate";
 // });
 
 it("formatExperienceDate shows present string for current job", () => {
-  const startDate: Date = new Date(2020, 1, 1);
-  const endDate: string = "present";
+  const startDate: string = new Date(2020, 1, 1).toDateString();
+  const endDate = null;
   const formatted: string = formatExperienceDate(startDate, endDate);
   const shouldEqual: string = "Feb 2020 - present";
 
@@ -36,8 +36,8 @@ it("formatExperienceDate shows present string for current job", () => {
 });
 
 it("formatExperienceDate shows proper date for past job", () => {
-  const startDate: Date = new Date(2020, 1, 1);
-  const endDate: Date = new Date(2020, 2, 1);
+  const startDate: string = new Date(2020, 1, 1).toDateString();
+  const endDate: string = new Date(2020, 2, 1).toDateString();
   const formatted: string = formatExperienceDate(startDate, endDate);
   const shouldEqual: string = "Feb 2020 - Mar 2020";
 

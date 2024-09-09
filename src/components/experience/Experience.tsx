@@ -1,18 +1,17 @@
 import Button from "@material-ui/core/Button";
 import { makeStyles, Theme, useTheme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import {
-  ExperienceObject,
-  IExperienceObject,
-} from "../../information/ExperienceObject";
 import { formatExperienceDate } from "../../utils/formatDate";
 import ExperienceModal from "./ExperienceModal";
+import { ExperienceSchema } from "../../sanity-client/schemaTypes/experience";
+import { getExperienceInfo } from "../../sanity-client/sanity.queries";
+import { getImageFromRef } from "../../sanity-client/sanity.image";
 
 const useStyles = makeStyles((theme: Theme) => ({
   customTimeline: {
@@ -44,15 +43,26 @@ const useStyles = makeStyles((theme: Theme) => ({
 function Experience() {
   const classes = useStyles();
   const theme = useTheme();
-  const experience: IExperienceObject[] = ExperienceObject();
+  const [experienceInfo, setExperienceInfo] = useState<ExperienceSchema[]>();
   // open and close state for experience details view
   const [open, setOpen] = useState<boolean>(false);
   // state to keep track of the job we are seeing more details for
-  const [currJob, setCurrJob] = useState<IExperienceObject>(experience[0]);
+  const [currJob, setCurrJob] = useState<ExperienceSchema | null>(
+    experienceInfo ? experienceInfo[0] : null,
+  );
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const experienceQuery = await getExperienceInfo();
+      setExperienceInfo(experienceQuery);
+    };
+    fetchData();
+  }, []);
 
   /* open and close dialog to see more for experience */
   const handleDialogOpen = (i: number) => {
-    setCurrJob(experience[i]);
+    if (!experienceInfo) return;
+    setCurrJob(experienceInfo[i]);
     setOpen(true);
   };
 
@@ -87,7 +97,7 @@ function Experience() {
 
   return (
     <VerticalTimeline className={classes.customTimeline} animate={false}>
-      {experience.map((job: IExperienceObject, i: number) => (
+      {experienceInfo?.map((job: ExperienceSchema, i: number) => (
         <VerticalTimelineElement
           key={i}
           className="vertical-timeline-element--work"
@@ -97,7 +107,7 @@ function Experience() {
           iconStyle={iconStyle}
           icon={
             <img
-              src={job.media}
+              src={getImageFromRef(job.media)?.url}
               style={iconImageStyle}
               alt={`${job.company} logo`}
               data-testid={`timeline-img-${i}`}

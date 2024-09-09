@@ -7,8 +7,25 @@ import { TransitionProps } from "@material-ui/core/transitions";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import React from "react";
-import { IExperienceObject } from "../../information/ExperienceObject";
 import DialogTitle from "./DialogTitle";
+import {
+  ExperienceSchema,
+  ITechnologies,
+  TechnologiesIconMap,
+} from "../../sanity-client/schemaTypes/experience";
+
+const TechnologyIcon = ({
+  iconKey,
+  iconSize,
+}: {
+  iconKey: string;
+  iconSize: number;
+}) => {
+  const FoundIconTuple = TechnologiesIconMap[iconKey];
+  const FoundIcon = FoundIconTuple[0];
+  const iconColor = FoundIconTuple[1];
+  return FoundIcon ? <FoundIcon color={iconColor} size={iconSize} /> : null;
+};
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & { children?: React.ReactElement<any, any> },
@@ -56,7 +73,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 interface IExperienceModal {
-  job: IExperienceObject;
+  job: ExperienceSchema | null;
   open: boolean;
   handleClose: () => void;
 }
@@ -79,17 +96,17 @@ function ExperienceModal({ job, open, handleClose }: IExperienceModal) {
       aria-describedby="alert-dialog-slide-description"
     >
       <DialogTitle id="customized-dialog-title" handleClose={handleClose}>
-        {job.title}
+        {job?.title}
       </DialogTitle>
       <DialogContent>
-        {job.techUsed && (
+        {job?.techUsed && (
           <div className={classes.spaceBot}>
             <Typography variant="h6" className={classes.techHeader}>
               Technology Used
             </Typography>
-            {job.techUsed.map((tech: any, i: number) => (
+            {job.techUsed.map((tech: ITechnologies, i: number) => (
               <div key={i} className={["icon-hover", classes.icon].join(" ")}>
-                {tech}
+                <TechnologyIcon iconKey={tech.icon} iconSize={tech.iconSize} />
               </div>
             ))}
           </div>
@@ -114,7 +131,7 @@ function ExperienceModal({ job, open, handleClose }: IExperienceModal) {
           data-testid="exp-expanded-acc"
         >
           <ul className={classes.bullets}>
-            {job.bullets.map((bullet: string, i: number) => (
+            {job?.bullets?.map((bullet: string, i: number) => (
               <li key={i}>{bullet}</li>
             ))}
           </ul>
