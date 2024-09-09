@@ -4,11 +4,8 @@ import Link from "@material-ui/core/Link";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { useEffect, useState } from "react";
 import { getContactInfo } from "../../sanity-client/sanity.queries";
-import {
-  TContactIcon,
-  ContactIconMap,
-  ContactSchema,
-} from "../../sanity-client/schemaTypes/contact";
+import { ContactSchema } from "../../sanity-client/schemaTypes/contact";
+import ContactIcon from "../ContactIcon/ContactIcon";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -53,19 +50,6 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-const ContactIcon = ({
-  iconKey,
-  iconClass,
-}: {
-  iconKey: TContactIcon;
-  iconClass: string;
-}) => {
-  const FoundIcon = ContactIconMap[iconKey];
-  return FoundIcon ? (
-    <FoundIcon fontSize="large" className={iconClass} />
-  ) : null;
-};
-
 function Contact() {
   const classes = useStyles();
   const [contactInfo, setContactInfo] = useState<ContactSchema[]>();
@@ -80,28 +64,28 @@ function Contact() {
 
   return (
     <Grid container direction="column" className={classes.container}>
-      {contactInfo?.map((contactInfo: ContactSchema, i: number) => (
+      {contactInfo?.map((contactItem: ContactSchema, i: number) => (
         <Grid key={i} item className={classes.item}>
           <Button
-            href={contactInfo.link}
+            href={contactItem.link}
             className={classes.button}
             target="_blank"
             rel="noreferrer"
             variant="contained"
             size="large"
             color="primary"
-            aria-label={contactInfo.name}
+            aria-label={contactItem.name}
             data-testid={`icon-btn${i}`}
           >
-            <ContactIcon iconKey={contactInfo.icon} iconClass={classes.icon} />
+            <ContactIcon iconKey={contactItem.icon} iconClass={classes.icon} />
           </Button>
           <Link
             className={classes.text}
-            href={contactInfo.link}
+            href={contactItem.link}
             target="_blank"
             rel="noreferrer"
           >
-            {contactInfo.text}
+            {contactItem.text}
           </Link>
         </Grid>
       ))}

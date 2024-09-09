@@ -7,8 +7,11 @@ import {
   useTheme,
 } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import { IContactObject, ContactObject } from "../../information/ContactObject";
 import ThemeSwitcher from "../dark-mode/ThemeSwitcher";
+import { ContactSchema } from "../../sanity-client/schemaTypes/contact";
+import { useEffect, useState } from "react";
+import { getContactInfo } from "../../sanity-client/sanity.queries";
+import ContactIcon from "../ContactIcon/ContactIcon";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -36,7 +39,15 @@ const useStyles = makeStyles((theme: Theme) =>
 function DrawerFooter() {
   const classes = useStyles();
   const theme = useTheme();
-  const contact: IContactObject[] = ContactObject(classes.icon);
+  const [contactInfo, setContactInfo] = useState<ContactSchema[]>();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const contactQuery = await getContactInfo();
+      setContactInfo(contactQuery);
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className={classes.footer}>
@@ -59,7 +70,7 @@ function DrawerFooter() {
         justify="space-around"
         alignItems="flex-start"
       >
-        {contact.map((contactItem: IContactObject, i: number) => (
+        {contactInfo?.map((contactItem: ContactSchema, i: number) => (
           <Grid key={i} item xs={3}>
             <Link
               href={contactItem.link}
@@ -67,7 +78,10 @@ function DrawerFooter() {
               rel="noreferrer"
               aria-label={contactItem.name}
             >
-              {contactItem.icon}
+              <ContactIcon
+                iconKey={contactItem.icon}
+                iconClass={classes.icon}
+              />
             </Link>
           </Grid>
         ))}
