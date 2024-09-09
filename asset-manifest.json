@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/static/css/main.986fd49a.css",
-    "main.js": "/static/js/main.d94e5ade.js",
+    "main.js": "/static/js/main.4f6ff832.js",
     "static/js/796.28a19572.chunk.js": "/static/js/796.28a19572.chunk.js",
     "static/js/165.bcc66234.chunk.js": "/static/js/165.bcc66234.chunk.js",
     "static/js/196.764a0800.chunk.js": "/static/js/196.764a0800.chunk.js",
     "static/js/373.121128e3.chunk.js": "/static/js/373.121128e3.chunk.js",
     "static/js/350.5c9d6f82.chunk.js": "/static/js/350.5c9d6f82.chunk.js",
-    "static/js/80.021e13bd.chunk.js": "/static/js/80.021e13bd.chunk.js",
+    "static/js/235.78f21400.chunk.js": "/static/js/235.78f21400.chunk.js",
     "static/media/desktop-featured.png": "/static/media/desktop-featured.ee79bf5b94690e870a50.png",
     "static/media/va-calculator-app.png": "/static/media/va-calculator-app.bad95551eaf3abb3e323.png",
     "static/media/spacex-app.png": "/static/media/spacex-app.03eece51f44f2d00b893.png",
@@ -16,16 +16,16 @@
     "static/media/loki-bot.png": "/static/media/loki-bot.365efcc4f8f389e69fbb.png",
     "index.html": "/index.html",
     "main.986fd49a.css.map": "/static/css/main.986fd49a.css.map",
-    "main.d94e5ade.js.map": "/static/js/main.d94e5ade.js.map",
+    "main.4f6ff832.js.map": "/static/js/main.4f6ff832.js.map",
     "796.28a19572.chunk.js.map": "/static/js/796.28a19572.chunk.js.map",
     "165.bcc66234.chunk.js.map": "/static/js/165.bcc66234.chunk.js.map",
     "196.764a0800.chunk.js.map": "/static/js/196.764a0800.chunk.js.map",
     "373.121128e3.chunk.js.map": "/static/js/373.121128e3.chunk.js.map",
     "350.5c9d6f82.chunk.js.map": "/static/js/350.5c9d6f82.chunk.js.map",
-    "80.021e13bd.chunk.js.map": "/static/js/80.021e13bd.chunk.js.map"
+    "235.78f21400.chunk.js.map": "/static/js/235.78f21400.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.986fd49a.css",
-    "static/js/main.d94e5ade.js"
+    "static/js/main.4f6ff832.js"
   ]
 }
