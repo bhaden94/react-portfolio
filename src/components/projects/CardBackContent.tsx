@@ -1,11 +1,12 @@
 import CardContent from "@material-ui/core/CardContent";
 import { makeStyles, Theme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import { ITechnologiesObject } from "../../information/TechnologiesObject";
+import { ITechnology } from "../../sanity-client/schemaTypes/technology";
+import TechnologyIcon from "../Technology/TechnologyIcon";
 
 interface ICardBackContent {
   accomplishments: string[];
-  techUsed: ITechnologiesObject[] | undefined;
+  techUsed: ITechnology[] | undefined;
 }
 
 function CardBackContent({ accomplishments, techUsed }: ICardBackContent) {
@@ -51,9 +52,9 @@ function CardBackContent({ accomplishments, techUsed }: ICardBackContent) {
       )}
       {/* only allow first 9 technologies here so we dont overflow the card  */}
       {techUsed &&
-        techUsed.slice(0, 9).map((tech: any, i: number) => (
+        techUsed.slice(0, 9).map((tech: ITechnology, i: number) => (
           <div key={i} className={["icon-hover", classes.icon].join(" ")}>
-            {tech}
+            <TechnologyIcon iconKey={tech.icon} iconSize={tech.iconSize} />
           </div>
         ))}
     </CardContent>

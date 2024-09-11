@@ -8,24 +8,9 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import React from "react";
 import DialogTitle from "./DialogTitle";
-import {
-  ExperienceSchema,
-  ITechnologies,
-  TechnologiesIconMap,
-} from "../../sanity-client/schemaTypes/experience";
-
-const TechnologyIcon = ({
-  iconKey,
-  iconSize,
-}: {
-  iconKey: string;
-  iconSize: number;
-}) => {
-  const FoundIconTuple = TechnologiesIconMap[iconKey];
-  const FoundIcon = FoundIconTuple[0];
-  const iconColor = FoundIconTuple[1];
-  return FoundIcon ? <FoundIcon color={iconColor} size={iconSize} /> : null;
-};
+import { ExperienceSchema } from "../../sanity-client/schemaTypes/experience";
+import { ITechnology } from "../../sanity-client/schemaTypes/technology";
+import TechnologyIcon from "../Technology/TechnologyIcon";
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & { children?: React.ReactElement<any, any> },
@@ -104,7 +89,7 @@ function ExperienceModal({ job, open, handleClose }: IExperienceModal) {
             <Typography variant="h6" className={classes.techHeader}>
               Technology Used
             </Typography>
-            {job.techUsed.map((tech: ITechnologies, i: number) => (
+            {job.techUsed.map((tech: ITechnology, i: number) => (
               <div key={i} className={["icon-hover", classes.icon].join(" ")}>
                 <TechnologyIcon iconKey={tech.icon} iconSize={tech.iconSize} />
               </div>

@@ -6,13 +6,14 @@ import FlipToBackIcon from "@material-ui/icons/FlipToBack";
 import FlipToFrontIcon from "@material-ui/icons/FlipToFront";
 import { useState } from "react";
 import ReactCardFlip from "react-card-flip";
-import { IProjectObject } from "../../information/ProjectsObject";
 import Actions from "./Actions";
 import CardBackContent from "./CardBackContent";
 import CardFrontContent from "./CardFrontContent";
+import { ProjectSchema } from "../../sanity-client/schemaTypes/project";
+import { getImageFromRef } from "../../sanity-client/sanity.image";
 
 interface IProjectCard {
-  project: IProjectObject;
+  project: ProjectSchema;
 }
 
 function ProjectCard({ project }: IProjectCard) {
@@ -65,7 +66,7 @@ function ProjectCard({ project }: IProjectCard) {
         >
           <CardMedia
             className={classes.media}
-            src={project.media}
+            src={getImageFromRef(project.media)?.url}
             component="img"
             title="Project Image"
           />

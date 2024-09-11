@@ -4,6 +4,7 @@ import { AboutSchema } from "./schemaTypes/about";
 import { ContactSchema } from "./schemaTypes/contact";
 import { EducationSchema } from "./schemaTypes/education";
 import { ExperienceSchema } from "./schemaTypes/experience";
+import { ProjectSchema } from "./schemaTypes/project";
 
 const isProd = process.env.NODE_ENV === "production";
 
@@ -29,4 +30,10 @@ export async function getEducationInfo(): Promise<EducationSchema[]> {
 
 export async function getExperienceInfo(): Promise<ExperienceSchema[]> {
   return await client.fetch('*[_type == "experience"] | order(endDate desc)');
+}
+
+export async function getProjectInfo(): Promise<ProjectSchema[]> {
+  return await client.fetch(
+    '*[_type == "project" && isShown] | order(priority asc)',
+  );
 }
