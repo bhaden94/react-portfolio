@@ -96,7 +96,7 @@ export default defineType({
       title: "Icon",
       type: "string",
       options: {
-        list: Object.keys(TechnologiesIconMap),
+        list: Object.keys(TechnologiesIconMap).sort(),
       },
     }),
     defineField({

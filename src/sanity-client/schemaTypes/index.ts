@@ -5,6 +5,7 @@ import education from "./education";
 import experience from "./experience";
 import technology from "./technology";
 import project from "./project";
+import skill from "./skill";
 
 export type ImageReference = {
   _key?: string;
@@ -17,10 +18,11 @@ export type ImageReference = {
 
 export const schemaTypes = [
   about,
-  contact,
-  education,
-  experience,
+  skill,
   project,
+  experience,
+  education,
+  contact,
   technology,
   blockContent,
 ];
