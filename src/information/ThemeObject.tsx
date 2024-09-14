@@ -1,23 +1,5 @@
-import { PropTypes } from "@material-ui/core";
 import { blueGrey, grey, teal, amber } from "@material-ui/core/colors";
-
-interface ILightDarkTheme {
-  primary: string | PropTypes.Color;
-  secondary: string | PropTypes.Color;
-  background: {
-    paper: string | PropTypes.Color;
-    default: string | PropTypes.Color;
-  };
-  text: {
-    primary: string | PropTypes.Color;
-    secondary: string | PropTypes.Color;
-  };
-}
-
-export interface IThemeObject {
-  light: ILightDarkTheme;
-  dark: ILightDarkTheme;
-}
+import { ThemeSchema } from "../sanity-client/schemaTypes/theme/theme";
 
 /*
 	This is used to set custom colors for your portfolios 
@@ -28,7 +10,7 @@ export interface IThemeObject {
 	Or you may import and use Materil-UI colors as in the example
 		https://material-ui.com/customization/color/
 */
-export function ThemeObject(): IThemeObject {
+export function DefaultThemeColors(): ThemeSchema {
   return {
     light: {
       primary: teal[900],
@@ -38,7 +20,7 @@ export function ThemeObject(): IThemeObject {
         default: grey[200],
       },
       text: {
-        primary: "rgba(0, 0, 0, 0.87);",
+        primary: "rgba(0, 0, 0, 0.87)",
         secondary: "rgba(0, 0, 0, 0.75)",
       },
     },

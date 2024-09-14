@@ -6,6 +6,9 @@ import experience from "./experience";
 import technology from "./technology";
 import project from "./project";
 import skill from "./skill";
+import theme from "./theme/theme";
+import themePalette from "./theme/themePalette";
+import color from "./theme/color";
 
 export type ImageReference = {
   _key?: string;
@@ -23,6 +26,9 @@ export const schemaTypes = [
   experience,
   education,
   contact,
+  theme,
+  themePalette,
+  color,
   technology,
   blockContent,
 ];

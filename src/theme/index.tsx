@@ -5,7 +5,9 @@ import {
   useTheme,
 } from "@material-ui/core/styles";
 import React from "react";
-import { IThemeObject, ThemeObject } from "../information/ThemeObject";
+import { DefaultThemeColors } from "../information/ThemeObject";
+import { ThemeSchema } from "../sanity-client/schemaTypes/theme/theme";
+import { getTheme } from "../sanity-client/sanity.queries";
 
 interface ThemeProviderProps {
   children: React.ReactNode;
@@ -15,9 +17,19 @@ interface ThemeProviderProps {
 const ThemeDispatchContext = React.createContext<any>(null);
 
 const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, theme }) => {
+  const defaultThemeColors: ThemeSchema = DefaultThemeColors();
   const themeInitialOptions = {
     paletteType: localStorage.getItem("theme") === "dark" ? "dark" : "light",
   };
+  const [themeColors, setThemeColors] = React.useState<ThemeSchema>();
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      const themeQuery = await getTheme();
+      setThemeColors(themeQuery);
+    };
+    fetchData();
+  }, []);
 
   const [themeOptions, dispatch] = React.useReducer(
     (state: any, action: any) => {
@@ -35,8 +47,6 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, theme }) => {
   );
 
   const memoizedTheme = React.useMemo(() => {
-    const colors: IThemeObject = ThemeObject();
-
     return createMuiTheme({
       ...theme,
       palette: {
@@ -44,34 +54,44 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, theme }) => {
         primary: {
           main:
             themeOptions.paletteType === "light"
-              ? colors.light.primary
-              : colors.dark.primary,
+              ? themeColors?.light.primary || defaultThemeColors.light.primary
+              : themeColors?.dark.primary || defaultThemeColors.dark.primary,
         },
         secondary: {
           main:
             themeOptions.paletteType === "light"
-              ? colors.light.secondary
-              : colors.dark.secondary,
+              ? themeColors?.light.secondary ||
+                defaultThemeColors.light.secondary
+              : themeColors?.dark.secondary ||
+                defaultThemeColors.dark.secondary,
         },
         background: {
           paper:
             themeOptions.paletteType === "light"
-              ? colors.light.background.paper
-              : colors.dark.background.paper,
+              ? themeColors?.light.background.paper ||
+                defaultThemeColors.light.background.paper
+              : themeColors?.dark.background.paper ||
+                defaultThemeColors.dark.background.paper,
           default:
             themeOptions.paletteType === "light"
-              ? colors.light.background.default
-              : colors.dark.background.default,
+              ? themeColors?.light.background.default ||
+                defaultThemeColors.light.background.default
+              : themeColors?.dark.background.default ||
+                defaultThemeColors.dark.background.default,
         },
         text: {
           primary:
             themeOptions.paletteType === "light"
-              ? colors.light.text.primary
-              : colors.dark.text.primary,
+              ? themeColors?.light.text.primary ||
+                defaultThemeColors.light.text.primary
+              : themeColors?.dark.text.primary ||
+                defaultThemeColors.dark.text.primary,
           secondary:
             themeOptions.paletteType === "light"
-              ? colors.light.text.secondary
-              : colors.dark.text.secondary,
+              ? themeColors?.light.text.secondary ||
+                defaultThemeColors.light.text.secondary
+              : themeColors?.dark.text.secondary ||
+                defaultThemeColors.dark.text.secondary,
         },
       },
       overrides: {
@@ -90,14 +110,18 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, theme }) => {
               "-webkit-box-shadow": "inset 0 0 3px rgba(0, 0, 0, 0.75)",
               backgroundColor:
                 themeOptions.paletteType === "light"
-                  ? colors.light.background.default
-                  : colors.dark.background.default,
+                  ? themeColors?.light.background.default ||
+                    defaultThemeColors.light.background.default
+                  : themeColors?.dark.background.default ||
+                    defaultThemeColors.dark.background.default,
             },
             "*::-webkit-scrollbar-thumb": {
               backgroundColor:
                 themeOptions.paletteType === "light"
-                  ? colors.light.primary
-                  : colors.dark.primary,
+                  ? themeColors?.light.primary ||
+                    defaultThemeColors.light.primary
+                  : themeColors?.dark.primary ||
+                    defaultThemeColors.dark.primary,
               borderRadius: "20px",
             },
           },
@@ -119,7 +143,7 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, theme }) => {
         },
       },
     });
-  }, [theme, themeOptions.paletteType]);
+  }, [theme, themeOptions.paletteType, themeColors, defaultThemeColors]);
 
   return (
     <MuiThemeProvider theme={memoizedTheme}>

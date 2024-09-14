@@ -6,6 +6,7 @@ import { EducationSchema } from "./schemaTypes/education";
 import { ExperienceSchema } from "./schemaTypes/experience";
 import { ProjectSchema } from "./schemaTypes/project";
 import { SkillSchema } from "./schemaTypes/skill";
+import { ThemeSchema } from "./schemaTypes/theme/theme";
 
 const isProd = process.env.NODE_ENV === "production";
 
@@ -41,4 +42,8 @@ export async function getProjectInfo(): Promise<ProjectSchema[]> {
 
 export async function getSkillInfo(): Promise<SkillSchema[]> {
   return await client.fetch('*[_type == "skill"] | order(priority asc)');
+}
+
+export async function getTheme(): Promise<ThemeSchema> {
+  return await client.fetch('*[_type == "theme"][0]');
 }
