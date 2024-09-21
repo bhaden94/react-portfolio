@@ -8,12 +8,12 @@ import { ProjectSchema } from "./schemaTypes/project";
 import { SkillSchema } from "./schemaTypes/skill";
 import { ThemeSchema } from "./schemaTypes/theme/theme";
 
-const isProd = process.env.NODE_ENV === "production";
+// const isProd = process.env.NODE_ENV === "production";
 
 export const client = createClient({
   projectId: SANITY_PROJECT_ID,
   dataset: SANITY_DATASET,
-  useCdn: isProd, // set to `false` to bypass the edge cache
+  useCdn: import.meta.env.PROD, // set to `false` to bypass the edge cache
   apiVersion: "2023-05-03", // use current date (YYYY-MM-DD) to target the latest API version
 });
 

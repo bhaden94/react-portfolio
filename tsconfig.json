@@ -1,12 +1,16 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
+    "target": "ESNext",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
+    "types": [
+      "vite/client"
+    ],
     "allowJs": true,
+    "noEmit": true,
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -19,7 +23,7 @@
   "include": [
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "vite.config.mts"  ],
   "exclude": [
     "node_modules"
   ]
