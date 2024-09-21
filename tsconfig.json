@@ -22,8 +22,9 @@
   },
   "include": [
     "**/*.ts",
-    "**/*.tsx"
-, "vite.config.mts"  ],
+    "**/*.tsx",
+    "vite.config.mts"
+  ],
   "exclude": [
     "node_modules"
   ]
