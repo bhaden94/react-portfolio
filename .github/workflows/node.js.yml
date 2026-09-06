@@ -55,6 +55,9 @@ jobs:
           # Workflow permissions set to "Read and write".
           DEPLOY_TOKEN: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
         run: |
+          # gh-pages' -u parser rejects the brackets in "github-actions[bot]",
+          # so set the commit identity through git config instead.
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
           npx gh-pages -d build \
-            -u "github-actions[bot] <github-actions[bot]@users.noreply.github.com>" \
             -r "https://x-access-token:${DEPLOY_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
