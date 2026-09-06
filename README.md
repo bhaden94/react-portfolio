@@ -121,6 +121,12 @@ npm run studio          # local Studio at http://localhost:3333
 npm run studio:deploy   # publish the Studio to Sanity's hosting
 ```
 
+The hosted Studio at
+[bradyhaden-portfolio.sanity.studio](https://bradyhaden-portfolio.sanity.studio/)
+is a **static build**. It does not pick up schema changes on its own — run
+`npm run studio:deploy` after editing `src/sanity/schema.ts`, or it will keep
+showing the previous document types.
+
 Edits appear immediately once CORS is configured. They are baked into the bundle
 on the next build — pushed to `master`, triggered manually via the **CI/CD**
 workflow's *Run workflow* button, or picked up by the daily scheduled build.

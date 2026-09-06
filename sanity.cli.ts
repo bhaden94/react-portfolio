@@ -6,4 +6,6 @@ export default defineCliConfig({
     projectId: SANITY_PROJECT_ID,
     dataset: SANITY_DATASET,
   },
+  // Target for `npm run studio:deploy`; without it the CLI prompts each time.
+  studioHost: "bradyhaden-portfolio",
 });
