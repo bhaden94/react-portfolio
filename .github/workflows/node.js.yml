@@ -51,9 +51,10 @@ jobs:
       - name: Deploy to GitHub Pages
         if: github.event_name != 'pull_request'
         env:
-          # Falls back to GITHUB_TOKEN, which needs Settings > Actions >
-          # Workflow permissions set to "Read and write".
-          DEPLOY_TOKEN: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
+          # The repo's old ACTIONS_DEPLOY_ACCESS_TOKEN PAT is expired, so use the
+          # built-in token. Requires Settings > Actions > General > Workflow
+          # permissions set to "Read and write permissions".
+          DEPLOY_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # gh-pages' -u parser rejects the brackets in "github-actions[bot]",
           # so set the commit identity through git config instead.

@@ -1,0 +1,332 @@
+- generic [ref=e2]:
+  - link "Skip to content" [ref=e3] [cursor=pointer]:
+    - /url: "#s-hero"
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - strong [ref=e7]: Available
+      - text: — open to senior cloud & distributed systems roles
+    - generic [ref=e8]:
+      - generic [ref=e9]: TS/SCI + Full Scope Poly · active
+      - generic [ref=e10]: /
+      - generic [ref=e11]: US · Remote
+  - banner [ref=e12]:
+    - link "bh brady haden senior software engineer · microsoft" [ref=e13] [cursor=pointer]:
+      - /url: "#top"
+      - generic [ref=e14]: bh
+      - generic [ref=e15]:
+        - text: brady haden
+        - generic [ref=e16]: senior software engineer · microsoft
+    - group "Tailor this page to your role" [ref=e17]:
+      - generic [ref=e18]: Viewing as
+      - generic [ref=e19]:
+        - button "Recruiter" [ref=e20] [cursor=pointer]
+        - button "Hiring manager" [pressed] [ref=e21] [cursor=pointer]
+        - button "Engineer" [ref=e22] [cursor=pointer]
+    - link "résumé.pdf ↓" [ref=e23] [cursor=pointer]:
+      - /url: https://cdn.sanity.io/files/0kc6p0xa/production/4598bf1de195982327ac3d3709209c55557ac46e.pdf
+  - main [ref=e24]:
+    - generic [ref=e25]:
+      - paragraph [ref=e26]: // Senior Software Engineer · Microsoft Azure · Active TS/SCI + Full Scope Poly
+      - heading "These are the questions I'd want answered. Here are my answers." [level=1] [ref=e27]: These are the questions I'd want answered.Here are my answers.
+      - paragraph [ref=e28]: Five years at Microsoft owning control planes, fleet automation, and migration tooling for federal and enterprise customers — and mentoring the engineers who now run them.
+      - generic "At a glance" [ref=e29]:
+        - generic [ref=e30]:
+          - generic [ref=e31]: 40k+
+          - generic [ref=e32]: servers patched monthly
+        - generic [ref=e33]:
+          - generic [ref=e34]: 99.98%
+          - generic [ref=e35]: upgrade success rate
+        - generic [ref=e36]:
+          - generic [ref=e37]: $4M
+          - generic [ref=e38]: MRR from a system I led
+        - generic [ref=e39]:
+          - generic [ref=e40]: "5"
+          - generic [ref=e41]: engineers mentored
+      - navigation "On this page" [ref=e42]:
+        - list [ref=e43]:
+          - listitem [ref=e44]:
+            - link "01 What have you owned?" [ref=e45] [cursor=pointer]:
+              - /url: "#s-owned"
+              - generic [ref=e46]: "01"
+              - text: What have you owned?
+          - listitem [ref=e47]:
+            - link "02 What changed because you were there?" [ref=e48] [cursor=pointer]:
+              - /url: "#s-changed"
+              - generic [ref=e49]: "02"
+              - text: What changed because you were there?
+          - listitem [ref=e50]:
+            - link "03 How do you lead?" [ref=e51] [cursor=pointer]:
+              - /url: "#s-lead"
+              - generic [ref=e52]: "03"
+              - text: How do you lead?
+          - listitem [ref=e53]:
+            - link "04 Can you ship for a real customer?" [ref=e54] [cursor=pointer]:
+              - /url: "#s-customer"
+              - generic [ref=e55]: "04"
+              - text: Can you ship for a real customer?
+    - generic [ref=e56]:
+      - generic [ref=e57]:
+        - generic [ref=e58]: "01"
+        - heading "What have you owned?" [level=2] [ref=e59]
+      - paragraph [ref=e60]: Three systems, end to end — the design, the rollout, the on-call, and the engineers who took them over afterward.
+      - generic [ref=e61]:
+        - article [ref=e62]:
+          - generic [ref=e63]:
+            - generic [ref=e64]: cds-control-plane
+            - generic [ref=e66]: $4M MRR
+          - generic [ref=e67]:
+            - heading "Cross-Domain Solution Control Plane" [level=3] [ref=e68]
+            - paragraph [ref=e69]: The control plane API behind a new cross-domain solution running in Azure's air-gapped clouds.
+            - generic [ref=e70]:
+              - generic [ref=e71]: problem
+              - generic [ref=e72]: Air-gapped clouds invalidate most of what a control plane normally leans on. No external dependencies, no shortcuts, and a very high bar for correctness.
+              - generic [ref=e73]: what i owned
+              - generic [ref=e74]: Design and development end to end, from resource model through rollout. The service now drives $4M in monthly recurring revenue.
+          - generic [ref=e75]:
+            - list [ref=e76]:
+              - listitem [ref=e77]: C#
+              - listitem [ref=e78]: .NET
+              - listitem [ref=e79]: Azure air-gapped
+              - listitem [ref=e80]: API design
+            - generic [ref=e81]: internal · Microsoft
+        - article [ref=e83]:
+          - generic [ref=e84]:
+            - generic [ref=e85]: fleet-os-upgrades
+            - generic [ref=e87]: 99.98% success
+          - generic [ref=e88]:
+            - heading "Fleet OS Upgrade Automation" [level=3] [ref=e89]
+            - paragraph [ref=e90]: Linux patching across tens of thousands of production servers.
+            - generic [ref=e91]:
+              - generic [ref=e92]: problem
+              - generic [ref=e93]: Every server is somebody's running database. Patching happens monthly and must never become a customer-visible event.
+              - generic [ref=e94]: what i owned
+              - generic [ref=e95]: The tooling and the rollout. 40k+ servers monthly at a sustained 99.98% success rate.
+          - generic [ref=e96]:
+            - list [ref=e97]:
+              - listitem [ref=e98]: C#
+              - listitem [ref=e99]: Linux
+              - listitem [ref=e100]: Docker
+            - generic [ref=e101]: internal
+        - article [ref=e103]:
+          - generic [ref=e104]:
+            - generic [ref=e105]: workflow-observability
+            - generic [ref=e107]: 15 min → real time
+          - generic [ref=e108]:
+            - heading "Production Workflow Observability" [level=3] [ref=e109]
+            - paragraph [ref=e110]: A secure, read-only window into what production workflows actually did.
+            - generic [ref=e111]:
+              - generic [ref=e112]: problem
+              - generic [ref=e113]: On-call investigations opened with a ~15 minute wait just to see workflow state.
+              - generic [ref=e114]: what i owned
+              - generic [ref=e115]: Built it for my team; a sister team adopted it without me driving it. Triage latency dropped to real time.
+          - generic [ref=e116]:
+            - list [ref=e117]:
+              - listitem [ref=e118]: C#
+              - listitem [ref=e119]: React
+              - listitem [ref=e120]: TypeScript
+            - generic [ref=e121]: internal
+    - generic [ref=e123]:
+      - generic [ref=e124]:
+        - generic [ref=e125]: "02"
+        - heading "What changed because you were there?" [level=2] [ref=e126]
+      - paragraph [ref=e127]: Measured before and after, not adjectives.
+      - list [ref=e128]:
+        - listitem [ref=e129]:
+          - generic [ref=e130]: Incident triage latency
+          - generic [ref=e131]: ~15 min
+          - generic [aria-hidden] [ref=e132]: →
+          - generic [ref=e133]: real time
+        - listitem [ref=e134]:
+          - generic [ref=e135]: New-engineer ramp
+          - generic [ref=e136]: 2 sprints
+          - generic [aria-hidden] [ref=e137]: →
+          - generic [ref=e138]: 1 sprint
+        - listitem [ref=e139]:
+          - generic [ref=e140]: Resource-type onboarding
+          - generic [ref=e141]: ~2 months
+          - generic [aria-hidden] [ref=e142]: →
+          - generic [ref=e143]: ~2 weeks
+        - listitem [ref=e144]:
+          - generic [ref=e145]: Feature planning cycle
+          - generic [ref=e146]: 4 hrs
+          - generic [aria-hidden] [ref=e147]: →
+          - generic [ref=e148]: 20 min
+        - listitem [ref=e149]:
+          - generic [ref=e150]: Cross-domain control plane
+          - generic [ref=e151]: did not exist
+          - generic [aria-hidden] [ref=e152]: →
+          - generic [ref=e153]: $4M MRR
+        - listitem [ref=e154]:
+          - generic [ref=e155]: MySQL business-critical tier
+          - generic [ref=e156]: did not exist
+          - generic [aria-hidden] [ref=e157]: →
+          - generic [ref=e158]: 4k instances · $2M MRR
+        - listitem [ref=e159]:
+          - generic [ref=e160]: Upstream OSS security fix
+          - generic [ref=e161]: open vulnerability
+          - generic [aria-hidden] [ref=e162]: →
+          - generic [ref=e163]: 900k+ weekly users protected
+    - generic [ref=e164]:
+      - generic [ref=e165]:
+        - generic [ref=e166]: "03"
+        - heading "How do you lead?" [level=2] [ref=e167]
+      - blockquote [ref=e168]: Make the architecture clear enough that someone else can own it.
+      - generic [ref=e169]:
+        - article [ref=e170]:
+          - heading "Mentorship" [level=3] [ref=e171]
+          - paragraph [ref=e172]: Technical mentor to 5 engineers — 3 formal weekly 1:1s, 2 informal cross-org. Structured onboarding cut new-engineer ramp time in half.
+        - article [ref=e173]:
+          - heading "Growing owners, not dependents" [level=3] [ref=e174]
+          - paragraph [ref=e175]: Architected configuration modernization across 4+ services, defined the target design, and mentored engineers through implementation. A junior engineer on that work now leads live-site debugging for the system.
+        - article [ref=e176]:
+          - heading "Leverage beyond my team" [level=3] [ref=e177]
+          - paragraph [ref=e178]: Pilot adopter with a central platform team for onboarding new resource types, cutting onboarding from ~2 months to ~2 weeks for every team that followed.
+        - article [ref=e179]:
+          - heading "Raising the floor" [level=3] [ref=e180]
+          - paragraph [ref=e181]: Coached an engineer through landing a security fix in an upstream open-source API generator, later mirrored into internal feeds — protecting 900k+ weekly downstream users.
+    - generic [ref=e182]:
+      - generic [ref=e183]:
+        - generic [ref=e184]: "04"
+        - heading "Can you ship for a real customer?" [level=2] [ref=e185]
+      - paragraph [ref=e186]: I built a paid production platform and then made myself unnecessary.
+      - article [ref=e188]:
+        - generic [ref=e189]:
+          - generic [ref=e190]: modern-alchemy-site
+          - generic [ref=e192]: paid client work · 2025 · live
+        - generic [ref=e193]:
+          - heading "Modern Alchemy Tattoo Co." [level=3] [ref=e194]
+          - paragraph [ref=e195]: Public site, booking platform, and self-service CMS for a tattoo studio in North East, MD.
+          - generic [ref=e196]:
+            - generic [ref=e197]: problem
+            - generic [ref=e198]: The studio's content changes constantly — artists, portfolios, booking availability, announcements. Any design that routed those edits through me would have gone stale within a month.
+            - generic [ref=e199]: result
+            - generic [ref=e200]: Owner and artists edit every page, image, and form field themselves through an embedded Sanity Studio and a role-scoped staff portal. Shipped 2025, still running, zero maintenance requests.
+        - generic [ref=e201]:
+          - list [ref=e202]:
+            - listitem [ref=e203]: Next.js
+            - listitem [ref=e204]: TypeScript
+            - listitem [ref=e205]: Sanity
+            - listitem [ref=e206]: NextAuth
+            - listitem [ref=e207]: Zod
+            - listitem [ref=e208]: Vercel
+          - generic [ref=e209]:
+            - link "live ↗" [ref=e210] [cursor=pointer]:
+              - /url: https://www.modernalchemytattoo.com/
+            - link "code ↗" [ref=e211] [cursor=pointer]:
+              - /url: https://github.com/bhaden94/modern-alchemy-site
+    - generic [ref=e212]:
+      - generic [ref=e213]:
+        - generic [ref=e214]: "05"
+        - heading "What do you bring?" [level=2] [ref=e215]
+      - paragraph [ref=e216]: Grouped by how often I reach for it. No percentages — they don't mean anything.
+      - generic [ref=e217]:
+        - generic [ref=e218]:
+          - heading "daily" [level=3] [ref=e219]
+          - list [ref=e221]:
+            - listitem [ref=e222]: C#
+            - listitem [ref=e223]: .NET
+            - listitem [ref=e224]: Azure
+            - listitem [ref=e225]: TypeScript
+            - listitem [ref=e226]: React
+            - listitem [ref=e227]: Docker
+        - generic [ref=e228]:
+          - heading "strong" [level=3] [ref=e229]
+          - list [ref=e231]:
+            - listitem [ref=e232]: PostgreSQL
+            - listitem [ref=e233]: MySQL
+            - listitem [ref=e234]: Linux
+            - listitem [ref=e235]: Python
+            - listitem [ref=e236]: Java
+            - listitem [ref=e237]: PowerShell
+            - listitem [ref=e238]: SQL
+        - generic [ref=e239]:
+          - heading "familiar" [level=3] [ref=e240]
+          - list [ref=e242]:
+            - listitem [ref=e243]: Next.js
+            - listitem [ref=e244]: Node
+            - listitem [ref=e245]: AWS
+            - listitem [ref=e246]: MongoDB
+            - listitem [ref=e247]: Kubernetes
+            - listitem [ref=e248]: Terraform
+            - listitem [ref=e249]: Grafana
+            - listitem [ref=e250]: Elasticsearch
+          - heading "practice" [level=3] [ref=e251]
+          - list [ref=e252]:
+            - listitem [ref=e253]: distributed systems
+            - listitem [ref=e254]: cloud architecture
+            - listitem [ref=e255]: air-gapped cloud
+            - listitem [ref=e256]: API design
+            - listitem [ref=e257]: CI/CD & IaC
+            - listitem [ref=e258]: security & compliance
+            - listitem [ref=e259]: observability
+            - listitem [ref=e260]: technical mentorship
+    - generic [ref=e261]:
+      - generic [ref=e262]:
+        - generic [ref=e263]: "06"
+        - heading "Where have you been?" [level=2] [ref=e264]
+      - list [ref=e266]:
+        - listitem [ref=e267]:
+          - strong [ref=e268]: Senior Software Engineer
+          - generic [ref=e269]: Microsoft · Azure · Mar 2021 – Present
+        - listitem [ref=e270]:
+          - strong [ref=e271]: Cloud Engineer
+          - generic [ref=e272]: John Deere · Jan – Mar 2021
+        - listitem [ref=e273]:
+          - strong [ref=e274]: Full-Stack Software Engineer
+          - generic [ref=e275]: LevelUP Code Works · Sep – Dec 2020
+        - listitem [ref=e276]:
+          - strong [ref=e277]: Data Analyst
+          - generic [ref=e278]: U.S. Air Force · Aug 2014 – Mar 2021
+      - generic [ref=e279]:
+        - generic [ref=e280]:
+          - generic [ref=e281]: clearance & education
+          - generic [ref=e282]: TS/SCI + FSP active
+        - list [ref=e283]:
+          - listitem [ref=e284]:
+            - strong [ref=e285]: Active TS/SCI with Full Scope Polygraph
+            - generic [ref=e286]: current
+          - listitem [ref=e287]:
+            - strong [ref=e288]: B.S. Information & Computer Science
+            - generic [ref=e289]: Park University
+          - listitem [ref=e290]:
+            - strong [ref=e291]: A.A.S. Intelligence Studies
+            - generic [ref=e292]: CCAF
+          - listitem [ref=e293]:
+            - strong [ref=e294]: A.A.S. Aviation Maintenance
+            - generic [ref=e295]: CCAF
+          - listitem [ref=e296]:
+            - strong [ref=e297]: Full-Stack Software Engineering
+            - generic [ref=e298]: Galvanize
+    - generic [ref=e299]:
+      - generic [ref=e300]:
+        - generic [ref=e301]: "07"
+        - heading "What's next?" [level=2] [ref=e302]
+      - paragraph [ref=e303]: Happy to walk through any of the above in detail.
+      - generic [ref=e304]:
+        - link "GET /resume.pdf Download — updated 2026" [ref=e305] [cursor=pointer]:
+          - /url: https://cdn.sanity.io/files/0kc6p0xa/production/4598bf1de195982327ac3d3709209c55557ac46e.pdf
+          - generic [ref=e306]: GET
+          - generic [ref=e307]: /resume.pdf
+          - generic [ref=e308]: Download — updated 2026
+          - generic [aria-hidden] [ref=e309]: ↓
+        - link "GET /email brady.s.haden@gmail.com" [ref=e310] [cursor=pointer]:
+          - /url: mailto:brady.s.haden@gmail.com
+          - generic [ref=e311]: GET
+          - generic [ref=e312]: /email
+          - generic [ref=e313]: brady.s.haden@gmail.com
+          - generic [aria-hidden] [ref=e314]: ↗
+        - link "GET /linkedin linkedin.com/in/brady-haden" [ref=e315] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/brady-haden/
+          - generic [ref=e316]: GET
+          - generic [ref=e317]: /linkedin
+          - generic [ref=e318]: linkedin.com/in/brady-haden
+          - generic [aria-hidden] [ref=e319]: ↗
+        - link "GET /github github.com/bhaden94" [ref=e320] [cursor=pointer]:
+          - /url: https://github.com/bhaden94
+          - generic [ref=e321]: GET
+          - generic [ref=e322]: /github
+          - generic [ref=e323]: github.com/bhaden94
+          - generic [aria-hidden] [ref=e324]: ↗
+  - contentinfo [ref=e325]:
+    - generic [ref=e326]: all systems operational
+    - generic [ref=e328]: Brady Haden — 2026
