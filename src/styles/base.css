@@ -139,6 +139,10 @@ main,
   gap: .5rem;
 }
 
+.sb-detail {
+  color: var(--text-2);
+}
+
 .sb-right {
   display: inline-flex;
   align-items: center;

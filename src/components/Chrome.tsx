@@ -6,12 +6,14 @@ export function StatusBar({ settings }: { settings: SiteSettings }) {
     <div className="statusbar">
       <span className="sb-left">
         <span className="pip pip-ok" />
-        <strong>Available</strong> — {settings.availability}
+        <strong>Available</strong>
+        {/* Redundant on mobile — the hero lede says the same thing. */}
+        <span className="sb-detail">— {settings.availability}</span>
       </span>
       <span className="sb-right">
         <span className="sb-clearance">{settings.clearance}</span>
         <span className="sb-sep">/</span>
-        <span>{settings.location}</span>
+        <span className="sb-location">{settings.location}</span>
       </span>
     </div>
   );

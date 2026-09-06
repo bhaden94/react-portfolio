@@ -961,8 +961,30 @@ a.oss-name:hover {
     padding-left: 1.1rem;
   }
 
+  /* Keep the two highest-signal facts (availability, clearance) and drop the
+     role blurb, which the hero repeats anyway. Stacking the groups stops the
+     clearance chip from breaking across lines on narrow phones. */
   .statusbar {
-    font-size: .66rem;
+    flex-direction: column;
+    align-items: center;
     gap: .35rem;
+    font-size: .64rem;
+    padding: .45rem var(--gut);
+  }
+
+  .sb-detail {
+    display: none;
+  }
+
+  .sb-clearance {
+    white-space: nowrap;
+  }
+
+  .sb-location {
+    white-space: nowrap;
+  }
+
+  .sb-right {
+    gap: .45rem;
   }
 }
