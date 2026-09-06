@@ -23,6 +23,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # gh-pages authenticates via the URL below; the checkout credential
+          # helper would otherwise override it.
+          persist-credentials: false
 
       - uses: actions/setup-node@v4
         with:
@@ -47,10 +51,10 @@ jobs:
       - name: Deploy to GitHub Pages
         if: github.event_name != 'pull_request'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Falls back to GITHUB_TOKEN, which needs Settings > Actions >
+          # Workflow permissions set to "Read and write".
+          DEPLOY_TOKEN: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
         run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}"
-          # gh-pages directly, so npm's predeploy hook doesn't rebuild what we just built.
-          npx gh-pages -d build -u "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+          npx gh-pages -d build \
+            -u "github-actions[bot] <github-actions[bot]@users.noreply.github.com>" \
+            -r "https://x-access-token:${DEPLOY_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
