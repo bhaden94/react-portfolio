@@ -5,7 +5,7 @@ name: Deploy Sanity Studio
 # paths so content-only pushes don't pay the ~2 minute build.
 on:
   push:
-    branches: [master]
+    branches: [main]
     paths:
       - "src/sanity/schema.ts"
       - "src/sanity/config.ts"

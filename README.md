@@ -126,7 +126,7 @@ The hosted Studio at
 is a **static build** — it does not pick up schema changes on its own. The
 **Deploy Sanity Studio** workflow republishes it automatically whenever
 `src/sanity/schema.ts`, `src/sanity/config.ts`, `sanity.config.ts` or
-`sanity.cli.ts` changes on `master`, and can also be run manually.
+`sanity.cli.ts` changes on `main`, and can also be run manually.
 
 That workflow needs a `SANITY_DEPLOY_TOKEN` repository secret: create a token
 with the **Deploy Studio** role at manage.sanity.io → **API** → **Tokens**, then
@@ -139,7 +139,7 @@ immediately — no deploy required.
 
 The build-time snapshot in `generated.json` only covers the moment before that
 fetch resolves, and acts as the fallback if Sanity is unreachable. It refreshes
-on every push to `master`, or on demand via the **CI/CD** workflow's *Run
+on every push to `main`, or on demand via the **CI/CD** workflow's *Run
 workflow* button. Letting it go stale is harmless: visitors briefly see the
 previous copy before the live data swaps in.
 
@@ -160,8 +160,8 @@ previous copy before the live data swaps in.
 
 | Workflow | Triggers | Does |
 | --- | --- | --- |
-| **CI/CD** | push to `master`, PRs, manual | Builds and deploys the site to `gh-pages`. PRs build but never deploy. |
-| **Deploy Sanity Studio** | schema/config changes on `master`, manual | Republishes the hosted Studio. Needs `SANITY_DEPLOY_TOKEN`. |
+| **CI/CD** | push to `main`, PRs, manual | Builds and deploys the site to `gh-pages`. PRs build but never deploy. |
+| **Deploy Sanity Studio** | schema/config changes on `main`, manual | Republishes the hosted Studio. Needs `SANITY_DEPLOY_TOKEN`. |
 
 ## Layout reference
 
@@ -187,6 +187,6 @@ MIT. See `LICENSE`.
 <!-- MARKDOWN LINKS -->
 
 [license-shield]: https://img.shields.io/github/license/bhaden94/react-portfolio.svg
-[license-url]: https://github.com/bhaden94/react-portfolio/blob/master/LICENSE
+[license-url]: https://github.com/bhaden94/react-portfolio/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/brady-haden/

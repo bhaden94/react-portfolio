@@ -2,9 +2,9 @@ name: CI/CD
 
 on:
   push:
-    branches: [master]
+    branches: [main]
   pull_request:
-    branches: [master]
+    branches: [main]
   # Lets you refresh the build-time content snapshot after editing in Sanity.
   # Not needed for edits to reach visitors — the site reads Sanity on every load.
   workflow_dispatch:
