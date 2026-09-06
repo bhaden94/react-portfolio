@@ -33,3 +33,6 @@ tsconfig.tsbuildinfo
 # sanity studio build
 dist-studio/
 studio-build.log
+
+# playwright mcp artifacts
+.playwright-mcp/
