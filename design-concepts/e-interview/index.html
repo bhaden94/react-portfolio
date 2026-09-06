@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brady Haden — Senior Software Engineer</title>
+  <meta name="description"
+    content="Brady Haden is a Senior Software Engineer at Microsoft building mission-critical distributed cloud systems, including Azure's air-gapped clouds. Active TS/SCI with Full Scope Polygraph." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+  <!-- Self-contained reference copy: base.css holds the shared palette + primitives. -->
+  <link rel="stylesheet" href="base.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body data-lens="hm">
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <div class="statusbar">
+    <span class="sb-left">
+      <span class="pip pip-ok"></span>
+      <strong>Available</strong> — open to senior cloud &amp; distributed systems roles
+    </span>
+    <span class="sb-right">
+      <span class="sb-item sb-clearance">TS/SCI + Full Scope Poly · active</span>
+      <span class="sb-sep">/</span>
+      <span class="sb-item">US · Remote</span>
+    </span>
+  </div>
+
+  <header class="topbar">
+    <a class="brand" href="#top">
+      <span class="brand-mark">bh</span>
+      <span class="brand-name">brady&nbsp;haden<span class="brand-role">senior software engineer · microsoft</span></span>
+    </a>
+
+    <div class="lens" role="group" aria-label="Tailor this page to your role">
+      <span class="lens-label">Viewing as</span>
+      <div class="lens-btns">
+        <button type="button" data-set-lens="recruiter" aria-pressed="false">Recruiter</button>
+        <button type="button" data-set-lens="hm" aria-pressed="true">Hiring manager</button>
+        <button type="button" data-set-lens="engineer" aria-pressed="false">Engineer</button>
+      </div>
+    </div>
+
+    <a class="btn-mono btn-resume" href="#contact">résumé.pdf ↓</a>
+  </header>
+
+  <main id="top">
+
+    <!-- ══════════════ HERO ══════════════ -->
+    <section class="hero-q" id="s-hero">
+      <p class="kicker">// Senior Software Engineer · Microsoft Azure · Active TS/SCI + Full Scope Poly</p>
+
+      <h1 class="q-hero-title" data-show="recruiter">Everything you need, on one screen.</h1>
+      <h1 class="q-hero-title" data-show="hm">These are the questions I'd want answered.<br /><span
+          class="hl">Here are my answers.</span></h1>
+      <h1 class="q-hero-title" data-show="engineer">Constraints first.<br />Then <span class="hl">what I did about
+          them</span>.</h1>
+
+      <p class="q-hero-lede" data-show="recruiter">
+        Senior Software Engineer at Microsoft, five years, currently on Azure's managed database
+        platform. Active TS/SCI with Full Scope Polygraph. U.S. Air Force veteran.
+      </p>
+      <p class="q-hero-lede" data-show="hm">
+        Five years at Microsoft owning control planes, fleet automation, and migration tooling
+        for federal and enterprise customers — and mentoring the engineers who now run them.
+      </p>
+      <p class="q-hero-lede" data-show="engineer">
+        Azure's managed Postgres/MySQL platform: upgrade orchestration across 40k+ Linux VMs a
+        month, a control plane that has to work with no outbound network, and migration tooling
+        for thousands of live customer workloads.
+      </p>
+
+      <!-- proof above the fold, before the agenda -->
+      <div class="hero-metrics" data-show="recruiter" aria-label="At a glance">
+        <div><span class="m-val">5<i>+ yrs</i></span><span class="m-lab">software engineering</span></div>
+        <div><span class="m-val m-val--sm">Microsoft</span><span class="m-lab">current employer</span></div>
+        <div><span class="m-val m-val--sm">TS/SCI + FSP</span><span class="m-lab">active clearance</span></div>
+        <div><span class="m-val m-val--sm">Available</span><span class="m-lab">US · remote</span></div>
+      </div>
+
+      <div class="hero-metrics" data-show="hm" aria-label="At a glance">
+        <div><span class="m-val">40k<i>+</i></span><span class="m-lab">servers patched monthly</span></div>
+        <div><span class="m-val">99.98<i>%</i></span><span class="m-lab">upgrade success rate</span></div>
+        <div><span class="m-val">$4<i>M</i></span><span class="m-lab">MRR from a system I led</span></div>
+        <div><span class="m-val">5</span><span class="m-lab">engineers mentored</span></div>
+      </div>
+
+      <div class="hero-metrics" data-show="engineer" aria-label="At a glance">
+        <div><span class="m-val">40k<i>+</i></span><span class="m-lab">Linux VMs per rollout</span></div>
+        <div><span class="m-val">99.98<i>%</i></span><span class="m-lab">upgrade success rate</span></div>
+        <div><span class="m-val">~0<i>s</i></span><span class="m-lab">incident triage latency</span></div>
+        <div><span class="m-val">4<i>+</i></span><span class="m-lab">services modernized</span></div>
+      </div>
+
+      <!-- agenda: the questions this lens will answer -->
+      <nav class="agenda" aria-label="On this page">
+        <ol data-show="recruiter">
+          <li><a href="#s-snapshot"><span>01</span> Who is this?</a></li>
+          <li><a href="#s-shipped"><span>02</span> What have they shipped?</a></li>
+          <li><a href="#s-stack"><span>03</span> What do they know?</a></li>
+          <li><a href="#s-history"><span>04</span> Where have they worked?</a></li>
+        </ol>
+        <ol data-show="hm">
+          <li><a href="#s-owned"><span>01</span> What have you owned?</a></li>
+          <li><a href="#s-changed"><span>02</span> What changed because you were there?</a></li>
+          <li><a href="#s-lead"><span>03</span> How do you lead?</a></li>
+          <li><a href="#s-customer"><span>04</span> Can you ship for a real customer?</a></li>
+        </ol>
+        <ol data-show="engineer">
+          <li><a href="#s-owned"><span>01</span> What's the hardest thing you've built?</a></li>
+          <li><a href="#s-customer"><span>02</span> What do you build unsupervised?</a></li>
+          <li><a href="#s-code"><span>03</span> What can I actually read?</a></li>
+          <li><a href="#s-stack"><span>04</span> What do you actually use?</a></li>
+        </ol>
+      </nav>
+    </section>
+
+    <!-- ══════════════ RECRUITER: SNAPSHOT ══════════════ -->
+    <section class="section" id="s-snapshot" data-show="recruiter">
+      <div class="q-head">
+        <span class="q-num">01</span>
+        <h2>Who is this?</h2>
+      </div>
+      <div class="panel snapshot">
+        <dl>
+          <div>
+            <dt>Current title</dt>
+            <dd>Senior Software Engineer, Microsoft (Azure) — since Mar 2021</dd>
+          </div>
+          <div>
+            <dt>Years experience</dt>
+            <dd>5+ in software engineering; 7 prior in the U.S. Air Force</dd>
+          </div>
+          <div>
+            <dt>Clearance</dt>
+            <dd><b>Active TS/SCI with Full Scope Polygraph</b></dd>
+          </div>
+          <div>
+            <dt>Location</dt>
+            <dd>United States · open to remote</dd>
+          </div>
+          <div>
+            <dt>Core skills</dt>
+            <dd>C#, .NET, Azure, TypeScript, React, Docker, PostgreSQL, MySQL, Linux, Python, Kubernetes, CI/CD,
+              Terraform, distributed systems, API design, observability</dd>
+          </div>
+          <div>
+            <dt>Looking for</dt>
+            <dd>Senior cloud, platform, or distributed systems roles</dd>
+          </div>
+          <div>
+            <dt>Education</dt>
+            <dd>B.S. Information &amp; Computer Science, Park University</dd>
+          </div>
+          <div>
+            <dt>Résumé</dt>
+            <dd><a class="inline-link" href="#contact">Download PDF ↓</a> — updated 2026</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ══════════════ RECRUITER: SHIPPED ══════════════ -->
+    <section class="section" id="s-shipped" data-show="recruiter">
+      <div class="q-head">
+        <span class="q-num">02</span>
+        <h2>What have they shipped?</h2>
+      </div>
+      <div class="panel oss">
+        <ul class="oss-list">
+          <li>
+            <span class="oss-name">Cross-Domain Solution Control Plane</span>
+            <span class="oss-desc">Led the control plane API for a new secure-cloud offering. Drives $4M monthly
+              recurring revenue.</span>
+            <span class="internal">Microsoft</span>
+          </li>
+          <li>
+            <span class="oss-name">Fleet OS Upgrade Automation</span>
+            <span class="oss-desc">Automated Linux patching across 40,000+ production servers monthly at a 99.98%
+              success rate.</span>
+            <span class="internal">Microsoft</span>
+          </li>
+          <li>
+            <span class="oss-name">MySQL Business Critical Tier</span>
+            <span class="oss-desc">Backend and UX for a premium database tier: 4,000 new paid instances, $2M
+              MRR.</span>
+            <span class="internal">Microsoft</span>
+          </li>
+          <li>
+            <a class="oss-name" href="https://www.modernalchemytattoo.com/">Modern Alchemy Tattoo Co. <span
+                aria-hidden="true">↗</span></a>
+            <span class="oss-desc">Paid client project, 2025. Full site and booking platform the owner maintains
+              herself.</span>
+            <a class="oss-code" href="https://github.com/bhaden94/modern-alchemy-site">code ↗</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ══════════════ Q: WHAT HAVE YOU OWNED? ══════════════ -->
+    <section class="section" id="s-owned" data-show="hm engineer">
+      <div class="q-head">
+        <span class="q-num">01</span>
+        <h2 data-show="hm">What have you owned?</h2>
+        <h2 data-show="engineer">What's the hardest thing you've built?</h2>
+      </div>
+      <p class="q-answer" data-show="hm">
+        Three systems, end to end — the design, the rollout, the on-call, and the engineers who
+        took them over afterward.
+      </p>
+      <p class="q-answer" data-show="engineer">
+        The control plane, because the constraints removed every normal escape hatch.
+      </p>
+
+      <div class="services">
+        <article class="panel svc svc-featured">
+          <header class="panel-head">
+            <span class="panel-title"><span class="pip pip-ok"></span>cds-control-plane</span>
+            <span class="panel-tag tag-featured" data-show="hm">$4M MRR</span>
+            <span class="panel-tag tag-featured" data-show="engineer">no outbound network</span>
+          </header>
+          <div class="svc-body">
+            <h3>Cross-Domain Solution Control Plane</h3>
+            <p class="svc-lede">The control plane API behind a new cross-domain solution running in Azure's air-gapped
+              clouds.</p>
+            <div class="kv" data-show="hm">
+              <span class="k">problem</span>
+              <span class="v">Air-gapped clouds invalidate most of what a control plane normally leans on. No external
+                dependencies, no shortcuts, and a very high bar for correctness.</span>
+              <span class="k">what i owned</span>
+              <span class="v">Design and development end to end, from resource model through rollout. The service now
+                drives <b>$4M in monthly recurring revenue</b>.</span>
+            </div>
+            <div class="kv" data-show="engineer">
+              <span class="k">constraint</span>
+              <span class="v">No outbound network. No reachable identity provider, no public package feeds, no
+                telemetry egress, and no hotfix on the normal cadence. Every dependency resolved and vendored before
+                the seal.</span>
+              <span class="k">approach</span>
+              <span class="v">Designed the resource model and API surface first, then worked backward to what could
+                actually be satisfied inside the boundary. Deploy and rollback had to be provable offline, so
+                correctness moved left into schema and contract validation.</span>
+            </div>
+          </div>
+          <footer class="svc-foot">
+            <ul class="chips">
+              <li>C#</li>
+              <li>.NET</li>
+              <li>Azure air-gapped</li>
+              <li>API design</li>
+            </ul>
+            <div class="svc-links"><span class="internal">internal · Microsoft</span></div>
+          </footer>
+        </article>
+
+        <article class="panel svc">
+          <header class="panel-head">
+            <span class="panel-title"><span class="pip pip-ok"></span>fleet-os-upgrades</span>
+            <span class="panel-tag">99.98% success</span>
+          </header>
+          <div class="svc-body">
+            <h3>Fleet OS Upgrade Automation</h3>
+            <p class="svc-lede">Linux patching across tens of thousands of production servers.</p>
+            <div class="kv" data-show="hm">
+              <span class="k">problem</span>
+              <span class="v">Every server is somebody's running database. Patching happens monthly and must never
+                become a customer-visible event.</span>
+              <span class="k">what i owned</span>
+              <span class="v">The tooling and the rollout. <b>40k+ servers monthly</b> at a sustained <b>99.98% success
+                  rate</b>.</span>
+            </div>
+            <div class="kv" data-show="engineer">
+              <span class="k">constraint</span>
+              <span class="v">Monthly patch cycle across 40k+ Linux VMs, each hosting a live customer database. A
+                reboot is a customer-visible availability event.</span>
+              <span class="k">approach</span>
+              <span class="v">Moved upgrade execution into containers so one rollout fans out across the fleet, then
+                split the modes — security-only and allow-listed package sets apply without a reboot. Failure handling
+                is per-node so a bad host doesn't stall the wave.</span>
+            </div>
+          </div>
+          <footer class="svc-foot">
+            <ul class="chips">
+              <li>C#</li>
+              <li>Linux</li>
+              <li>Docker</li>
+            </ul>
+            <div class="svc-links"><span class="internal">internal</span></div>
+          </footer>
+        </article>
+
+        <article class="panel svc">
+          <header class="panel-head">
+            <span class="panel-title"><span class="pip pip-ok"></span>workflow-observability</span>
+            <span class="panel-tag">15 min → real time</span>
+          </header>
+          <div class="svc-body">
+            <h3>Production Workflow Observability</h3>
+            <p class="svc-lede">A secure, read-only window into what production workflows actually did.</p>
+            <div class="kv" data-show="hm">
+              <span class="k">problem</span>
+              <span class="v">On-call investigations opened with a ~15 minute wait just to see workflow state.</span>
+              <span class="k">what i owned</span>
+              <span class="v">Built it for my team; a sister team adopted it without me driving it. Triage latency
+                dropped to <b>real time</b>.</span>
+            </div>
+            <div class="kv" data-show="engineer">
+              <span class="k">constraint</span>
+              <span class="v">Engineers needed production workflow state mid-incident, but the data is sensitive and
+                the tool could not become a write path or a new blast radius.</span>
+              <span class="k">approach</span>
+              <span class="v">Read-only by construction, scoped access, surfaced live instead of through the batch
+                query path that cost ~15 minutes per lookup.</span>
+            </div>
+          </div>
+          <footer class="svc-foot">
+            <ul class="chips">
+              <li>C#</li>
+              <li>React</li>
+              <li>TypeScript</li>
+            </ul>
+            <div class="svc-links"><span class="internal">internal</span></div>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <!-- ══════════════ Q: WHAT CHANGED? ══════════════ -->
+    <section class="section" id="s-changed" data-show="hm">
+      <div class="q-head">
+        <span class="q-num">02</span>
+        <h2>What changed because you were there?</h2>
+      </div>
+      <p class="q-answer">Measured before and after, not adjectives.</p>
+
+      <ul class="deltas">
+        <li>
+          <span class="d-label">Incident triage latency</span>
+          <span class="d-before">~15 min</span>
+          <span class="d-arrow" aria-hidden="true">→</span>
+          <span class="d-after">real time</span>
+        </li>
+        <li>
+          <span class="d-label">New-engineer ramp</span>
+          <span class="d-before">2 sprints</span>
+          <span class="d-arrow" aria-hidden="true">→</span>
+          <span class="d-after">1 sprint</span>
+        </li>
+        <li>
+          <span class="d-label">Resource-type onboarding</span>
+          <span class="d-before">~2 months</span>
+          <span class="d-arrow" aria-hidden="true">→</span>
+          <span class="d-after">~2 weeks</span>
+        </li>
+        <li>
+          <span class="d-label">Feature planning cycle</span>
+          <span class="d-before">4 hrs</span>
+          <span class="d-arrow" aria-hidden="true">→</span>
+          <span class="d-after">20 min</span>
+        </li>
+        <li>
+          <span class="d-label">Cross-domain control plane</span>
+          <span class="d-before">did not exist</span>
+          <span class="d-arrow" aria-hidden="true">→</span>
+          <span class="d-after">$4M MRR</span>
+        </li>
+        <li>
+          <span class="d-label">MySQL business-critical tier</span>
+          <span class="d-before">did not exist</span>
+          <span class="d-arrow" aria-hidden="true">→</span>
+          <span class="d-after">4k instances · $2M MRR</span>
+        </li>
+        <li>
+          <span class="d-label">Upstream OSS security fix</span>
+          <span class="d-before">open vulnerability</span>
+          <span class="d-arrow" aria-hidden="true">→</span>
+          <span class="d-after">900k+ weekly users protected</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ══════════════ Q: HOW DO YOU LEAD? ══════════════ -->
+    <section class="section" id="s-lead" data-show="hm">
+      <div class="q-head">
+        <span class="q-num">03</span>
+        <h2>How do you lead?</h2>
+      </div>
+
+      <blockquote class="pullquote">
+        Make the architecture clear enough that someone else can own it.
+      </blockquote>
+
+      <div class="lead-grid">
+        <article class="panel scope-card">
+          <h3>Mentorship</h3>
+          <p>Technical mentor to <b>5 engineers</b> — 3 formal weekly 1:1s, 2 informal cross-org. Structured onboarding
+            cut new-engineer ramp time in half.</p>
+        </article>
+        <article class="panel scope-card">
+          <h3>Growing owners, not dependents</h3>
+          <p>Architected configuration modernization across <b>4+ services</b>, defined the target design, and mentored
+            engineers through implementation. A junior engineer on that work now leads live-site debugging for the
+            system.</p>
+        </article>
+        <article class="panel scope-card">
+          <h3>Leverage beyond my team</h3>
+          <p>Pilot adopter with a central platform team for onboarding new resource types, cutting onboarding from ~2
+            months to <b>~2 weeks</b> for every team that followed.</p>
+        </article>
+        <article class="panel scope-card">
+          <h3>Raising the floor</h3>
+          <p>Coached an engineer through landing a security fix in an upstream open-source API generator, later mirrored
+            into internal feeds — protecting <b>900k+ weekly downstream users</b>.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ══════════════ Q: REAL CUSTOMER ══════════════ -->
+    <section class="section" id="s-customer" data-show="hm engineer">
+      <div class="q-head">
+        <span class="q-num" data-show="hm">04</span>
+        <span class="q-num" data-show="engineer">02</span>
+        <h2 data-show="hm">Can you ship for a real customer?</h2>
+        <h2 data-show="engineer">What do you build unsupervised?</h2>
+      </div>
+      <p class="q-answer" data-show="hm">
+        I built a paid production platform and then <span class="hl">made myself unnecessary.</span>
+      </p>
+      <p class="q-answer" data-show="engineer">
+        A CMS-driven booking platform where every behaviour is data, not code — so the client
+        never has to call me.
+      </p>
+
+      <article class="panel svc svc-featured">
+        <header class="panel-head">
+          <span class="panel-title"><span class="pip pip-ok"></span>modern-alchemy-site</span>
+          <span class="panel-tag tag-featured">paid client work · 2025 · live</span>
+        </header>
+        <div class="svc-body">
+          <h3>Modern Alchemy Tattoo Co.</h3>
+          <p class="svc-lede">Public site, booking platform, and self-service CMS for a tattoo studio in North East,
+            MD.</p>
+          <div class="kv" data-show="hm">
+            <span class="k">problem</span>
+            <span class="v">The studio's content changes constantly — artists, portfolios, booking availability,
+              announcements. Any design that routed those edits through me would have gone stale within a month.</span>
+            <span class="k">result</span>
+            <span class="v">Owner and artists edit every page, image, and form field themselves through an embedded
+              Sanity Studio and a role-scoped staff portal. <b>Shipped 2025, still running, zero maintenance
+                requests.</b></span>
+          </div>
+          <div class="kv" data-show="engineer">
+            <span class="k">design</span>
+            <span class="v">Next.js App Router, server components reading from Sanity. Every page is a CMS document
+              with an <code>isActive</code> flag, so the owner can pull a page without a deploy.</span>
+            <span class="k">auth</span>
+            <span class="v">NextAuth with Google as sole provider; the session is enriched from the artist record so
+              routes authorize against Owner/Resident/Guest roles rather than a static allowlist.</span>
+            <span class="k">forms</span>
+            <span class="v">Booking schemas generated per artist with Zod — available days, budget options, required
+              fields all come from that artist's CMS record. Three booking modes per artist: native form, embedded
+              third-party widget, or external redirect. Images upload straight to Sanity; the admin view subscribes to
+              a Sanity listener so bookings appear without a refresh.</span>
+          </div>
+        </div>
+        <footer class="svc-foot">
+          <ul class="chips">
+            <li>Next.js</li>
+            <li>TypeScript</li>
+            <li>Sanity</li>
+            <li>NextAuth</li>
+            <li>Zod</li>
+            <li>Vercel</li>
+          </ul>
+          <div class="svc-links">
+            <a href="https://www.modernalchemytattoo.com/">live ↗</a>
+            <a href="https://github.com/bhaden94/modern-alchemy-site">code ↗</a>
+          </div>
+        </footer>
+      </article>
+    </section>
+
+    <!-- ══════════════ Q: WHAT CAN I READ? ══════════════ -->
+    <section class="section" id="s-code" data-show="engineer">
+      <div class="q-head">
+        <span class="q-num">03</span>
+        <h2>What can I actually read?</h2>
+      </div>
+      <p class="q-answer">The Microsoft work is internal. This is what's public.</p>
+      <div class="panel oss">
+        <ul class="oss-list">
+          <li>
+            <a class="oss-name" href="https://github.com/bhaden94/modern-alchemy-site">modern-alchemy-site <span
+                aria-hidden="true">↗</span></a>
+            <span class="oss-desc">Next.js + Sanity. Per-artist Zod form generation, role-scoped NextAuth, live booking
+              listeners.</span>
+            <a class="oss-code" href="https://www.modernalchemytattoo.com/">live ↗</a>
+          </li>
+          <li>
+            <a class="oss-name" href="https://github.com/bhaden94/va-calculator">va-calculator <span
+                aria-hidden="true">↗</span></a>
+            <span class="oss-desc">Second-tier VA entitlement math, county-indexed. Next.js server rendering, no
+              backend.</span>
+            <a class="oss-code" href="https://va-calculator.com">live ↗</a>
+          </li>
+          <li>
+            <a class="oss-name" href="https://github.com/bhaden94/Covid-19-Tracker-V2">Covid-19-Tracker-V2 <span
+                aria-hidden="true">↗</span></a>
+            <span class="oss-desc">Multi-threaded Java/Spring ingestion into MongoDB, React front end, CI static
+              analysis.</span>
+            <a class="oss-code" href="https://covid-19-tracker-v2-fe.vercel.app/">live ↗</a>
+          </li>
+          <li>
+            <a class="oss-name" href="https://github.com/bhaden94/LokiDiscordChatbot">LokiDiscordChatbot <span
+                aria-hidden="true">↗</span></a>
+            <span class="oss-desc">Transcript sanitizing pipeline into a GPT-2 fine-tune on Hugging Face.</span>
+            <a class="oss-code" href="https://huggingface.co/bhaden94/LokiDiscordBot-medium">model ↗</a>
+          </li>
+          <li>
+            <a class="oss-name" href="https://github.com/bhaden94/spacex-app">spacex-app <span
+                aria-hidden="true">↗</span></a>
+            <span class="oss-desc">Custom vertical-timeline pagination and responsive sidebar, built from
+              scratch.</span>
+            <a class="oss-code" href="https://bhaden94.github.io/spacex-app/">live ↗</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ══════════════ Q: WHAT DO YOU BRING? ══════════════ -->
+    <section class="section" id="s-stack">
+      <div class="q-head">
+        <span class="q-num" data-show="recruiter">03</span>
+        <span class="q-num" data-show="hm">05</span>
+        <span class="q-num" data-show="engineer">04</span>
+        <h2 data-show="recruiter">What do they know?</h2>
+        <h2 data-show="hm">What do you bring?</h2>
+        <h2 data-show="engineer">What do you actually use?</h2>
+      </div>
+      <p class="q-answer" data-show="recruiter">Full keyword list first, then grouped by real depth.</p>
+      <p class="q-answer" data-show="hm engineer">Grouped by how often I reach for it. No percentages — they don't mean
+        anything.</p>
+
+      <div class="panel keyword-block" data-show="recruiter">
+        <p class="tier-label">All technologies</p>
+        <p class="keywords">
+          C# · .NET · ASP.NET · Azure · Azure Government · TypeScript · JavaScript · React · Next.js · Node ·
+          Docker · Kubernetes · Linux · PostgreSQL · MySQL · SQL · Python · Java · Spring · PowerShell · Bash ·
+          Terraform · CI/CD · GitHub Actions · REST API design · Distributed systems · Microservices ·
+          Observability · Grafana · AWS · MongoDB · Elasticsearch · Sanity · Zod · Git
+        </p>
+      </div>
+
+      <div class="capacity">
+        <div class="cap-col">
+          <h3 class="cap-tier"><span class="pip pip-ok"></span>daily</h3>
+          <ul class="tag-cloud tag-cloud--strong">
+            <li>C#</li>
+            <li>.NET</li>
+            <li>Azure</li>
+            <li>TypeScript</li>
+            <li>React</li>
+            <li>Docker</li>
+          </ul>
+        </div>
+        <div class="cap-col">
+          <h3 class="cap-tier"><span class="pip pip-warn"></span>strong</h3>
+          <ul class="tag-cloud">
+            <li>PostgreSQL</li>
+            <li>MySQL</li>
+            <li>Linux</li>
+            <li>Python</li>
+            <li>Java</li>
+            <li>PowerShell</li>
+            <li>SQL</li>
+          </ul>
+        </div>
+        <div class="cap-col">
+          <h3 class="cap-tier"><span class="pip pip-idle"></span>familiar</h3>
+          <ul class="tag-cloud tag-cloud--quiet">
+            <li>Next.js</li>
+            <li>Node</li>
+            <li>AWS</li>
+            <li>MongoDB</li>
+            <li>Kubernetes</li>
+            <li>Terraform</li>
+            <li>Grafana</li>
+            <li>Elasticsearch</li>
+          </ul>
+          <h3 class="cap-tier cap-tier--sub">practice</h3>
+          <ul class="tag-cloud tag-cloud--quiet">
+            <li>distributed systems</li>
+            <li>cloud architecture</li>
+            <li>air-gapped cloud</li>
+            <li>API design</li>
+            <li>CI/CD &amp; IaC</li>
+            <li>security &amp; compliance</li>
+            <li>observability</li>
+            <li>technical mentorship</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ Q: WHERE HAVE YOU BEEN? ══════════════ -->
+    <section class="section" id="s-history">
+      <div class="q-head">
+        <span class="q-num" data-show="recruiter">04</span>
+        <span class="q-num" data-show="hm">06</span>
+        <span class="q-num" data-show="engineer">05</span>
+        <h2 data-show="recruiter">Where have they worked?</h2>
+        <h2 data-show="hm engineer">Where have you been?</h2>
+      </div>
+
+      <div class="panel certs">
+        <ul class="history">
+          <li><strong>Senior Software Engineer</strong><span>Microsoft · Azure · Mar 2021 – Present</span></li>
+          <li><strong>Cloud Engineer</strong><span>John Deere · Jan – Mar 2021</span></li>
+          <li><strong>Full-Stack Software Engineer</strong><span>LevelUP Code Works · Sep – Dec 2020</span></li>
+          <li><strong>Data Analyst</strong><span>U.S. Air Force · Aug 2014 – Mar 2021</span></li>
+        </ul>
+      </div>
+
+      <div class="panel certs certs-edu">
+        <header class="panel-head">
+          <span class="panel-title">clearance &amp; education</span>
+          <span class="panel-tag tag-featured">TS/SCI + FSP active</span>
+        </header>
+        <ul>
+          <li><strong>Active TS/SCI with Full Scope Polygraph</strong><span>current</span></li>
+          <li><strong>B.S. Information &amp; Computer Science</strong><span>Park University</span></li>
+          <li><strong>A.A.S. Intelligence Studies</strong><span>CCAF</span></li>
+          <li><strong>A.A.S. Aviation Maintenance</strong><span>CCAF</span></li>
+          <li><strong>Full-Stack Software Engineering</strong><span>Galvanize</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ══════════════ Q: HOW DO WE TALK? ══════════════ -->
+    <section class="section" id="s-contact">
+      <div class="q-head">
+        <span class="q-num" data-show="recruiter">05</span>
+        <span class="q-num" data-show="hm">07</span>
+        <span class="q-num" data-show="engineer">06</span>
+        <h2>What's next?</h2>
+      </div>
+      <p class="q-answer" data-show="recruiter">Email is fastest — I reply within 24 hours.</p>
+      <p class="q-answer" data-show="hm">Happy to walk through any of the above in detail.</p>
+      <p class="q-answer" data-show="engineer">Ask me about the air-gap constraints. That's the fun one.</p>
+
+      <div class="endpoints">
+        <a class="ep ep-primary" id="resume" href="#resume">
+          <span class="ep-method">GET</span>
+          <span class="ep-path">/resume.pdf</span>
+          <span class="ep-val">Download — updated 2026</span>
+          <span class="ep-arrow" aria-hidden="true">↓</span>
+        </a>
+        <a class="ep" href="mailto:brady.s.haden@gmail.com">
+          <span class="ep-method">GET</span>
+          <span class="ep-path">/email</span>
+          <span class="ep-val">brady.s.haden@gmail.com</span>
+          <span class="ep-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="ep" href="https://www.linkedin.com/in/brady-haden/">
+          <span class="ep-method">GET</span>
+          <span class="ep-path">/linkedin</span>
+          <span class="ep-val">linkedin.com/in/brady-haden</span>
+          <span class="ep-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="ep" href="https://github.com/bhaden94">
+          <span class="ep-method">GET</span>
+          <span class="ep-path">/github</span>
+          <span class="ep-val">github.com/bhaden94</span>
+          <span class="ep-arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span><span class="pip pip-ok"></span>all systems operational</span>
+    <span>Concept E · “Interview” — question-driven, three lenses</span>
+  </footer>
+
+  <script>
+    (function () {
+      var LENSES = ['recruiter', 'hm', 'engineer'];
+      var body = document.body;
+      var buttons = Array.prototype.slice.call(document.querySelectorAll('[data-set-lens]'));
+
+      function apply(lens, persist) {
+        if (LENSES.indexOf(lens) === -1) lens = 'hm';
+        body.setAttribute('data-lens', lens);
+
+        buttons.forEach(function (b) {
+          b.setAttribute('aria-pressed', String(b.dataset.setLens === lens));
+        });
+
+        document.querySelectorAll('[data-show]').forEach(function (el) {
+          el.hidden = el.getAttribute('data-show').split(/\s+/).indexOf(lens) === -1;
+        });
+
+        if (persist) {
+          try { localStorage.setItem('lens-e', lens); } catch (e) { }
+          var url = new URL(window.location.href);
+          url.searchParams.set('view', lens);
+          history.replaceState(null, '', url);
+        }
+      }
+
+      var fromUrl = new URLSearchParams(window.location.search).get('view');
+      var stored = null;
+      try { stored = localStorage.getItem('lens-e'); } catch (e) { }
+      apply(fromUrl || stored || 'hm', false);
+
+      if (!stored && !fromUrl) document.querySelector('.lens').classList.add('lens--new');
+
+      buttons.forEach(function (b) {
+        b.addEventListener('click', function () {
+          apply(b.dataset.setLens, true);
+          document.querySelector('.lens').classList.remove('lens--new');
+        });
+      });
+    })();
+  </script>
+</body>
+
+</html>

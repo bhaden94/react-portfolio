@@ -1,0 +1,48 @@
+{
+  "settings": *[_type == "siteSettings"][0]{
+    name, role, brandMark, kicker, availability, clearance, location,
+    pullQuote, keywords, keywordsLabel, footerStatus, footerNote,
+    metaTitle, metaDescription, resumeLabel,
+    "resumeUrl": resumeFile.asset->url
+  },
+  "heroes": *[_type == "lensHero"]{
+    lens, titleLead, titleHighlight, titleTail, lede,
+    metrics[]{ value, unit, label, small },
+    agenda[]{ num, question, target }
+  },
+  "sections": *[_type == "sectionCopy"]{
+    key,
+    "lenses": {
+      "recruiter": recruiter{ order, num, question, answer },
+      "hm": hm{ order, num, question, answer },
+      "engineer": engineer{ order, num, question, answer }
+    }
+  },
+  "caseStudies": *[_type == "caseStudy"] | order(order asc){
+    "id": coalesce(slug.current, _id), "slug": slug.current, title, lede,
+    tagHm, tagEngineer,
+    hmDetails[]{ label, body },
+    engineerDetails[]{ label, body },
+    chips, links[]{ label, url },
+    internalLabel, featured, section, order
+  },
+  "deltas": *[_type == "deltaRow"] | order(order asc){ label, before, after, order },
+  "leadership": *[_type == "leadershipCard"] | order(order asc){ title, body, order },
+  "stack": *[_type == "stackTier"] | order(order asc){
+    name, pip, items, strong, quiet, subName, subItems, order
+  },
+  "history": *[_type == "historyItem"] | order(order asc){ role, detail, order },
+  "credentials": *[_type == "credential"] | order(order asc){ title, detail, order },
+  "repos": *[_type == "repo"] | order(order asc){
+    name, description, codeUrl, liveUrl, liveLabel, order
+  },
+  "shipped": *[_type == "shippedItem"] | order(order asc){
+    name, description, url, codeUrl, badge, order
+  },
+  "snapshot": *[_type == "snapshotRow"] | order(order asc){
+    label, value, highlight, href, isResume, order
+  },
+  "endpoints": *[_type == "endpoint"] | order(order asc){
+    method, path, value, url, arrow, primary, order
+  }
+}

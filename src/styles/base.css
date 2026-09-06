@@ -1,0 +1,382 @@
+/* ═══════════════════════════════════════════════════════════
+   Base — palette, primitives, and shared components.
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  --bg: #070a0f;
+  --panel: #0d131c;
+  --panel-2: #111925;
+  --line: #1d2837;
+  --line-2: #2a3849;
+  --text: #e6edf6;
+  --text-2: #a8b6c8;
+  --muted: #6d7d92;
+  --ok: #34d399;
+  --blue: #60a5fa;
+  --amber: #fbbf24;
+
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --gut: clamp(1.15rem, 4vw, 3.5rem);
+  --max: 1320px;
+  --r: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: var(--ok);
+  color: #04120c;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: .75rem 1.25rem;
+  background: var(--ok);
+  color: #04120c;
+  font-weight: 600;
+  border-radius: 0 0 8px 0;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* ── ambient background ────────────────────────────────── */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 56px 56px;
+  opacity: .28;
+  mask-image: radial-gradient(ellipse 90% 55% at 50% 0%, #000 20%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 55% at 50% 0%, #000 20%, transparent 78%);
+}
+
+.bg-glow {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(700px 380px at 78% -8%, rgba(52, 211, 153, .16), transparent 65%),
+    radial-gradient(620px 340px at 8% 4%, rgba(96, 165, 250, .12), transparent 65%);
+}
+
+/* The sticky topbar must out-rank main, which follows it in the DOM and would
+   otherwise paint over it and intercept its clicks. */
+main,
+.footer {
+  position: relative;
+  z-index: 1;
+}
+
+.statusbar {
+  position: relative;
+  z-index: 20;
+}
+
+.topbar {
+  z-index: 30;
+}
+
+/* ── status bar ────────────────────────────────────────── */
+.statusbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: .5rem var(--gut);
+  font-family: var(--mono);
+  font-size: .72rem;
+  color: var(--text-2);
+  background: rgba(52, 211, 153, .06);
+  border-bottom: 1px solid var(--line);
+}
+
+.statusbar strong {
+  color: var(--ok);
+  font-weight: 500;
+}
+
+.sb-left {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.sb-right {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  color: var(--muted);
+}
+
+.sb-sep {
+  opacity: .4;
+}
+
+.sb-clearance {
+  color: var(--ok);
+  border: 1px solid rgba(52, 211, 153, .35);
+  border-radius: 999px;
+  padding: .05rem .5rem;
+}
+
+/* ── status pip ────────────────────────────────────────── */
+.pip {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  flex: none;
+  background: var(--ok);
+}
+
+.pip-ok {
+  box-shadow: 0 0 0 0 rgba(52, 211, 153, .7);
+  animation: ping 2.2s infinite;
+}
+
+.pip-warn {
+  background: var(--amber);
+}
+
+.pip-idle {
+  background: var(--muted);
+}
+
+@keyframes ping {
+  70% {
+    box-shadow: 0 0 0 8px rgba(52, 211, 153, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+  }
+}
+
+/* ── topbar ────────────────────────────────────────────── */
+.topbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: .85rem var(--gut);
+  /* Opaque enough that large headings don't ghost through the blur, and that it
+     still reads as a bar where backdrop-filter is unsupported. */
+  background: rgba(7, 10, 15, .94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+@supports (backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px)) {
+  .topbar {
+    background: rgba(7, 10, 15, .88);
+  }
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  text-decoration: none;
+  flex: none;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: linear-gradient(140deg, var(--ok), #0ea5a0);
+  color: #04120c;
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: .82rem;
+  flex: none;
+}
+
+.brand-name {
+  font-family: var(--mono);
+  font-size: .9rem;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.brand-role {
+  display: block;
+  font-size: .62rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: .18rem;
+}
+
+.btn-mono {
+  font-family: var(--mono);
+  font-size: .75rem;
+  padding: .45rem .85rem;
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+  flex: none;
+  transition: border-color .16s, background .16s;
+}
+
+.btn-mono:hover {
+  border-color: var(--ok);
+  background: rgba(52, 211, 153, .1);
+}
+
+.btn-resume {
+  border-color: rgba(52, 211, 153, .45);
+  background: rgba(52, 211, 153, .08);
+}
+
+/* ── panel primitive ───────────────────────────────────── */
+.panel {
+  background: linear-gradient(180deg, var(--panel-2), var(--panel));
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .65rem .9rem;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 255, 255, .015);
+}
+
+.panel-title {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-family: var(--mono);
+  font-size: .76rem;
+  color: var(--text-2);
+}
+
+.panel-tag {
+  font-family: var(--mono);
+  font-size: .64rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  padding: .12rem .5rem;
+  white-space: nowrap;
+}
+
+.tag-featured {
+  color: var(--ok);
+  border-color: rgba(52, 211, 153, .45);
+  background: rgba(52, 211, 153, .08);
+}
+
+/* ── layout ────────────────────────────────────────────── */
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Auto inline margins make a column flex item shrink-to-fit, so restore full width. */
+main > .hero-q,
+main > .section {
+  width: 100%;
+}
+
+.hero-q,
+.section {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(2.25rem, 3.5vw, 3rem) var(--gut);
+  /* Keeps anchored headings clear of the sticky header. */
+  scroll-margin-top: 5rem;
+}
+
+.hero-q {
+  padding-top: clamp(3rem, 6vw, 5rem);
+  padding-bottom: clamp(2rem, 3.5vw, 3rem);
+}
+
+/* ── footer ────────────────────────────────────────────── */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 1.5rem var(--gut) 2.5rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: .7rem;
+  letter-spacing: .06em;
+  color: var(--muted);
+}
+
+.footer span {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}

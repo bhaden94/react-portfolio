@@ -10,7 +10,10 @@
 
 # production
 /build
-/src/studio
+/dist
+
+# sanity studio runtime
+/.sanity
 
 # misc
 .DS_Store
@@ -26,3 +29,7 @@ yarn-error.log*
 .eslintcache
 
 tsconfig.tsbuildinfo
+
+# sanity studio build
+dist-studio/
+studio-build.log

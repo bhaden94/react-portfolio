@@ -1,74 +1,127 @@
-import CssBaseline from "@material-ui/core/CssBaseline";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import useTheme from "@material-ui/core/styles/useTheme";
-import "./App.css";
-import Contact from "./components/contact/Contact";
-import ReturnToTop from "./components/contact/ReturnToTop";
-import LandingPage from "./components/landing/LandingPage";
-import Navigation from "./components/nav/Navigation";
-import Header from "./components/section-headers/Header";
-import { AboutObject } from "./information/AboutObject";
-import { INavObject, NavObject } from "./information/NavObject";
-import ThemeProvider from "./theme";
+import { useEffect } from "react";
 
-function HomeComponent() {
-  const useStyles = makeStyles(() =>
-    createStyles({
-      top: {
-        height: "100vh",
-        backgroundImage: `url(${AboutObject().staticBackground})`,
-        backgroundAttachment: "fixed",
-        backgroundSize: "cover",
-      },
-      section: {
-        width: "100%",
-      },
-      bottom: {
-        minHeight: "100vh",
-        position: "relative",
-      },
-    }),
-  );
-  const classes = useStyles();
+import { StatusBar, TopBar } from "./components/Chrome";
+import { Hero } from "./components/Hero";
+import { QuestionSection } from "./components/QuestionSection";
+import {
+  CaseStudies,
+  Deltas,
+  Endpoints,
+  History,
+  Leadership,
+  Repos,
+  Shipped,
+  Snapshot,
+  Stack,
+} from "./components/Sections";
+import { LensProvider, useLens } from "./lens/LensContext";
+import type { SectionKey, SiteContent } from "./types";
+import { useSiteContent } from "./useSiteContent";
+
+function SiteBody({ content }: { content: SiteContent }) {
+  const { lens } = useLens();
+  const { settings } = content;
+
+  const hero =
+    content.heroes.find((h) => h.lens === lens) ?? content.heroes[0];
+
+  useEffect(() => {
+    document.title = settings.metaTitle;
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute("content", settings.metaDescription);
+  }, [settings.metaTitle, settings.metaDescription]);
+
+  /** Section configs visible in this lens, in render order. */
+  const visible = content.sections
+    .map((section) => ({ key: section.key, config: section.lenses[lens] }))
+    .filter(
+      (entry): entry is { key: SectionKey; config: NonNullable<typeof entry.config> } =>
+        entry.config != null,
+    )
+    .sort((a, b) => a.config.order - b.config.order);
+
+  const renderBody = (key: SectionKey) => {
+    switch (key) {
+      case "snapshot":
+        return <Snapshot rows={content.snapshot} />;
+      case "shipped":
+        return <Shipped items={content.shipped} />;
+      case "owned":
+        return (
+          <CaseStudies
+            lens={lens}
+            studies={content.caseStudies.filter((s) => s.section === "owned")}
+          />
+        );
+      case "changed":
+        return <Deltas rows={content.deltas} />;
+      case "lead":
+        return (
+          <Leadership
+            cards={content.leadership}
+            pullQuote={settings.pullQuote}
+          />
+        );
+      case "customer":
+        return (
+          <CaseStudies
+            lens={lens}
+            studies={content.caseStudies.filter((s) => s.section === "customer")}
+          />
+        );
+      case "code":
+        return <Repos repos={content.repos} />;
+      case "stack":
+        return <Stack tiers={content.stack} lens={lens} settings={settings} />;
+      case "history":
+        return (
+          <History roles={content.history} credentials={content.credentials} />
+        );
+      case "contact":
+        return <Endpoints endpoints={content.endpoints} />;
+      default:
+        return null;
+    }
+  };
 
   return (
-    <div data-testid="root-app-div">
-      <CssBaseline />
-      <Navigation />
-      <div className="App-header">
-        <div id="top" className={[classes.top, classes.section].join(" ")}>
-          <LandingPage />
-        </div>
+    <>
+      <a className="skip-link" href="#s-hero">
+        Skip to content
+      </a>
+      <div className="bg-grid" aria-hidden="true" />
+      <div className="bg-glow" aria-hidden="true" />
 
-        {NavObject().map((listItem: INavObject, i: number) => (
-          <div id={listItem.text} key={i} className={classes.section}>
-            <Header text={listItem.text} />
-            {listItem.section}
-          </div>
+      <StatusBar settings={settings} />
+      <TopBar settings={settings} />
+
+      <main id="top">
+        <Hero hero={hero} settings={settings} />
+        {visible.map(({ key, config }) => (
+          <QuestionSection key={key} id={key} config={config}>
+            {renderBody(key)}
+          </QuestionSection>
         ))}
+      </main>
 
-        <div
-          id="Contact"
-          className={[classes.bottom, classes.section].join(" ")}
-        >
-          <Header text="Contact" />
-          <Contact />
-          <ReturnToTop />
-        </div>
-      </div>
-    </div>
+      <footer className="footer">
+        <span>
+          <span className="pip pip-ok" />
+          {settings.footerStatus}
+        </span>
+        <span>{settings.footerNote}</span>
+      </footer>
+    </>
   );
 }
 
-function App() {
-  const theme: Theme = useTheme();
+export default function App() {
+  const content = useSiteContent();
 
   return (
-    <ThemeProvider theme={theme}>
-      {/* <RouterProvider router={router} /> */}
-      <HomeComponent />
-    </ThemeProvider>
+    <LensProvider>
+      <SiteBody content={content} />
+    </LensProvider>
   );
 }
-
-export default App;

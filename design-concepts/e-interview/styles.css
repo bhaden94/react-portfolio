@@ -1,0 +1,666 @@
+/* ═══════════════════════════════════════════════════════════
+   Concept E — "Interview"
+   Concept 06's question-driven information architecture,
+   rendered in Concept B's palette, with Concept D's lenses.
+   Depends only on ../b-control-plane/styles.css.
+   ═══════════════════════════════════════════════════════════ */
+
+[hidden] {
+  display: none !important;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Auto inline margins make a column flex item shrink-to-fit, so restore full width. */
+main>.hero-q,
+main>.section {
+  width: 100%;
+}
+
+/* ── lens switcher ─────────────────────────────────────── */
+.lens {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  margin-left: auto;
+  margin-right: 1.25rem;
+}
+
+.lens-label {
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.lens-btns {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, .35);
+}
+
+.lens-btns button {
+  appearance: none;
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: .78rem;
+  font-weight: 500;
+  color: var(--text-2);
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  padding: .38rem .8rem;
+  transition: background .16s, color .16s;
+  white-space: nowrap;
+}
+
+.lens-btns button:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, .05);
+}
+
+.lens-btns button[aria-pressed="true"] {
+  background: var(--ok);
+  color: #04120c;
+  font-weight: 600;
+}
+
+.lens-btns button:focus-visible {
+  outline: 2px solid var(--ok);
+  outline-offset: 2px;
+}
+
+.lens--new .lens-btns {
+  animation: lensHint 2.6s ease-in-out 3;
+}
+
+@keyframes lensHint {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 0 4px rgba(52, 211, 153, .18);
+  }
+}
+
+.btn-resume {
+  border-color: rgba(52, 211, 153, .45) !important;
+  background: rgba(52, 211, 153, .08);
+}
+
+/* ── hero ──────────────────────────────────────────────── */
+.hero-q {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(3rem, 6vw, 5rem) var(--gut) clamp(2rem, 3.5vw, 3rem);
+}
+
+.q-hero-title {
+  font-size: clamp(2.1rem, 4.6vw, 3.9rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -.032em;
+  margin: 0 0 1.35rem;
+  max-width: 20ch;
+}
+
+.q-hero-lede {
+  color: var(--text-2);
+  font-size: 1.08rem;
+  max-width: 62ch;
+  margin: 0 0 2.75rem;
+}
+
+/* proof strip between the lede and the agenda */
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin: 0 0 2.5rem;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-metrics>div {
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+  padding: 1.1rem 1.25rem 1.1rem 0;
+  border-right: 1px solid var(--line);
+}
+
+.hero-metrics>div:last-child {
+  border-right: 0;
+}
+
+.m-val {
+  font-size: clamp(1.6rem, 2.8vw, 2.15rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -.03em;
+}
+
+.m-val--sm {
+  font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+  letter-spacing: -.015em;
+  padding-top: .35rem;
+}
+
+.m-val i {
+  font-style: normal;
+  font-size: .45em;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.m-lab {
+  font-family: var(--mono);
+  font-size: .64rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* agenda — the questions this lens will answer */
+.agenda ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+
+.agenda a {
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+  height: 100%;
+  padding: 1.15rem 1.25rem 1.15rem 0;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+  border-right: 1px solid var(--line);
+  transition: color .16s, border-color .16s;
+}
+
+.agenda li:last-child a {
+  border-right: 0;
+}
+
+.agenda a span {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .1em;
+  color: var(--ok);
+}
+
+.agenda a:hover {
+  color: var(--ok);
+}
+
+/* ── question headings ─────────────────────────────────── */
+.q-head {
+  display: flex;
+  align-items: baseline;
+  gap: .9rem;
+  margin-bottom: .6rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.q-num {
+  font-family: var(--mono);
+  font-size: .72rem;
+  color: var(--ok);
+  border: 1px solid rgba(52, 211, 153, .35);
+  border-radius: 4px;
+  padding: .15rem .4rem;
+  flex: none;
+}
+
+.q-head h2 {
+  font-size: clamp(1.5rem, 3vw, 2.35rem);
+  font-weight: 700;
+  letter-spacing: -.03em;
+  line-height: 1.12;
+  margin: 0;
+}
+
+.q-answer {
+  font-size: 1.1rem;
+  color: var(--text-2);
+  max-width: 68ch;
+  margin: 1rem 0 1.75rem;
+}
+
+.q-answer .hl {
+  color: var(--ok);
+  font-weight: 600;
+}
+
+/* ── deltas (what changed) ─────────────────────────────── */
+.deltas {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+
+.deltas li {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) 2rem minmax(0, 1fr);
+  align-items: baseline;
+  gap: 1rem;
+  padding: .95rem 1.15rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.deltas li:last-child {
+  border-bottom: 0;
+}
+
+.deltas li:hover {
+  background: var(--panel-2);
+}
+
+.d-label {
+  font-size: .95rem;
+  font-weight: 500;
+}
+
+.d-before {
+  font-family: var(--mono);
+  font-size: .85rem;
+  color: var(--muted);
+  text-decoration: line-through;
+  text-decoration-color: rgba(255, 255, 255, .25);
+}
+
+.d-arrow {
+  color: var(--muted);
+  text-align: center;
+}
+
+.d-after {
+  font-family: var(--mono);
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--ok);
+}
+
+/* ── pull quote ────────────────────────────────────────── */
+.pullquote {
+  margin: 1.75rem 0 2rem;
+  padding: 1.75rem 0 1.75rem 1.75rem;
+  border-left: 3px solid var(--ok);
+  font-size: clamp(1.35rem, 3vw, 2.1rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -.025em;
+  max-width: 26ch;
+}
+
+/* ── leadership / scope cards ──────────────────────────── */
+.lead-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.scope-card {
+  padding: 1.15rem;
+}
+
+.scope-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -.015em;
+  margin: 0 0 .5rem;
+}
+
+.scope-card p {
+  margin: 0;
+  font-size: .9rem;
+  color: var(--text-2);
+}
+
+.scope-card b,
+.snapshot dd b,
+.kv .v b {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.snapshot dd b {
+  color: var(--ok);
+}
+
+/* ── recruiter: snapshot ───────────────────────────────── */
+.snapshot {
+  padding: .35rem 1.15rem;
+}
+
+.snapshot dl {
+  margin: 0;
+}
+
+.snapshot dl>div {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 1rem;
+  padding: .85rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.snapshot dl>div:last-child {
+  border-bottom: 0;
+}
+
+.snapshot dt {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: .18rem;
+}
+
+.snapshot dd {
+  margin: 0;
+  font-size: .95rem;
+  color: var(--text-2);
+}
+
+.inline-link {
+  color: var(--ok);
+  font-weight: 500;
+}
+
+/* ── recruiter: keywords ───────────────────────────────── */
+.keyword-block {
+  padding: 1.15rem;
+  margin-bottom: 1rem;
+}
+
+.keywords {
+  margin: 0;
+  font-size: .92rem;
+  line-height: 1.9;
+  color: var(--text-2);
+}
+
+/* ── employment history ────────────────────────────────── */
+.certs ul.history {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+.certs ul.history li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: .95rem 1.15rem;
+  border-bottom: 1px solid var(--line);
+  border-right: 0;
+  font-size: .95rem;
+}
+
+.certs ul.history li:last-child {
+  border-bottom: 0;
+}
+
+.certs ul.history li strong {
+  font-weight: 600;
+}
+
+.certs ul.history li span {
+  font-family: var(--mono);
+  font-size: .74rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.certs-edu {
+  margin-top: 1rem;
+}
+
+/* ── shared tweaks ─────────────────────────────────────── */
+.tag-cloud--strong li {
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--text);
+  border-color: var(--line-2);
+  background: rgba(52, 211, 153, .07);
+}
+
+.kv code {
+  font-family: var(--mono);
+  font-size: .82em;
+  padding: .05rem .3rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, .06);
+}
+
+.hero-q .hl {
+  color: var(--ok);
+  box-shadow: inset 0 -3px 0 rgba(52, 211, 153, .35);
+}
+
+/* Only two secondary cards in this section, so split the row evenly. */
+#s-owned .svc:not(.svc-featured) {
+  grid-column: span 3;
+}
+
+/* ── per-lens order ────────────────────────────────────── */
+[data-lens="recruiter"] #s-hero {
+  order: 1;
+}
+
+[data-lens="recruiter"] #s-snapshot {
+  order: 2;
+}
+
+[data-lens="recruiter"] #s-shipped {
+  order: 3;
+}
+
+[data-lens="recruiter"] #s-stack {
+  order: 4;
+}
+
+[data-lens="recruiter"] #s-history {
+  order: 5;
+}
+
+[data-lens="recruiter"] #s-contact {
+  order: 6;
+}
+
+[data-lens="hm"] #s-hero {
+  order: 1;
+}
+
+[data-lens="hm"] #s-owned {
+  order: 2;
+}
+
+[data-lens="hm"] #s-changed {
+  order: 3;
+}
+
+[data-lens="hm"] #s-lead {
+  order: 4;
+}
+
+[data-lens="hm"] #s-customer {
+  order: 5;
+}
+
+[data-lens="hm"] #s-stack {
+  order: 6;
+}
+
+[data-lens="hm"] #s-history {
+  order: 7;
+}
+
+[data-lens="hm"] #s-contact {
+  order: 8;
+}
+
+[data-lens="engineer"] #s-hero {
+  order: 1;
+}
+
+[data-lens="engineer"] #s-owned {
+  order: 2;
+}
+
+[data-lens="engineer"] #s-customer {
+  order: 3;
+}
+
+[data-lens="engineer"] #s-code {
+  order: 4;
+}
+
+[data-lens="engineer"] #s-stack {
+  order: 5;
+}
+
+[data-lens="engineer"] #s-history {
+  order: 6;
+}
+
+[data-lens="engineer"] #s-contact {
+  order: 7;
+}
+
+/* ── responsive ────────────────────────────────────────── */
+@media (max-width: 1180px) {
+  .lens-label {
+    display: none;
+  }
+
+  .lead-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1040px) {
+  .agenda ol {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .agenda li:nth-child(2) a {
+    border-right: 0;
+  }
+
+  .agenda li:nth-child(-n+2) a {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-metrics>div:nth-child(even) {
+    border-right: 0;
+  }
+
+  .hero-metrics>div:nth-child(-n+2) {
+    border-bottom: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 860px) {
+  .topbar {
+    flex-wrap: wrap;
+    gap: .75rem 1rem;
+  }
+
+  .lens {
+    order: 3;
+    width: 100%;
+    margin: 0;
+  }
+
+  .lens-btns {
+    width: 100%;
+  }
+
+  .lens-btns button {
+    flex: 1;
+  }
+}
+
+@media (max-width: 760px) {
+
+  .agenda ol,
+  .lead-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .agenda a {
+    border-right: 0 !important;
+    border-bottom: 1px solid var(--line);
+    padding-right: 0;
+  }
+
+  .deltas li {
+    grid-template-columns: 1fr auto;
+    gap: .3rem .75rem;
+  }
+
+  .d-label {
+    grid-column: 1 / -1;
+  }
+
+  .d-arrow {
+    display: none;
+  }
+
+  .d-after {
+    text-align: right;
+  }
+
+  .snapshot dl>div {
+    grid-template-columns: 1fr;
+    gap: .15rem;
+  }
+
+  .certs ul.history li {
+    flex-direction: column;
+    gap: .2rem;
+  }
+
+  .pullquote {
+    padding-left: 1.1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lens--new .lens-btns {
+    animation: none;
+  }
+}

@@ -1,8 +1,5 @@
 import { defineCliConfig } from "sanity/cli";
-import {
-  SANITY_DATASET,
-  SANITY_PROJECT_ID,
-} from "./src/sanity-client/sanityConstants";
+import { SANITY_DATASET, SANITY_PROJECT_ID } from "./src/sanity/config";
 
 export default defineCliConfig({
   api: {

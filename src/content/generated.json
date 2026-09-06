@@ -1,0 +1,890 @@
+{
+  "caseStudies": [
+    {
+      "chips": [
+        "C#",
+        ".NET",
+        "Azure air-gapped",
+        "API design"
+      ],
+      "engineerDetails": [
+        {
+          "body": "No outbound network. No reachable identity provider, no public package feeds, no telemetry egress, and no hotfix on the normal cadence. Every dependency resolved and vendored before the seal.",
+          "label": "constraint"
+        },
+        {
+          "body": "Designed the resource model and API surface first, then worked backward to what could actually be satisfied inside the boundary. Deploy and rollback had to be provable offline, so correctness moved left into schema and contract validation.",
+          "label": "approach"
+        }
+      ],
+      "featured": true,
+      "hmDetails": [
+        {
+          "body": "Air-gapped clouds invalidate most of what a control plane normally leans on. No external dependencies, no shortcuts, and a very high bar for correctness.",
+          "label": "problem"
+        },
+        {
+          "body": "Design and development end to end, from resource model through rollout. The service now drives **$4M in monthly recurring revenue**.",
+          "label": "what i owned"
+        }
+      ],
+      "id": "cds-control-plane",
+      "internalLabel": "internal · Microsoft",
+      "lede": "The control plane API behind a new cross-domain solution running in Azure's air-gapped clouds.",
+      "links": [],
+      "order": 1,
+      "section": "owned",
+      "slug": "cds-control-plane",
+      "tagEngineer": "no outbound network",
+      "tagHm": "$4M MRR",
+      "title": "Cross-Domain Solution Control Plane"
+    },
+    {
+      "chips": [
+        "Next.js",
+        "TypeScript",
+        "Sanity",
+        "NextAuth",
+        "Zod",
+        "Vercel"
+      ],
+      "engineerDetails": [
+        {
+          "body": "Next.js App Router, server components reading from Sanity. Every page is a CMS document with an `isActive` flag, so the owner can pull a page without a deploy.",
+          "label": "design"
+        },
+        {
+          "body": "NextAuth with Google as sole provider; the session is enriched from the artist record so routes authorize against Owner/Resident/Guest roles rather than a static allowlist.",
+          "label": "auth"
+        },
+        {
+          "body": "Booking schemas generated per artist with Zod — available days, budget options, required fields all come from that artist's CMS record. Three booking modes per artist: native form, embedded third-party widget, or external redirect. Images upload straight to Sanity; the admin view subscribes to a Sanity listener so bookings appear without a refresh.",
+          "label": "forms"
+        }
+      ],
+      "featured": true,
+      "hmDetails": [
+        {
+          "body": "The studio's content changes constantly — artists, portfolios, booking availability, announcements. Any design that routed those edits through me would have gone stale within a month.",
+          "label": "problem"
+        },
+        {
+          "body": "Owner and artists edit every page, image, and form field themselves through an embedded Sanity Studio and a role-scoped staff portal. **Shipped 2025, still running, zero maintenance requests.**",
+          "label": "result"
+        }
+      ],
+      "id": "modern-alchemy-site",
+      "internalLabel": null,
+      "lede": "Public site, booking platform, and self-service CMS for a tattoo studio in North East, MD.",
+      "links": [
+        {
+          "label": "live ↗",
+          "url": "https://www.modernalchemytattoo.com/"
+        },
+        {
+          "label": "code ↗",
+          "url": "https://github.com/bhaden94/modern-alchemy-site"
+        }
+      ],
+      "order": 1,
+      "section": "customer",
+      "slug": "modern-alchemy-site",
+      "tagEngineer": "paid client work · 2025 · live",
+      "tagHm": "paid client work · 2025 · live",
+      "title": "Modern Alchemy Tattoo Co."
+    },
+    {
+      "chips": [
+        "C#",
+        "Linux",
+        "Docker"
+      ],
+      "engineerDetails": [
+        {
+          "body": "Monthly patch cycle across 40k+ Linux VMs, each hosting a live customer database. A reboot is a customer-visible availability event.",
+          "label": "constraint"
+        },
+        {
+          "body": "Moved upgrade execution into containers so one rollout fans out across the fleet, then split the modes — security-only and allow-listed package sets apply without a reboot. Failure handling is per-node so a bad host doesn't stall the wave.",
+          "label": "approach"
+        }
+      ],
+      "featured": false,
+      "hmDetails": [
+        {
+          "body": "Every server is somebody's running database. Patching happens monthly and must never become a customer-visible event.",
+          "label": "problem"
+        },
+        {
+          "body": "The tooling and the rollout. **40k+ servers monthly** at a sustained **99.98% success rate**.",
+          "label": "what i owned"
+        }
+      ],
+      "id": "fleet-os-upgrades",
+      "internalLabel": "internal",
+      "lede": "Linux patching across tens of thousands of production servers.",
+      "links": [],
+      "order": 2,
+      "section": "owned",
+      "slug": "fleet-os-upgrades",
+      "tagEngineer": "99.98% success",
+      "tagHm": "99.98% success",
+      "title": "Fleet OS Upgrade Automation"
+    },
+    {
+      "chips": [
+        "C#",
+        "React",
+        "TypeScript"
+      ],
+      "engineerDetails": [
+        {
+          "body": "Engineers needed production workflow state mid-incident, but the data is sensitive and the tool could not become a write path or a new blast radius.",
+          "label": "constraint"
+        },
+        {
+          "body": "Read-only by construction, scoped access, surfaced live instead of through the batch query path that cost ~15 minutes per lookup.",
+          "label": "approach"
+        }
+      ],
+      "featured": false,
+      "hmDetails": [
+        {
+          "body": "On-call investigations opened with a ~15 minute wait just to see workflow state.",
+          "label": "problem"
+        },
+        {
+          "body": "Built it for my team; a sister team adopted it without me driving it. Triage latency dropped to **real time**.",
+          "label": "what i owned"
+        }
+      ],
+      "id": "workflow-observability",
+      "internalLabel": "internal",
+      "lede": "A secure, read-only window into what production workflows actually did.",
+      "links": [],
+      "order": 3,
+      "section": "owned",
+      "slug": "workflow-observability",
+      "tagEngineer": "15 min → real time",
+      "tagHm": "15 min → real time",
+      "title": "Production Workflow Observability"
+    }
+  ],
+  "credentials": [
+    {
+      "detail": "current",
+      "order": 1,
+      "title": "Active TS/SCI with Full Scope Polygraph"
+    },
+    {
+      "detail": "Park University",
+      "order": 2,
+      "title": "B.S. Information & Computer Science"
+    },
+    {
+      "detail": "CCAF",
+      "order": 3,
+      "title": "A.A.S. Intelligence Studies"
+    },
+    {
+      "detail": "CCAF",
+      "order": 4,
+      "title": "A.A.S. Aviation Maintenance"
+    },
+    {
+      "detail": "Galvanize",
+      "order": 5,
+      "title": "Full-Stack Software Engineering"
+    }
+  ],
+  "deltas": [
+    {
+      "after": "real time",
+      "before": "~15 min",
+      "label": "Incident triage latency",
+      "order": 1
+    },
+    {
+      "after": "1 sprint",
+      "before": "2 sprints",
+      "label": "New-engineer ramp",
+      "order": 2
+    },
+    {
+      "after": "~2 weeks",
+      "before": "~2 months",
+      "label": "Resource-type onboarding",
+      "order": 3
+    },
+    {
+      "after": "20 min",
+      "before": "4 hrs",
+      "label": "Feature planning cycle",
+      "order": 4
+    },
+    {
+      "after": "$4M MRR",
+      "before": "did not exist",
+      "label": "Cross-domain control plane",
+      "order": 5
+    },
+    {
+      "after": "4k instances · $2M MRR",
+      "before": "did not exist",
+      "label": "MySQL business-critical tier",
+      "order": 6
+    },
+    {
+      "after": "900k+ weekly users protected",
+      "before": "open vulnerability",
+      "label": "Upstream OSS security fix",
+      "order": 7
+    }
+  ],
+  "endpoints": [
+    {
+      "arrow": "↓",
+      "method": "GET",
+      "order": 1,
+      "path": "/resume.pdf",
+      "primary": true,
+      "url": "",
+      "value": "Download — updated 2026"
+    },
+    {
+      "arrow": "↗",
+      "method": "GET",
+      "order": 2,
+      "path": "/email",
+      "primary": null,
+      "url": "mailto:brady.s.haden@gmail.com",
+      "value": "brady.s.haden@gmail.com"
+    },
+    {
+      "arrow": "↗",
+      "method": "GET",
+      "order": 3,
+      "path": "/linkedin",
+      "primary": null,
+      "url": "https://www.linkedin.com/in/brady-haden/",
+      "value": "linkedin.com/in/brady-haden"
+    },
+    {
+      "arrow": "↗",
+      "method": "GET",
+      "order": 4,
+      "path": "/github",
+      "primary": null,
+      "url": "https://github.com/bhaden94",
+      "value": "github.com/bhaden94"
+    }
+  ],
+  "heroes": [
+    {
+      "agenda": [
+        {
+          "num": "01",
+          "question": "What's the hardest thing you've built?",
+          "target": "owned"
+        },
+        {
+          "num": "02",
+          "question": "What do you build unsupervised?",
+          "target": "customer"
+        },
+        {
+          "num": "03",
+          "question": "What can I actually read?",
+          "target": "code"
+        },
+        {
+          "num": "04",
+          "question": "What do you actually use?",
+          "target": "stack"
+        }
+      ],
+      "lede": "Azure's managed Postgres/MySQL platform: upgrade orchestration across 40k+ Linux VMs a month, a control plane that has to work with no outbound network, and migration tooling for thousands of live customer workloads.",
+      "lens": "engineer",
+      "metrics": [
+        {
+          "label": "Linux VMs per rollout",
+          "small": null,
+          "unit": "+",
+          "value": "40k"
+        },
+        {
+          "label": "upgrade success rate",
+          "small": null,
+          "unit": "%",
+          "value": "99.98"
+        },
+        {
+          "label": "incident triage latency",
+          "small": null,
+          "unit": "s",
+          "value": "~0"
+        },
+        {
+          "label": "services modernized",
+          "small": null,
+          "unit": "+",
+          "value": "4"
+        }
+      ],
+      "titleHighlight": "Then what I did about them",
+      "titleLead": "Constraints first.",
+      "titleTail": "."
+    },
+    {
+      "agenda": [
+        {
+          "num": "01",
+          "question": "What have you owned?",
+          "target": "owned"
+        },
+        {
+          "num": "02",
+          "question": "What changed because you were there?",
+          "target": "changed"
+        },
+        {
+          "num": "03",
+          "question": "How do you lead?",
+          "target": "lead"
+        },
+        {
+          "num": "04",
+          "question": "Can you ship for a real customer?",
+          "target": "customer"
+        }
+      ],
+      "lede": "Five years at Microsoft owning control planes, fleet automation, and migration tooling for federal and enterprise customers — and mentoring the engineers who now run them.",
+      "lens": "hm",
+      "metrics": [
+        {
+          "label": "servers patched monthly",
+          "small": null,
+          "unit": "+",
+          "value": "40k"
+        },
+        {
+          "label": "upgrade success rate",
+          "small": null,
+          "unit": "%",
+          "value": "99.98"
+        },
+        {
+          "label": "MRR from a system I led",
+          "small": null,
+          "unit": "M",
+          "value": "$4"
+        },
+        {
+          "label": "engineers mentored",
+          "small": null,
+          "unit": null,
+          "value": "5"
+        }
+      ],
+      "titleHighlight": "Here are my answers.",
+      "titleLead": "These are the questions I'd want answered.",
+      "titleTail": null
+    },
+    {
+      "agenda": [
+        {
+          "num": "01",
+          "question": "Who is this?",
+          "target": "snapshot"
+        },
+        {
+          "num": "02",
+          "question": "What have they shipped?",
+          "target": "shipped"
+        },
+        {
+          "num": "03",
+          "question": "What do they know?",
+          "target": "stack"
+        },
+        {
+          "num": "04",
+          "question": "Where have they worked?",
+          "target": "history"
+        }
+      ],
+      "lede": "Senior Software Engineer at Microsoft, five years, currently on Azure's managed database platform. Active TS/SCI with Full Scope Polygraph. U.S. Air Force veteran.",
+      "lens": "recruiter",
+      "metrics": [
+        {
+          "label": "software engineering",
+          "small": null,
+          "unit": "+ yrs",
+          "value": "5"
+        },
+        {
+          "label": "current employer",
+          "small": true,
+          "unit": null,
+          "value": "Microsoft"
+        },
+        {
+          "label": "active clearance",
+          "small": true,
+          "unit": null,
+          "value": "TS/SCI + FSP"
+        },
+        {
+          "label": "US · remote",
+          "small": true,
+          "unit": null,
+          "value": "Available"
+        }
+      ],
+      "titleHighlight": null,
+      "titleLead": "Everything you need, on one screen.",
+      "titleTail": null
+    }
+  ],
+  "history": [
+    {
+      "detail": "Microsoft · Azure · Mar 2021 – Present",
+      "order": 1,
+      "role": "Senior Software Engineer"
+    },
+    {
+      "detail": "John Deere · Jan – Mar 2021",
+      "order": 2,
+      "role": "Cloud Engineer"
+    },
+    {
+      "detail": "LevelUP Code Works · Sep – Dec 2020",
+      "order": 3,
+      "role": "Full-Stack Software Engineer"
+    },
+    {
+      "detail": "U.S. Air Force · Aug 2014 – Mar 2021",
+      "order": 4,
+      "role": "Data Analyst"
+    }
+  ],
+  "leadership": [
+    {
+      "body": "Technical mentor to **5 engineers** — 3 formal weekly 1:1s, 2 informal cross-org. Structured onboarding cut new-engineer ramp time in half.",
+      "order": 1,
+      "title": "Mentorship"
+    },
+    {
+      "body": "Architected configuration modernization across **4+ services**, defined the target design, and mentored engineers through implementation. A junior engineer on that work now leads live-site debugging for the system.",
+      "order": 2,
+      "title": "Growing owners, not dependents"
+    },
+    {
+      "body": "Pilot adopter with a central platform team for onboarding new resource types, cutting onboarding from ~2 months to **~2 weeks** for every team that followed.",
+      "order": 3,
+      "title": "Leverage beyond my team"
+    },
+    {
+      "body": "Coached an engineer through landing a security fix in an upstream open-source API generator, later mirrored into internal feeds — protecting **900k+ weekly downstream users**.",
+      "order": 4,
+      "title": "Raising the floor"
+    }
+  ],
+  "repos": [
+    {
+      "codeUrl": "https://github.com/bhaden94/modern-alchemy-site",
+      "description": "Next.js + Sanity. Per-artist Zod form generation, role-scoped NextAuth, live booking listeners.",
+      "liveLabel": "live ↗",
+      "liveUrl": "https://www.modernalchemytattoo.com/",
+      "name": "modern-alchemy-site",
+      "order": 1
+    },
+    {
+      "codeUrl": "https://github.com/bhaden94/va-calculator",
+      "description": "Second-tier VA entitlement math, county-indexed. Next.js server rendering, no backend.",
+      "liveLabel": "live ↗",
+      "liveUrl": "https://va-calculator.com",
+      "name": "va-calculator",
+      "order": 2
+    },
+    {
+      "codeUrl": "https://github.com/bhaden94/Covid-19-Tracker-V2",
+      "description": "Multi-threaded Java/Spring ingestion into MongoDB, React front end, CI static analysis.",
+      "liveLabel": "live ↗",
+      "liveUrl": "https://covid-19-tracker-v2-fe.vercel.app/",
+      "name": "Covid-19-Tracker-V2",
+      "order": 3
+    },
+    {
+      "codeUrl": "https://github.com/bhaden94/LokiDiscordChatbot",
+      "description": "Transcript sanitizing pipeline into a GPT-2 fine-tune on Hugging Face.",
+      "liveLabel": "model ↗",
+      "liveUrl": "https://huggingface.co/bhaden94/LokiDiscordBot-medium",
+      "name": "LokiDiscordChatbot",
+      "order": 4
+    },
+    {
+      "codeUrl": "https://github.com/bhaden94/spacex-app",
+      "description": "Custom vertical-timeline pagination and responsive sidebar, built from scratch.",
+      "liveLabel": "live ↗",
+      "liveUrl": "https://bhaden94.github.io/spacex-app/",
+      "name": "spacex-app",
+      "order": 5
+    }
+  ],
+  "sections": [
+    {
+      "key": "changed",
+      "lenses": {
+        "engineer": null,
+        "hm": {
+          "answer": "Measured before and after, not adjectives.",
+          "num": "02",
+          "order": 3,
+          "question": "What changed because you were there?"
+        },
+        "recruiter": null
+      }
+    },
+    {
+      "key": "code",
+      "lenses": {
+        "engineer": {
+          "answer": "The Microsoft work is internal. This is what's public.",
+          "num": "03",
+          "order": 4,
+          "question": "What can I actually read?"
+        },
+        "hm": null,
+        "recruiter": null
+      }
+    },
+    {
+      "key": "contact",
+      "lenses": {
+        "engineer": {
+          "answer": "Ask me about the air-gap constraints. That's the fun one.",
+          "num": "06",
+          "order": 7,
+          "question": "What's next?"
+        },
+        "hm": {
+          "answer": "Happy to walk through any of the above in detail.",
+          "num": "07",
+          "order": 8,
+          "question": "What's next?"
+        },
+        "recruiter": {
+          "answer": "Email is fastest — I reply within 24 hours.",
+          "num": "05",
+          "order": 6,
+          "question": "What's next?"
+        }
+      }
+    },
+    {
+      "key": "customer",
+      "lenses": {
+        "engineer": {
+          "answer": "A CMS-driven booking platform where every behaviour is data, not code — so the client never has to call me.",
+          "num": "02",
+          "order": 3,
+          "question": "What do you build unsupervised?"
+        },
+        "hm": {
+          "answer": "I built a paid production platform and then **made myself unnecessary.**",
+          "num": "04",
+          "order": 5,
+          "question": "Can you ship for a real customer?"
+        },
+        "recruiter": null
+      }
+    },
+    {
+      "key": "history",
+      "lenses": {
+        "engineer": {
+          "answer": null,
+          "num": "05",
+          "order": 6,
+          "question": "Where have you been?"
+        },
+        "hm": {
+          "answer": null,
+          "num": "06",
+          "order": 7,
+          "question": "Where have you been?"
+        },
+        "recruiter": {
+          "answer": null,
+          "num": "04",
+          "order": 5,
+          "question": "Where have they worked?"
+        }
+      }
+    },
+    {
+      "key": "lead",
+      "lenses": {
+        "engineer": null,
+        "hm": {
+          "answer": null,
+          "num": "03",
+          "order": 4,
+          "question": "How do you lead?"
+        },
+        "recruiter": null
+      }
+    },
+    {
+      "key": "owned",
+      "lenses": {
+        "engineer": {
+          "answer": "The control plane, because the constraints removed every normal escape hatch.",
+          "num": "01",
+          "order": 2,
+          "question": "What's the hardest thing you've built?"
+        },
+        "hm": {
+          "answer": "Three systems, end to end — the design, the rollout, the on-call, and the engineers who took them over afterward.",
+          "num": "01",
+          "order": 2,
+          "question": "What have you owned?"
+        },
+        "recruiter": null
+      }
+    },
+    {
+      "key": "shipped",
+      "lenses": {
+        "engineer": null,
+        "hm": null,
+        "recruiter": {
+          "answer": null,
+          "num": "02",
+          "order": 3,
+          "question": "What have they shipped?"
+        }
+      }
+    },
+    {
+      "key": "snapshot",
+      "lenses": {
+        "engineer": null,
+        "hm": null,
+        "recruiter": {
+          "answer": null,
+          "num": "01",
+          "order": 2,
+          "question": "Who is this?"
+        }
+      }
+    },
+    {
+      "key": "stack",
+      "lenses": {
+        "engineer": {
+          "answer": "Grouped by how often I reach for it. No percentages — they don't mean anything.",
+          "num": "04",
+          "order": 5,
+          "question": "What do you actually use?"
+        },
+        "hm": {
+          "answer": "Grouped by how often I reach for it. No percentages — they don't mean anything.",
+          "num": "05",
+          "order": 6,
+          "question": "What do you bring?"
+        },
+        "recruiter": {
+          "answer": "Full keyword list first, then grouped by real depth.",
+          "num": "03",
+          "order": 4,
+          "question": "What do they know?"
+        }
+      }
+    }
+  ],
+  "settings": {
+    "availability": "open to senior cloud & distributed systems roles",
+    "brandMark": "bh",
+    "clearance": "TS/SCI + Full Scope Poly · active",
+    "footerNote": "Brady Haden — 2026",
+    "footerStatus": "all systems operational",
+    "keywords": "C# · .NET · ASP.NET · Azure · Azure Government · TypeScript · JavaScript · React · Next.js · Node · Docker · Kubernetes · Linux · PostgreSQL · MySQL · SQL · Python · Java · Spring · PowerShell · Bash · Terraform · CI/CD · GitHub Actions · REST API design · Distributed systems · Microservices · Observability · Grafana · AWS · MongoDB · Elasticsearch · Sanity · Zod · Git",
+    "keywordsLabel": "All technologies",
+    "kicker": "// Senior Software Engineer · Microsoft Azure · Active TS/SCI + Full Scope Poly",
+    "location": "US · Remote",
+    "metaDescription": "Brady Haden is a Senior Software Engineer at Microsoft building mission-critical distributed cloud systems, including Azure's air-gapped clouds. Active TS/SCI with Full Scope Polygraph.",
+    "metaTitle": "Brady Haden — Senior Software Engineer",
+    "name": "Brady Haden",
+    "pullQuote": "Make the architecture clear enough that someone else can own it.",
+    "resumeLabel": "Download — updated 2026",
+    "resumeUrl": "https://cdn.sanity.io/files/0kc6p0xa/production/4598bf1de195982327ac3d3709209c55557ac46e.pdf",
+    "role": "senior software engineer · microsoft"
+  },
+  "shipped": [
+    {
+      "badge": "Microsoft",
+      "codeUrl": null,
+      "description": "Led the control plane API for a new secure-cloud offering. Drives $4M monthly recurring revenue.",
+      "name": "Cross-Domain Solution Control Plane",
+      "order": 1,
+      "url": null
+    },
+    {
+      "badge": "Microsoft",
+      "codeUrl": null,
+      "description": "Automated Linux patching across 40,000+ production servers monthly at a 99.98% success rate.",
+      "name": "Fleet OS Upgrade Automation",
+      "order": 2,
+      "url": null
+    },
+    {
+      "badge": "Microsoft",
+      "codeUrl": null,
+      "description": "Backend and UX for a premium database tier: 4,000 new paid instances, $2M MRR.",
+      "name": "MySQL Business Critical Tier",
+      "order": 3,
+      "url": null
+    },
+    {
+      "badge": null,
+      "codeUrl": "https://github.com/bhaden94/modern-alchemy-site",
+      "description": "Paid client project, 2025. Full site and booking platform the owner maintains herself.",
+      "name": "Modern Alchemy Tattoo Co.",
+      "order": 4,
+      "url": "https://www.modernalchemytattoo.com/"
+    }
+  ],
+  "snapshot": [
+    {
+      "highlight": null,
+      "href": null,
+      "isResume": null,
+      "label": "Current title",
+      "order": 1,
+      "value": "Senior Software Engineer, Microsoft (Azure) — since Mar 2021"
+    },
+    {
+      "highlight": null,
+      "href": null,
+      "isResume": null,
+      "label": "Years experience",
+      "order": 2,
+      "value": "5+ in software engineering; 7 prior in the U.S. Air Force"
+    },
+    {
+      "highlight": true,
+      "href": null,
+      "isResume": null,
+      "label": "Clearance",
+      "order": 3,
+      "value": "Active TS/SCI with Full Scope Polygraph"
+    },
+    {
+      "highlight": null,
+      "href": null,
+      "isResume": null,
+      "label": "Location",
+      "order": 4,
+      "value": "United States · open to remote"
+    },
+    {
+      "highlight": null,
+      "href": null,
+      "isResume": null,
+      "label": "Core skills",
+      "order": 5,
+      "value": "C#, .NET, Azure, TypeScript, React, Docker, PostgreSQL, MySQL, Linux, Python, Kubernetes, CI/CD, Terraform, distributed systems, API design, observability"
+    },
+    {
+      "highlight": null,
+      "href": null,
+      "isResume": null,
+      "label": "Looking for",
+      "order": 6,
+      "value": "Senior cloud, platform, or distributed systems roles"
+    },
+    {
+      "highlight": null,
+      "href": null,
+      "isResume": null,
+      "label": "Education",
+      "order": 7,
+      "value": "B.S. Information & Computer Science, Park University"
+    },
+    {
+      "highlight": null,
+      "href": "#s-contact",
+      "isResume": true,
+      "label": "Résumé",
+      "order": 8,
+      "value": "Download PDF ↓"
+    }
+  ],
+  "stack": [
+    {
+      "items": [
+        "C#",
+        ".NET",
+        "Azure",
+        "TypeScript",
+        "React",
+        "Docker"
+      ],
+      "name": "daily",
+      "order": 1,
+      "pip": "ok",
+      "quiet": null,
+      "strong": true,
+      "subItems": null,
+      "subName": null
+    },
+    {
+      "items": [
+        "PostgreSQL",
+        "MySQL",
+        "Linux",
+        "Python",
+        "Java",
+        "PowerShell",
+        "SQL"
+      ],
+      "name": "strong",
+      "order": 2,
+      "pip": "warn",
+      "quiet": null,
+      "strong": null,
+      "subItems": null,
+      "subName": null
+    },
+    {
+      "items": [
+        "Next.js",
+        "Node",
+        "AWS",
+        "MongoDB",
+        "Kubernetes",
+        "Terraform",
+        "Grafana",
+        "Elasticsearch"
+      ],
+      "name": "familiar",
+      "order": 3,
+      "pip": "idle",
+      "quiet": true,
+      "strong": null,
+      "subItems": [
+        "distributed systems",
+        "cloud architecture",
+        "air-gapped cloud",
+        "API design",
+        "CI/CD & IaC",
+        "security & compliance",
+        "observability",
+        "technical mentorship"
+      ],
+      "subName": "practice"
+    }
+  ]
+}
