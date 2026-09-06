@@ -1,0 +1,48 @@
+name: Deploy Sanity Studio
+
+# The hosted Studio is a static build, so schema changes only reach
+# bradyhaden-portfolio.sanity.studio when this runs. Scoped to schema/config
+# paths so content-only pushes don't pay the ~2 minute build.
+on:
+  push:
+    branches: [master]
+    paths:
+      - "src/sanity/schema.ts"
+      - "src/sanity/config.ts"
+      - "sanity.config.ts"
+      - "sanity.cli.ts"
+      - ".github/workflows/studio.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: studio-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy-studio:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check for deploy token
+        env:
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_DEPLOY_TOKEN }}
+        run: |
+          if [ -z "$SANITY_AUTH_TOKEN" ]; then
+            echo "::error::SANITY_DEPLOY_TOKEN is not set. Create a token with the 'Deploy Studio' role at manage.sanity.io (API > Tokens) and add it as a repository secret."
+            exit 1
+          fi
+
+      # studioHost is pinned in sanity.cli.ts, so this never prompts.
+      - name: Deploy Studio
+        env:
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_DEPLOY_TOKEN }}
+        run: npx sanity deploy

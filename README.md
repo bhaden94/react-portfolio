@@ -123,13 +123,25 @@ npm run studio:deploy   # publish the Studio to Sanity's hosting
 
 The hosted Studio at
 [bradyhaden-portfolio.sanity.studio](https://bradyhaden-portfolio.sanity.studio/)
-is a **static build**. It does not pick up schema changes on its own — run
-`npm run studio:deploy` after editing `src/sanity/schema.ts`, or it will keep
-showing the previous document types.
+is a **static build** — it does not pick up schema changes on its own. The
+**Deploy Sanity Studio** workflow republishes it automatically whenever
+`src/sanity/schema.ts`, `src/sanity/config.ts`, `sanity.config.ts` or
+`sanity.cli.ts` changes on `master`, and can also be run manually.
 
-Edits appear immediately once CORS is configured. They are baked into the bundle
-on the next build — pushed to `master`, triggered manually via the **CI/CD**
-workflow's *Run workflow* button, or picked up by the daily scheduled build.
+That workflow needs a `SANITY_DEPLOY_TOKEN` repository secret: create a token
+with the **Deploy Studio** role at manage.sanity.io → **API** → **Tokens**, then
+add it under repo Settings → Secrets and variables → Actions.
+
+### How content reaches the site
+
+The site queries Sanity on **every page load**, so published edits appear
+immediately — no deploy required.
+
+The build-time snapshot in `generated.json` only covers the moment before that
+fetch resolves, and acts as the fallback if Sanity is unreachable. It refreshes
+on every push to `master`, or on demand via the **CI/CD** workflow's *Run
+workflow* button. Letting it go stale is harmless: visitors briefly see the
+previous copy before the live data swaps in.
 
 ## Commands
 
@@ -140,7 +152,16 @@ workflow's *Run workflow* button, or picked up by the daily scheduled build.
 | `npm run preview` | Serve the production build on :4173 |
 | `npm run content` | Refresh `generated.json` without building |
 | `npm run seed` | Regenerate `sanity-seed.ndjson` |
+| `npm run studio` | Local Sanity Studio on :3333 |
+| `npm run studio:deploy` | Publish the Studio (CI does this automatically) |
 | `npm run deploy` | Publish `build/` to the `gh-pages` branch |
+
+## Workflows
+
+| Workflow | Triggers | Does |
+| --- | --- | --- |
+| **CI/CD** | push to `master`, PRs, manual | Builds and deploys the site to `gh-pages`. PRs build but never deploy. |
+| **Deploy Sanity Studio** | schema/config changes on `master`, manual | Republishes the hosted Studio. Needs `SANITY_DEPLOY_TOKEN`. |
 
 ## Layout reference
 
