@@ -179,6 +179,15 @@ const siteSettings = defineType({
       description: "Green monospace line above the hero headline.",
     }),
     defineField({
+      name: "defaultLens",
+      title: "Default view",
+      type: "string",
+      description:
+        "Shown to visitors who arrive without a ?view= link or a previous choice.",
+      options: { list: LENS_OPTIONS, layout: "radio" },
+      initialValue: "hm",
+    }),
+    defineField({
       name: "isAvailable",
       title: "Currently open to roles",
       type: "boolean",

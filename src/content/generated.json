@@ -680,9 +680,10 @@
     "availableLabel": null,
     "brandMark": "bh",
     "clearance": "TS/SCI + Full Scope Poly · active",
+    "defaultLens": null,
     "footerNote": "Brady Haden - 2026",
     "footerStatus": "all systems operational",
-    "isAvailable": null,
+    "isAvailable": true,
     "keywords": "C# · .NET · ASP.NET · Azure · Azure Government · TypeScript · JavaScript · React · Next.js · Node · Docker · Linux · PostgreSQL · MySQL · PowerShell · CI/CD · GitHub Actions · REST API design · Distributed systems · Microservices · Observability · Grafana· Sanity · Zod · Git",
     "keywordsLabel": "All technologies",
     "kicker": "// Senior Software Engineer · Microsoft Azure · Active TS/SCI + Full Scope Poly",
@@ -694,7 +695,7 @@
     "resumeLabel": "Download - updated 2026",
     "resumeUrl": "https://cdn.sanity.io/files/0kc6p0xa/production/668fc7e508a0e5db675113ba9902950b450651a8.pdf",
     "role": "senior software engineer · microsoft",
-    "unavailableDetail": null,
+    "unavailableDetail": "happy where I am, but glad to hear about exceptional roles",
     "unavailableLabel": null
   },
   "shipped": [

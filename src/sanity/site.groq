@@ -1,6 +1,6 @@
 {
   "settings": *[_type == "siteSettings"][0]{
-    name, role, brandMark, kicker,
+    name, role, brandMark, kicker, defaultLens,
     isAvailable, availableLabel, availability, unavailableLabel, unavailableDetail,
     clearance, location,
     pullQuote, keywords, keywordsLabel, footerStatus, footerNote,

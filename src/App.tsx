@@ -120,7 +120,7 @@ export default function App() {
   const content = useSiteContent();
 
   return (
-    <LensProvider>
+    <LensProvider defaultLens={content.settings.defaultLens}>
       <SiteBody content={content} />
     </LensProvider>
   );

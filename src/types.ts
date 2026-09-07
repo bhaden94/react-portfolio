@@ -171,6 +171,8 @@ export interface SiteSettings {
   role: string;
   brandMark: string;
   kicker: string;
+  /** Lens shown to visitors who arrive without a `?view=` or a saved choice. */
+  defaultLens: LensKey;
   /** Drives the status bar wording and colour. */
   isAvailable: boolean;
   availableLabel: string;

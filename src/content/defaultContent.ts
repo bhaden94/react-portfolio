@@ -17,6 +17,7 @@ export const defaultContent: SiteContent = {
     brandMark: "bh",
     kicker:
       "// Senior Software Engineer · Microsoft Azure · Active TS/SCI + Full Scope Poly",
+    defaultLens: "hm",
     isAvailable: true,
     availableLabel: "Available",
     availability: "open to senior cloud & distributed systems roles",

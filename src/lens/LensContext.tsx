@@ -3,14 +3,15 @@ import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { LENS_KEYS, type LensKey } from "../types";
 
 const STORAGE_KEY = "lens";
-const DEFAULT_LENS: LensKey = "hm";
+const FALLBACK_LENS: LensKey = "hm";
 
-function isLens(value: unknown): value is LensKey {
+export function isLens(value: unknown): value is LensKey {
   return typeof value === "string" && LENS_KEYS.includes(value as LensKey);
 }
 
-function readInitialLens(): { lens: LensKey; explicit: boolean } {
-  if (typeof window === "undefined") return { lens: DEFAULT_LENS, explicit: false };
+/** URL wins, then the visitor's saved choice, then the CMS default. */
+function readInitialLens(fallback: LensKey): { lens: LensKey; explicit: boolean } {
+  if (typeof window === "undefined") return { lens: fallback, explicit: false };
 
   const fromUrl = new URLSearchParams(window.location.search).get("view");
   if (isLens(fromUrl)) return { lens: fromUrl, explicit: true };
@@ -19,10 +20,10 @@ function readInitialLens(): { lens: LensKey; explicit: boolean } {
     const stored = window.localStorage.getItem(STORAGE_KEY);
     if (isLens(stored)) return { lens: stored, explicit: true };
   } catch {
-    // Private browsing or blocked storage — fall through to the default.
+    // Private browsing or blocked storage, fall through to the default.
   }
 
-  return { lens: DEFAULT_LENS, explicit: false };
+  return { lens: fallback, explicit: false };
 }
 
 interface LensContextValue {
@@ -34,8 +35,19 @@ interface LensContextValue {
 
 const LensContext = createContext<LensContextValue | null>(null);
 
-export function LensProvider({ children }: { children: React.ReactNode }) {
-  const initial = useMemo(readInitialLens, []);
+export function LensProvider({
+  children,
+  defaultLens,
+}: {
+  children: React.ReactNode;
+  defaultLens?: LensKey;
+}) {
+  // Read once on mount; a later CMS change shouldn't move the page under someone.
+  const initial = useMemo(
+    () => readInitialLens(isLens(defaultLens) ? defaultLens : FALLBACK_LENS),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [],
+  );
   const [lens, setLensState] = useState<LensKey>(initial.lens);
   const [chosen, setChosen] = useState(initial.explicit);
 
