@@ -179,9 +179,35 @@ const siteSettings = defineType({
       description: "Green monospace line above the hero headline.",
     }),
     defineField({
-      name: "availability",
+      name: "isAvailable",
+      title: "Currently open to roles",
+      type: "boolean",
+      description:
+        "On: green status bar using the available label and detail. Off: amber, using the unavailable pair below.",
+      initialValue: true,
+    }),
+    defineField({
+      name: "availableLabel",
+      title: "Label — available",
       type: "string",
-      description: 'Follows "Available — " in the status bar.',
+      initialValue: "Available",
+    }),
+    defineField({
+      name: "availability",
+      title: "Detail — available",
+      type: "string",
+      description: 'Follows the label, e.g. "open to senior cloud roles".',
+    }),
+    defineField({
+      name: "unavailableLabel",
+      title: "Label — not available",
+      type: "string",
+      initialValue: "Not looking",
+    }),
+    defineField({
+      name: "unavailableDetail",
+      title: "Detail — not available",
+      type: "string",
     }),
     defineField({ name: "clearance", type: "string" }),
     defineField({ name: "location", type: "string" }),

@@ -133,6 +133,21 @@ main,
   font-weight: 500;
 }
 
+/* Not looking: amber instead of green, and the clearance chip follows suit so
+   the bar reads as one state rather than two conflicting signals. */
+.statusbar--closed {
+  background: rgba(251, 191, 36, .06);
+}
+
+.statusbar--closed strong {
+  color: var(--amber);
+}
+
+.statusbar--closed .sb-clearance {
+  color: var(--amber);
+  border-color: rgba(251, 191, 36, .35);
+}
+
 .sb-left {
   display: inline-flex;
   align-items: center;

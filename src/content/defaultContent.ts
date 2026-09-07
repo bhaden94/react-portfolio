@@ -17,7 +17,12 @@ export const defaultContent: SiteContent = {
     brandMark: "bh",
     kicker:
       "// Senior Software Engineer · Microsoft Azure · Active TS/SCI + Full Scope Poly",
+    isAvailable: true,
+    availableLabel: "Available",
     availability: "open to senior cloud & distributed systems roles",
+    unavailableLabel: "Not looking",
+    unavailableDetail:
+      "happy where I am — still glad to hear about exceptional roles",
     clearance: "TS/SCI + Full Scope Poly · active",
     location: "US · Remote",
     pullQuote:

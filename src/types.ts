@@ -171,7 +171,13 @@ export interface SiteSettings {
   role: string;
   brandMark: string;
   kicker: string;
+  /** Drives the status bar wording and colour. */
+  isAvailable: boolean;
+  availableLabel: string;
+  /** Detail shown after the label while available. */
   availability: string;
+  unavailableLabel: string;
+  unavailableDetail: string;
   clearance: string;
   location: string;
   pullQuote: string;

@@ -501,30 +501,6 @@
       "liveUrl": "https://va-calculator.com",
       "name": "va-calculator",
       "order": 2
-    },
-    {
-      "codeUrl": "https://github.com/bhaden94/Covid-19-Tracker-V2",
-      "description": "Multi-threaded Java/Spring ingestion into MongoDB, React front end, CI static analysis.",
-      "liveLabel": "live ↗",
-      "liveUrl": "https://covid-19-tracker-v2-fe.vercel.app/",
-      "name": "Covid-19-Tracker-V2",
-      "order": 3
-    },
-    {
-      "codeUrl": "https://github.com/bhaden94/LokiDiscordChatbot",
-      "description": "Transcript sanitizing pipeline into a GPT-2 fine-tune on Hugging Face.",
-      "liveLabel": "model ↗",
-      "liveUrl": "https://huggingface.co/bhaden94/LokiDiscordBot-medium",
-      "name": "LokiDiscordChatbot",
-      "order": 4
-    },
-    {
-      "codeUrl": "https://github.com/bhaden94/spacex-app",
-      "description": "Custom vertical-timeline pagination and responsive sidebar, built from scratch.",
-      "liveLabel": "live ↗",
-      "liveUrl": "https://bhaden94.github.io/spacex-app/",
-      "name": "spacex-app",
-      "order": 5
     }
   ],
   "sections": [
@@ -700,11 +676,13 @@
     }
   ],
   "settings": {
-    "availability": "open to senior cloud & distributed systems roles",
+    "availability": "open to senior software engineering roles",
+    "availableLabel": null,
     "brandMark": "bh",
     "clearance": "TS/SCI + Full Scope Poly · active",
     "footerNote": "Brady Haden - 2026",
     "footerStatus": "all systems operational",
+    "isAvailable": null,
     "keywords": "C# · .NET · ASP.NET · Azure · Azure Government · TypeScript · JavaScript · React · Next.js · Node · Docker · Linux · PostgreSQL · MySQL · PowerShell · CI/CD · GitHub Actions · REST API design · Distributed systems · Microservices · Observability · Grafana· Sanity · Zod · Git",
     "keywordsLabel": "All technologies",
     "kicker": "// Senior Software Engineer · Microsoft Azure · Active TS/SCI + Full Scope Poly",
@@ -715,13 +693,15 @@
     "pullQuote": "Make the architecture clear enough that someone else can own it.",
     "resumeLabel": "Download - updated 2026",
     "resumeUrl": "https://cdn.sanity.io/files/0kc6p0xa/production/668fc7e508a0e5db675113ba9902950b450651a8.pdf",
-    "role": "senior software engineer · microsoft"
+    "role": "senior software engineer · microsoft",
+    "unavailableDetail": null,
+    "unavailableLabel": null
   },
   "shipped": [
     {
       "badge": "Microsoft",
       "codeUrl": null,
-      "description": "Led the control plane API for a new secure-cloud offering. Drives $4M monthly recurring revenue.",
+      "description": "Led the control plane API for a new multi-tenant secure-cloud Platform as a Service (PaaS) offering. Drives $4M monthly recurring revenue.",
       "name": "Cross-Domain Solution Control Plane",
       "order": 1,
       "url": null
@@ -729,7 +709,7 @@
     {
       "badge": "Microsoft",
       "codeUrl": null,
-      "description": "Automated Linux patching across 40,000+ production servers monthly at a 99.98% success rate.",
+      "description": "Automated Linux patching across 40,000+ production servers at a sustained 99.98% success rate.",
       "name": "Fleet OS Upgrade Automation",
       "order": 2,
       "url": null
@@ -745,7 +725,7 @@
     {
       "badge": null,
       "codeUrl": "https://github.com/bhaden94/modern-alchemy-site",
-      "description": "Paid client project, 2025. Full site and booking platform the owner maintains herself.",
+      "description": "Paid client project, 2025. Full site and booking platform the owner maintains themself.",
       "name": "Modern Alchemy Tattoo Co.",
       "order": 4,
       "url": "https://www.modernalchemytattoo.com/"

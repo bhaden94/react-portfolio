@@ -1,6 +1,8 @@
 {
   "settings": *[_type == "siteSettings"][0]{
-    name, role, brandMark, kicker, availability, clearance, location,
+    name, role, brandMark, kicker,
+    isAvailable, availableLabel, availability, unavailableLabel, unavailableDetail,
+    clearance, location,
     pullQuote, keywords, keywordsLabel, footerStatus, footerNote,
     metaTitle, metaDescription, resumeLabel,
     "resumeUrl": resumeFile.asset->url
