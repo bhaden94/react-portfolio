@@ -967,24 +967,31 @@ a.oss-name:hover {
   .statusbar {
     flex-direction: column;
     align-items: center;
-    gap: .35rem;
-    font-size: .64rem;
+    gap: .3rem;
+    font-size: .62rem;
     padding: .45rem var(--gut);
+    text-align: center;
   }
 
-  .sb-detail {
+  .statusbar > * {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .sb-detail,
+  .sb-sep {
     display: none;
+  }
+
+  /* Location is CMS-editable and can be any length, so let it wrap to its own
+     line rather than forcing the row wider than the viewport. */
+  .sb-right {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .3rem .5rem;
   }
 
   .sb-clearance {
     white-space: nowrap;
-  }
-
-  .sb-location {
-    white-space: nowrap;
-  }
-
-  .sb-right {
-    gap: .45rem;
   }
 }

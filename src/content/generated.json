@@ -9,22 +9,22 @@
       ],
       "engineerDetails": [
         {
-          "body": "No outbound network. No reachable identity provider, no public package feeds, no telemetry egress, and no hotfix on the normal cadence. Every dependency resolved and vendored before the seal.",
+          "body": "No Azure-native offering existed for this workload class in air-gapped clouds - customers onboarded individually onto one-off, single-tenant deployments, built without public internet access or full parity with public Azure.",
           "label": "constraint"
         },
         {
-          "body": "Designed the resource model and API surface first, then worked backward to what could actually be satisfied inside the boundary. Deploy and rollback had to be provable offline, so correctness moved left into schema and contract validation.",
+          "body": "Led the control plane design that turned this into a multi-tenant, platform-as-a-service offering - customers onboard directly instead of getting a bespoke deployment each time.",
           "label": "approach"
         }
       ],
       "featured": true,
       "hmDetails": [
         {
-          "body": "Air-gapped clouds invalidate most of what a control plane normally leans on. No external dependencies, no shortcuts, and a very high bar for correctness.",
+          "body": "Air-gapped clouds invalidate most of what a control plane normally leans on. No external network dependencies, no shortcuts, and a very high bar for correctness.",
           "label": "problem"
         },
         {
-          "body": "Design and development end to end, from resource model through rollout. The service now drives **$4M in monthly recurring revenue**.",
+          "body": "Led design and development end to end, turning a one-off, single-tenant system into a multi-tenant platform-as-a-service offering that onboards customers directly. This service remains the foundation the team builds on today, including the ongoing legacy-workload migration and infra/network work across the platform.",
           "label": "what i owned"
         }
       ],
@@ -65,7 +65,7 @@
       "featured": true,
       "hmDetails": [
         {
-          "body": "The studio's content changes constantly — artists, portfolios, booking availability, announcements. Any design that routed those edits through me would have gone stale within a month.",
+          "body": "The studio's content changes constantly - artists, portfolios, booking availability, announcements. Any design that routed those edits through me would have gone stale within a month.",
           "label": "problem"
         },
         {
@@ -101,22 +101,22 @@
       ],
       "engineerDetails": [
         {
-          "body": "Monthly patch cycle across 40k+ Linux VMs, each hosting a live customer database. A reboot is a customer-visible availability event.",
+          "body": "Patches apply within customer-configured (or system-assigned) maintenance windows across 40k+ Linux VMs, each hosting a live customer database. Critical security updates can bypass the normal cadence, but a reboot outside the window is a customer-visible availability event.",
           "label": "constraint"
         },
         {
-          "body": "Moved upgrade execution into containers so one rollout fans out across the fleet, then split the modes — security-only and allow-listed package sets apply without a reboot. Failure handling is per-node so a bad host doesn't stall the wave.",
+          "body": "Moved upgrade execution into containers so one rollout fans out across the fleet, then split the modes: security-only and allow-listed package sets apply without a reboot. Failure handling is per-node so a bad host doesn't stall the wave.",
           "label": "approach"
         }
       ],
       "featured": false,
       "hmDetails": [
         {
-          "body": "Every server is somebody's running database. Patching happens monthly and must never become a customer-visible event.",
+          "body": "Every server is somebody's running database. Patches apply within scheduled maintenance windows and must never become a customer-visible event outside them.\"",
           "label": "problem"
         },
         {
-          "body": "The tooling and the rollout. **40k+ servers monthly** at a sustained **99.98% success rate**.",
+          "body": "The tooling and the rollout. **40k+ servers** at a sustained **99.98% success rate**.",
           "label": "what i owned"
         }
       ],
@@ -133,9 +133,10 @@
     },
     {
       "chips": [
-        "C#",
-        "React",
-        "TypeScript"
+        "Entra ID",
+        "Azure Functions",
+        "Bicep",
+        "Durable Functions"
       ],
       "engineerDetails": [
         {
@@ -143,24 +144,24 @@
           "label": "constraint"
         },
         {
-          "body": "Read-only by construction, scoped access, surfaced live instead of through the batch query path that cost ~15 minutes per lookup.",
+          "body": "Read-only by construction, scoped access, surfaced live instead of through the batch query path that cost ~15 minutes per operation.",
           "label": "approach"
         }
       ],
       "featured": false,
       "hmDetails": [
         {
-          "body": "On-call investigations opened with a ~15 minute wait just to see workflow state.",
+          "body": "On-call investigations opened with a ~15 minute wait just to see workflow state, with no way to watch orchestrations as they actually ran.",
           "label": "problem"
         },
         {
-          "body": "Built it for my team; a sister team adopted it without me driving it. Triage latency dropped to **real time**.",
+          "body": "Integrated Durable Functions Monitor, an open-source tool, into our service - wiring up Bicep IaC, Entra authentication, and Azure Functions hosting around it. Beyond speeding up triage, it let engineers watch orchestrations execute live instead of reconstructing them after the fact. Built with our sister team's identical stack in mind; shared docs and walked them through it, and they adopted it on their own.",
           "label": "what i owned"
         }
       ],
       "id": "workflow-observability",
       "internalLabel": "internal",
-      "lede": "A secure, read-only window into what production workflows actually did.",
+      "lede": "A secure, live window into Azure Durable Functions workflows - running or completed.",
       "links": [],
       "order": 3,
       "section": "owned",
@@ -211,12 +212,6 @@
       "order": 2
     },
     {
-      "after": "~2 weeks",
-      "before": "~2 months",
-      "label": "Resource-type onboarding",
-      "order": 3
-    },
-    {
       "after": "20 min",
       "before": "4 hrs",
       "label": "Feature planning cycle",
@@ -230,7 +225,7 @@
     },
     {
       "after": "4k instances · $2M MRR",
-      "before": "did not exist",
+      "before": "no self-serve UX",
       "label": "MySQL business-critical tier",
       "order": 6
     },
@@ -303,26 +298,26 @@
           "target": "stack"
         }
       ],
-      "lede": "Azure's managed Postgres/MySQL platform: upgrade orchestration across 40k+ Linux VMs a month, a control plane that has to work with no outbound network, and migration tooling for thousands of live customer workloads.",
+      "lede": "Full-stack across Azure Access Point's CDS: control plane, infra (container delivery, cross-team architecture), and data-plane/network design in air-gapped clouds. Currently leading a migration of thousands of legacy customer workloads via a self-built parity-validation dashboard.",
       "lens": "engineer",
       "metrics": [
         {
-          "label": "Linux VMs per rollout",
-          "small": null,
-          "unit": "+",
-          "value": "40k"
-        },
-        {
-          "label": "upgrade success rate",
-          "small": null,
-          "unit": "%",
-          "value": "99.98"
-        },
-        {
-          "label": "incident triage latency",
+          "label": "legacy workloads migrated",
           "small": null,
           "unit": "s",
-          "value": "~0"
+          "value": "1,000"
+        },
+        {
+          "label": "configuration gaps surfaced",
+          "small": null,
+          "unit": "+",
+          "value": "20"
+        },
+        {
+          "label": "workflow visibility (from ~15 min)",
+          "small": null,
+          "unit": null,
+          "value": "Real-time"
         },
         {
           "label": "services modernized",
@@ -358,21 +353,9 @@
           "target": "customer"
         }
       ],
-      "lede": "Five years at Microsoft owning control planes, fleet automation, and migration tooling for federal and enterprise customers — and mentoring the engineers who now run them.",
+      "lede": "Five years at Microsoft: hands-on with control-plane, fleet-automation, and migration work for federal and enterprise customers, while mentoring the engineers building it with me.",
       "lens": "hm",
       "metrics": [
-        {
-          "label": "servers patched monthly",
-          "small": null,
-          "unit": "+",
-          "value": "40k"
-        },
-        {
-          "label": "upgrade success rate",
-          "small": null,
-          "unit": "%",
-          "value": "99.98"
-        },
         {
           "label": "MRR from a system I led",
           "small": null,
@@ -380,10 +363,22 @@
           "value": "$4"
         },
         {
+          "label": "servers patched monthly at 99.98% success",
+          "small": null,
+          "unit": "+",
+          "value": "40k"
+        },
+        {
           "label": "engineers mentored",
           "small": null,
           "unit": null,
           "value": "5"
+        },
+        {
+          "label": "weekly users secured via an open-source fix",
+          "small": null,
+          "unit": "+",
+          "value": "900k"
         }
       ],
       "titleHighlight": "Here are my answers.",
@@ -413,7 +408,7 @@
           "target": "history"
         }
       ],
-      "lede": "Senior Software Engineer at Microsoft, five years, currently on Azure's managed database platform. Active TS/SCI with Full Scope Polygraph. U.S. Air Force veteran.",
+      "lede": "Senior Software Engineer at Microsoft (5 years), currently on Azure Access Point supporting a cross-domain cloud solution (CDS). Active TS/SCI with Full Scope Polygraph. U.S. Air Force veteran.",
       "lens": "recruiter",
       "metrics": [
         {
@@ -435,7 +430,7 @@
           "value": "TS/SCI + FSP"
         },
         {
-          "label": "US · remote",
+          "label": "US · NORTHERN VIRGINIA",
           "small": true,
           "unit": null,
           "value": "Available"
@@ -470,7 +465,7 @@
   ],
   "leadership": [
     {
-      "body": "Technical mentor to **5 engineers** — 3 formal weekly 1:1s, 2 informal cross-org. Structured onboarding cut new-engineer ramp time in half.",
+      "body": "Technical mentor to **5 engineers** - 3 formal weekly 1:1s, 2 informal cross-org. Structured onboarding cut new-engineer ramp time in half.",
       "order": 1,
       "title": "Mentorship"
     },
@@ -480,12 +475,12 @@
       "title": "Growing owners, not dependents"
     },
     {
-      "body": "Pilot adopter with a central platform team for onboarding new resource types, cutting onboarding from ~2 months to **~2 weeks** for every team that followed.",
+      "body": "Unblocked an infrastructure team by replacing a fragile container build process with a reusable, cross-environment delivery pattern, then helped define the infra/control-plane split and customer-facing network design.",
       "order": 3,
       "title": "Leverage beyond my team"
     },
     {
-      "body": "Coached an engineer through landing a security fix in an upstream open-source API generator, later mirrored into internal feeds — protecting **900k+ weekly downstream users**.",
+      "body": "Coached an engineer through landing a security fix in an upstream open-source API generator, later mirrored into internal feeds - protecting **900k+ weekly downstream users**.",
       "order": 4,
       "title": "Raising the floor"
     }
@@ -690,7 +685,7 @@
           "question": "What do you actually use?"
         },
         "hm": {
-          "answer": "Grouped by how often I reach for it. No percentages — they don't mean anything.",
+          "answer": "Grouped by how often I reach for it. No percentages - they don't mean anything.",
           "num": "05",
           "order": 6,
           "question": "What do you bring?"
@@ -708,18 +703,18 @@
     "availability": "open to senior cloud & distributed systems roles",
     "brandMark": "bh",
     "clearance": "TS/SCI + Full Scope Poly · active",
-    "footerNote": "Brady Haden — 2026",
+    "footerNote": "Brady Haden - 2026",
     "footerStatus": "all systems operational",
-    "keywords": "C# · .NET · ASP.NET · Azure · Azure Government · TypeScript · JavaScript · React · Next.js · Node · Docker · Kubernetes · Linux · PostgreSQL · MySQL · SQL · Python · Java · Spring · PowerShell · Bash · Terraform · CI/CD · GitHub Actions · REST API design · Distributed systems · Microservices · Observability · Grafana · AWS · MongoDB · Elasticsearch · Sanity · Zod · Git",
+    "keywords": "C# · .NET · ASP.NET · Azure · Azure Government · TypeScript · JavaScript · React · Next.js · Node · Docker · Linux · PostgreSQL · MySQL · PowerShell · CI/CD · GitHub Actions · REST API design · Distributed systems · Microservices · Observability · Grafana· Sanity · Zod · Git",
     "keywordsLabel": "All technologies",
     "kicker": "// Senior Software Engineer · Microsoft Azure · Active TS/SCI + Full Scope Poly",
-    "location": "US · Remote",
+    "location": "US · Northern Virginia",
     "metaDescription": "Brady Haden is a Senior Software Engineer at Microsoft building mission-critical distributed cloud systems, including Azure's air-gapped clouds. Active TS/SCI with Full Scope Polygraph.",
-    "metaTitle": "Brady Haden — Senior Software Engineer",
+    "metaTitle": "Brady Haden - Senior Software Engineer",
     "name": "Brady Haden",
     "pullQuote": "Make the architecture clear enough that someone else can own it.",
-    "resumeLabel": "Download — updated 2026",
-    "resumeUrl": "https://cdn.sanity.io/files/0kc6p0xa/production/4598bf1de195982327ac3d3709209c55557ac46e.pdf",
+    "resumeLabel": "Download - updated 2026",
+    "resumeUrl": "https://cdn.sanity.io/files/0kc6p0xa/production/668fc7e508a0e5db675113ba9902950b450651a8.pdf",
     "role": "senior software engineer · microsoft"
   },
   "shipped": [
@@ -742,8 +737,8 @@
     {
       "badge": "Microsoft",
       "codeUrl": null,
-      "description": "Backend and UX for a premium database tier: 4,000 new paid instances, $2M MRR.",
-      "name": "MySQL Business Critical Tier",
+      "description": "Coached a fix to an upstream open-source tool, shipped through internal package feeds to secure 900k+ weekly downstream users.",
+      "name": "Open-Source Security Fix",
       "order": 3,
       "url": null
     },
@@ -763,7 +758,7 @@
       "isResume": null,
       "label": "Current title",
       "order": 1,
-      "value": "Senior Software Engineer, Microsoft (Azure) — since Mar 2021"
+      "value": "Senior Software Engineer, Microsoft (Azure) - since Mar 2021"
     },
     {
       "highlight": null,
@@ -787,7 +782,7 @@
       "isResume": null,
       "label": "Location",
       "order": 4,
-      "value": "United States · open to remote"
+      "value": "United States · Northern Virginia"
     },
     {
       "highlight": null,
@@ -795,7 +790,7 @@
       "isResume": null,
       "label": "Core skills",
       "order": 5,
-      "value": "C#, .NET, Azure, TypeScript, React, Docker, PostgreSQL, MySQL, Linux, Python, Kubernetes, CI/CD, Terraform, distributed systems, API design, observability"
+      "value": "C#, .NET, Azure, TypeScript, React, Docker, PostgreSQL, MySQL, Linux, CI/CD, Terraform, distributed systems, API design, observability"
     },
     {
       "highlight": null,
@@ -803,7 +798,7 @@
       "isResume": null,
       "label": "Looking for",
       "order": 6,
-      "value": "Senior cloud, platform, or distributed systems roles"
+      "value": "Senior software engineer roles"
     },
     {
       "highlight": null,
@@ -829,8 +824,7 @@
         ".NET",
         "Azure",
         "TypeScript",
-        "React",
-        "Docker"
+        "React"
       ],
       "name": "daily",
       "order": 1,
@@ -842,13 +836,9 @@
     },
     {
       "items": [
-        "PostgreSQL",
-        "MySQL",
         "Linux",
-        "Python",
-        "Java",
         "PowerShell",
-        "SQL"
+        "Docker"
       ],
       "name": "strong",
       "order": 2,
@@ -862,12 +852,8 @@
       "items": [
         "Next.js",
         "Node",
-        "AWS",
-        "MongoDB",
-        "Kubernetes",
         "Terraform",
-        "Grafana",
-        "Elasticsearch"
+        "Grafana"
       ],
       "name": "familiar",
       "order": 3,
@@ -882,7 +868,8 @@
         "CI/CD & IaC",
         "security & compliance",
         "observability",
-        "technical mentorship"
+        "technical mentorship",
+        "AI-assisted engineering"
       ],
       "subName": "practice"
     }
