@@ -22,7 +22,7 @@ export const defaultContent: SiteContent = {
     availability: "open to senior cloud & distributed systems roles",
     unavailableLabel: "Not looking",
     unavailableDetail:
-      "happy where I am — still glad to hear about exceptional roles",
+      "happy where I am, but glad to hear about exceptional roles",
     clearance: "TS/SCI + Full Scope Poly · active",
     location: "US · Remote",
     pullQuote:
@@ -31,12 +31,12 @@ export const defaultContent: SiteContent = {
     keywords:
       "C# · .NET · ASP.NET · Azure · Azure Government · TypeScript · JavaScript · React · Next.js · Node · Docker · Kubernetes · Linux · PostgreSQL · MySQL · SQL · Python · Java · Spring · PowerShell · Bash · Terraform · CI/CD · GitHub Actions · REST API design · Distributed systems · Microservices · Observability · Grafana · AWS · MongoDB · Elasticsearch · Sanity · Zod · Git",
     footerStatus: "all systems operational",
-    footerNote: "Brady Haden — 2026",
-    metaTitle: "Brady Haden — Senior Software Engineer",
+    footerNote: "Brady Haden · 2026",
+    metaTitle: "Brady Haden · Senior Software Engineer",
     metaDescription:
       "Brady Haden is a Senior Software Engineer at Microsoft building mission-critical distributed cloud systems, including Azure's air-gapped clouds. Active TS/SCI with Full Scope Polygraph.",
     resumeUrl: "",
-    resumeLabel: "Download — updated 2026",
+    resumeLabel: "Updated 2026",
   },
 
   heroes: [
@@ -61,7 +61,7 @@ export const defaultContent: SiteContent = {
       lens: "hm",
       titleLead: "These are the questions I'd want answered.",
       titleHighlight: "Here are my answers.",
-      lede: "Five years at Microsoft owning control planes, fleet automation, and migration tooling for federal and enterprise customers — and mentoring the engineers who now run them.",
+      lede: "Five years at Microsoft owning control planes, fleet automation, and migration tooling for federal and enterprise customers, and mentoring the engineers who now run them.",
       metrics: [
         { value: "40k", unit: "+", label: "servers patched monthly" },
         { value: "99.98", unit: "%", label: "upgrade success rate" },
@@ -133,7 +133,7 @@ export const defaultContent: SiteContent = {
           num: "01",
           question: "What have you owned?",
           answer:
-            "Three systems, end to end — the design, the rollout, the on-call, and the engineers who took them over afterward.",
+            "Three systems, end to end: the design, the rollout, the on-call, and the engineers who took them over afterward.",
         },
         engineer: {
           order: 2,
@@ -176,7 +176,7 @@ export const defaultContent: SiteContent = {
           num: "02",
           question: "What do you build unsupervised?",
           answer:
-            "A CMS-driven booking platform where every behaviour is data, not code — so the client never has to call me.",
+            "A CMS-driven booking platform where every behaviour is data, not code, so the client never has to call me.",
         },
       },
     },
@@ -205,14 +205,14 @@ export const defaultContent: SiteContent = {
           num: "05",
           question: "What do you bring?",
           answer:
-            "Grouped by how often I reach for it. No percentages — they don't mean anything.",
+            "Grouped by how often I reach for it. No percentages, because they don't mean anything.",
         },
         engineer: {
           order: 5,
           num: "04",
           question: "What do you actually use?",
           answer:
-            "Grouped by how often I reach for it. No percentages — they don't mean anything.",
+            "Grouped by how often I reach for it. No percentages, because they don't mean anything.",
         },
       },
     },
@@ -231,7 +231,7 @@ export const defaultContent: SiteContent = {
           order: 6,
           num: "05",
           question: "What's next?",
-          answer: "Email is fastest — I reply within 24 hours.",
+          answer: "Email is fastest. I reply within 24 hours.",
         },
         hm: {
           order: 8,
@@ -308,7 +308,7 @@ export const defaultContent: SiteContent = {
         },
         {
           label: "approach",
-          body: "Moved upgrade execution into containers so one rollout fans out across the fleet, then split the modes — security-only and allow-listed package sets apply without a reboot. Failure handling is per-node so a bad host doesn't stall the wave.",
+          body: "Moved upgrade execution into containers so one rollout fans out across the fleet, then split the modes: security-only and allow-listed package sets apply without a reboot. Failure handling is per-node so a bad host doesn't stall the wave.",
         },
       ],
       chips: ["C#", "Linux", "Docker"],
@@ -362,7 +362,7 @@ export const defaultContent: SiteContent = {
       hmDetails: [
         {
           label: "problem",
-          body: "The studio's content changes constantly — artists, portfolios, booking availability, announcements. Any design that routed those edits through me would have gone stale within a month.",
+          body: "The studio's content changes constantly: artists, portfolios, booking availability, announcements. Any design that routed those edits through me would have gone stale within a month.",
         },
         {
           label: "result",
@@ -380,7 +380,7 @@ export const defaultContent: SiteContent = {
         },
         {
           label: "forms",
-          body: "Booking schemas generated per artist with Zod — available days, budget options, required fields all come from that artist's CMS record. Three booking modes per artist: native form, embedded third-party widget, or external redirect. Images upload straight to Sanity; the admin view subscribes to a Sanity listener so bookings appear without a refresh.",
+          body: "Booking schemas generated per artist with Zod: available days, budget options, required fields all come from that artist's CMS record. Three booking modes per artist: native form, embedded third-party widget, or external redirect. Images upload straight to Sanity; the admin view subscribes to a Sanity listener so bookings appear without a refresh.",
         },
       ],
       chips: ["Next.js", "TypeScript", "Sanity", "NextAuth", "Zod", "Vercel"],
@@ -445,7 +445,7 @@ export const defaultContent: SiteContent = {
   leadership: [
     {
       title: "Mentorship",
-      body: "Technical mentor to **5 engineers** — 3 formal weekly 1:1s, 2 informal cross-org. Structured onboarding cut new-engineer ramp time in half.",
+      body: "Technical mentor to **5 engineers**: 3 formal weekly 1:1s, 2 informal cross-org. Structured onboarding cut new-engineer ramp time in half.",
       order: 1,
     },
     {
@@ -460,7 +460,7 @@ export const defaultContent: SiteContent = {
     },
     {
       title: "Raising the floor",
-      body: "Coached an engineer through landing a security fix in an upstream open-source API generator, later mirrored into internal feeds — protecting **900k+ weekly downstream users**.",
+      body: "Coached an engineer through landing a security fix in an upstream open-source API generator, later mirrored into internal feeds, protecting **900k+ weekly downstream users**.",
       order: 4,
     },
   ],
@@ -638,7 +638,7 @@ export const defaultContent: SiteContent = {
   snapshot: [
     {
       label: "Current title",
-      value: "Senior Software Engineer, Microsoft (Azure) — since Mar 2021",
+      value: "Senior Software Engineer, Microsoft (Azure), since Mar 2021",
       order: 1,
     },
     {
@@ -686,7 +686,7 @@ export const defaultContent: SiteContent = {
     {
       method: "GET",
       path: "/resume.pdf",
-      value: "Download — updated 2026",
+      value: "Updated 2026",
       url: "",
       arrow: "↓",
       primary: true,

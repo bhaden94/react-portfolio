@@ -58,7 +58,7 @@
           "label": "auth"
         },
         {
-          "body": "Booking schemas generated per artist with Zod — available days, budget options, required fields all come from that artist's CMS record. Three booking modes per artist: native form, embedded third-party widget, or external redirect. Images upload straight to Sanity; the admin view subscribes to a Sanity listener so bookings appear without a refresh.",
+          "body": "Booking schemas generated per artist with Zod: available days, budget options, required fields all come from that artist's CMS record. Three booking modes per artist: native form, embedded third-party widget, or external redirect. Images upload straight to Sanity; the admin view subscribes to a Sanity listener so bookings appear without a refresh.",
           "label": "forms"
         }
       ],
@@ -244,7 +244,7 @@
       "path": "/resume.pdf",
       "primary": true,
       "url": "",
-      "value": "Download — updated 2026"
+      "value": "Updated 2026"
     },
     {
       "arrow": "↗",
@@ -546,7 +546,7 @@
           "question": "What's next?"
         },
         "recruiter": {
-          "answer": "Email is fastest — I reply within 24 hours.",
+          "answer": "Email is fastest. I reply within 24 hours.",
           "num": "05",
           "order": 6,
           "question": "What's next?"
@@ -557,7 +557,7 @@
       "key": "customer",
       "lenses": {
         "engineer": {
-          "answer": "A CMS-driven booking platform where every behaviour is data, not code — so the client never has to call me.",
+          "answer": "A CMS-driven booking platform where every behaviour is data, not code, so the client never has to call me.",
           "num": "02",
           "order": 3,
           "question": "What do you build unsupervised?"
@@ -617,7 +617,7 @@
           "question": "What's the hardest thing you've built?"
         },
         "hm": {
-          "answer": "Three systems, end to end — the design, the rollout, the on-call, and the engineers who took them over afterward.",
+          "answer": "Three systems, end to end: the design, the rollout, the on-call, and the engineers who took them over afterward.",
           "num": "01",
           "order": 2,
           "question": "What have you owned?"
@@ -655,7 +655,7 @@
       "key": "stack",
       "lenses": {
         "engineer": {
-          "answer": "Grouped by how often I reach for it. No percentages — they don't mean anything.",
+          "answer": "Grouped by how often I reach for it. No percentages, because they don't mean anything.",
           "num": "04",
           "order": 5,
           "question": "What do you actually use?"

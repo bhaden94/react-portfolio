@@ -11,8 +11,8 @@ export function StatusBar({ settings }: { settings: SiteSettings }) {
       <span className="sb-left">
         <span className={`pip ${open ? "pip-ok" : "pip-warn"}`} />
         <strong>{label}</strong>
-        {/* Redundant on mobile — the hero lede says the same thing. */}
-        {detail ? <span className="sb-detail">— {detail}</span> : null}
+        {/* Redundant on mobile, the hero lede says the same thing. */}
+        {detail ? <span className="sb-detail">· {detail}</span> : null}
       </span>
       <span className="sb-right">
         <span className="sb-clearance">{settings.clearance}</span>

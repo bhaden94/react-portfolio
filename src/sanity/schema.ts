@@ -188,25 +188,25 @@ const siteSettings = defineType({
     }),
     defineField({
       name: "availableLabel",
-      title: "Label — available",
+      title: "Label (available)",
       type: "string",
       initialValue: "Available",
     }),
     defineField({
       name: "availability",
-      title: "Detail — available",
+      title: "Detail (available)",
       type: "string",
       description: 'Follows the label, e.g. "open to senior cloud roles".',
     }),
     defineField({
       name: "unavailableLabel",
-      title: "Label — not available",
+      title: "Label (not available)",
       type: "string",
       initialValue: "Not looking",
     }),
     defineField({
       name: "unavailableDetail",
-      title: "Detail — not available",
+      title: "Detail (not available)",
       type: "string",
     }),
     defineField({ name: "clearance", type: "string" }),
@@ -238,7 +238,7 @@ const siteSettings = defineType({
     defineField({
       name: "resumeLabel",
       type: "string",
-      initialValue: "Download — updated 2026",
+      initialValue: "Updated 2026",
     }),
   ],
   preview: { prepare: () => ({ title: "Site settings" }) },
@@ -296,7 +296,7 @@ const lensHero = defineType({
   preview: {
     select: { title: "lens", subtitle: "titleLead" },
     prepare: ({ title, subtitle }) => ({
-      title: `Hero — ${title}`,
+      title: `Hero: ${title}`,
       subtitle,
     }),
   },
@@ -675,7 +675,7 @@ const endpoint = defineType({
     defineField({
       name: "url",
       type: "string",
-      description: "Leave blank on the résumé row — it uses the uploaded PDF.",
+      description: "Leave blank on the résumé row; it uses the uploaded PDF.",
     }),
     defineField({ name: "arrow", type: "string", initialValue: "↗" }),
     defineField({
